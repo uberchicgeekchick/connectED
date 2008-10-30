@@ -1,0 +1,69 @@
+dnl
+dnl configure.in for gtk-php-ide
+dnl
+
+AC_INIT(src)
+AM_CONFIG_HEADER(config.h)
+AM_INIT_AUTOMAKE(gtk-php-ide, 0.9.91)
+
+AM_MAINTAINER_MODE
+
+AC_PROG_CC
+AC_PROG_CXX
+AC_PROG_LIBTOOL
+AC_PROG_INTLTOOL
+
+dnl  --------------
+dnl | dependencies |-----------------------------------------------------------
+dnl  --------------
+
+PKG_CHECK_MODULES(GTKPHPIDE,[
+	gtk+-2.0
+	libgnomeui-2.0
+	gnome-vfs-2.0
+	libgtkhtml-2.0
+dnl	libgnomeprint-2.2
+dnl	libgnomeprintui-2.2
+	])
+
+AC_SUBST(GTKPHPIDE_CFLAGS)
+AC_SUBST(GTKPHPIDE_LIBS)
+
+dnl ---------------------------------------------------------------------------
+
+dnl  ------------------
+dnl | language support |-------------------------------------------------------
+dnl  ------------------
+
+GETTEXT_PACKAGE=gtk-php-ide
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE",[The package name, for gettext])
+
+dnl Please keep this in alphabetical order
+ALL_LINGUAS=""
+
+AM_GLIB_GNU_GETTEXT
+
+dnl AM_GLIB_GNU_GETTEXT sets $DATADIRNAME
+AC_MSG_CHECKING(locale directory)
+if test "x$prefix" = "xNONE"; then
+  PACKAGE_LOCALE_DIR=$ac_default_prefix/share/locale
+else
+  PACKAGE_LOCALE_DIR=$prefix/share/locale
+fi
+AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "$PACKAGE_LOCALE_DIR",
+	[The directory in which gtk-php-ide's locale data will be stored])
+AC_MSG_RESULT("$PACKAGE_LOCALE_DIR")
+
+dnl ---------------------------------------------------------------------------
+
+AC_OUTPUT([
+Makefile
+gtk-php-ide.desktop
+gtk-php-ide.spec
+data/Makefile
+doc/Makefile
+pixmaps/Makefile
+po/Makefile.in
+src/Makefile
+])
