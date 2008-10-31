@@ -59,7 +59,7 @@
 #define PACKAGE_BUGREPORT ""
 
 /* The directory in which gtk-php-ide's locale data will be stored */
-#define PACKAGE_LOCALE_DIR "/projects/gtk/GTK-PHP-IDE/share/locale"
+#define PACKAGE_LOCALE_DIR "/opt/GTK-PHP-IDE/share/locale"
 
 /* Define to the full name of this package. */
 #define PACKAGE_NAME ""

@@ -17,9 +17,9 @@
 srcdir = .
 top_srcdir = ..
 
-pkgdatadir = $(datadir)/GTK-PHP-IDE
-pkglibdir = $(libdir)/GTK-PHP-IDE
-pkgincludedir = $(includedir)/GTK-PHP-IDE
+pkgdatadir = $(datadir)/gtk-php-ide
+pkglibdir = $(libdir)/gtk-php-ide
+pkgincludedir = $(includedir)/gtk-php-ide
 top_builddir = ..
 
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
@@ -68,7 +68,7 @@ EGREP = grep -E
 EXEEXT = 
 F77 = 
 FFLAGS = 
-GETTEXT_PACKAGE = GTK-PHP-IDE
+GETTEXT_PACKAGE = gtk-php-ide
 GMOFILES = 
 GMSGFMT = /usr/bin/msgfmt
 GTKPHPIDE_CFLAGS = -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0  
@@ -88,7 +88,7 @@ INTLTOOL_KBD_RULE = %.kbd:       %.kbd.in       $(INTLTOOL_MERGE) $(wildcard $(t
 INTLTOOL_KEYS_RULE = %.keys:      %.keys.in      $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -k -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 INTLTOOL_MERGE = $(top_builddir)/intltool-merge
 INTLTOOL_MSGFMT = /usr/bin/msgfmt
-INTLTOOL_MSGMERGE = msgmerge
+INTLTOOL_MSGMERGE = /usr/bin/msgmerge
 INTLTOOL_OAF_RULE = %.oaf:       %.oaf.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -o -p $(top_srcdir)/po $< $@
 INTLTOOL_PERL = /usr/bin/perl
 INTLTOOL_PONG_RULE = %.pong:      %.pong.in      $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
@@ -101,7 +101,7 @@ INTLTOOL_THEME_RULE = %.theme:     %.theme.in     $(INTLTOOL_MERGE) $(wildcard $
 INTLTOOL_UI_RULE = %.ui:        %.ui.in        $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 INTLTOOL_UPDATE = $(top_builddir)/intltool-update
 INTLTOOL_XAM_RULE = %.xam:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
-INTLTOOL_XGETTEXT = xgettext
+INTLTOOL_XGETTEXT = /usr/bin/xgettext
 INTLTOOL_XML_NOMERGE_RULE = %.xml:       %.xml.in       $(INTLTOOL_MERGE) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u /tmp $< $@
 INTLTOOL_XML_RULE = %.xml:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 LDFLAGS = 
@@ -117,7 +117,7 @@ MAKEINFO = ${SHELL} /projects/gtk/GTK-PHP-IDE/src/missing --run makeinfo
 MKINSTALLDIRS = ./mkinstalldirs
 MSGFMT = /usr/bin/msgfmt
 OBJEXT = o
-PACKAGE = GTK-PHP-IDE
+PACKAGE = gtk-php-ide
 PACKAGE_BUGREPORT = 
 PACKAGE_NAME = 
 PACKAGE_STRING = 
@@ -135,7 +135,7 @@ SHELL = /bin/sh
 STRIP = strip
 USE_NLS = yes
 VERSION = 0.9.91
-XGETTEXT = :
+XGETTEXT = /usr/bin/xgettext
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -171,7 +171,7 @@ localstatedir = ${prefix}/var
 mandir = ${prefix}/man
 mkdir_p = mkdir -p -- .
 oldincludedir = /usr/include
-prefix = /projects/gtk/GTK-PHP-IDE
+prefix = /opt/GTK-PHP-IDE
 program_transform_name = s,x,x,
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
@@ -183,13 +183,13 @@ INCLUDES = \
 	$(GTKPHPIDE_CFLAGS)	\
 	-I$(top_srcdir)/src/gtkscintilla2 \
 	-g -Wall -DGTK -DSCI_LEXER \
-	-DPHP_FUNCTION_REFERENCE=\""$(datadir)/share/GTK-PHP-IDE/php-function-reference.api"\"
-	-DPHP_IDE_PREFIX=\""$(datadir)"\"
+	-DPHP_FUNCTION_REFERENCE=\""$(datadir)/share/gtk_php_ide/php-function-reference.api"\" \
+	-DPHP_IDE_PREFIX=\""$(datadir)"\" \
 	-DPIXMAP_DIR=\""$(datadir)/pixmaps"\"
 
 
-nodist_EXTRA_GTK-PHP-IDE_SOURCES = dummy.cxx
-GTK-PHP-IDE_SOURCES = \
+nodist_EXTRA_gtk_php_ide_SOURCES = dummy.cxx
+gtk_php_ide_SOURCES = \
 	calltip.c		\
 	calltip.h		\
 	classbrowser.c		\
@@ -200,8 +200,8 @@ GTK-PHP-IDE_SOURCES = \
 	edit_template.h		\
 	find_replace.c		\
 	find_replace.h		\
-	GTK-PHP-IDE_ipc.c		\
-	GTK-PHP-IDE_ipc.h		\
+	gtk_php_ide_ipc.c		\
+	gtk_php_ide_ipc.h		\
 	grel2abs.c		\
 	grel2abs.h		\
 	plugin.c		\
@@ -239,7 +239,7 @@ GTK-PHP-IDE_SOURCES = \
 	templates.h
 
 
-GTK-PHP-IDE_LDADD = \
+gtk_php_ide_LDADD = \
 	$(GTKPHPIDE_LIBS)\
 	gtkscintilla2/libgtkscintilla2.a\
 	gtkscintilla2/scintilla/bin/scintilla.a
@@ -252,9 +252,9 @@ CONFIG_CLEAN_FILES =
 bin_PROGRAMS = GTK-PHP-IDE$(EXEEXT)
 PROGRAMS = $(bin_PROGRAMS)
 
-am_GTK-PHP-IDE_OBJECTS = calltip.$(OBJEXT) classbrowser.$(OBJEXT) \
+am_gtk_php_ide_OBJECTS = calltip.$(OBJEXT) classbrowser.$(OBJEXT) \
 	classbrowser_parse.$(OBJEXT) edit_template.$(OBJEXT) \
-	find_replace.$(OBJEXT) GTK-PHP-IDE_ipc.$(OBJEXT) \
+	find_replace.$(OBJEXT) gtk_php_ide_ipc.$(OBJEXT) \
 	grel2abs.$(OBJEXT) plugin.$(OBJEXT) main.$(OBJEXT) \
 	main_window.$(OBJEXT) main_window_callbacks.$(OBJEXT) \
 	preferences.$(OBJEXT) preferences_dialog.$(OBJEXT) \
@@ -262,10 +262,10 @@ am_GTK-PHP-IDE_OBJECTS = calltip.$(OBJEXT) classbrowser.$(OBJEXT) \
 	tab_css.$(OBJEXT) tab_perl.$(OBJEXT) tab_php.$(OBJEXT) \
 	tab_python.$(OBJEXT) tab_sql.$(OBJEXT) tab_util.$(OBJEXT) \
 	templates.$(OBJEXT)
-GTK-PHP-IDE_OBJECTS = $(am_GTK-PHP-IDE_OBJECTS)
-GTK-PHP-IDE_DEPENDENCIES = gtkscintilla2/libgtkscintilla2.a \
+gtk_php_ide_OBJECTS = $(am_gtk_php_ide_OBJECTS)
+gtk_php_ide_DEPENDENCIES = gtkscintilla2/libgtkscintilla2.a \
 	gtkscintilla2/scintilla/bin/scintilla.a
-GTK-PHP-IDE_LDFLAGS =
+gtk_php_ide_LDFLAGS =
 
 DEFAULT_INCLUDES =  -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -275,7 +275,7 @@ DEP_FILES = ./$(DEPDIR)/calltip.Po \
 	./$(DEPDIR)/classbrowser_parse.Po \
 	./$(DEPDIR)/dummy.Po ./$(DEPDIR)/edit_template.Po \
 	./$(DEPDIR)/find_replace.Po \
-	./$(DEPDIR)/GTK-PHP-IDE_ipc.Po ./$(DEPDIR)/grel2abs.Po \
+	./$(DEPDIR)/gtk_php_ide_ipc.Po ./$(DEPDIR)/grel2abs.Po \
 	./$(DEPDIR)/main.Po ./$(DEPDIR)/main_window.Po \
 	./$(DEPDIR)/main_window_callbacks.Po \
 	./$(DEPDIR)/plugin.Po ./$(DEPDIR)/preferences.Po \
@@ -300,9 +300,9 @@ LTCXXCOMPILE = $(LIBTOOL) --mode=compile $(CXX) $(DEFS) \
 CXXLD = $(CXX)
 CXXLINK = $(LIBTOOL) --mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
-DIST_SOURCES = $(GTK-PHP-IDE_SOURCES)
+DIST_SOURCES = $(gtk_php_ide_SOURCES)
 DIST_COMMON = $(srcdir)/Makefile.in Makefile.am
-SOURCES = $(GTK-PHP-IDE_SOURCES) $(nodist_EXTRA_GTK-PHP-IDE_SOURCES)
+SOURCES = $(gtk_php_ide_SOURCES) $(nodist_EXTRA_gtk_php_ide_SOURCES)
 
 all: all-am
 
@@ -342,9 +342,9 @@ clean-binPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-GTK-PHP-IDE$(EXEEXT): $(GTK-PHP-IDE_OBJECTS) $(GTK-PHP-IDE_DEPENDENCIES) 
-	@rm -f GTK-PHP-IDE$(EXEEXT)
-	$(CXXLINK) $(GTK-PHP-IDE_LDFLAGS) $(GTK-PHP-IDE_OBJECTS) $(GTK-PHP-IDE_LDADD) $(LIBS)
+GTK-PHP-IDE$(EXEEXT): $(gtk_php_ide_OBJECTS) $(gtk_php_ide_DEPENDENCIES) 
+	@rm -f gtk_php_ide$(EXEEXT)
+	$(CXXLINK) $(gtk_php_ide_LDFLAGS) $(gtk_php_ide_OBJECTS) $(gtk_php_ide_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT) core *.core
@@ -358,7 +358,7 @@ include ./$(DEPDIR)/classbrowser_parse.Po
 include ./$(DEPDIR)/dummy.Po
 include ./$(DEPDIR)/edit_template.Po
 include ./$(DEPDIR)/find_replace.Po
-include ./$(DEPDIR)/GTK-PHP-IDE_ipc.Po
+include ./$(DEPDIR)/gtk_php_ide_ipc.Po
 include ./$(DEPDIR)/grel2abs.Po
 include ./$(DEPDIR)/main.Po
 include ./$(DEPDIR)/main_window.Po

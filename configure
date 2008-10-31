@@ -21069,7 +21069,7 @@ echo "$as_me:$LINENO: result: \"$PACKAGE_LOCALE_DIR\"" >&5
 echo "${ECHO_T}\"$PACKAGE_LOCALE_DIR\"" >&6
 
 
-                                                                                ac_config_files="$ac_config_files Makefile gtk-php-ide.desktop gtk-php-ide.spec data/Makefile doc/Makefile pixmaps/Makefile po/Makefile.in src/Makefile"
+                                                                                ac_config_files="$ac_config_files Makefile GTK-PHP-IDE.desktop GTK-PHP-IDE.spec data/Makefile doc/Makefile pixmaps/Makefile po/Makefile.in src/Makefile"
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
 # tests run on this system so they can be shared between configure
@@ -21646,8 +21646,8 @@ do
   case "$ac_config_target" in
   # Handling of arguments.
   "Makefile" ) CONFIG_FILES="$CONFIG_FILES Makefile" ;;
-  "gtk-php-ide.desktop" ) CONFIG_FILES="$CONFIG_FILES gtk-php-ide.desktop" ;;
-  "gtk-php-ide.spec" ) CONFIG_FILES="$CONFIG_FILES gtk-php-ide.spec" ;;
+  "GTK-PHP-IDE.desktop" ) CONFIG_FILES="$CONFIG_FILES GTK-PHP-IDE.desktop" ;;
+  "GTK-PHP-IDE.spec" ) CONFIG_FILES="$CONFIG_FILES GTK-PHP-IDE.spec" ;;
   "data/Makefile" ) CONFIG_FILES="$CONFIG_FILES data/Makefile" ;;
   "doc/Makefile" ) CONFIG_FILES="$CONFIG_FILES doc/Makefile" ;;
   "pixmaps/Makefile" ) CONFIG_FILES="$CONFIG_FILES pixmaps/Makefile" ;;

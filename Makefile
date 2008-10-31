@@ -17,9 +17,9 @@
 srcdir = .
 top_srcdir = .
 
-pkgdatadir = $(datadir)/GTK_PHP_IDE
-pkglibdir = $(libdir)/GTK_PHP_IDE
-pkgincludedir = $(includedir)/GTK_PHP_IDE
+pkgdatadir = $(datadir)/gtk-php-ide
+pkglibdir = $(libdir)/gtk-php-ide
+pkgincludedir = $(includedir)/gtk-php-ide
 top_builddir = .
 
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
@@ -36,14 +36,14 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 host_triplet = i686-pc-linux-gnu
-ACLOCAL = ${SHELL} /projects/gtk/GTK_PHP_IDE/src/missing --run aclocal-1.7
+ACLOCAL = ${SHELL} /projects/gtk/GTK-PHP-IDE/src/missing --run aclocal-1.7
 AMDEP_FALSE = #
 AMDEP_TRUE = 
-AMTAR = ${SHELL} /projects/gtk/GTK_PHP_IDE/src/missing --run tar
+AMTAR = ${SHELL} /projects/gtk/GTK-PHP-IDE/src/missing --run tar
 AR = ar
-AUTOCONF = ${SHELL} /projects/gtk/GTK_PHP_IDE/src/missing --run autoconf
-AUTOHEADER = ${SHELL} /projects/gtk/GTK_PHP_IDE/src/missing --run autoheader
-AUTOMAKE = ${SHELL} /projects/gtk/GTK_PHP_IDE/src/missing --run automake-1.7
+AUTOCONF = ${SHELL} /projects/gtk/GTK-PHP-IDE/src/missing --run autoconf
+AUTOHEADER = ${SHELL} /projects/gtk/GTK-PHP-IDE/src/missing --run autoheader
+AUTOMAKE = ${SHELL} /projects/gtk/GTK-PHP-IDE/src/missing --run automake-1.7
 AWK = gawk
 CATALOGS = 
 CATOBJEXT = .gmo
@@ -68,11 +68,11 @@ EGREP = grep -E
 EXEEXT = 
 F77 = 
 FFLAGS = 
-GETTEXT_PACKAGE = GTK_PHP_IDE
+GETTEXT_PACKAGE = gtk-php-ide
 GMOFILES = 
 GMSGFMT = /usr/bin/msgfmt
-GTK_PHP_IDE_CFLAGS = -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0  
-GTK_PHP_IDE_LIBS = -pthread -lgnomeui-2 -lSM -lICE -lbonoboui-2 -lgnomecanvas-2 -lgnome-2 -lpopt -lbonobo-2 -lbonobo-activation -lORBit-2 -lart_lgpl_2 -lgnomevfs-2 -lgconf-2 -lgthread-2.0 -lrt -lgtkhtml-2 -lgtk-x11-2.0 -lxml2 -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lpango-1.0 -lcairo -lgobject-2.0 -lgmodule-2.0 -ldl -lglib-2.0  
+GTK-PHP-IDE_CFLAGS = @GTK-PHP-IDE_CFLAGS@
+GTK-PHP-IDE_LIBS = @GTK-PHP-IDE_LIBS@
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
@@ -88,7 +88,7 @@ INTLTOOL_KBD_RULE = %.kbd:       %.kbd.in       $(INTLTOOL_MERGE) $(wildcard $(t
 INTLTOOL_KEYS_RULE = %.keys:      %.keys.in      $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -k -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 INTLTOOL_MERGE = $(top_builddir)/intltool-merge
 INTLTOOL_MSGFMT = /usr/bin/msgfmt
-INTLTOOL_MSGMERGE = msgmerge
+INTLTOOL_MSGMERGE = /usr/bin/msgmerge
 INTLTOOL_OAF_RULE = %.oaf:       %.oaf.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -o -p $(top_srcdir)/po $< $@
 INTLTOOL_PERL = /usr/bin/perl
 INTLTOOL_PONG_RULE = %.pong:      %.pong.in      $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
@@ -101,7 +101,7 @@ INTLTOOL_THEME_RULE = %.theme:     %.theme.in     $(INTLTOOL_MERGE) $(wildcard $
 INTLTOOL_UI_RULE = %.ui:        %.ui.in        $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 INTLTOOL_UPDATE = $(top_builddir)/intltool-update
 INTLTOOL_XAM_RULE = %.xam:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
-INTLTOOL_XGETTEXT = xgettext
+INTLTOOL_XGETTEXT = /usr/bin/xgettext
 INTLTOOL_XML_NOMERGE_RULE = %.xml:       %.xml.in       $(INTLTOOL_MERGE) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u /tmp $< $@
 INTLTOOL_XML_RULE = %.xml:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
 LDFLAGS = 
@@ -113,11 +113,11 @@ LTLIBOBJS =
 MAINT = #
 MAINTAINER_MODE_FALSE = 
 MAINTAINER_MODE_TRUE = #
-MAKEINFO = ${SHELL} /projects/gtk/GTK_PHP_IDE/src/missing --run makeinfo
+MAKEINFO = ${SHELL} /projects/gtk/GTK-PHP-IDE/src/missing --run makeinfo
 MKINSTALLDIRS = ./mkinstalldirs
 MSGFMT = /usr/bin/msgfmt
 OBJEXT = o
-PACKAGE = GTK_PHP_IDE
+PACKAGE = gtk-php-ide
 PACKAGE_BUGREPORT = 
 PACKAGE_NAME = 
 PACKAGE_STRING = 
@@ -135,7 +135,7 @@ SHELL = /bin/sh
 STRIP = strip
 USE_NLS = yes
 VERSION = 0.9.91
-XGETTEXT = :
+XGETTEXT = /usr/bin/xgettext
 ac_ct_AR = ar
 ac_ct_CC = gcc
 ac_ct_CXX = g++
@@ -164,14 +164,14 @@ host_os = linux-gnu
 host_vendor = pc
 includedir = ${prefix}/include
 infodir = ${prefix}/info
-install_sh = /projects/gtk/GTK_PHP_IDE/src/install-sh
+install_sh = /projects/gtk/GTK-PHP-IDE/src/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localstatedir = ${prefix}/var
 mandir = ${prefix}/man
 mkdir_p = mkdir -p -- .
 oldincludedir = /usr/include
-prefix = /projects/gtk/GTK_PHP_IDE
+prefix = /opt/GTK-PHP-IDE
 program_transform_name = s,x,x,
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
@@ -186,14 +186,14 @@ SUBDIRS = \
 
 
 applicationsdir = $(datadir)/applications
-applications_in_files = GTK_PHP_IDE.desktop.in
+applications_in_files = GTK-PHP-IDE.desktop.in
 applications_DATA = $(applications_in_files:.desktop.in=.desktop)
 
-spec_in_files = GTK_PHP_IDE.spec.in
+spec_in_files = GTK-PHP-IDE.spec.in
 
 EXTRA_DIST = \
-	GTK_PHP_IDE.spec			\
-	GTK_PHP_IDE.applications		\
+	GTK-PHP-IDE.spec			\
+	GTK-PHP-IDE.applications		\
 	$(applications_in_files)	\
 	$(spec_in_files)		\
 	src/gtkscintilla2
@@ -202,7 +202,7 @@ subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = config.h
-CONFIG_CLEAN_FILES = GTK_PHP_IDE.desktop GTK_PHP_IDE.spec
+CONFIG_CLEAN_FILES = GTK-PHP-IDE.desktop GTK-PHP-IDE.spec
 DIST_SOURCES =
 DATA = $(applications_DATA)
 
@@ -215,7 +215,7 @@ RECURSIVE_TARGETS = info-recursive dvi-recursive pdf-recursive \
 DIST_COMMON = README $(srcdir)/Makefile.in $(srcdir)/configure AUTHORS \
 	COPYING ChangeLog INSTALL Makefile.am NEWS TODO aclocal.m4 \
 	config.guess config.h.in config.sub configure configure.in \
-	depcomp GTK_PHP_IDE.desktop.in GTK_PHP_IDE.spec.in install-sh \
+	depcomp GTK-PHP-IDE.desktop.in GTK-PHP-IDE.spec.in install-sh \
 	ltmain.sh missing mkinstalldirs
 DIST_SUBDIRS = $(SUBDIRS)
 all: config.h
@@ -255,9 +255,9 @@ $(srcdir)/config.h.in: # $(top_srcdir)/configure.in $(ACLOCAL_M4)
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
-GTK_PHP_IDE.desktop: $(top_builddir)/config.status GTK_PHP_IDE.desktop.in
+GTK-PHP-IDE.desktop: $(top_builddir)/config.status GTK-PHP-IDE.desktop.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
-GTK_PHP_IDE.spec: $(top_builddir)/config.status GTK_PHP_IDE.spec.in
+GTK-PHP-IDE.spec: $(top_builddir)/config.status GTK-PHP-IDE.spec.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 
 mostlyclean-libtool:
@@ -595,7 +595,7 @@ install-info: install-info-recursive
 install-man:
 
 install-sudo:
-	sudo ln -s $(datadir)/share/GTK_PHP_IDE /usr/share
+	sudo ln -s $(datadir)/share/GTK-PHP-IDE /usr/share
 	sudo ln -s $(php_manual) /usr/share/doc/phpmanual
 
 installcheck-am:

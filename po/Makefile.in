@@ -12,9 +12,9 @@
 # - Modified by jacob berkman <jacob@ximian.com> to install
 #   Makefile.in.in and po2tbl.sed.in for use with glib-gettextize
 
-GETTEXT_PACKAGE = GTK-PHP-IDE
-PACKAGE = GTK-PHP-IDE
-VERSION = 0.0.0.1
+GETTEXT_PACKAGE = gtk-php-ide
+PACKAGE = gtk-php-ide
+VERSION = 0.9.91
 
 SHELL = /bin/sh
 
@@ -24,7 +24,7 @@ top_srcdir = ..
 top_builddir = ..
 
 
-prefix = /projects/gtk/GTK-PHP-IDE
+prefix = /opt/GTK-PHP-IDE
 exec_prefix = ${prefix}
 datadir = ${prefix}/share
 libdir = ${exec_prefix}/lib
@@ -41,7 +41,7 @@ CC = gcc
 GENCAT = @GENCAT@
 GMSGFMT = /usr/bin/msgfmt
 MSGFMT = /usr/bin/msgfmt
-XGETTEXT = :
+XGETTEXT = /usr/bin/xgettext
 INTLTOOL_UPDATE = $(top_builddir)/intltool-update
 INTLTOOL_EXTRACT = $(top_builddir)/intltool-extract
 MSGMERGE = INTLTOOL_EXTRACT=$(INTLTOOL_EXTRACT) $(INTLTOOL_UPDATE) --gettext-package $(GETTEXT_PACKAGE) --dist

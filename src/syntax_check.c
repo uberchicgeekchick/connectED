@@ -106,7 +106,7 @@ GString *save_as_temp_file(void)
 	GString *filename;
 	int file_handle;
 
-	file_handle = g_file_open_tmp("gtk-php-ideXXXXXX",&rawfilename,NULL);
+	file_handle = g_file_open_tmp("gtk_php_ideXXXXXX",&rawfilename,NULL);
 	if (file_handle != -1) {
 		filename = g_string_new(rawfilename);
 		

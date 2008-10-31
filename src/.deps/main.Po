@@ -573,7 +573,7 @@ main.o: main.c ../config.h \
   preferences.h classbrowser_parse.h main_window_callbacks.h \
   /usr/include/gtkhtml-2.0/libgtkhtml/layout/htmlboxtext.h \
   /usr/include/gtkhtml-2.0/libgtkhtml/layout/htmlbox.h syntax_check.h \
-  gtk-php-ide_ipc.h templates.h
+  gtk_php_ide_ipc.h templates.h
 
 ../config.h:
 
@@ -1885,6 +1885,6 @@ main_window_callbacks.h:
 
 syntax_check.h:
 
-gtk-php-ide_ipc.h:
+gtk_php_ide_ipc.h:
 
 templates.h:

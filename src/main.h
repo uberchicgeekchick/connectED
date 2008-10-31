@@ -32,9 +32,9 @@
 #include <gtkscintilla.h>
 #include <libgnome/gnome-i18n.h>
 
-#define GTKPHPIDE_PIXMAP_ICON "gtk-php-ide.png"
+#define GTKPHPIDE_PIXMAP_ICON "GTK-PHP-IDE.png"
 
-extern GnomeProgram* gtk-php-ide_program;
+extern GnomeProgram* gtk_php_ide_program;
 gboolean add (gpointer bla);
 
 #endif

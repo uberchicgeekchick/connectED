@@ -63,7 +63,7 @@ GString *template_get_filename(void)
 {
 	GString *ret;
 	ret = g_string_new( g_get_home_dir());
-	ret = g_string_append(ret, "/.gtk-php-ide/templates.txt");
+	ret = g_string_append(ret, "/.gtk_php_ide/templates.txt");
 	
 	return ret;
 }

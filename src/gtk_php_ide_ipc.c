@@ -25,7 +25,7 @@
 
 
 #include "main.h"
-#include "gtk-php-ide_ipc.h"
+#include "gtk_php_ide_ipc.h"
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -38,8 +38,8 @@
 #include <stdlib.h>
 
 
-#define PIPE_PREFIX         "%s-gtk-php-ide-"
-#define PIPE_PREFIX_FULL    "%s-gtk-php-ide-%d"
+#define PIPE_PREFIX         "%s-gtk_php_ide-"
+#define PIPE_PREFIX_FULL    "%s-gtk_php_ide-%d"
 #define MAX_BUFFER_SIZE 4096
 
 

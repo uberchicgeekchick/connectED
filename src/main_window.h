@@ -120,8 +120,8 @@ void main_window_add_to_reopen_menu(gchar *full_filename);
 void plugin_exec(gint plugin_num);
 void create_untitled_if_empty(void);
 
-extern GIOChannel* inter_gtk-php-ide_io;
-extern guint inter_gtk-php-ide_event_id;
+extern GIOChannel* inter_gtk_php_ide_io;
+extern guint inter_gtk_php_ide_event_id;
 
 extern guint idle_id;
 

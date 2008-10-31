@@ -84,9 +84,9 @@ void function_list_prepare(void)
 
 	calltip = g_string_new("");
 
-	apifile = fopen("/usr/share/gtk-php-ide/php-gtk-php-ide.api", "r");
+	apifile = fopen("/usr/share/gtk_php_ide/php-gtk_php_ide.api", "r");
 	if (apifile == NULL) {
-		apifile = fopen("/usr/local/share/gtk-php-ide/php-gtk-php-ide.api", "r");
+		apifile = fopen("/usr/local/share/gtk_php_ide/php-gtk_php_ide.api", "r");
 	}
 	
 	if( apifile != NULL ) {
@@ -97,7 +97,7 @@ void function_list_prepare(void)
 		fclose( apifile );
 	}
 	else {
-		g_print(_("WARNING: Could not open php-gtk-php-ide.api file\n"));
+		g_print(_("WARNING: Could not open php-gtk_php_ide.api file\n"));
 	}
 }
 

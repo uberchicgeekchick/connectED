@@ -31,11 +31,11 @@
 #include "main.h"
 #include "main_window.h"
 #include "main_window_callbacks.h"
-#include "gtk-php-ide_ipc.h"
+#include "gtk_php_ide_ipc.h"
 #include "templates.h"
 
 
-GnomeProgram* gtk-php-ide_program;
+GnomeProgram* gtk_php_ide_program;
 
 
 int main (int argc, char **argv)
@@ -47,7 +47,7 @@ int main (int argc, char **argv)
 	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
 	textdomain (GETTEXT_PACKAGE);
 
-	gtk-php-ide_program = gnome_program_init ("GTK-PHP-IDE", VERSION, LIBGNOMEUI_MODULE,
+	gtk_php_ide_program = gnome_program_init ("GTK-PHP-IDE", VERSION, LIBGNOMEUI_MODULE,
 	                                       argc, argv, NULL);
 
 	vfs_inited = gnome_vfs_init();

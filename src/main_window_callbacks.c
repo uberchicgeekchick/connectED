@@ -51,7 +51,7 @@ void session_save(void)
 	FILE *fp;
 
 	session_file = g_string_new( g_get_home_dir());
-	session_file = g_string_append(session_file, "/.gtk-php-ide/session");
+	session_file = g_string_append(session_file, "/.gtk_php_ide/session");
 	
 	unlink(session_file->str);
 	
@@ -100,7 +100,7 @@ void session_reopen(void)
 	GString *target;
 
 	session_file = g_string_new( g_get_home_dir());
-	session_file = g_string_append(session_file, "/.gtk-php-ide/session");
+	session_file = g_string_append(session_file, "/.gtk_php_ide/session");
 	
 	if (g_file_exists(session_file->str)) {
 		fp = fopen(session_file->str, "r");
@@ -165,8 +165,8 @@ void quit_application()
 
 void main_window_destroy_event(GtkWidget *widget, gpointer data)
 {
-	//g_io_channel_unref(inter_gtk-php-ide_io);
-	//unlink("/tmp/gtk-php-ide.sock");
+	//g_io_channel_unref(inter_gtk_php_ide_io);
+	//unlink("/tmp/gtk_php_ide.sock");
 	quit_application();
 	
 	// Old code had a main_window_delete_event call in here, not necessary, Gtk/GNOME does that anyway...
@@ -1195,7 +1195,7 @@ void on_about1_activate(GtkWidget *widget)
 {
 	const gchar *authors[] = {
 	                             "Primary Developer/Team Lead:",
-								 "Andy Jeffries <andy@gtk-php-ide.org>",
+								 "Andy Jeffries <andy@gtk_php_ide.org>",
 								"",
 								"Assistance with Fixes/Enhancements:",
 				     "Jonh Wendell <wendell@bani.com.br>",

@@ -183,13 +183,13 @@ INCLUDES = \
 	$(GTKPHPIDE_CFLAGS)	\
 	-I$(top_srcdir)/src/gtkscintilla2 \
 	-g -Wall -DGTK -DSCI_LEXER \
-	-DPHP_FUNCTION_REFERENCE=\""$(datadir)/share/GTK-PHP-IDE/php-function-reference.api"\"
-	-DPHP_IDE_PREFIX=\""$(datadir)"\"
+	-DPHP_FUNCTION_REFERENCE=\""$(datadir)/share/gtk_php_ide/php-function-reference.api"\" \
+	-DPHP_IDE_PREFIX=\""$(datadir)"\" \
 	-DPIXMAP_DIR=\""$(datadir)/pixmaps"\"
 
 
-nodist_EXTRA_GTK-PHP-IDE_SOURCES = dummy.cxx
-GTK-PHP-IDE_SOURCES = \
+nodist_EXTRA_gtk_php_ide_SOURCES = dummy.cxx
+gtk_php_ide_SOURCES = \
 	calltip.c		\
 	calltip.h		\
 	classbrowser.c		\
@@ -200,8 +200,8 @@ GTK-PHP-IDE_SOURCES = \
 	edit_template.h		\
 	find_replace.c		\
 	find_replace.h		\
-	GTK-PHP-IDE_ipc.c		\
-	GTK-PHP-IDE_ipc.h		\
+	gtk_php_ide_ipc.c		\
+	gtk_php_ide_ipc.h		\
 	grel2abs.c		\
 	grel2abs.h		\
 	plugin.c		\
@@ -239,7 +239,7 @@ GTK-PHP-IDE_SOURCES = \
 	templates.h
 
 
-GTK-PHP-IDE_LDADD = \
+gtk_php_ide_LDADD = \
 	$(GTKPHPIDE_LIBS)\
 	gtkscintilla2/libgtkscintilla2.a\
 	gtkscintilla2/scintilla/bin/scintilla.a
@@ -252,9 +252,9 @@ CONFIG_CLEAN_FILES =
 bin_PROGRAMS = GTK-PHP-IDE$(EXEEXT)
 PROGRAMS = $(bin_PROGRAMS)
 
-am_GTK-PHP-IDE_OBJECTS = calltip.$(OBJEXT) classbrowser.$(OBJEXT) \
+am_gtk_php_ide_OBJECTS = calltip.$(OBJEXT) classbrowser.$(OBJEXT) \
 	classbrowser_parse.$(OBJEXT) edit_template.$(OBJEXT) \
-	find_replace.$(OBJEXT) GTK-PHP-IDE_ipc.$(OBJEXT) \
+	find_replace.$(OBJEXT) gtk_php_ide_ipc.$(OBJEXT) \
 	grel2abs.$(OBJEXT) plugin.$(OBJEXT) main.$(OBJEXT) \
 	main_window.$(OBJEXT) main_window_callbacks.$(OBJEXT) \
 	preferences.$(OBJEXT) preferences_dialog.$(OBJEXT) \
@@ -262,10 +262,10 @@ am_GTK-PHP-IDE_OBJECTS = calltip.$(OBJEXT) classbrowser.$(OBJEXT) \
 	tab_css.$(OBJEXT) tab_perl.$(OBJEXT) tab_php.$(OBJEXT) \
 	tab_python.$(OBJEXT) tab_sql.$(OBJEXT) tab_util.$(OBJEXT) \
 	templates.$(OBJEXT)
-GTK-PHP-IDE_OBJECTS = $(am_GTK-PHP-IDE_OBJECTS)
-GTK-PHP-IDE_DEPENDENCIES = gtkscintilla2/libgtkscintilla2.a \
+gtk_php_ide_OBJECTS = $(am_gtk_php_ide_OBJECTS)
+gtk_php_ide_DEPENDENCIES = gtkscintilla2/libgtkscintilla2.a \
 	gtkscintilla2/scintilla/bin/scintilla.a
-GTK-PHP-IDE_LDFLAGS =
+gtk_php_ide_LDFLAGS =
 
 DEFAULT_INCLUDES =  -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -275,7 +275,7 @@ am__depfiles_maybe = depfiles
 @AMDEP_TRUE@	./$(DEPDIR)/classbrowser_parse.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/dummy.Po ./$(DEPDIR)/edit_template.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/find_replace.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/GTK-PHP-IDE_ipc.Po ./$(DEPDIR)/grel2abs.Po \
+@AMDEP_TRUE@	./$(DEPDIR)/gtk_php_ide_ipc.Po ./$(DEPDIR)/grel2abs.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/main.Po ./$(DEPDIR)/main_window.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/main_window_callbacks.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/plugin.Po ./$(DEPDIR)/preferences.Po \
@@ -300,9 +300,9 @@ LTCXXCOMPILE = $(LIBTOOL) --mode=compile $(CXX) $(DEFS) \
 CXXLD = $(CXX)
 CXXLINK = $(LIBTOOL) --mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
-DIST_SOURCES = $(GTK-PHP-IDE_SOURCES)
+DIST_SOURCES = $(gtk_php_ide_SOURCES)
 DIST_COMMON = $(srcdir)/Makefile.in Makefile.am
-SOURCES = $(GTK-PHP-IDE_SOURCES) $(nodist_EXTRA_GTK-PHP-IDE_SOURCES)
+SOURCES = $(gtk_php_ide_SOURCES) $(nodist_EXTRA_gtk_php_ide_SOURCES)
 
 all: all-am
 
@@ -342,9 +342,9 @@ clean-binPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-GTK-PHP-IDE$(EXEEXT): $(GTK-PHP-IDE_OBJECTS) $(GTK-PHP-IDE_DEPENDENCIES) 
-	@rm -f GTK-PHP-IDE$(EXEEXT)
-	$(CXXLINK) $(GTK-PHP-IDE_LDFLAGS) $(GTK-PHP-IDE_OBJECTS) $(GTK-PHP-IDE_LDADD) $(LIBS)
+gtk_php_ide$(EXEEXT): $(gtk_php_ide_OBJECTS) $(gtk_php_ide_DEPENDENCIES) 
+	@rm -f gtk_php_ide$(EXEEXT)
+	$(CXXLINK) $(gtk_php_ide_LDFLAGS) $(gtk_php_ide_OBJECTS) $(gtk_php_ide_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT) core *.core
@@ -358,7 +358,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dummy.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/edit_template.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/find_replace.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/GTK-PHP-IDE_ipc.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gtk_php_ide_ipc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/grel2abs.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main_window.Po@am__quote@

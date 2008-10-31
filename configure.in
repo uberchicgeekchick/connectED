@@ -59,8 +59,8 @@ dnl ---------------------------------------------------------------------------
 
 AC_OUTPUT([
 Makefile
-gtk-php-ide.desktop
-gtk-php-ide.spec
+GTK-PHP-IDE.desktop
+GTK-PHP-IDE.spec
 data/Makefile
 doc/Makefile
 pixmaps/Makefile

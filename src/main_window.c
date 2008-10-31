@@ -38,8 +38,8 @@
 
 
 MainWindow main_window;
-GIOChannel* inter_gtk-php-ide_io;
-guint inter_gtk-php-ide_event_id;
+GIOChannel* inter_gtk_php_ide_io;
+guint inter_gtk_php_ide_event_id;
 gboolean DEBUG_MODE = FALSE;
 
 
@@ -73,12 +73,12 @@ void main_window_pass_command_line_files(char **argv)
 	gsize bytes_written;
 
 	error = NULL;
-	inter_gtk-php-ide_io = g_io_channel_new_file("/tmp/gtk-php-ide.sock","w",&error);
+	inter_gtk_php_ide_io = g_io_channel_new_file("/tmp/gtk_php_ide.sock","w",&error);
 	if (argv) {
 		i = 1;
 		while (argv[i] != NULL) {
 			//g_print("%s:%d\n", argv[i], strlen(argv[i]));
-			g_io_channel_write_chars(inter_gtk-php-ide_io, argv[i], strlen(argv[i]),
+			g_io_channel_write_chars(inter_gtk_php_ide_io, argv[i], strlen(argv[i]),
 			                         &bytes_written, &error);
 			++i;
 		}
@@ -91,7 +91,7 @@ gboolean channel_pass_filename_callback(GIOChannel *source, GIOCondition conditi
 	guint size;
 	gchar buf[1024];
 
-	g_io_channel_read(inter_gtk-php-ide_io, buf, sizeof(buf), &size);
+	g_io_channel_read(inter_gtk_php_ide_io, buf, sizeof(buf), &size);
 	//g_print("Passed %s\n", buf);
 	tab_create_new(TAB_FILE, g_string_new(buf));
 	return FALSE;
@@ -117,7 +117,7 @@ gboolean channel_pass_filename_callback(GIOChannel *source, GIOCondition conditi
 	// Bind a name to the socket. 
  
 	name.sun_family = AF_FILE;
-	strcpy (name.sun_path, "/tmp/gtk-php-ide.sock");
+	strcpy (name.sun_path, "/tmp/gtk_php_ide.sock");
  
 	// The size of the address is the offset of the start of the filename, plus its length, plus one for the terminating null byte.
 	size = (offsetof (struct sockaddr_un, sun_path)
@@ -136,19 +136,19 @@ void force_config_folder(void)
 	gint ret;
 	gchar *dir;
 
-	dir = g_build_filename(g_get_home_dir(), ".gtk-php-ide", NULL);
+	dir = g_build_filename(g_get_home_dir(), ".gtk_php_ide", NULL);
 	ret = mkdir(dir, (S_IRUSR|S_IWUSR|S_IXUSR));
 	g_free(dir);
 	if (ret && errno != EEXIST) {
-		g_print(_("Unable to create ~/.gtk-php-ide/ (%d)"), errno);
+		g_print(_("Unable to create ~/.gtk_php_ide/ (%d)"), errno);
 		exit(-1);
 	}
 
-	dir = g_build_filename(g_get_home_dir(), ".gtk-php-ide", "plugins", NULL);
+	dir = g_build_filename(g_get_home_dir(), ".gtk_php_ide", "plugins", NULL);
 	ret = mkdir(dir, (S_IRUSR|S_IWUSR|S_IXUSR));
 	g_free(dir);
 	if (ret && errno != EEXIST) {
-		g_print(_("Unable to create ~/.gtk-php-ide/plugins/ (%d)"), errno);
+		g_print(_("Unable to create ~/.gtk_php_ide/plugins/ (%d)"), errno);
 		exit(-1);
 	}
 }
@@ -577,7 +577,7 @@ void plugin_discover_available(void)
 	GString *filename;
 	
 	user_plugin_dir = g_string_new( g_get_home_dir());
-	user_plugin_dir = g_string_append(user_plugin_dir, "/.gtk-php-ide/plugins/");
+	user_plugin_dir = g_string_append(user_plugin_dir, "/.gtk_php_ide/plugins/");
 	//g_print("User plugin dir: %s\n", user_plugin_dir->str);
 	if (g_file_test(user_plugin_dir->str, G_FILE_TEST_IS_DIR)) {
 		dir = g_dir_open(user_plugin_dir->str, 0,NULL);
@@ -600,15 +600,15 @@ void plugin_discover_available(void)
 	}
 	g_string_free(user_plugin_dir, TRUE);
 
-	if (g_file_test("/usr/share/gtk-php-ide/plugins/", G_FILE_TEST_IS_DIR)) {
-		dir = g_dir_open("/usr/share/gtk-php-ide/plugins/", 0,NULL);
+	if (g_file_test("/usr/share/gtk_php_ide/plugins/", G_FILE_TEST_IS_DIR)) {
+		dir = g_dir_open("/usr/share/gtk_php_ide/plugins/", 0,NULL);
 		if (dir) {
 			for (plugin_name = g_dir_read_name(dir); plugin_name != NULL; plugin_name = g_dir_read_name(dir)) {
 				// Recommended by __tim in #gtk+ on irc.freenode.net 27/10/2004 11:30
 				plugin = g_new0 (Plugin, 1);
 				plugin->name = g_strdup(plugin_name);
 				filename = g_string_new(plugin_name);
-				filename = g_string_prepend(filename, "/usr/share/gtk-php-ide/plugins/");
+				filename = g_string_prepend(filename, "/usr/share/gtk_php_ide/plugins/");
 				plugin->filename = filename;
 				//g_print ("PLUGIN FILENAME: %s\n", plugin->filename->str);
 				plugin->type = plugin_discover_type(plugin->filename);
