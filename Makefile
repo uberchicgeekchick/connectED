@@ -17,9 +17,9 @@
 srcdir = .
 top_srcdir = .
 
-pkgdatadir = $(datadir)/gtk-php-ide
-pkglibdir = $(libdir)/gtk-php-ide
-pkgincludedir = $(includedir)/gtk-php-ide
+pkgdatadir = $(datadir)/GTK-PHP-IDE
+pkglibdir = $(libdir)/GTK-PHP-IDE
+pkgincludedir = $(includedir)/GTK-PHP-IDE
 top_builddir = .
 
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
@@ -171,7 +171,7 @@ localstatedir = ${prefix}/var
 mandir = ${prefix}/man
 mkdir_p = mkdir -p -- .
 oldincludedir = /usr/include
-prefix = /projects/gtk/GTK-PHP-IDE
+prefix = /usr
 program_transform_name = s,x,x,
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
