@@ -177,7 +177,7 @@ sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
-bin_PROGRAMS = GTK-PHP-IDE
+bin_PROGRAMS = gtk_php_ide
 
 INCLUDES = \
 	$(GTKPHPIDE_CFLAGS)	\

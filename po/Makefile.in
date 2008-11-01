@@ -24,7 +24,7 @@ top_srcdir = ..
 top_builddir = ..
 
 
-prefix = /opt/GTK-PHP-IDE
+prefix = /projects/gtk/GTK-PHP-IDE
 exec_prefix = ${prefix}
 datadir = ${prefix}/share
 libdir = ${exec_prefix}/lib
