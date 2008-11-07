@@ -177,7 +177,7 @@ sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
-bin_PROGRAMS = gtk_php_ide
+bin_PROGRAMS = GTK-PHP-IDE
 
 INCLUDES = \
 	$(GTKPHPIDE_CFLAGS)	\
@@ -342,7 +342,8 @@ clean-binPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
-gtk_php_ide$(EXEEXT): $(gtk_php_ide_OBJECTS) $(gtk_php_ide_DEPENDENCIES) 
+
+GTK-PHP-IDE$(EXEEXT): $(gtk_php_ide_OBJECTS) $(gtk_php_ide_DEPENDENCIES) 
 	@rm -f gtk_php_ide$(EXEEXT)
 	$(CXXLINK) $(gtk_php_ide_LDFLAGS) $(gtk_php_ide_OBJECTS) $(gtk_php_ide_LDADD) $(LIBS)
 

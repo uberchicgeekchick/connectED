@@ -182,7 +182,7 @@ api_DATA = \
 
 
 apidir = \
-	$(datadir)/GTK_PHP_IDE
+	$(datadir)/GTK-PHP-IDE
 
 
 EXTRA_DIST = \

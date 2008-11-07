@@ -68,7 +68,7 @@ EGREP = grep -E
 EXEEXT = 
 F77 = 
 FFLAGS = 
-GETTEXT_PACKAGE = gtk-php-ide
+GETTEXT_PACKAGE = GTK-PHP-IDE
 GMOFILES = 
 GMSGFMT = /usr/bin/msgfmt
 GTK-PHP-IDE_CFLAGS = @GTK-PHP-IDE_CFLAGS@
@@ -171,7 +171,7 @@ localstatedir = ${prefix}/var
 mandir = ${prefix}/man
 mkdir_p = mkdir -p -- .
 oldincludedir = /usr/include
-prefix = /usr
+prefix = /programs/GTK-PHP-IDE
 program_transform_name = s,x,x,
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
@@ -203,7 +203,7 @@ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = config.h
 CONFIG_CLEAN_FILES = GTK-PHP-IDE.desktop GTK-PHP-IDE.spec
-DIST_SOURCES =
+DIST_SOURCES :
 DATA = $(applications_DATA)
 
 

@@ -9,7 +9,7 @@ INCLUDES = \
 	-DPIXMAP_DIR=\""$(datadir)/pixmaps"\"
 
 nodist_EXTRA_gtk_php_ide_SOURCES = dummy.cxx
-gtk_php_ide_SOURCES = \
+GTK_PHP_IDE_SOURCES = \
 	calltip.c		\
 	calltip.h		\
 	classbrowser.c		\
@@ -61,7 +61,7 @@ gtk_php_ide_SOURCES = \
 gtkscintilla2/libgtkscintilla2.a:
 	cd gtkscintilla2 && $(MAKE) libgtkscintilla2.a && cd ..
 
-gtk_php_ide_LDADD = \
+GTK_PHP_IDE_LDADD = \
 	$(GTKPHPIDE_LIBS)\
 	gtkscintilla2/libgtkscintilla2.a\
 	gtkscintilla2/scintilla/bin/scintilla.a

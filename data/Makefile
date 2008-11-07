@@ -17,9 +17,9 @@
 srcdir = .
 top_srcdir = ..
 
-pkgdatadir = $(datadir)/gtk-php-ide
-pkglibdir = $(libdir)/gtk-php-ide
-pkgincludedir = $(includedir)/gtk-php-ide
+pkgdatadir = $(datadir)/GTK-PHP-IDE
+pkglibdir = $(libdir)/GTK-PHP-IDE
+pkgincludedir = $(includedir)/GTK-PHP-IDE
 top_builddir = ..
 
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
@@ -68,7 +68,7 @@ EGREP = grep -E
 EXEEXT = 
 F77 = 
 FFLAGS = 
-GETTEXT_PACKAGE = gtk-php-ide
+GETTEXT_PACKAGE = GTK-PHP-IDE
 GMOFILES = 
 GMSGFMT = /usr/bin/msgfmt
 GTK_PHP_IDE_CFLAGS = @GTK_PHP_IDE_CFLAGS@
@@ -117,7 +117,7 @@ MAKEINFO = ${SHELL} /projects/gtk/GTK-PHP-IDE/src/missing --run makeinfo
 MKINSTALLDIRS = ./mkinstalldirs
 MSGFMT = /usr/bin/msgfmt
 OBJEXT = o
-PACKAGE = gtk-php-ide
+PACKAGE = GTK-PHP-IDE
 PACKAGE_BUGREPORT = 
 PACKAGE_NAME = 
 PACKAGE_STRING = 
@@ -171,7 +171,7 @@ localstatedir = ${prefix}/var
 mandir = ${prefix}/man
 mkdir_p = mkdir -p -- .
 oldincludedir = /usr/include
-prefix = /projects/gtk/GTK-PHP-IDE
+prefix = /programs/GTK-PHP-IDE
 program_transform_name = s,x,x,
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
@@ -182,7 +182,7 @@ api_DATA = \
 
 
 apidir = \
-	$(datadir)/GTK_PHP_IDE
+	$(datadir)/GTK-PHP-IDE
 
 
 EXTRA_DIST = \

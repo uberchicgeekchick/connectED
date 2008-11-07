@@ -5,7 +5,7 @@
 #define ENABLE_NLS 1
 
 /* The package name, for gettext */
-#define GETTEXT_PACKAGE "GTK-PHP-IDE"
+#define GETTEXT_PACKAGE "gtk-php-ide"
 
 /* Define to 1 if you have the `bind_textdomain_codeset' function. */
 #define HAVE_BIND_TEXTDOMAIN_CODESET 1
@@ -59,7 +59,7 @@
 #define PACKAGE_BUGREPORT ""
 
 /* The directory in which gtk-php-ide's locale data will be stored */
-#define PACKAGE_LOCALE_DIR "/projects/gtk/GTK-PHP-IDE/share/locale"
+#define PACKAGE_LOCALE_DIR "/programs/GTK-PHP-IDE/share/locale"
 
 /* Define to the full name of this package. */
 #define PACKAGE_NAME ""
@@ -77,4 +77,4 @@
 #define STDC_HEADERS 1
 
 /* Version number of package */
-#define VERSION "0.1"
+#define VERSION "0.9.91"

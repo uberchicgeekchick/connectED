@@ -171,7 +171,7 @@ localstatedir = ${prefix}/var
 mandir = ${prefix}/man
 mkdir_p = mkdir -p -- .
 oldincludedir = /usr/include
-prefix = /opt/GTK-PHP-IDE
+prefix = /programs/GTK-PHP-IDE
 program_transform_name = s,x,x,
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
@@ -342,6 +342,7 @@ clean-binPROGRAMS:
 	  echo " rm -f $$p $$f"; \
 	  rm -f $$p $$f ; \
 	done
+
 GTK-PHP-IDE$(EXEEXT): $(gtk_php_ide_OBJECTS) $(gtk_php_ide_DEPENDENCIES) 
 	@rm -f GTK-PHP-IDE$(EXEEXT)
 	$(CXXLINK) $(gtk_php_ide_LDFLAGS) $(gtk_php_ide_OBJECTS) $(gtk_php_ide_LDADD) $(LIBS)
