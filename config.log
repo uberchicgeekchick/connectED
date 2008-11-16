@@ -65,15 +65,6 @@ PATH: /projects/console/C-programs/stdin-catcher
 PATH: /projects/console/logs
 PATH: /projects/console/backup-scripts
 PATH: /projects/console/helper-scripts
-PATH: /projects/console/reference/Perl
-PATH: /projects/console/reference/Perl/Programming
-PATH: Perl
-PATH: 3(book)
-PATH: /projects/console/reference/Revisioning
-PATH: /projects/console/reference/Revisioning/darcs
-PATH: /projects/console/reference/Revisioning/darcs/Manual
-PATH: /projects/console/reference/Revisioning/git
-PATH: /projects/console/reference/Revisioning/Mercurial
 PATH: /projects/console/tcshrc
 PATH: /projects/console/convert
 PATH: /projects/console/su-scripts
@@ -108,15 +99,6 @@ PATH: /projects/console/C-programs/stdin-catcher
 PATH: /projects/console/logs
 PATH: /projects/console/backup-scripts
 PATH: /projects/console/helper-scripts
-PATH: /projects/console/reference/Perl
-PATH: /projects/console/reference/Perl/Programming
-PATH: Perl
-PATH: 3(book)
-PATH: /projects/console/reference/Revisioning
-PATH: /projects/console/reference/Revisioning/darcs
-PATH: /projects/console/reference/Revisioning/darcs/Manual
-PATH: /projects/console/reference/Revisioning/git
-PATH: /projects/console/reference/Revisioning/Mercurial
 PATH: /projects/console/tcshrc
 PATH: /projects/console/convert
 PATH: /projects/console/su-scripts
@@ -151,15 +133,6 @@ PATH: /projects/console/C-programs/stdin-catcher
 PATH: /projects/console/logs
 PATH: /projects/console/backup-scripts
 PATH: /projects/console/helper-scripts
-PATH: /projects/console/reference/Perl
-PATH: /projects/console/reference/Perl/Programming
-PATH: Perl
-PATH: 3(book)
-PATH: /projects/console/reference/Revisioning
-PATH: /projects/console/reference/Revisioning/darcs
-PATH: /projects/console/reference/Revisioning/darcs/Manual
-PATH: /projects/console/reference/Revisioning/git
-PATH: /projects/console/reference/Revisioning/Mercurial
 PATH: /projects/console/tcshrc
 PATH: /projects/console/convert
 PATH: /projects/console/su-scripts
@@ -916,6 +889,7 @@ config.status:812: creating pixmaps/Makefile
 config.status:812: creating po/Makefile.in
 config.status:812: creating src/Makefile
 config.status:878: creating config.h
+config.status:1002: config.h is unchanged
 config.status:1182: executing depfiles commands
 config.status:1182: executing intltool commands
 config.status:1182: executing default-1 commands

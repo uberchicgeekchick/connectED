@@ -344,7 +344,7 @@ clean-binPROGRAMS:
 	done
 
 GTK-PHP-IDE$(EXEEXT): $(gtk_php_ide_OBJECTS) $(gtk_php_ide_DEPENDENCIES) 
-	@rm -f GTK-PHP-IDE$(EXEEXT)
+	@rm -f gtk_php_ide$(EXEEXT)
 	$(CXXLINK) $(gtk_php_ide_LDFLAGS) $(gtk_php_ide_OBJECTS) $(gtk_php_ide_LDADD) $(LIBS)
 
 mostlyclean-compile:

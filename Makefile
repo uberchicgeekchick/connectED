@@ -17,9 +17,9 @@
 srcdir = .
 top_srcdir = .
 
-pkgdatadir = $(datadir)/GTK-PHP-IDE
-pkglibdir = $(libdir)/GTK-PHP-IDE
-pkgincludedir = $(includedir)/GTK-PHP-IDE
+pkgdatadir = $(datadir)/gtk-php-ide
+pkglibdir = $(libdir)/gtk-php-ide
+pkgincludedir = $(includedir)/gtk-php-ide
 top_builddir = .
 
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
@@ -68,7 +68,7 @@ EGREP = grep -E
 EXEEXT = 
 F77 = 
 FFLAGS = 
-GETTEXT_PACKAGE = GTK-PHP-IDE
+GETTEXT_PACKAGE = gtk-php-ide
 GMOFILES = 
 GMSGFMT = /usr/bin/msgfmt
 GTK-PHP-IDE_CFLAGS = @GTK-PHP-IDE_CFLAGS@
@@ -203,7 +203,7 @@ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = config.h
 CONFIG_CLEAN_FILES = GTK-PHP-IDE.desktop GTK-PHP-IDE.spec
-DIST_SOURCES :
+DIST_SOURCES =
 DATA = $(applications_DATA)
 
 

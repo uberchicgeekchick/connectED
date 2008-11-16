@@ -1701,6 +1701,7 @@ ob_end_clean|void|()|Clean (erase) the output buffer and turn off output bufferi
 ob_end_flush|void|()|Flush (send) the output buffer and turn off output buffering
 ob_flush|void|()|Flush (send) the output buffer
 ob_get_contents|string|()|Return the contents of the output buffer
+ob_get_flush|void|()|Return the contents of the output buffer and turn off output buffering
 ob_get_length|string|()|Return the length of the output buffer
 ob_get_level|int|()|Return the nesting level of the output buffering mechanism
 ob_gzhandler|string|(string buffer [, int mode])|ob_start callback function to gzip output buffer
