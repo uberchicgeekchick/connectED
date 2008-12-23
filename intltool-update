@@ -554,7 +554,7 @@ sub Console_WriteError_InvalidOption
 
 sub GenerateHeaders
 {
-    my $EXTRACT = "/projects/gtk/GTK-PHP-IDE/src/intltool-extract";
+    my $EXTRACT = "/projects/gtk/GTK-PHP-IDE/GTK-PHP-IDE/intltool-extract";
     chomp $EXTRACT;
 
     $EXTRACT = $ENV{"INTLTOOL_EXTRACT"} if $ENV{"INTLTOOL_EXTRACT"};
