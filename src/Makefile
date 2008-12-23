@@ -17,9 +17,9 @@
 srcdir = .
 top_srcdir = ..
 
-pkgdatadir = $(datadir)/gtk-php-ide
-pkglibdir = $(libdir)/gtk-php-ide
-pkgincludedir = $(includedir)/gtk-php-ide
+pkgdatadir = $(datadir)/GTK-PHP-IDE
+pkglibdir = $(libdir)/GTK-PHP-IDE
+pkgincludedir = $(includedir)/GTK-PHP-IDE
 top_builddir = ..
 
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
@@ -68,7 +68,7 @@ EGREP = grep -E
 EXEEXT = 
 F77 = 
 FFLAGS = 
-GETTEXT_PACKAGE = gtk-php-ide
+GETTEXT_PACKAGE = GTK-PHP-IDE
 GMOFILES = 
 GMSGFMT = /usr/bin/msgfmt
 GTKPHPIDE_CFLAGS = -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0  
@@ -183,7 +183,7 @@ INCLUDES = \
 	$(GTKPHPIDE_CFLAGS)	\
 	-I$(top_srcdir)/src/gtkscintilla2 \
 	-g -Wall -DGTK -DSCI_LEXER \
-	-DPHP_FUNCTION_REFERENCE=\""$(datadir)/share/gtk_php_ide/php-function-reference.api"\" \
+	-DPHP_FUNCTION_REFERENCE=\""$(datadir)/GTK-PHP-IDE/php-function-reference.api"\" \
 	-DPHP_IDE_PREFIX=\""$(datadir)"\" \
 	-DPIXMAP_DIR=\""$(datadir)/pixmaps"\"
 

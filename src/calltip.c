@@ -30,6 +30,10 @@
 #include <config.h>
 #endif
 
+#ifndef PHP_FUNCTION_REFERENCE
+#define PHP_FUNCTION_REFERENCE "/usr/share/GTK-PHP-IDE/php-function-reference.api"
+#endif
+
 GSList *api_list;
 GString *calltip;
 #define MAX_API_LINE_LENGTH 16384
@@ -40,7 +44,7 @@ gchar *css_keywords[] = {"font-family", "font-style", "font-variant", "font-weig
                          "background-repeat", "background-attachment", "background-position", "background",
                          "word-spacing", "letter-spacing", "text-decoration", "vertical-align",
                          "text-transform", "text-align", "text-indent", "line-height", "margin-top",
-                         "margin-right", "margin-bottom", "margin-left", "margin padding-top",
+                         "margin-right", "margin-bottom", "margin-left", "margin", "padding-top",
                          "padding-right", "padding-bottom", "padding-left", "padding", "border-top-width",
                          "border-right-width", "border-bottom-width", "border-left-width", "border-width",
                          "border-top", "border-right", "border-bottom", "border-left", "border",
@@ -48,33 +52,51 @@ gchar *css_keywords[] = {"font-family", "font-style", "font-variant", "font-weig
                          "white-space", "list-style-type", "list-style-image", "list-style-position",
                          "list-style", "position", "left", "right", "top", "bottom", NULL};
 
-gchar *sql_keywords[] = {"ADD", "ALL", "ALTER", "ANALYZE", "AND", "AS", "ASC", "ASENSITIVE", "AUTO_INCREMENT", 
-						 "BDB", "BEFORE", "BERKELEYDB", "BETWEEN", "BIGINT", "BINARY", "BLOB", "BOTH", "BTREE",
-						 "BY", "CALL", "CASCADE", "CASE", "CHANGE", "CHAR", "CHARACTER", "CHECK", "COLLATE", 
-						 "COLUMN", "COLUMNS", "CONNECTION", "CONSTRAINT", "CREATE", "CROSS", "CURRENT_DATE", 
-						 "CURRENT_TIME", "CURRENT_TIMESTAMP", "CURSOR", "DATABASE", "DATABASES", "DAY_HOUR", 
-						 "DAY_MINUTE", "DAY_SECOND", "DEC", "DECIMAL", "DECLARE", "DEFAULT", "DELAYED", 
-						 "DELETE", "DESC", "DESCRIBE", "DISTINCT", "DISTINCTROW", "DIV", "DOUBLE", "DROP", 
-						 "ELSE", "ELSEIF", "ENCLOSED", "ERRORS", "ESCAPED", "EXISTS", "EXPLAIN", "FALSE", 
-						 "FIELDS", "FLOAT", "FOR", "FORCE", "FOREIGN", "FROM", "FULLTEXT", "GRANT", "GROUP", 
-						 "HASH", "HAVING", "HIGH_PRIORITY", "HOUR_MINUTE", "HOUR_SECOND", "IF", "IGNORE", 
-						 "IN", "INDEX", "INFILE", "INNER", "INNODB", "INOUT", "INSENSITIVE", "INSERT", "INT", 
-						 "INTEGER", "INTERVAL", "INTO", "IS", "ITERATE", "JOIN", "KEY", "KEYS", "KILL", 
-						 "LEADING", "LEAVE", "LEFT", "LIKE", "LIMIT", "LINES", "LOAD", "LOCALTIME", 
-						 "LOCALTIMESTAMP", "LOCK", "LONG", "LONGBLOB", "LONGTEXT", "LOOP", "LOW_PRIORITY", 
-						 "MASTER_SERVER_ID", "MATCH", "MEDIUMBLOB", "MEDIUMINT", "MEDIUMTEXT", "MIDDLEINT", 
-						 "MINUTE_SECOND", "MOD", "MRG_MYISAM", "NATURAL", "NOT", "NULL", "NUMERIC", "ON",
-						 "OPTIMIZE", "OPTION", "OPTIONALLY", "OR", "ORDER", "OUT", "OUTER", "OUTFILE", 
-						 "PRECISION", "PRIMARY", "PRIVILEGES", "PROCEDURE", "PURGE", "READ", "REAL", 
-						 "REFERENCES", "REGEXP", "RENAME", "REPEAT", "REPLACE", "REQUIRE", "RESTRICT", 
-						 "RETURN", "RETURNS", "REVOKE", "RIGHT", "RLIKE", "RTREE", "SELECT", "SENSITIVE", 
-						 "SEPARATOR", "SET", "SHOW", "SMALLINT", "SOME", "SONAME", "SPATIAL", "SPECIFIC", 
-						 "SQL_BIG_RESULT", "SQL_CALC_FOUND_ROWS", "SQL_SMALL_RESULT", "SSL", "STARTING", 
-						 "STRAIGHT_JOIN STRIPED", "TABLE", "TABLES", "TERMINATED", "THEN", "TINYBLOB", 
-						 "TINYINT", "TINYTEXT", "TO", "TRAILING", "TRUE", "TYPES", "UNION", "UNIQUE", 
-						 "UNLOCK", "UNSIGNED", "UNTIL", "UPDATE", "USAGE", "USE", "USER_RESOURCES", 
-						 "USING", "VALUES", "VARBINARY", "VARCHAR", "VARCHARACTER", "VARYING", "WARNINGS", 
-						 "WHEN", "WHERE", "WHILE", "WITH", "WRITE", "XOR", "YEAR_MONTH", "ZEROFILL", NULL};
+gchar *sql_keywords[] = {"ADD", "ALL", "ALTER", "ANALYZE", "AND", "AS", "ASC",
+			 "ASENSITIVE", "AUTO_INCREMENT", "BDB", "BEFORE",
+			 "BERKELEYDB", "BETWEEN", "BIGINT", "BINARY", "BLOB",
+			 "BOTH", "BTREE", "BY", "CALL", "CASCADE", "CASE",
+			 "CHANGE", "CHAR", "CHARACTER", "CHECK", "COLLATE",
+			 "COLUMN", "COLUMNS", "CONNECTION", "CONSTRAINT",
+			 "CREATE", "CROSS", "CURRENT_DATE", "CURRENT_TIME",
+			 "CURRENT_TIMESTAMP", "CURSOR", "DATABASE",
+			 "DATABASES", "DAY_HOUR", "DAY_MINUTE", "DAY_SECOND",
+			 "DEC", "DECIMAL", "DECLARE", "DEFAULT", "DELAYED",
+			 "DELETE", "DESC", "DESCRIBE", "DISTINCT",
+			 "DISTINCTROW", "DIV", "DOUBLE", "DROP", "ELSE",
+			 "ELSEIF", "ENCLOSED", "ERRORS", "ESCAPED", "EXISTS",
+			 "EXPLAIN", "FALSE", "FIELDS", "FLOAT", "FOR",
+			 "FORCE", "FOREIGN", "FROM", "FULLTEXT", "GRANT",
+			 "GROUP", "HASH", "HAVING", "HIGH_PRIORITY",
+			 "HOUR_MINUTE", "HOUR_SECOND", "IF", "IGNORE", "IN",
+			 "INDEX", "INFILE", "INNER", "INNODB", "INOUT",
+			 "INSENSITIVE", "INSERT", "INT", "INTEGER", "INTERVAL",
+			 "INTO", "IS", "ITERATE", "JOIN", "KEY", "KEYS",
+			 "KILL", "LEADING", "LEAVE", "LEFT", "LIKE",
+			 "LIMIT", "LINES", "LOAD", "LOCALTIME",
+			 "LOCALTIMESTAMP", "LOCK", "LONG", "LONGBLOB",
+			 "LONGTEXT", "LOOP", "LOW_PRIORITY",
+			 "MASTER_SERVER_ID", "MATCH", "MEDIUMBLOB",
+			 "MEDIUMINT", "MEDIUMTEXT", "MIDDLEINT",
+			 "MINUTE_SECOND", "MOD", "MRG_MYISAM", "NATURAL",
+			 "NOT", "NULL", "NUMERIC", "ON", "OPTIMIZE", "OPTION",
+			 "OPTIONALLY", "OR", "ORDER", "OUT", "OUTER",
+			 "OUTFILE", "PRECISION", "PRIMARY", "PRIVILEGES",
+			 "PROCEDURE", "PURGE", "READ", "REAL", "REFERENCES",
+			 "REGEXP", "RENAME", "REPEAT", "REPLACE", "REQUIRE",
+			 "RESTRICT", "RETURN", "RETURNS", "REVOKE", "RIGHT",
+			 "RLIKE", "RTREE", "SELECT", "SENSITIVE", "SEPARATOR",
+			 "SET", "SHOW", "SMALLINT", "SOME", "SONAME",
+			 "SPATIAL", "SPECIFIC", "SQL_BIG_RESULT",
+			 "SQL_CALC_FOUND_ROWS", "SQL_SMALL_RESULT", "SSL",
+			 "STARTING", "STRAIGHT_JOIN STRIPED", "TABLE",
+			 "TABLES", "TERMINATED", "THEN", "TINYBLOB", "TINYINT",
+			 "TINYTEXT", "TO", "TRAILING", "TRUE", "TYPES",
+			 "UNION", "UNIQUE", "UNLOCK", "UNSIGNED", "UNTIL",
+			 "UPDATE", "USAGE", "USE", "USER_RESOURCES", "USING",
+			 "VALUES", "VARBINARY", "VARCHAR", "VARCHARACTER",
+			 "VARYING", "WARNINGS", "WHEN", "WHERE", "WHILE",
+			 "WITH", "WRITE", "XOR", "YEAR_MONTH", "ZEROFILL", NULL};
 
 void function_list_prepare(void)
 {
@@ -84,9 +106,9 @@ void function_list_prepare(void)
 
 	calltip = g_string_new("");
 
-	apifile = fopen("/usr/share/gtk_php_ide/php-gtk_php_ide.api", "r");
+	apifile = fopen(PHP_FUNCTION_REFERENCE, "r");
 	if (apifile == NULL) {
-		apifile = fopen("/usr/local/share/gtk_php_ide/php-gtk_php_ide.api", "r");
+		apifile = fopen(PHP_FUNCTION_REFERENCE, "r");
 	}
 	
 	if( apifile != NULL ) {
@@ -95,9 +117,9 @@ void function_list_prepare(void)
 			api_list = g_slist_append(api_list, line);
 		}
 		fclose( apifile );
-	}
-	else {
-		g_print(_("WARNING: Could not open php-gtk_php_ide.api file\n"));
+	} else {
+		g_print(_("WARNING: Could not open php-function-reference.api file\n"));
+		g_print(_(PHP_FUNCTION_REFERENCE));
 	}
 }
 

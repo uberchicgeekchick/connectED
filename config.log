@@ -27,7 +27,6 @@ hostinfo               = unknown
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
 
-PATH: /uberChick/bin
 PATH: /usr/local/bin
 PATH: /usr/bin
 PATH: /usr/X11R6/bin
@@ -40,11 +39,6 @@ PATH: /opt/kde2/bin
 PATH: /opt/kde/bin
 PATH: /usr/openwin/bin
 PATH: /opt/cross/bin
-PATH: /usr/bin/X11
-PATH: /usr/lib/mit/bin
-PATH: /usr/lib/mit/sbin
-PATH: /opt/gnome/bin
-PATH: .
 PATH: /bin
 PATH: /usr/bin
 PATH: /usr/local/bin
@@ -52,10 +46,36 @@ PATH: /sbin
 PATH: /usr/sbin
 PATH: /usr/local/sbin
 PATH: /etc/init.d
+PATH: /programs/GTK-PHP-IDE/bin
+PATH: /projects/games/engines/Raydium/raydium/bin
+PATH: .
 PATH: /projects/www/Alacast/bin
+PATH: /projects/www/Alacast/bin/support
 PATH: /projects/www/Alacast/bin/support/gpodder
-PATH: /projects/gtk/GTK-PHP-IDE/bin
-PATH: /projects/media/game-design/raydium/bin
+PATH: .
+PATH: /projects/gtk/Alacast/bin
+PATH: /projects/gtk/Alacast/bin/xulrunner
+PATH: /projects/gtk/Alacast/bin/xulrunner/plugins
+PATH: /projects/gtk/Alacast/bin/xulrunner/greprefs
+PATH: /projects/gtk/Alacast/bin/xulrunner/defaults
+PATH: /projects/gtk/Alacast/bin/xulrunner/defaults/autoconfig
+PATH: /projects/gtk/Alacast/bin/xulrunner/defaults/pref
+PATH: /projects/gtk/Alacast/bin/xulrunner/defaults/profile
+PATH: /projects/gtk/Alacast/bin/xulrunner/defaults/profile/chrome
+PATH: /projects/gtk/Alacast/bin/xulrunner/defaults/profile/US
+PATH: /projects/gtk/Alacast/bin/xulrunner/defaults/profile/US/chrome
+PATH: /projects/gtk/Alacast/bin/xulrunner/chrome
+PATH: /projects/gtk/Alacast/bin/xulrunner/chrome/icons
+PATH: /projects/gtk/Alacast/bin/xulrunner/chrome/icons/default
+PATH: /projects/gtk/Alacast/bin/xulrunner/res
+PATH: /projects/gtk/Alacast/bin/xulrunner/res/dtd
+PATH: /projects/gtk/Alacast/bin/xulrunner/res/fonts
+PATH: /projects/gtk/Alacast/bin/xulrunner/res/html
+PATH: /projects/gtk/Alacast/bin/xulrunner/res/entityTables
+PATH: /projects/gtk/Alacast/bin/xulrunner/components
+PATH: /projects/gtk/Alacast/bin/xulrunner/dictionaries
+PATH: /projects/gtk/Alacast/bin/xulrunner/modules
+PATH: /projects/gtk/Alacast/bin/xulrunner/icons
 PATH: .
 PATH: /projects/console
 PATH: /projects/console/scripts
@@ -63,6 +83,7 @@ PATH: /projects/console/permissions
 PATH: /projects/console/C-programs
 PATH: /projects/console/C-programs/stdin-catcher
 PATH: /projects/console/logs
+PATH: /projects/console/lost+found
 PATH: /projects/console/backup-scripts
 PATH: /projects/console/helper-scripts
 PATH: /projects/console/tcshrc
@@ -71,6 +92,7 @@ PATH: /projects/console/su-scripts
 PATH: /projects/console/session-handlers
 PATH: /programs/bin
 PATH: /programs/Mozilla/Firefox3/32bit/Nightly
+PATH: /programs/Mozilla/Firefox3/32bit/Stable
 PATH: /programs/Mozilla/Thunderbird3/32bit/Nightly
 PATH: /programs/Mozilla/Thunderbird3/32bit/Stable
 PATH: /programs/gizmo-project-3.1.0.79
@@ -78,6 +100,7 @@ PATH: /programs/carrier-2.5.0
 PATH: /programs/skype_static-2.0.0.72-oss
 PATH: /programs/ion/3-20080825/bin
 PATH: /programs/linphone/3.0-cvs/2008-09-11/bin
+PATH: /programs/Adobe/Reader8/bin/
 PATH: .
 PATH: /bin
 PATH: /usr/bin
@@ -86,10 +109,36 @@ PATH: /sbin
 PATH: /usr/sbin
 PATH: /usr/local/sbin
 PATH: /etc/init.d
+PATH: /programs/GTK-PHP-IDE/bin
+PATH: /projects/games/engines/Raydium/raydium/bin
+PATH: .
 PATH: /projects/www/Alacast/bin
+PATH: /projects/www/Alacast/bin/support
 PATH: /projects/www/Alacast/bin/support/gpodder
-PATH: /projects/gtk/GTK-PHP-IDE/bin
-PATH: /projects/media/game-design/raydium/bin
+PATH: .
+PATH: /projects/gtk/Alacast/bin
+PATH: /projects/gtk/Alacast/bin/xulrunner
+PATH: /projects/gtk/Alacast/bin/xulrunner/plugins
+PATH: /projects/gtk/Alacast/bin/xulrunner/greprefs
+PATH: /projects/gtk/Alacast/bin/xulrunner/defaults
+PATH: /projects/gtk/Alacast/bin/xulrunner/defaults/autoconfig
+PATH: /projects/gtk/Alacast/bin/xulrunner/defaults/pref
+PATH: /projects/gtk/Alacast/bin/xulrunner/defaults/profile
+PATH: /projects/gtk/Alacast/bin/xulrunner/defaults/profile/chrome
+PATH: /projects/gtk/Alacast/bin/xulrunner/defaults/profile/US
+PATH: /projects/gtk/Alacast/bin/xulrunner/defaults/profile/US/chrome
+PATH: /projects/gtk/Alacast/bin/xulrunner/chrome
+PATH: /projects/gtk/Alacast/bin/xulrunner/chrome/icons
+PATH: /projects/gtk/Alacast/bin/xulrunner/chrome/icons/default
+PATH: /projects/gtk/Alacast/bin/xulrunner/res
+PATH: /projects/gtk/Alacast/bin/xulrunner/res/dtd
+PATH: /projects/gtk/Alacast/bin/xulrunner/res/fonts
+PATH: /projects/gtk/Alacast/bin/xulrunner/res/html
+PATH: /projects/gtk/Alacast/bin/xulrunner/res/entityTables
+PATH: /projects/gtk/Alacast/bin/xulrunner/components
+PATH: /projects/gtk/Alacast/bin/xulrunner/dictionaries
+PATH: /projects/gtk/Alacast/bin/xulrunner/modules
+PATH: /projects/gtk/Alacast/bin/xulrunner/icons
 PATH: .
 PATH: /projects/console
 PATH: /projects/console/scripts
@@ -97,55 +146,13 @@ PATH: /projects/console/permissions
 PATH: /projects/console/C-programs
 PATH: /projects/console/C-programs/stdin-catcher
 PATH: /projects/console/logs
+PATH: /projects/console/lost+found
 PATH: /projects/console/backup-scripts
 PATH: /projects/console/helper-scripts
 PATH: /projects/console/tcshrc
 PATH: /projects/console/convert
 PATH: /projects/console/su-scripts
 PATH: /projects/console/session-handlers
-PATH: /programs/bin
-PATH: /programs/Mozilla/Firefox3/32bit/Nightly
-PATH: /programs/Mozilla/Thunderbird3/32bit/Nightly
-PATH: /programs/Mozilla/Thunderbird3/32bit/Stable
-PATH: /programs/gizmo-project-3.1.0.79
-PATH: /programs/carrier-2.5.0
-PATH: /programs/skype_static-2.0.0.72-oss
-PATH: /programs/ion/3-20080825/bin
-PATH: /programs/linphone/3.0-cvs/2008-09-11/bin
-PATH: .
-PATH: /bin
-PATH: /usr/bin
-PATH: /usr/local/bin
-PATH: /sbin
-PATH: /usr/sbin
-PATH: /usr/local/sbin
-PATH: /etc/init.d
-PATH: /projects/www/Alacast/bin
-PATH: /projects/www/Alacast/bin/support/gpodder
-PATH: /projects/gtk/GTK-PHP-IDE/bin
-PATH: /projects/media/game-design/raydium/bin
-PATH: .
-PATH: /projects/console
-PATH: /projects/console/scripts
-PATH: /projects/console/permissions
-PATH: /projects/console/C-programs
-PATH: /projects/console/C-programs/stdin-catcher
-PATH: /projects/console/logs
-PATH: /projects/console/backup-scripts
-PATH: /projects/console/helper-scripts
-PATH: /projects/console/tcshrc
-PATH: /projects/console/convert
-PATH: /projects/console/su-scripts
-PATH: /projects/console/session-handlers
-PATH: /programs/bin
-PATH: /programs/Mozilla/Firefox3/32bit/Nightly
-PATH: /programs/Mozilla/Thunderbird3/32bit/Nightly
-PATH: /programs/Mozilla/Thunderbird3/32bit/Stable
-PATH: /programs/gizmo-project-3.1.0.79
-PATH: /programs/carrier-2.5.0
-PATH: /programs/skype_static-2.0.0.72-oss
-PATH: /programs/ion/3-20080825/bin
-PATH: /programs/linphone/3.0-cvs/2008-09-11/bin
 PATH: .
 
 
@@ -889,7 +896,6 @@ config.status:812: creating pixmaps/Makefile
 config.status:812: creating po/Makefile.in
 config.status:812: creating src/Makefile
 config.status:878: creating config.h
-config.status:1002: config.h is unchanged
 config.status:1182: executing depfiles commands
 config.status:1182: executing intltool commands
 config.status:1182: executing default-1 commands

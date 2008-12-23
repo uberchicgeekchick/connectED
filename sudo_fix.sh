@@ -1,9 +1,9 @@
 #!/bin/sh
 prefix=`dirname "$0"`"/data"
-shared_dir="/usr/share/gtk-php-ide"
+shared_dir="/usr/share/GTK-PHP-IDE"
 
 if [ ! -s "$prefix/php-gtk-php-ide.api" ]; then
-	ln -sf "$prefix/php-function-reference.api" "$prefix/php-gtk-php-ide.api"
+	ln -sf "$prefix/php-function-reference.api" "$shared_dir/php-gtk-php-ide.api"
 fi
 
 if [ ! -s "$shared_dir" ]; then

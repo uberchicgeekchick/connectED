@@ -4,7 +4,7 @@ INCLUDES = \
 	$(GTKPHPIDE_CFLAGS)	\
 	-I$(top_srcdir)/src/gtkscintilla2 \
 	-g -Wall -DGTK -DSCI_LEXER \
-	-DPHP_FUNCTION_REFERENCE=\""$(datadir)/share/gtk_php_ide/php-function-reference.api"\" \
+	-DPHP_FUNCTION_REFERENCE=\""$(datadir)/GTK-PHP-IDE/php-function-reference.api"\" \
 	-DPHP_IDE_PREFIX=\""$(datadir)"\" \
 	-DPIXMAP_DIR=\""$(datadir)/pixmaps"\"
 
