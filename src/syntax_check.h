@@ -29,8 +29,11 @@
 
 #include "main.h"
 
+#define E_PHP_SYNTAX_CLI_NOT_FOUND -60000
+#define E_PHP_SYNTAX_NO_OPEN_FILES -61001
+#define E_PHP_SYNTAX_ERROR -60001
 
-void syntax_check_run(void);
+int syntax_check_run(void);
 
 
 

@@ -29,76 +29,64 @@
 #include "main_window.h"
 #include "main_window_callbacks.h"
 
-gchar *run_php_lint(gchar *command_line)
-{
-	gboolean result;
+gchar *run_php_lint(gchar *command_line, gboolean return_error){
 	gchar *stdout;
+	gchar *stderr;
 	gint exit_status;
 	GError *error;
+	
+	error=NULL;
 
-	error = NULL;
-
-	result = g_spawn_command_line_sync (command_line,
-	                                    &stdout, NULL, &exit_status, &error);
-
-	if (!result) {
+	if( !(g_spawn_command_line_sync(command_line, &stdout, &stderr, &exit_status, &error)) )
 		return NULL;
-	}
-	return stdout;
-}
+	
+	return ( return_error ? stderr : stdout );
+}//run_php_lint
 
 
-void syntax_add_lines(gchar *output)
-{
+void syntax_add_lines(gchar *output){
 	GtkTreeIter   iter;
 	gchar *copy;
 	gchar *token;
-	gchar *line_number;
-	gchar *first_error = NULL;
+	int line_number;
+	int first_error;
 	gint line_start;
 	gint line_end;
 	gint indent;
+	
+	line_number=0;
+	first_error=0;
+	copy=output;
 
-	first_error = 0;
-	copy = output;
+	while( (token = strtok(copy, "\n")) ) {
+		if( ((strncmp(token, "PHP Warning:  ", MIN(strlen(token), 14))!=0)) && ((strncmp(token, "Content-type", MIN(strlen(token), 12))!=0)) ) { 
+			gtk_list_store_append(main_window.lint_store, &iter);
+			gtk_list_store_set(main_window.lint_store, &iter, 0, token, -1);
+	
+			line_number = atoi( (strrchr(token, ' ')) );
+	
+			if(line_number<=0) g_print("Line number is %d\n", line_number);
 
-	while ((token = strtok(copy, "\n"))) {
-		if ((strncmp(token, "PHP Warning:  ", MIN(strlen(token), 14))!=0) && (strncmp(token, "Content-type", MIN(strlen(token), 12))!=0)) { 
-			gtk_list_store_append (main_window.lint_store, &iter);
-			gtk_list_store_set (main_window.lint_store, &iter, 0, token, -1);
+			if(!first_error) first_error = line_number;
+
+			indent = gtk_scintilla_get_line_indentation(GTK_SCINTILLA(main_window.current_editor->scintilla), line_number);
+
+			line_start = gtk_scintilla_position_from_line(GTK_SCINTILLA(main_window.current_editor->scintilla), line_number);
+			line_start += indent / preferences.indentation_size;
 	
-			line_number = strrchr(token, ' ');
-			line_number++;
+			line_end = gtk_scintilla_get_line_end_position(GTK_SCINTILLA(main_window.current_editor->scintilla), line_number);
 	
-			if (atoi(line_number)>0) {
-				if (!first_error) {
-					first_error = line_number;
-				}
-				indent = gtk_scintilla_get_line_indentation(GTK_SCINTILLA(main_window.current_editor->scintilla), atoi(line_number)-1);
-	
-				line_start = gtk_scintilla_position_from_line(GTK_SCINTILLA(main_window.current_editor->scintilla), atoi(line_number)-1);
-				line_start += (indent/preferences.indentation_size);
-	
-				line_end = gtk_scintilla_get_line_end_position(GTK_SCINTILLA(main_window.current_editor->scintilla), atoi(line_number)-1);
-	
-				gtk_scintilla_start_styling(GTK_SCINTILLA(main_window.current_editor->scintilla), line_start, 128);
-				gtk_scintilla_set_styling(GTK_SCINTILLA(main_window.current_editor->scintilla), line_end-line_start, INDIC2_MASK);
-			}
-			else {
-				g_print("Line number is 0\n");
-			}
+			gtk_scintilla_start_styling(GTK_SCINTILLA(main_window.current_editor->scintilla), line_start, 128);
+			gtk_scintilla_set_styling(GTK_SCINTILLA(main_window.current_editor->scintilla), line_end-line_start, INDIC2_MASK);
 		}
 		copy = NULL;
 	}
 
-	if (first_error) {
-		goto_line(first_error);
-	}
-}
+	if(first_error) goto_line_int(first_error);
+}//syntax_add_lines
 
 
-GString *save_as_temp_file(void)
-{
+GString *save_as_temp_file(void) {
 	gchar *write_buffer = NULL;
 	gsize text_length;
 	gint status;
@@ -107,22 +95,22 @@ GString *save_as_temp_file(void)
 	int file_handle;
 
 	file_handle = g_file_open_tmp("gtk_php_ideXXXXXX",&rawfilename,NULL);
-	if (file_handle != -1) {
+	if(file_handle != -1) {
 		filename = g_string_new(rawfilename);
 		
 		text_length = gtk_scintilla_get_length(GTK_SCINTILLA(main_window.current_editor->scintilla));
 		write_buffer = g_malloc0(text_length+1); // Include terminating null
 
-		if (write_buffer == NULL) {
-			g_warning ("%s", _("Cannot allocate write buffer"));
+		if(write_buffer == NULL) {
+			g_warning("%s", _("Cannot allocate write buffer"));
 			return NULL;
 		}
 		
 		gtk_scintilla_get_text(GTK_SCINTILLA(main_window.current_editor->scintilla), text_length+1, write_buffer);
 	
-		status = write (file_handle, write_buffer, text_length+1);
+		status = write(file_handle, write_buffer, text_length+1);
 		
-		g_free (write_buffer);
+		g_free(write_buffer);
 		g_free(rawfilename);
 		close(file_handle);
 
@@ -130,71 +118,75 @@ GString *save_as_temp_file(void)
 	}
 	
 	return NULL;
-}
+}//save_as_temp_file
 
-
-void syntax_check_run(void)
-{
+int syntax_check_run(void) {
 	GtkTreeIter iter;
 	GString *command_line;
-	gchar *output;
-	gboolean using_temp;
+	gchar *stderr;
+	gchar *stdout;
 	GString *filename;
+	GError *error;
+	gboolean using_temp;
+
+	stdout=NULL;
+	stderr=NULL;
+
+	error=NULL;
+	int return_code=0;
 	
-	/* Tim: this doesn't work if php_binary_location is not an absolute path 
-
-	struct stat *buf = NULL;
-	if (stat(preferences.php_binary_location, buf)==-1) {
-		g_print("PHP command line binary not found.\n");
-	}
-	else */
-	if (main_window.current_editor) {
-		if (main_window.current_editor->saved==TRUE) {
-			filename = g_string_new(editor_convert_to_local(main_window.current_editor));
-			using_temp = FALSE;
-		}
-		else {
-			filename = save_as_temp_file();
-			using_temp = TRUE;
-		}
-
-		command_line = g_string_new(preferences.php_binary_location);
-		command_line = g_string_append(command_line, " -q -l -d html_errors=Off -f ");
-		command_line = g_string_append(command_line, filename->str);
-
-		//g_print("%s\n", command_line->str);
-
-		output = run_php_lint(command_line->str);
-		g_string_free(command_line, TRUE);
-
-		
-		main_window.lint_store = gtk_list_store_new (1, G_TYPE_STRING);
-
-		gtk_scintilla_start_styling(GTK_SCINTILLA(main_window.current_editor->scintilla), 0, INDIC2_MASK);
-		gtk_scintilla_set_styling(GTK_SCINTILLA(main_window.current_editor->scintilla),
-		                          gtk_scintilla_get_length(GTK_SCINTILLA(main_window.current_editor->scintilla)), 0);
-
+	if(!main_window.current_editor) {
+		// No 'working' files.
+		main_window.lint_store = gtk_list_store_new(1, G_TYPE_STRING);
 		gtk_list_store_clear(main_window.lint_store);
-		if (output) {
-			syntax_add_lines(output);
-			g_free(output);
-		}
-		else {
-			gtk_list_store_append (main_window.lint_store, &iter);
-			gtk_list_store_set (main_window.lint_store, &iter, 0, _("Error calling PHP CLI (is PHP command line binary installed? If so, check if it's in your path or set php_binary in ~/.gnome2/GTK-PHP-IDE)\n"), -1);
-		}
+		gtk_list_store_append(main_window.lint_store, &iter);
+		gtk_list_store_set(main_window.lint_store, &iter, 0, _("You don't have any files open to check\n"), -1);
 		gtk_tree_view_set_model(GTK_TREE_VIEW(main_window.lint_view), GTK_TREE_MODEL(main_window.lint_store));
+		return E_PHP_SYNTAX_NO_OPEN_FILES;
+	}
+
+	if(main_window.current_editor->saved==TRUE) {
+		filename = g_string_new(editor_convert_to_local(main_window.current_editor));
+		using_temp = FALSE;
+	} else {
+		filename = save_as_temp_file();
+		using_temp = TRUE;
+	}
+
+	command_line = g_string_new(preferences.php_binary_location);
+	command_line = g_string_append(command_line, " -q -l -d html_errors=Off -f ");
+	command_line = g_string_append(command_line, filename->str);
+
+	stdout=run_php_lint(command_line->str, FALSE);
+	stderr=run_php_lint(command_line->str, TRUE);
+	g_string_free(command_line, TRUE);
+	
+	
+	main_window.lint_store = gtk_list_store_new(1, G_TYPE_STRING);
+	
+	gtk_scintilla_start_styling(GTK_SCINTILLA(main_window.current_editor->scintilla), 0, INDIC2_MASK);
+	gtk_scintilla_set_styling(GTK_SCINTILLA(main_window.current_editor->scintilla),
+					gtk_scintilla_get_length(GTK_SCINTILLA(main_window.current_editor->scintilla)), 0);
+	
+	gtk_list_store_clear(main_window.lint_store);
+	return_code=0;
+	if(stdout||stderr) {
+		gtk_list_store_append(main_window.lint_store, &iter);
+		gtk_list_store_set(main_window.lint_store, &iter, 0, _(stdout), -1);
+		syntax_add_lines(stderr);
+		return_code = E_PHP_SYNTAX_ERROR;
+	} else {
+		gtk_list_store_append(main_window.lint_store, &iter);
+		gtk_list_store_set(main_window.lint_store, &iter, 0, _("Error calling PHP CLI.  Is PHP command line binary installed? If so, check if it's in your path or set php_binary in ~/.gnome2/GTK-PHP-IDE.\n"), -1);
+		return_code = E_PHP_SYNTAX_CLI_NOT_FOUND;
+	}
+	g_free(stdout);
+	g_free(stderr);
 		
-		if (using_temp) {
-			unlink(filename->str);
-		}
-		g_string_free(filename, TRUE);
-	}
-	else {
-		main_window.lint_store = gtk_list_store_new (1, G_TYPE_STRING);
-		gtk_list_store_clear(main_window.lint_store);
-		gtk_list_store_append (main_window.lint_store, &iter);
-		gtk_list_store_set (main_window.lint_store, &iter, 0, _("You don't have any files open to check\n"), -1);
-		gtk_tree_view_set_model(GTK_TREE_VIEW(main_window.lint_view), GTK_TREE_MODEL(main_window.lint_store));
-	}
-}
+	gtk_tree_view_set_model(GTK_TREE_VIEW(main_window.lint_view), GTK_TREE_MODEL(main_window.lint_store));
+		
+	if(using_temp) unlink(filename->str);
+	g_string_free(filename, TRUE);
+
+	return return_code;
+}//syntax_check
