@@ -31,9 +31,11 @@
 
 gchar *run_php_lint(gchar *command_line, gboolean return_error){
 	gchar *stdout;
-	gchar *stderr;
+	static gchar *stderr;
 	gint exit_status;
 	GError *error;
+
+	if( return_error && stderr ) return stderr;
 	
 	error=NULL;
 
