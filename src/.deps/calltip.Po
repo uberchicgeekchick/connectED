@@ -479,7 +479,7 @@ calltip.o: calltip.c /usr/include/stdio.h /usr/include/features.h \
   /usr/include/libgnomeui-2.0/libgnomeui/gnome-password-dialog.h \
   /usr/include/libgnomeui-2.0/libgnomeui/gnome-help.h \
   /usr/include/libgnomeui-2.0/libgnomeui/gnome-url.h \
-  ../src/gtkscintilla2/gtkscintilla.h ../config.h
+  ../src/gtkscintilla2/gtkscintilla.h ../config.h prefix.h
 
 /usr/include/stdio.h:
 
@@ -1566,3 +1566,5 @@ main.h:
 ../src/gtkscintilla2/gtkscintilla.h:
 
 ../config.h:
+
+prefix.h:

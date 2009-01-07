@@ -65,7 +65,7 @@ void syntax_add_lines(gchar *output){
 			gtk_list_store_append(main_window.lint_store, &iter);
 			gtk_list_store_set(main_window.lint_store, &iter, 0, token, -1);
 	
-			line_number = atoi( (strrchr(token, ' ')) );
+			line_number = (atoi( (strrchr(token, ' ')) )) -1;
 	
 			if(line_number<=0) g_print("Line number is %d\n", line_number);
 
@@ -182,12 +182,13 @@ int syntax_check_run(void) {
 		gtk_list_store_set(main_window.lint_store, &iter, 0, _("Error calling PHP CLI.  Is PHP command line binary installed? If so, check if it's in your path or set php_binary in ~/.gnome2/GTK-PHP-IDE.\n"), -1);
 		return_code = E_PHP_SYNTAX_CLI_NOT_FOUND;
 	}
-	g_free(stdout);
-	g_free(stderr);
-		
 	gtk_tree_view_set_model(GTK_TREE_VIEW(main_window.lint_view), GTK_TREE_MODEL(main_window.lint_store));
 		
 	if(using_temp) unlink(filename->str);
+	
+	g_free(stdout);
+	g_free(stderr);
+		
 	g_string_free(filename, TRUE);
 
 	return return_code;

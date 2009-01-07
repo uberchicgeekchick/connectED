@@ -573,7 +573,7 @@ main_window_callbacks.o: main_window_callbacks.c ../config.h \
   /usr/include/libgnomeui-2.0/libgnomeui/gnome-url.h \
   ../src/gtkscintilla2/gtkscintilla.h tab.h /usr/include/fcntl.h \
   /usr/include/bits/fcntl.h classbrowser.h preferences.h \
-  classbrowser_parse.h main_window.h calltip.h syntax_check.h \
+  classbrowser_parse.h main_window.h prefix.h calltip.h syntax_check.h \
   find_replace.h preferences_dialog.h tab_php.h tab_css.h tab_sql.h \
   templates.h
 
@@ -1882,6 +1882,8 @@ preferences.h:
 classbrowser_parse.h:
 
 main_window.h:
+
+prefix.h:
 
 calltip.h:
 

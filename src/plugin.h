@@ -32,6 +32,7 @@
 void plugin_setup_menu(void);
 void plugin_exec(gint plugin_num);
 
+#define GTKPHPIDE_PLUGIN_TYPE_ERROR -1
 #define GTKPHPIDE_PLUGIN_TYPE_UNKNOWN 0
 #define GTKPHPIDE_PLUGIN_TYPE_NOINPUT 1
 #define GTKPHPIDE_PLUGIN_TYPE_SELECTION 2

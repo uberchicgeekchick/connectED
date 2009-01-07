@@ -572,7 +572,7 @@ plugin.o: plugin.c plugin.h main.h /usr/include/libgnomeui-2.0/gnome.h \
   /usr/include/gnome-vfs-2.0/libgnomevfs/gnome-vfs-enum-types.h \
   /usr/include/gnome-vfs-2.0/libgnomevfs/gnome-vfs-standard-callbacks.h \
   classbrowser.h preferences.h classbrowser_parse.h main_window.h \
-  calltip.h syntax_check.h
+  prefix.h calltip.h syntax_check.h
 
 plugin.h:
 
@@ -1881,6 +1881,8 @@ preferences.h:
 classbrowser_parse.h:
 
 main_window.h:
+
+prefix.h:
 
 calltip.h:
 

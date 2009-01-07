@@ -34,9 +34,28 @@
  * ---------------------------------------------------------------------------
  */
 
-#ifndef CONNECTED_COMMENTS_H
-	#define CONNECTED_COMMENTS_H
-	gchar *about_connectED = "connectED is a colaborative and social networking IDE for GTK+/GNOME.";
+#ifndef PREFIX_H
+#define PREFIX_H
+#endif
+
+#ifndef HAVE_IDE_PREFIX_H
+#define HAVE_IDE_PREFIX_H
+#endif
+
+#ifndef PHP_IDE_PREFIX
+#define PHP_IDE_PREFIX "/usr"
+#endif
+
+#ifndef PHP_IDE_DATADIR
+#define PHP_IDE_DATADIR "/usr/share"
+#endif
+
+#ifndef PHP_FUNCTION_REFERENCE
+#define PHP_FUNCTION_REFERENCE "/usr/share/GTK-PHP-IDE/php-function-reference.api"
+#endif
+
+#ifndef PIXMAP_DIR
+#define PIXMAP_DIR "/usr/share/pixmaps"
 #endif
 
 

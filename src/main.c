@@ -38,26 +38,24 @@
 GnomeProgram* gtk_php_ide_program;
 
 
-int main (int argc, char **argv)
-{
+int main(int argc, char **argv){
 	//GError *error;
 	gboolean vfs_inited;
 
-	bindtextdomain (GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
-	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
-	textdomain (GETTEXT_PACKAGE);
+	bindtextdomain(GETTEXT_PACKAGE, PACKAGE_LOCALE_DIR);
+	bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
+	textdomain(GETTEXT_PACKAGE);
 
-	gtk_php_ide_program = gnome_program_init ("GTK-PHP-IDE", VERSION, LIBGNOMEUI_MODULE,
-	                                       argc, argv, NULL);
+	gtk_php_ide_program = gnome_program_init("GTK-PHP-IDE", VERSION, LIBGNOMEUI_MODULE, argc, argv, NULL);
 
 	vfs_inited = gnome_vfs_init();
 	g_assert(vfs_inited);
 
 	preferences_load();
 
-    /* Start of IPC communication */
-    if (preferences.single_instance_only && poke_existing_instance (argc - 1, argv + 1))
-        return 0;
+	// Start of IPC communication
+	if(preferences.single_instance_only && (poke_existing_instance(argc - 1, argv + 1)) )
+	        return 0;
 
 	main_window_create();
 
@@ -66,16 +64,15 @@ int main (int argc, char **argv)
 	template_db_open();
 	main_window_open_command_line_files(argv, argc);
 
-	if (main_window.current_editor == NULL) {
+	if(main_window.current_editor == NULL)
 		session_reopen();
-	}
 
 	create_untitled_if_empty();
 
 	gtk_main();
 
-	/* it makes sense to install sigterm handler that would call this too */
-    shutdown_ipc ();
+	// it makes sense to install sigterm handler that would call this too.
+	shutdown_ipc();
 
 	return 0;
-}
+}//main

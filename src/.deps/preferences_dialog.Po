@@ -571,7 +571,7 @@ preferences_dialog.o: preferences_dialog.c preferences_dialog.h main.h \
   /usr/include/gnome-vfs-2.0/libgnomevfs/gnome-vfs-enum-types.h \
   /usr/include/gnome-vfs-2.0/libgnomevfs/gnome-vfs-standard-callbacks.h \
   classbrowser.h preferences.h classbrowser_parse.h tab_css.h tab_sql.h \
-  main_window.h calltip.h templates.h edit_template.h
+  main_window.h prefix.h calltip.h templates.h edit_template.h
 
 preferences_dialog.h:
 
@@ -1878,6 +1878,8 @@ tab_css.h:
 tab_sql.h:
 
 main_window.h:
+
+prefix.h:
 
 calltip.h:
 

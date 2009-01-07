@@ -27,13 +27,13 @@
 #ifndef MAIN_WINDOW_H
 #define MAIN_WINDOW_H
 
+#include "prefix.h"
 #include "main.h"
 #include "calltip.h"
 #include "tab.h"
 
 
-typedef struct
-{
+typedef struct {
 	GtkWidget *window;
 
 	GtkWidget *toolbar_main;
@@ -87,8 +87,7 @@ typedef struct
 	GtkWidget *label3;*/
 	
 	GtkClipboard* clipboard;
-}
-MainWindow;
+} MainWindow;
 
 
 #define CB_ITEM_TYPE_CLASS 1

@@ -511,8 +511,8 @@ main.o: main.c ../config.h \
   /usr/include/libgnomeui-2.0/libgnomeui/gnome-password-dialog.h \
   /usr/include/libgnomeui-2.0/libgnomeui/gnome-help.h \
   /usr/include/libgnomeui-2.0/libgnomeui/gnome-url.h \
-  ../src/gtkscintilla2/gtkscintilla.h main_window.h calltip.h tab.h \
-  /usr/include/fcntl.h /usr/include/bits/fcntl.h \
+  ../src/gtkscintilla2/gtkscintilla.h main_window.h prefix.h calltip.h \
+  tab.h /usr/include/fcntl.h /usr/include/bits/fcntl.h \
   /usr/include/gtkhtml-2.0/libgtkhtml/gtkhtml.h \
   /usr/include/gtkhtml-2.0/libgtkhtml/gtkhtmlcontext.h \
   /usr/include/gtkhtml-2.0/libgtkhtml/util/htmlatomlist.h \
@@ -1740,6 +1740,8 @@ main.h:
 ../src/gtkscintilla2/gtkscintilla.h:
 
 main_window.h:
+
+prefix.h:
 
 calltip.h:
 

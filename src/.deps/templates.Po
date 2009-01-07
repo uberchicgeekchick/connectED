@@ -1,4 +1,4 @@
-templates.o: templates.c main_window.h main.h \
+templates.o: templates.c main_window.h prefix.h main.h \
   /usr/include/libgnomeui-2.0/gnome.h /usr/include/gtk-2.0/gtk/gtk.h \
   /usr/include/gtk-2.0/gdk/gdk.h /usr/include/gtk-2.0/gdk/gdkcairo.h \
   /usr/include/gtk-2.0/gdk/gdkcolor.h /usr/include/cairo/cairo.h \
@@ -577,6 +577,8 @@ templates.o: templates.c main_window.h main.h \
   plugin.h templates.h
 
 main_window.h:
+
+prefix.h:
 
 main.h:
 

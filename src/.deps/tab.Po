@@ -570,7 +570,7 @@ tab.o: tab.c ../src/gtkscintilla2/gtkscintilla.h \
   /usr/include/libgnomeui-2.0/libgnomeui/gnome-help.h \
   /usr/include/libgnomeui-2.0/libgnomeui/gnome-url.h classbrowser.h \
   preferences.h classbrowser_parse.h tab_php.h tab_css.h tab_sql.h \
-  tab_cxx.h tab_perl.h tab_python.h calltip.h main_window.h \
+  tab_cxx.h tab_perl.h tab_python.h calltip.h main_window.h prefix.h \
   main_window_callbacks.h \
   /usr/include/gtkhtml-2.0/libgtkhtml/layout/htmlboxtext.h \
   /usr/include/gtkhtml-2.0/libgtkhtml/layout/htmlbox.h syntax_check.h \
@@ -1887,6 +1887,8 @@ tab_python.h:
 calltip.h:
 
 main_window.h:
+
+prefix.h:
 
 main_window_callbacks.h:
 

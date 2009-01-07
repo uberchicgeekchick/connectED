@@ -569,7 +569,8 @@ classbrowser.o: classbrowser.c classbrowser.h /usr/include/sys/types.h \
   /usr/include/gnome-vfs-2.0/libgnomevfs/gnome-vfs-volume-monitor.h \
   /usr/include/gnome-vfs-2.0/libgnomevfs/gnome-vfs-enum-types.h \
   /usr/include/gnome-vfs-2.0/libgnomevfs/gnome-vfs-standard-callbacks.h \
-  classbrowser_parse.h main_window.h calltip.h main_window_callbacks.h \
+  classbrowser_parse.h main_window.h prefix.h calltip.h \
+  main_window_callbacks.h \
   /usr/include/gtkhtml-2.0/libgtkhtml/layout/htmlboxtext.h \
   /usr/include/gtkhtml-2.0/libgtkhtml/layout/htmlbox.h syntax_check.h \
   /usr/include/dirent.h /usr/include/bits/dirent.h
@@ -1871,6 +1872,8 @@ tab.h:
 classbrowser_parse.h:
 
 main_window.h:
+
+prefix.h:
 
 calltip.h:
 

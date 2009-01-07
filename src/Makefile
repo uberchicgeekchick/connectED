@@ -184,7 +184,8 @@ INCLUDES = \
 	-I$(top_srcdir)/src/gtkscintilla2 \
 	-g -Wall -DGTK -DSCI_LEXER \
 	-DPHP_FUNCTION_REFERENCE=\""$(datadir)/GTK-PHP-IDE/php-function-reference.api"\" \
-	-DPHP_IDE_PREFIX=\""$(datadir)"\" \
+	-DPHP_IDE_PREFIX=\""$(prefix)"\" \
+	-DPHP_IDE_DATADIR=\""$(datadir)"\" \
 	-DPIXMAP_DIR=\""$(datadir)/pixmaps"\"
 
 

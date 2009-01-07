@@ -30,8 +30,8 @@
 #include <config.h>
 #endif
 
-#ifndef PHP_FUNCTION_REFERENCE
-#define PHP_FUNCTION_REFERENCE "/usr/share/GTK-PHP-IDE/php-function-reference.api"
+#ifndef HAVE_IDE_PREFIX_H
+#include "prefix.h"
 #endif
 
 GSList *api_list;
