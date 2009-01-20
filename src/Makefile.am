@@ -1,15 +1,15 @@
-bin_PROGRAMS = GTK-PHP-IDE
+bin_PROGRAMS = connectED
 
 INCLUDES = \
-	$(GTKPHPIDE_CFLAGS)	\
+	$(connectED_CFLAGS)	\
 	-I$(top_srcdir)/src/gtkscintilla2 \
 	-g -Wall -DGTK -DSCI_LEXER \
-	-DPHP_FUNCTION_REFERENCE=\""$(datadir)/GTK-PHP-IDE/php-function-reference.api"\" \
-	-DPHP_IDE_PREFIX=\""$(datadir)"\" \
+	-DPHP_FUNCTION_REFERENCE=\""$(datadir)/connectED/php-function-reference.api"\" \
+	-DCONNECTED_PREFIX=\""$(datadir)"\" \
 	-DPIXMAP_DIR=\""$(datadir)/pixmaps"\"
 
-nodist_EXTRA_gtk_php_ide_SOURCES = dummy.cxx
-GTK_PHP_IDE_SOURCES = \
+nodist_EXTRA_connectED_SOURCES = dummy.cxx
+connectED_SOURCES = \
 	calltip.c		\
 	calltip.h		\
 	classbrowser.c		\
@@ -20,8 +20,8 @@ GTK_PHP_IDE_SOURCES = \
 	edit_template.h		\
 	find_replace.c		\
 	find_replace.h		\
-	gtk_php_ide_ipc.c		\
-	gtk_php_ide_ipc.h		\
+	connectED_ipc.c		\
+	connectED_ipc.h		\
 	grel2abs.c		\
 	grel2abs.h		\
 	plugin.c		\
@@ -61,7 +61,7 @@ GTK_PHP_IDE_SOURCES = \
 gtkscintilla2/libgtkscintilla2.a:
 	cd gtkscintilla2 && $(MAKE) libgtkscintilla2.a && cd ..
 
-GTK_PHP_IDE_LDADD = \
-	$(GTKPHPIDE_LIBS)\
+connectED_LDADD = \
+	$(connectED_LIBS)\
 	gtkscintilla2/libgtkscintilla2.a\
 	gtkscintilla2/scintilla/bin/scintilla.a

@@ -1,4 +1,4 @@
-/* This file is part of http://GTK-PHP-IDE/, a GNOME2 PHP Editor.
+/* This file is part of http://connectED/, a GNOME2 PHP Editor.
  
    Copyright (C) 2008 Kaity G. B.
  uberChick@uberChicGeekChick.Com
@@ -51,7 +51,7 @@ void session_save(void)
 	FILE *fp;
 
 	session_file = g_string_new( g_get_home_dir());
-	session_file = g_string_append(session_file, "/.gtk_php_ide/session");
+	session_file = g_string_append(session_file, "/.connectED/session");
 	
 	unlink(session_file->str);
 	
@@ -100,7 +100,7 @@ void session_reopen(void)
 	GString *target;
 
 	session_file = g_string_new( g_get_home_dir());
-	session_file = g_string_append(session_file, "/.gtk_php_ide/session");
+	session_file = g_string_append(session_file, "/.connectED/session");
 	
 	if (g_file_exists(session_file->str)) {
 		fp = fopen(session_file->str, "r");
@@ -165,8 +165,8 @@ void quit_application()
 
 void main_window_destroy_event(GtkWidget *widget, gpointer data)
 {
-	//g_io_channel_unref(inter_gtk_php_ide_io);
-	//unlink("/tmp/gtk_php_ide.sock");
+	//g_io_channel_unref(inter_connectED_io);
+	//unlink("/tmp/connectED.sock");
 	quit_application();
 	
 	// Old code had a main_window_delete_event call in here, not necessary, Gtk/GNOME does that anyway...
@@ -250,7 +250,7 @@ void main_window_resize(GtkWidget *widget, GtkAllocation *allocation, gpointer u
 void main_window_state_changed(GtkWidget *widget, GdkEventWindowState *event, gpointer user_data)
 {
 	gboolean maximized = GDK_WINDOW_STATE_MAXIMIZED && event->new_window_state;
-	gnome_config_set_bool("GTK-PHP-IDE/main_window/maximized", maximized);
+	gnome_config_set_bool("connectED/main_window/maximized", maximized);
 	gnome_config_sync();
 }
 
@@ -376,7 +376,7 @@ void reopen_recent(GtkWidget *widget, gpointer data)
 	gchar *filename;
 	GString *key;
 	
-	key = g_string_new("GTK-PHP-IDE/recent/");
+	key = g_string_new("connectED/recent/");
 	g_string_append_printf(key, "%d=NOTFOUND", (gint)data); // Back to being gint from gulong due to compiler warning
 	filename = gnome_config_get_string (key->str);
 	g_string_free(key, TRUE);
@@ -490,7 +490,7 @@ void on_open1_activate(GtkWidget *widget)
 	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER(file_selection_box), FALSE);
 	gtk_dialog_set_default_response (GTK_DIALOG(file_selection_box), GTK_RESPONSE_ACCEPT);	
 	
-	last_opened_folder = gnome_config_get_string("GTK-PHP-IDE/general/last_opened_folder=NOTFOUND");
+	last_opened_folder = gnome_config_get_string("connectED/general/last_opened_folder=NOTFOUND");
 	if (DEBUG_MODE) { g_print("DEBUG: main_window_callbacks.c:on_open1_activate:last_opened_folder: %s\n", last_opened_folder); }
 	
 	/* opening of multiple files at once */
@@ -658,7 +658,7 @@ void on_save_as1_activate(GtkWidget *widget)
 		gtk_file_chooser_set_do_overwrite_confirmation (GTK_FILE_CHOOSER(file_selection_box), TRUE);
 		gtk_dialog_set_default_response (GTK_DIALOG(file_selection_box), GTK_RESPONSE_ACCEPT);
 	
-		last_opened_folder = gnome_config_get_string("GTK-PHP-IDE/general/last_opened_folder=NOTFOUND");
+		last_opened_folder = gnome_config_get_string("connectED/general/last_opened_folder=NOTFOUND");
 		if (DEBUG_MODE) { g_print("DEBUG: main_window_callbacks.c:on_save_as1_activate:last_opened_folder: %s\n", last_opened_folder); }
 	
 		if (main_window.current_editor) {
@@ -1195,7 +1195,7 @@ void on_about1_activate(GtkWidget *widget)
 {
 	const gchar *authors[] = {
 	                             "Primary Developer/Team Lead:",
-								 "Andy Jeffries <andy@gtk_php_ide.org>",
+								 "Andy Jeffries <andy@connectED.org>",
 								"",
 								"Assistance with Fixes/Enhancements:",
 				     "Jonh Wendell <wendell@bani.com.br>",
@@ -1211,15 +1211,15 @@ void on_about1_activate(GtkWidget *widget)
 	GdkPixbuf *pixbuf = NULL;
 	GError *error = NULL;
 
-	pixbuf = gdk_pixbuf_new_from_file (PIXMAP_DIR "/" GTKPHPIDE_PIXMAP_ICON, &error);
+	pixbuf = gdk_pixbuf_new_from_file (PIXMAP_DIR "/" connectED_PIXMAP_ICON, &error);
 
 	if (error) {
 		g_warning (G_STRLOC ": cannot open icon: %s", error->message);
 		g_error_free (error);
 	}
-	about = gnome_about_new ("GTK-PHP-IDE", VERSION,
+	about = gnome_about_new ("connectED", VERSION,
 	                         _("Copyright  2003-2006 Andy Jeffries."),
-                         	 _("GTK-PHP-IDE is a GNOME2 editor specialised for editing PHP "
+                         	 _("connectED is a GNOME2 editor specialised for editing PHP "
 	                         "scripts and related files (HTML/CSS/JS)."),
 	                         (const gchar **) authors,
 	                         (const gchar **) documenters,
@@ -1428,7 +1428,7 @@ void classbrowser_show(void)
 {
 	gtk_paned_set_position(GTK_PANED(main_window.main_horizontal_pane),classbrowser_hidden_position);
 	//g_print("Width of class browser is %d\n", classbrowser_hidden_position);
-	gnome_config_set_int ("GTK-PHP-IDE/main_window/classbrowser_hidden",0);
+	gnome_config_set_int ("connectED/main_window/classbrowser_hidden",0);
 	gnome_config_sync();
 	classbrowser_update();
 }
@@ -1436,10 +1436,10 @@ void classbrowser_show(void)
 
 void classbrowser_hide(void)
 {
-	classbrowser_hidden_position = gnome_config_get_int ("GTK-PHP-IDE/main_window/classbrowser_size=100");
+	classbrowser_hidden_position = gnome_config_get_int ("connectED/main_window/classbrowser_size=100");
 	//g_print("Width of class browser is %d\n", classbrowser_hidden_position);
 	gtk_paned_set_position(GTK_PANED(main_window.main_horizontal_pane),0);
-	gnome_config_set_int ("GTK-PHP-IDE/main_window/classbrowser_hidden",1);
+	gnome_config_set_int ("connectED/main_window/classbrowser_hidden",1);
 	gnome_config_sync();
 }
 
@@ -1447,7 +1447,7 @@ void classbrowser_show_hide(GtkWidget *widget)
 {
 	gint hidden;
 	
-	hidden = gnome_config_get_int ("GTK-PHP-IDE/main_window/classbrowser_hidden=0");
+	hidden = gnome_config_get_int ("connectED/main_window/classbrowser_hidden=0");
 	if (hidden == 1)
 		classbrowser_show();
 	else

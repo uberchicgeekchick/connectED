@@ -71,8 +71,8 @@ FFLAGS = @FFLAGS@
 GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
 GMOFILES = @GMOFILES@
 GMSGFMT = @GMSGFMT@
-GTK-PHP-IDE_CFLAGS = @GTK-PHP-IDE_CFLAGS@
-GTK-PHP-IDE_LIBS = @GTK-PHP-IDE_LIBS@
+connectED_CFLAGS = @connectED_CFLAGS@
+connectED_LIBS = @connectED_LIBS@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
@@ -186,14 +186,14 @@ SUBDIRS = \
 
 
 applicationsdir = $(datadir)/applications
-applications_in_files = GTK-PHP-IDE.desktop.in
+applications_in_files = connectED.desktop.in
 applications_DATA = $(applications_in_files:.desktop.in=.desktop)
 
-spec_in_files = GTK-PHP-IDE.spec.in
+spec_in_files = connectED.spec.in
 
 EXTRA_DIST = \
-	GTK-PHP-IDE.spec			\
-	GTK-PHP-IDE.applications		\
+	connectED.spec			\
+	connectED.applications		\
 	$(applications_in_files)	\
 	$(spec_in_files)		\
 	src/gtkscintilla2
@@ -202,7 +202,7 @@ subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = config.h
-CONFIG_CLEAN_FILES = GTK-PHP-IDE.desktop GTK-PHP-IDE.spec
+CONFIG_CLEAN_FILES = connectED.desktop connectED.spec
 DIST_SOURCES =
 DATA = $(applications_DATA)
 
@@ -215,7 +215,7 @@ RECURSIVE_TARGETS = info-recursive dvi-recursive pdf-recursive \
 DIST_COMMON = README $(srcdir)/Makefile.in $(srcdir)/configure AUTHORS \
 	COPYING ChangeLog INSTALL Makefile.am NEWS TODO aclocal.m4 \
 	config.guess config.h.in config.sub configure configure.in \
-	depcomp GTK-PHP-IDE.desktop.in GTK-PHP-IDE.spec.in install-sh \
+	depcomp connectED.desktop.in connectED.spec.in install-sh \
 	ltmain.sh missing mkinstalldirs
 DIST_SUBDIRS = $(SUBDIRS)
 all: config.h
@@ -255,9 +255,9 @@ $(srcdir)/config.h.in: @MAINTAINER_MODE_TRUE@ $(top_srcdir)/configure.in $(ACLOC
 
 distclean-hdr:
 	-rm -f config.h stamp-h1
-GTK-PHP-IDE.desktop: $(top_builddir)/config.status GTK-PHP-IDE.desktop.in
+connectED.desktop: $(top_builddir)/config.status connectED.desktop.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
-GTK-PHP-IDE.spec: $(top_builddir)/config.status GTK-PHP-IDE.spec.in
+connectED.spec: $(top_builddir)/config.status connectED.spec.in
 	cd $(top_builddir) && $(SHELL) ./config.status $@
 
 mostlyclean-libtool:
@@ -595,7 +595,7 @@ install-info: install-info-recursive
 install-man:
 
 install-sudo:
-	sudo ln -s $(datadir)/share/GTK-PHP-IDE /usr/share
+	sudo ln -s $(datadir)/share/connectED /usr/share
 	sudo ln -s $(php_manual) /usr/share/doc/phpmanual
 
 installcheck-am:

@@ -1,4 +1,4 @@
-/* This file is part of http://GTK-PHP-IDE/, a GNOME2 PHP Editor.
+/* This file is part of http://connectED/, a GNOME2 PHP Editor.
 
    Copyright (C) 2008 Kaity G. B.
  uberChick@uberChicGeekChick.Com
@@ -25,7 +25,7 @@
 
 
 #include "main.h"
-#include "gtk_php_ide_ipc.h"
+#include "connectED_ipc.h"
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -38,8 +38,8 @@
 #include <stdlib.h>
 
 
-#define PIPE_PREFIX         "%s-gtk_php_ide-"
-#define PIPE_PREFIX_FULL    "%s-gtk_php_ide-%d"
+#define PIPE_PREFIX         "%s-connectED-"
+#define PIPE_PREFIX_FULL    "%s-connectED-%d"
 #define MAX_BUFFER_SIZE 4096
 
 

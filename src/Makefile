@@ -17,9 +17,9 @@
 srcdir = .
 top_srcdir = ..
 
-pkgdatadir = $(datadir)/gtk-php-ide
-pkglibdir = $(libdir)/gtk-php-ide
-pkgincludedir = $(includedir)/gtk-php-ide
+pkgdatadir = $(datadir)/connectED
+pkglibdir = $(libdir)/connectED
+pkgincludedir = $(includedir)/connectED
 top_builddir = ..
 
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
@@ -36,14 +36,14 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 host_triplet = i686-pc-linux-gnu
-ACLOCAL = ${SHELL} /projects/gtk/GTK-PHP-IDE/GTK-PHP-IDE/missing --run aclocal-1.7
+ACLOCAL = ${SHELL} /projects/gtk/connectED/missing --run aclocal-1.7
 AMDEP_FALSE = #
 AMDEP_TRUE = 
-AMTAR = ${SHELL} /projects/gtk/GTK-PHP-IDE/GTK-PHP-IDE/missing --run tar
+AMTAR = ${SHELL} /projects/gtk/connectED/missing --run tar
 AR = ar
-AUTOCONF = ${SHELL} /projects/gtk/GTK-PHP-IDE/GTK-PHP-IDE/missing --run autoconf
-AUTOHEADER = ${SHELL} /projects/gtk/GTK-PHP-IDE/GTK-PHP-IDE/missing --run autoheader
-AUTOMAKE = ${SHELL} /projects/gtk/GTK-PHP-IDE/GTK-PHP-IDE/missing --run automake-1.7
+AUTOCONF = ${SHELL} /projects/gtk/connectED/missing --run autoconf
+AUTOHEADER = ${SHELL} /projects/gtk/connectED/missing --run autoheader
+AUTOMAKE = ${SHELL} /projects/gtk/connectED/missing --run automake-1.7
 AWK = gawk
 CATALOGS = 
 CATOBJEXT = .gmo
@@ -68,11 +68,11 @@ EGREP = grep -E
 EXEEXT = 
 F77 = 
 FFLAGS = 
-GETTEXT_PACKAGE = gtk-php-ide
+GETTEXT_PACKAGE = connectED
 GMOFILES = 
 GMSGFMT = /usr/bin/msgfmt
-GTKPHPIDE_CFLAGS = -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0  
-GTKPHPIDE_LIBS = -pthread -lgnomeui-2 -lSM -lICE -lbonoboui-2 -lgnomecanvas-2 -lgnome-2 -lpopt -lbonobo-2 -lbonobo-activation -lORBit-2 -lart_lgpl_2 -lgnomevfs-2 -lgconf-2 -lgthread-2.0 -lrt -lgtkhtml-2 -lgtk-x11-2.0 -lxml2 -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lpango-1.0 -lcairo -lgobject-2.0 -lgmodule-2.0 -ldl -lglib-2.0  
+connectED_CFLAGS = -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0  
+connectED_LIBS = -pthread -lgnomeui-2 -lSM -lICE -lbonoboui-2 -lgnomecanvas-2 -lgnome-2 -lpopt -lbonobo-2 -lbonobo-activation -lORBit-2 -lart_lgpl_2 -lgnomevfs-2 -lgconf-2 -lgthread-2.0 -lrt -lgtkhtml-2 -lgtk-x11-2.0 -lxml2 -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lpango-1.0 -lcairo -lgobject-2.0 -lgmodule-2.0 -ldl -lglib-2.0  
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
@@ -113,11 +113,11 @@ LTLIBOBJS =
 MAINT = #
 MAINTAINER_MODE_FALSE = 
 MAINTAINER_MODE_TRUE = #
-MAKEINFO = ${SHELL} /projects/gtk/GTK-PHP-IDE/GTK-PHP-IDE/missing --run makeinfo
+MAKEINFO = ${SHELL} /projects/gtk/connectED/missing --run makeinfo
 MKINSTALLDIRS = ./mkinstalldirs
 MSGFMT = /usr/bin/msgfmt
 OBJEXT = o
-PACKAGE = gtk-php-ide
+PACKAGE = connectED
 PACKAGE_BUGREPORT = 
 PACKAGE_NAME = 
 PACKAGE_STRING = 
@@ -164,33 +164,32 @@ host_os = linux-gnu
 host_vendor = pc
 includedir = ${prefix}/include
 infodir = ${prefix}/info
-install_sh = /projects/gtk/GTK-PHP-IDE/GTK-PHP-IDE/install-sh
+install_sh = /projects/gtk/connectED/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localstatedir = ${prefix}/var
 mandir = ${prefix}/man
 mkdir_p = mkdir -p -- .
 oldincludedir = /usr/include
-prefix = /programs/GTK-PHP-IDE
+prefix = /programs/connectED
 program_transform_name = s,x,x,
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
 sysconfdir = ${prefix}/etc
 target_alias = 
-bin_PROGRAMS = GTK-PHP-IDE
+bin_PROGRAMS = connectED
 
 INCLUDES = \
-	$(GTKPHPIDE_CFLAGS)	\
+	$(connectED_CFLAGS)	\
 	-I$(top_srcdir)/src/gtkscintilla2 \
 	-g -Wall -DGTK -DSCI_LEXER \
-	-DPHP_FUNCTION_REFERENCE=\""$(datadir)/GTK-PHP-IDE/php-function-reference.api"\" \
-	-DPHP_IDE_PREFIX=\""$(prefix)"\" \
-	-DPHP_IDE_DATADIR=\""$(datadir)"\" \
+	-DPHP_FUNCTION_REFERENCE=\""$(datadir)/connectED/php-function-reference.api"\" \
+	-DCONNECTED_PREFIX=\""$(datadir)"\" \
 	-DPIXMAP_DIR=\""$(datadir)/pixmaps"\"
 
 
-nodist_EXTRA_gtk_php_ide_SOURCES = dummy.cxx
-gtk_php_ide_SOURCES = \
+nodist_EXTRA_connectED_SOURCES = dummy.cxx
+connectED_SOURCES = \
 	calltip.c		\
 	calltip.h		\
 	classbrowser.c		\
@@ -201,8 +200,8 @@ gtk_php_ide_SOURCES = \
 	edit_template.h		\
 	find_replace.c		\
 	find_replace.h		\
-	gtk_php_ide_ipc.c		\
-	gtk_php_ide_ipc.h		\
+	connectED_ipc.c		\
+	connectED_ipc.h		\
 	grel2abs.c		\
 	grel2abs.h		\
 	plugin.c		\
@@ -240,8 +239,8 @@ gtk_php_ide_SOURCES = \
 	templates.h
 
 
-gtk_php_ide_LDADD = \
-	$(GTKPHPIDE_LIBS)\
+connectED_LDADD = \
+	$(connectED_LIBS)\
 	gtkscintilla2/libgtkscintilla2.a\
 	gtkscintilla2/scintilla/bin/scintilla.a
 
@@ -250,12 +249,12 @@ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
-bin_PROGRAMS = GTK-PHP-IDE$(EXEEXT)
+bin_PROGRAMS = connectED$(EXEEXT)
 PROGRAMS = $(bin_PROGRAMS)
 
-am_gtk_php_ide_OBJECTS = calltip.$(OBJEXT) classbrowser.$(OBJEXT) \
+am_connectED_OBJECTS = calltip.$(OBJEXT) classbrowser.$(OBJEXT) \
 	classbrowser_parse.$(OBJEXT) edit_template.$(OBJEXT) \
-	find_replace.$(OBJEXT) gtk_php_ide_ipc.$(OBJEXT) \
+	find_replace.$(OBJEXT) connectED_ipc.$(OBJEXT) \
 	grel2abs.$(OBJEXT) plugin.$(OBJEXT) main.$(OBJEXT) \
 	main_window.$(OBJEXT) main_window_callbacks.$(OBJEXT) \
 	preferences.$(OBJEXT) preferences_dialog.$(OBJEXT) \
@@ -263,10 +262,10 @@ am_gtk_php_ide_OBJECTS = calltip.$(OBJEXT) classbrowser.$(OBJEXT) \
 	tab_css.$(OBJEXT) tab_perl.$(OBJEXT) tab_php.$(OBJEXT) \
 	tab_python.$(OBJEXT) tab_sql.$(OBJEXT) tab_util.$(OBJEXT) \
 	templates.$(OBJEXT)
-gtk_php_ide_OBJECTS = $(am_gtk_php_ide_OBJECTS)
-gtk_php_ide_DEPENDENCIES = gtkscintilla2/libgtkscintilla2.a \
+connectED_OBJECTS = $(am_connectED_OBJECTS)
+connectED_DEPENDENCIES = gtkscintilla2/libgtkscintilla2.a \
 	gtkscintilla2/scintilla/bin/scintilla.a
-gtk_php_ide_LDFLAGS =
+connectED_LDFLAGS =
 
 DEFAULT_INCLUDES =  -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -276,7 +275,7 @@ DEP_FILES = ./$(DEPDIR)/calltip.Po \
 	./$(DEPDIR)/classbrowser_parse.Po \
 	./$(DEPDIR)/dummy.Po ./$(DEPDIR)/edit_template.Po \
 	./$(DEPDIR)/find_replace.Po \
-	./$(DEPDIR)/gtk_php_ide_ipc.Po ./$(DEPDIR)/grel2abs.Po \
+	./$(DEPDIR)/connectED_ipc.Po ./$(DEPDIR)/grel2abs.Po \
 	./$(DEPDIR)/main.Po ./$(DEPDIR)/main_window.Po \
 	./$(DEPDIR)/main_window_callbacks.Po \
 	./$(DEPDIR)/plugin.Po ./$(DEPDIR)/preferences.Po \
@@ -301,9 +300,9 @@ LTCXXCOMPILE = $(LIBTOOL) --mode=compile $(CXX) $(DEFS) \
 CXXLD = $(CXX)
 CXXLINK = $(LIBTOOL) --mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
-DIST_SOURCES = $(gtk_php_ide_SOURCES)
+DIST_SOURCES = $(connectED_SOURCES)
 DIST_COMMON = $(srcdir)/Makefile.in Makefile.am
-SOURCES = $(gtk_php_ide_SOURCES) $(nodist_EXTRA_gtk_php_ide_SOURCES)
+SOURCES = $(connectED_SOURCES) $(nodist_EXTRA_connectED_SOURCES)
 
 all: all-am
 
@@ -344,9 +343,9 @@ clean-binPROGRAMS:
 	  rm -f $$p $$f ; \
 	done
 
-GTK-PHP-IDE$(EXEEXT): $(gtk_php_ide_OBJECTS) $(gtk_php_ide_DEPENDENCIES) 
-	@rm -f gtk_php_ide$(EXEEXT)
-	$(CXXLINK) $(gtk_php_ide_LDFLAGS) $(gtk_php_ide_OBJECTS) $(gtk_php_ide_LDADD) $(LIBS)
+connectED$(EXEEXT): $(connectED_OBJECTS) $(connectED_DEPENDENCIES) 
+	@rm -f connectED$(EXEEXT)
+	$(CXXLINK) $(connectED_LDFLAGS) $(connectED_OBJECTS) $(connectED_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT) core *.core
@@ -360,7 +359,7 @@ include ./$(DEPDIR)/classbrowser_parse.Po
 include ./$(DEPDIR)/dummy.Po
 include ./$(DEPDIR)/edit_template.Po
 include ./$(DEPDIR)/find_replace.Po
-include ./$(DEPDIR)/gtk_php_ide_ipc.Po
+include ./$(DEPDIR)/connectED_ipc.Po
 include ./$(DEPDIR)/grel2abs.Po
 include ./$(DEPDIR)/main.Po
 include ./$(DEPDIR)/main_window.Po

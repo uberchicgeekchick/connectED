@@ -1,4 +1,4 @@
-/* This file is part of http://GTK-PHP-IDE/, a GNOME2 PHP Editor.
+/* This file is part of http://connectED/, a GNOME2 PHP Editor.
  
    Copyright (C) 2008 Kaity G. B.
  uberChick@uberChicGeekChick.Com
@@ -96,7 +96,7 @@ GString *save_as_temp_file(void) {
 	GString *filename;
 	int file_handle;
 
-	file_handle = g_file_open_tmp("gtk_php_ideXXXXXX",&rawfilename,NULL);
+	file_handle = g_file_open_tmp("connectEDXXXXXX",&rawfilename,NULL);
 	if(file_handle != -1) {
 		filename = g_string_new(rawfilename);
 		
@@ -179,7 +179,7 @@ int syntax_check_run(void) {
 		return_code = E_PHP_SYNTAX_ERROR;
 	} else {
 		gtk_list_store_append(main_window.lint_store, &iter);
-		gtk_list_store_set(main_window.lint_store, &iter, 0, _("Error calling PHP CLI.  Is PHP command line binary installed? If so, check if it's in your path or set php_binary in ~/.gnome2/GTK-PHP-IDE.\n"), -1);
+		gtk_list_store_set(main_window.lint_store, &iter, 0, _("Error calling PHP CLI.  Is PHP command line binary installed? If so, check if it's in your path or set php_binary in ~/.gnome2/connectED.\n"), -1);
 		return_code = E_PHP_SYNTAX_CLI_NOT_FOUND;
 	}
 	gtk_tree_view_set_model(GTK_TREE_VIEW(main_window.lint_view), GTK_TREE_MODEL(main_window.lint_store));

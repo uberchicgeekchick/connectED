@@ -71,8 +71,8 @@ FFLAGS = @FFLAGS@
 GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
 GMOFILES = @GMOFILES@
 GMSGFMT = @GMSGFMT@
-GTK_PHP_IDE_CFLAGS = @GTK_PHP_IDE_CFLAGS@
-GTK_PHP_IDE_LIBS = @GTK_PHP_IDE_LIBS@
+connectED_CFLAGS = @connectED_CFLAGS@
+connectED_LIBS = @connectED_LIBS@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
@@ -178,7 +178,7 @@ sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
 pixmaps_DATA = \
-	GTK-PHP-IDE.png
+	connectED.svg
 
 
 pixmapsdir = \

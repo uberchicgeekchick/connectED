@@ -1,4 +1,4 @@
-/* This file is part of http://GTK-PHP-IDE/, a GNOME2 PHP Editor.
+/* This file is part of http://connectED/, a GNOME2 PHP Editor.
 
    Copyright (C) 2008 Kaity G. B.
  uberChick@uberChicGeekChick.Com
@@ -24,8 +24,8 @@
    The GNU General Public License is contained in the file COPYING.*/
 
 
-#ifndef GTKPHPIDE_IPC_H
-#define GTKPHPIDE_IPC_H
+#ifndef connectED_IPC_H
+#define connectED_IPC_H
 
 #include <glib.h>
 #include "main_window.h"

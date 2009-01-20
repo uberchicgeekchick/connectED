@@ -10,10 +10,10 @@
 #   instead of PACKAGE and to look for po2tbl in ./ not in intl/
 #
 # - Modified by jacob berkman <jacob@ximian.com> to install
-#   Makefile.in.in and po2tbl.sed.in for use with glib-gettextize
+#   Makefile.in and po2tbl.sed.in for use with glib-gettextize
 
-GETTEXT_PACKAGE = gtk-php-ide
-PACKAGE = gtk-php-ide
+GETTEXT_PACKAGE = connectED
+PACKAGE = connectED
 VERSION = 0.9.91
 
 SHELL = /bin/sh
@@ -24,7 +24,7 @@ top_srcdir = ..
 top_builddir = ..
 
 
-prefix = /programs/GTK-PHP-IDE
+prefix = /programs/connectED
 exec_prefix = ${prefix}
 datadir = ${prefix}/share
 libdir = ${exec_prefix}/lib
@@ -58,18 +58,10 @@ COMPILE = $(CC) -c $(DEFS) $(INCLUDES) $(CPPFLAGS) $(CFLAGS) $(XCFLAGS)
 SOURCES = 
 POFILES = 
 GMOFILES = 
-DISTFILES = Makefile.in.in POTFILES.in $(GETTEXT_PACKAGE).pot \
+DISTFILES = Makefile.in POTFILES.in $(GETTEXT_PACKAGE).pot \
 $(POFILES) $(GMOFILES) $(SOURCES)
 
 POTFILES = \
-	../src/find_replace.c \
-	../src/edit_template.c \
-	../src/main_window.c \
-	../src/main_window_callbacks.c \
-	../src/preferences.c \
-	../src/preferences_dialog.c \
-	../src/syntax_check.c \
-	../src/tab.c
 
 CATALOGS = 
 CATOBJEXT = .gmo
@@ -157,8 +149,8 @@ install-data-yes: all
 	  else \
 	    $(SHELL) $(top_srcdir)/mkinstalldirs $(DESTDIR)$(gettextsrcdir); \
 	  fi; \
-	  $(INSTALL_DATA) $(srcdir)/Makefile.in.in \
-			  $(DESTDIR)$(gettextsrcdir)/Makefile.in.in; \
+	  $(INSTALL_DATA) $(srcdir)/Makefile.in \
+			  $(DESTDIR)$(gettextsrcdir)/Makefile.in; \
 	else \
 	  : ; \
 	fi
@@ -176,7 +168,7 @@ uninstall:
 	  rm -f $(DESTDIR)$(gnulocaledir)/$$lang/LC_MESSAGES/$(GETTEXT_PACKAGE)$(INSTOBJEXT); \
 	  rm -f $(DESTDIR)$(gnulocaledir)/$$lang/LC_MESSAGES/$(GETTEXT_PACKAGE)$(INSTOBJEXT).m; \
 	done
-	rm -f $(DESTDIR)$(gettextsrcdir)/po-Makefile.in.in
+	rm -f $(DESTDIR)$(gettextsrcdir)/po-Makefile.in
 
 check: all
 
@@ -253,7 +245,7 @@ POTFILES: POTFILES.in
 	    && chmod a-w $@-t \
 	    && mv $@-t $@ )
 
-Makefile: Makefile.in.in ../config.status POTFILES
+Makefile: Makefile.in ../config.status POTFILES
 	cd .. \
 	  && CONFIG_FILES=$(subdir)/$@.in CONFIG_HEADERS= \
 	       $(SHELL) ./config.status

@@ -1,4 +1,4 @@
-/* This file is part of http://GTK-PHP-IDE/, a GNOME2 PHP Editor.
+/* This file is part of http://connectED/, a GNOME2 PHP Editor.
  
    Copyright(C) 2008 Kaity G. B.
  uberChick@uberChicGeekChick.Com
@@ -1371,7 +1371,7 @@ void preferences_dialog_create(void){
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(preferences_dialog.save_session), temp_preferences.save_session);
 	gtk_signal_connect(GTK_OBJECT(GTK_CHECK_BUTTON(preferences_dialog.save_session)), "toggled", GTK_SIGNAL_FUNC(on_save_session_toggle), NULL);
 	
-	preferences_dialog.single_instance_only = gtk_check_button_new_with_mnemonic(_("Only ever run 1 copy of GTK-PHP-IDE at a time"));
+	preferences_dialog.single_instance_only = gtk_check_button_new_with_mnemonic(_("Only ever run 1 copy of connectED at a time"));
 	gtk_widget_show(preferences_dialog.single_instance_only);
 	gtk_box_pack_start(GTK_BOX(preferences_dialog.vbox6), preferences_dialog.single_instance_only, FALSE, FALSE, 0);
 	gtk_container_set_border_width(GTK_CONTAINER(preferences_dialog.single_instance_only), 8);

@@ -554,7 +554,7 @@ sub Console_WriteError_InvalidOption
 
 sub GenerateHeaders
 {
-    my $EXTRACT = "/projects/gtk/GTK-PHP-IDE/GTK-PHP-IDE/intltool-extract";
+    my $EXTRACT = "/projects/gtk/connectED/intltool-extract";
     chomp $EXTRACT;
 
     $EXTRACT = $ENV{"INTLTOOL_EXTRACT"} if $ENV{"INTLTOOL_EXTRACT"};
@@ -1030,7 +1030,7 @@ sub FindPOTKeywords
     my $varname = "XGETTEXT_OPTIONS";
     my $make_source; {
 	local (*IN);
-	open (IN, "<Makevars") || (open(IN, "<Makefile.in.in") && ($varname = "XGETTEXT_KEYWORDS")) || return $keywords;
+	open (IN, "<Makevars") || (open(IN, "<Makefile.in") && ($varname = "XGETTEXT_KEYWORDS")) || return $keywords;
 	seek (IN, 0, 0);
 	local $/; # slurp mode
 	$make_source = <IN>;

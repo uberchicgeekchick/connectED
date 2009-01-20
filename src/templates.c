@@ -1,4 +1,4 @@
-/* This file is part of http://GTK-PHP-IDE/, a GNOME2 PHP Editor.
+/* This file is part of http://connectED/, a GNOME2 PHP Editor.
  
    Copyright (C) 2008 Kaity G. B.
  uberChick@uberChicGeekChick.Com
@@ -63,7 +63,7 @@ GString *template_get_filename(void)
 {
 	GString *ret;
 	ret = g_string_new( g_get_home_dir());
-	ret = g_string_append(ret, "/.gtk_php_ide/templates.txt");
+	ret = g_string_append(ret, "/.connectED/templates.txt");
 	
 	return ret;
 }

@@ -1,4 +1,4 @@
-/* This file is part of http://GTK-PHP-IDE/, a GNOME2 PHP Editor.
+/* This file is part of http://connectED/, a GNOME2 PHP Editor.
  
    Copyright (C) 2008 Kaity G. B.
  uberChick@uberChicGeekChick.Com
@@ -119,8 +119,8 @@ void main_window_add_to_reopen_menu(gchar *full_filename);
 void plugin_exec(gint plugin_num);
 void create_untitled_if_empty(void);
 
-extern GIOChannel* inter_gtk_php_ide_io;
-extern guint inter_gtk_php_ide_event_id;
+extern GIOChannel* inter_connectED_io;
+extern guint inter_connectED_event_id;
 
 extern guint idle_id;
 

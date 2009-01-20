@@ -117,12 +117,12 @@ msgstr ""
 
 #: ../src/main_window.c:143
 #, c-format
-msgid "Unable to create ~/.gtk-php-ide/ (%d)"
+msgid "Unable to create ~/.connectED/ (%d)"
 msgstr ""
 
 #: ../src/main_window.c:151
 #, c-format
-msgid "Unable to create ~/.gtk-php-ide/plugins/ (%d)"
+msgid "Unable to create ~/.connectED/plugins/ (%d)"
 msgstr ""
 
 #. Add the File operations to the Main Toolbar
@@ -206,11 +206,11 @@ msgid "Syntax Check Output"
 msgstr ""
 
 #: ../src/main_window.c:475
-msgid " - GTK-PHP-IDE"
+msgid " - connectED"
 msgstr ""
 
 #: ../src/main_window.c:478
-msgid " (modified) - GTK-PHP-IDE"
+msgid " (modified) - connectED"
 msgstr ""
 
 #: ../src/main_window.c:685
@@ -308,7 +308,7 @@ msgstr ""
 
 #: ../src/main_window_callbacks.c:1222
 msgid ""
-"GTK-PHP-IDE is a GNOME2 editor specialised for editing PHP scripts and related "
+"connectED is a GNOME2 editor specialised for editing PHP scripts and related "
 "files (HTML/CSS/JS)."
 msgstr ""
 
@@ -319,7 +319,7 @@ msgstr ""
 
 #: ../src/preferences.c:46
 msgid ""
-"Your old settings used non-Pango (modern) fonts.  GTK-PHP-IDE no longer "
+"Your old settings used non-Pango (modern) fonts.  connectED no longer "
 "supports old fonts, your preferences have been updated."
 msgstr ""
 
@@ -679,7 +679,7 @@ msgid "Save session (including open files) on exit"
 msgstr ""
 
 #: ../src/preferences_dialog.c:1375
-msgid "Only ever run 1 copy of GTK-PHP-IDE at a time"
+msgid "Only ever run 1 copy of connectED at a time"
 msgstr ""
 
 #: ../src/preferences_dialog.c:1382
@@ -765,7 +765,7 @@ msgstr ""
 #: ../src/syntax_check.c:184
 msgid ""
 "Error calling PHP CLI (is PHP command line binary installed? If so, check if "
-"it's in your path or set php_binary in ~/.gnome2/GTK-PHP-IDE)\n"
+"it's in your path or set php_binary in ~/.gnome2/connectED)\n"
 msgstr ""
 
 #: ../src/syntax_check.c:197
@@ -797,7 +797,7 @@ msgstr ""
 
 #: ../src/tab.c:317
 #, c-format
-msgid "GTK-PHP-IDE UTF-8 Error: %s\n"
+msgid "connectED UTF-8 Error: %s\n"
 msgstr ""
 
 #: ../src/tab.c:322

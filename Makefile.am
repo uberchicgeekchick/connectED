@@ -6,14 +6,14 @@ SUBDIRS = \
 	po
 
 applicationsdir = $(datadir)/applications
-applications_in_files = GTK-PHP-IDE.desktop.in
+applications_in_files = connectED.desktop.in
 applications_DATA = $(applications_in_files:.desktop.in=.desktop)
 
-spec_in_files = GTK-PHP-IDE.spec.in
+spec_in_files = connectED.spec.in
 
 EXTRA_DIST = \
-	GTK-PHP-IDE.spec			\
-	GTK-PHP-IDE.applications		\
+	connectED.spec			\
+	connectED.applications		\
 	$(applications_in_files)	\
 	$(spec_in_files)		\
 	src/gtkscintilla2

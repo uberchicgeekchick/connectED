@@ -1,4 +1,4 @@
-To build GTK-PHP-IDE on a 64bit system:
+To build connectED on a 64bit system:
 running the ./configure script as normal
 then cd into the core source directory:
 `cd src`

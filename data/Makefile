@@ -17,9 +17,9 @@
 srcdir = .
 top_srcdir = ..
 
-pkgdatadir = $(datadir)/gtk-php-ide
-pkglibdir = $(libdir)/gtk-php-ide
-pkgincludedir = $(includedir)/gtk-php-ide
+pkgdatadir = $(datadir)/connectED
+pkglibdir = $(libdir)/connectED
+pkgincludedir = $(includedir)/connectED
 top_builddir = ..
 
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
@@ -36,14 +36,14 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 host_triplet = i686-pc-linux-gnu
-ACLOCAL = ${SHELL} /projects/gtk/GTK-PHP-IDE/GTK-PHP-IDE/missing --run aclocal-1.7
+ACLOCAL = ${SHELL} /projects/gtk/connectED/missing --run aclocal-1.7
 AMDEP_FALSE = #
 AMDEP_TRUE = 
-AMTAR = ${SHELL} /projects/gtk/GTK-PHP-IDE/GTK-PHP-IDE/missing --run tar
+AMTAR = ${SHELL} /projects/gtk/connectED/missing --run tar
 AR = ar
-AUTOCONF = ${SHELL} /projects/gtk/GTK-PHP-IDE/GTK-PHP-IDE/missing --run autoconf
-AUTOHEADER = ${SHELL} /projects/gtk/GTK-PHP-IDE/GTK-PHP-IDE/missing --run autoheader
-AUTOMAKE = ${SHELL} /projects/gtk/GTK-PHP-IDE/GTK-PHP-IDE/missing --run automake-1.7
+AUTOCONF = ${SHELL} /projects/gtk/connectED/missing --run autoconf
+AUTOHEADER = ${SHELL} /projects/gtk/connectED/missing --run autoheader
+AUTOMAKE = ${SHELL} /projects/gtk/connectED/missing --run automake-1.7
 AWK = gawk
 CATALOGS = 
 CATOBJEXT = .gmo
@@ -68,11 +68,11 @@ EGREP = grep -E
 EXEEXT = 
 F77 = 
 FFLAGS = 
-GETTEXT_PACKAGE = gtk-php-ide
+GETTEXT_PACKAGE = connectED
 GMOFILES = 
 GMSGFMT = /usr/bin/msgfmt
-GTK_PHP_IDE_CFLAGS = @GTK_PHP_IDE_CFLAGS@
-GTK_PHP_IDE_LIBS = @GTK_PHP_IDE_LIBS@
+connectED_CFLAGS = -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib/glib-2.0/include -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0  
+connectED_LIBS = -pthread -lgnomeui-2 -lSM -lICE -lbonoboui-2 -lgnomecanvas-2 -lgnome-2 -lpopt -lbonobo-2 -lbonobo-activation -lORBit-2 -lart_lgpl_2 -lgnomevfs-2 -lgconf-2 -lgthread-2.0 -lrt -lgtkhtml-2 -lgtk-x11-2.0 -lxml2 -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lpango-1.0 -lcairo -lgobject-2.0 -lgmodule-2.0 -ldl -lglib-2.0  
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
@@ -113,11 +113,11 @@ LTLIBOBJS =
 MAINT = #
 MAINTAINER_MODE_FALSE = 
 MAINTAINER_MODE_TRUE = #
-MAKEINFO = ${SHELL} /projects/gtk/GTK-PHP-IDE/GTK-PHP-IDE/missing --run makeinfo
+MAKEINFO = ${SHELL} /projects/gtk/connectED/missing --run makeinfo
 MKINSTALLDIRS = ./mkinstalldirs
 MSGFMT = /usr/bin/msgfmt
 OBJEXT = o
-PACKAGE = gtk-php-ide
+PACKAGE = connectED
 PACKAGE_BUGREPORT = 
 PACKAGE_NAME = 
 PACKAGE_STRING = 
@@ -164,14 +164,14 @@ host_os = linux-gnu
 host_vendor = pc
 includedir = ${prefix}/include
 infodir = ${prefix}/info
-install_sh = /projects/gtk/GTK-PHP-IDE/GTK-PHP-IDE/install-sh
+install_sh = /projects/gtk/connectED/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localstatedir = ${prefix}/var
 mandir = ${prefix}/man
 mkdir_p = mkdir -p -- .
 oldincludedir = /usr/include
-prefix = /programs/GTK-PHP-IDE
+prefix = /programs/connectED
 program_transform_name = s,x,x,
 sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
@@ -182,7 +182,7 @@ api_DATA = \
 
 
 apidir = \
-	$(datadir)/GTK-PHP-IDE
+	$(datadir)/connectED
 
 
 EXTRA_DIST = \

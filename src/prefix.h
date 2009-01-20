@@ -51,7 +51,7 @@
 #endif
 
 #ifndef PHP_FUNCTION_REFERENCE
-#define PHP_FUNCTION_REFERENCE "/usr/share/GTK-PHP-IDE/php-function-reference.api"
+#define PHP_FUNCTION_REFERENCE "/usr/share/connectED/php-function-reference.api"
 #endif
 
 #ifndef PIXMAP_DIR

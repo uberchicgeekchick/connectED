@@ -4,7 +4,7 @@
  * 	<uberChick -at- uberChicGeekChick.Com>
  *
  * For more information or to find the latest release, visit our
- * website at: http://uberchicgeekchick.com/?Project=connectED
+ * website at: http://uberChicGeekChick.Com/?Project=connectED
  *
  * Writen by an uberChick, other uberChicks please meet me & others @:
  * 	http://uberChicks.Net/
@@ -30,7 +30,7 @@
  *
  * ---------------------------------------------------------------------------
  * |	A copy of the RPL 1.5 may be found with this project or online @:    |
- * |		http://opensource.org/licenses/rpl1.5.txt                    |
+ * |		http://opensource.org/licenses/rpl1.5.txt                        |
  * ---------------------------------------------------------------------------
  */
 

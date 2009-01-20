@@ -1,6 +1,6 @@
-gtk-php-ide
-	command=gtk-php-ide
-	name=gtk-php-ide
+connectED
+	command=connectED
+	name=connectED
 	can_open_multiple_files=true
 	expects_uris=true
 	requires_terminal=false

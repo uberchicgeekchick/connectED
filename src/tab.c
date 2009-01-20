@@ -1,4 +1,4 @@
-/* This file is part of http://GTK-PHP-IDE/, a GNOME2 PHP Editor.
+/* This file is part of http://connectED/, a GNOME2 PHP Editor.
  
    Copyright (C) 2008 Kaity G. B.
  uberChick@uberChicGeekChick.Com
@@ -61,7 +61,7 @@ void debug_dump_editors(void)
 	gint editor_number = 0;
 
 	g_print("--------------------------------------------------------------\n");
-	g_print("GTK-PHP-IDE Debug Output\n\n");
+	g_print("connectED Debug Output\n\n");
 
 	
 	for (walk = editors; walk!=NULL; walk = g_slist_next(walk)) {
@@ -314,7 +314,7 @@ void tab_validate_buffer_and_insert(gpointer buffer, Editor *editor)
 		// converted_text = g_convert(buffer, nchars, "UTF-8", "ISO-8859-15", NULL, &utf8_size, &error);
 		converted_text = g_locale_to_utf8(buffer, editor->file_size, NULL, &utf8_size, &error);
 		if (error != NULL) {
-			g_print(_("GTK-PHP-IDE UTF-8 Error: %s\n"), error->message);
+			g_print(_("connectED UTF-8 Error: %s\n"), error->message);
 			g_error_free(error);
 			gtk_scintilla_add_text(GTK_SCINTILLA (editor->scintilla), editor->file_size, buffer);
 		}
@@ -968,7 +968,7 @@ void register_file_opened(gchar *filename)
 	tmp_filename = g_string_new(filename);
 
 	folder = get_folder(tmp_filename);
-	gnome_config_set_string("GTK-PHP-IDE/general/last_opened_folder",  folder->str);
+	gnome_config_set_string("connectED/general/last_opened_folder",  folder->str);
 	g_string_free(folder, TRUE);
 	gnome_config_sync();
 

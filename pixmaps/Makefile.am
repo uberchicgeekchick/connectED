@@ -1,5 +1,5 @@
 pixmaps_DATA = \
-	GTK-PHP-IDE.png
+	connectED.svg
 
 pixmapsdir = \
 	$(datadir)/pixmaps

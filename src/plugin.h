@@ -1,4 +1,4 @@
-/* This file is part of http://GTK-PHP-IDE/, a GNOME2 PHP Editor.
+/* This file is part of http://connectED/, a GNOME2 PHP Editor.
  
    Copyright (C) 2008 Kaity G. B.
  uberChick@uberChicGeekChick.Com
@@ -32,12 +32,12 @@
 void plugin_setup_menu(void);
 void plugin_exec(gint plugin_num);
 
-#define GTKPHPIDE_PLUGIN_TYPE_ERROR -1
-#define GTKPHPIDE_PLUGIN_TYPE_UNKNOWN 0
-#define GTKPHPIDE_PLUGIN_TYPE_NOINPUT 1
-#define GTKPHPIDE_PLUGIN_TYPE_SELECTION 2
-#define GTKPHPIDE_PLUGIN_TYPE_FILENAME 3
-#define GTKPHPIDE_PLUGIN_TYPE_DEBUG 4
+#define connectED_PLUGIN_TYPE_ERROR -1
+#define connectED_PLUGIN_TYPE_UNKNOWN 0
+#define connectED_PLUGIN_TYPE_NOINPUT 1
+#define connectED_PLUGIN_TYPE_SELECTION 2
+#define connectED_PLUGIN_TYPE_FILENAME 3
+#define connectED_PLUGIN_TYPE_DEBUG 4
 
 typedef struct
 {

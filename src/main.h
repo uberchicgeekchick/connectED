@@ -1,4 +1,4 @@
-/* This file is part of http://GTK-PHP-IDE/, a GNOME2 PHP Editor.
+/* This file is part of http://connectED/, a GNOME2 PHP Editor.
  
    Copyright (C) 2008 Kaity G. B.
  uberChick@uberChicGeekChick.Com
@@ -32,9 +32,9 @@
 #include <gtkscintilla.h>
 #include <libgnome/gnome-i18n.h>
 
-#define GTKPHPIDE_PIXMAP_ICON "GTK-PHP-IDE.png"
+#define connectED_PIXMAP_ICON "connectED.svg"
 
-extern GnomeProgram* gtk_php_ide_program;
+extern GnomeProgram* connectED_program;
 gboolean add (gpointer bla);
 
 #endif

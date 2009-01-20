@@ -71,8 +71,8 @@ FFLAGS = @FFLAGS@
 GETTEXT_PACKAGE = @GETTEXT_PACKAGE@
 GMOFILES = @GMOFILES@
 GMSGFMT = @GMSGFMT@
-GTKPHPIDE_CFLAGS = @GTKPHPIDE_CFLAGS@
-GTKPHPIDE_LIBS = @GTKPHPIDE_LIBS@
+connectED_CFLAGS = @connectED_CFLAGS@
+connectED_LIBS = @connectED_LIBS@
 INSTALL_DATA = @INSTALL_DATA@
 INSTALL_PROGRAM = @INSTALL_PROGRAM@
 INSTALL_SCRIPT = @INSTALL_SCRIPT@
@@ -177,19 +177,19 @@ sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
-bin_PROGRAMS = GTK-PHP-IDE
+bin_PROGRAMS = connectED
 
 INCLUDES = \
-	$(GTKPHPIDE_CFLAGS)	\
+	$(connectED_CFLAGS)	\
 	-I$(top_srcdir)/src/gtkscintilla2 \
 	-g -Wall -DGTK -DSCI_LEXER \
-	-DPHP_FUNCTION_REFERENCE=\""$(datadir)/GTK-PHP-IDE/php-function-reference.api"\" \
-	-DPHP_IDE_PREFIX=\""$(datadir)"\" \
+	-DPHP_FUNCTION_REFERENCE=\""$(datadir)/connectED/php-function-reference.api"\" \
+	-DCONNECTED_PREFIX=\""$(datadir)"\" \
 	-DPIXMAP_DIR=\""$(datadir)/pixmaps"\"
 
 
-nodist_EXTRA_gtk_php_ide_SOURCES = dummy.cxx
-gtk_php_ide_SOURCES = \
+nodist_EXTRA_connectED_SOURCES = dummy.cxx
+connectED_SOURCES = \
 	calltip.c		\
 	calltip.h		\
 	classbrowser.c		\
@@ -200,8 +200,8 @@ gtk_php_ide_SOURCES = \
 	edit_template.h		\
 	find_replace.c		\
 	find_replace.h		\
-	gtk_php_ide_ipc.c		\
-	gtk_php_ide_ipc.h		\
+	connectED_ipc.c		\
+	connectED_ipc.h		\
 	grel2abs.c		\
 	grel2abs.h		\
 	plugin.c		\
@@ -239,8 +239,8 @@ gtk_php_ide_SOURCES = \
 	templates.h
 
 
-gtk_php_ide_LDADD = \
-	$(GTKPHPIDE_LIBS)\
+connectED_LDADD = \
+	$(connectED_LIBS)\
 	gtkscintilla2/libgtkscintilla2.a\
 	gtkscintilla2/scintilla/bin/scintilla.a
 
@@ -249,12 +249,12 @@ ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
 CONFIG_HEADER = $(top_builddir)/config.h
 CONFIG_CLEAN_FILES =
-bin_PROGRAMS = GTK-PHP-IDE$(EXEEXT)
+bin_PROGRAMS = connectED$(EXEEXT)
 PROGRAMS = $(bin_PROGRAMS)
 
-am_gtk_php_ide_OBJECTS = calltip.$(OBJEXT) classbrowser.$(OBJEXT) \
+am_connectED_OBJECTS = calltip.$(OBJEXT) classbrowser.$(OBJEXT) \
 	classbrowser_parse.$(OBJEXT) edit_template.$(OBJEXT) \
-	find_replace.$(OBJEXT) gtk_php_ide_ipc.$(OBJEXT) \
+	find_replace.$(OBJEXT) connectED_ipc.$(OBJEXT) \
 	grel2abs.$(OBJEXT) plugin.$(OBJEXT) main.$(OBJEXT) \
 	main_window.$(OBJEXT) main_window_callbacks.$(OBJEXT) \
 	preferences.$(OBJEXT) preferences_dialog.$(OBJEXT) \
@@ -262,10 +262,10 @@ am_gtk_php_ide_OBJECTS = calltip.$(OBJEXT) classbrowser.$(OBJEXT) \
 	tab_css.$(OBJEXT) tab_perl.$(OBJEXT) tab_php.$(OBJEXT) \
 	tab_python.$(OBJEXT) tab_sql.$(OBJEXT) tab_util.$(OBJEXT) \
 	templates.$(OBJEXT)
-gtk_php_ide_OBJECTS = $(am_gtk_php_ide_OBJECTS)
-gtk_php_ide_DEPENDENCIES = gtkscintilla2/libgtkscintilla2.a \
+connectED_OBJECTS = $(am_connectED_OBJECTS)
+connectED_DEPENDENCIES = gtkscintilla2/libgtkscintilla2.a \
 	gtkscintilla2/scintilla/bin/scintilla.a
-gtk_php_ide_LDFLAGS =
+connectED_LDFLAGS =
 
 DEFAULT_INCLUDES =  -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
@@ -275,7 +275,7 @@ am__depfiles_maybe = depfiles
 @AMDEP_TRUE@	./$(DEPDIR)/classbrowser_parse.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/dummy.Po ./$(DEPDIR)/edit_template.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/find_replace.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/gtk_php_ide_ipc.Po ./$(DEPDIR)/grel2abs.Po \
+@AMDEP_TRUE@	./$(DEPDIR)/connectED_ipc.Po ./$(DEPDIR)/grel2abs.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/main.Po ./$(DEPDIR)/main_window.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/main_window_callbacks.Po \
 @AMDEP_TRUE@	./$(DEPDIR)/plugin.Po ./$(DEPDIR)/preferences.Po \
@@ -300,9 +300,9 @@ LTCXXCOMPILE = $(LIBTOOL) --mode=compile $(CXX) $(DEFS) \
 CXXLD = $(CXX)
 CXXLINK = $(LIBTOOL) --mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
-DIST_SOURCES = $(gtk_php_ide_SOURCES)
+DIST_SOURCES = $(connectED_SOURCES)
 DIST_COMMON = $(srcdir)/Makefile.in Makefile.am
-SOURCES = $(gtk_php_ide_SOURCES) $(nodist_EXTRA_gtk_php_ide_SOURCES)
+SOURCES = $(connectED_SOURCES) $(nodist_EXTRA_connectED_SOURCES)
 
 all: all-am
 
@@ -343,9 +343,9 @@ clean-binPROGRAMS:
 	  rm -f $$p $$f ; \
 	done
 
-GTK-PHP-IDE$(EXEEXT): $(gtk_php_ide_OBJECTS) $(gtk_php_ide_DEPENDENCIES) 
-	@rm -f gtk_php_ide$(EXEEXT)
-	$(CXXLINK) $(gtk_php_ide_LDFLAGS) $(gtk_php_ide_OBJECTS) $(gtk_php_ide_LDADD) $(LIBS)
+connectED$(EXEEXT): $(connectED_OBJECTS) $(connectED_DEPENDENCIES) 
+	@rm -f connectED$(EXEEXT)
+	$(CXXLINK) $(connectED_LDFLAGS) $(connectED_OBJECTS) $(connectED_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT) core *.core
@@ -359,7 +359,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dummy.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/edit_template.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/find_replace.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gtk_php_ide_ipc.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/connectED_ipc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/grel2abs.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main_window.Po@am__quote@

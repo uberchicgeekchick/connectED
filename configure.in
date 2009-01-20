@@ -1,10 +1,10 @@
 dnl
-dnl configure.in for gtk-php-ide
+dnl configure.in for connectED
 dnl
 
 AC_INIT(src)
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(gtk-php-ide, 0.9.91)
+AM_INIT_AUTOMAKE(connectED, 0.9.91)
 
 AM_MAINTAINER_MODE
 
@@ -17,7 +17,7 @@ dnl  --------------
 dnl | dependencies |-----------------------------------------------------------
 dnl  --------------
 
-PKG_CHECK_MODULES(GTKPHPIDE,[
+PKG_CHECK_MODULES(connectED,[
 	gtk+-2.0
 	libgnomeui-2.0
 	gnome-vfs-2.0
@@ -26,8 +26,8 @@ dnl	libgnomeprint-2.2
 dnl	libgnomeprintui-2.2
 	])
 
-AC_SUBST(GTKPHPIDE_CFLAGS)
-AC_SUBST(GTKPHPIDE_LIBS)
+AC_SUBST(connectED_CFLAGS)
+AC_SUBST(connectED_LIBS)
 
 dnl ---------------------------------------------------------------------------
 
@@ -35,7 +35,7 @@ dnl  ------------------
 dnl | language support |-------------------------------------------------------
 dnl  ------------------
 
-GETTEXT_PACKAGE=gtk-php-ide
+GETTEXT_PACKAGE=connectED
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE",[The package name, for gettext])
 
@@ -52,18 +52,18 @@ else
   PACKAGE_LOCALE_DIR=$prefix/share/locale
 fi
 AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "$PACKAGE_LOCALE_DIR",
-	[The directory in which gtk-php-ide's locale data will be stored])
+	[The directory in which connectED's locale data will be stored])
 AC_MSG_RESULT("$PACKAGE_LOCALE_DIR")
 
 dnl ---------------------------------------------------------------------------
 
 AC_OUTPUT([
 Makefile
-GTK-PHP-IDE.desktop
-GTK-PHP-IDE.spec
+connectED.desktop
+connectED.spec
 data/Makefile
 doc/Makefile
 pixmaps/Makefile
-po/Makefile.in
+po/Makefile
 src/Makefile
 ])

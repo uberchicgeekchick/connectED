@@ -1,4 +1,4 @@
-/* This file is part of http://GTK-PHP-IDE/, a GNOME2 PHP Editor.
+/* This file is part of http://connectED/, a GNOME2 PHP Editor.
  
    Copyright(C) 2008 Kaity G. B.
  uberChick@uberChicGeekChick.Com
@@ -38,8 +38,8 @@
 
 
 MainWindow main_window;
-GIOChannel* inter_gtk_php_ide_io;
-guint inter_gtk_php_ide_event_id;
+GIOChannel* inter_connectED_io;
+guint inter_connectED_event_id;
 gboolean DEBUG_MODE = FALSE;
 
 
@@ -73,12 +73,12 @@ void main_window_pass_command_line_files(char **argv)
 	gsize bytes_written;
 
 	error = NULL;
-	inter_gtk_php_ide_io = g_io_channel_new_file("/tmp/gtk_php_ide.sock","w",&error);
+	inter_connectED_io = g_io_channel_new_file("/tmp/connectED.sock","w",&error);
 	if(argv) {
 		i = 1;
 		while(argv[i] != NULL) {
 			//g_print("%s:%d\n", argv[i], strlen(argv[i]));
-			g_io_channel_write_chars(inter_gtk_php_ide_io, argv[i], strlen(argv[i]),
+			g_io_channel_write_chars(inter_connectED_io, argv[i], strlen(argv[i]),
 			                         &bytes_written, &error);
 			++i;
 		}
@@ -91,7 +91,7 @@ gboolean channel_pass_filename_callback(GIOChannel *source, GIOCondition conditi
 	guint size;
 	gchar buf[1024];
 
-	g_io_channel_read(inter_gtk_php_ide_io, buf, sizeof(buf), &size);
+	g_io_channel_read(inter_connectED_io, buf, sizeof(buf), &size);
 	//g_print("Passed %s\n", buf);
 	tab_create_new(TAB_FILE, g_string_new(buf));
 	return FALSE;
@@ -117,7 +117,7 @@ gboolean channel_pass_filename_callback(GIOChannel *source, GIOCondition conditi
 	// Bind a name to the socket. 
  
 	name.sun_family = AF_FILE;
-	strcpy(name.sun_path, "/tmp/gtk_php_ide.sock");
+	strcpy(name.sun_path, "/tmp/connectED.sock");
  
 	// The size of the address is the offset of the start of the filename, plus its length, plus one for the terminating null byte.
 	size =(offsetof(struct sockaddr_un, sun_path)
@@ -136,19 +136,19 @@ void force_config_folder(void)
 	gint ret;
 	gchar *dir;
 
-	dir = g_build_filename(g_get_home_dir(), ".gtk_php_ide", NULL);
+	dir = g_build_filename(g_get_home_dir(), ".connectED", NULL);
 	ret = mkdir(dir,(S_IRUSR|S_IWUSR|S_IXUSR));
 	g_free(dir);
 	if(ret && errno != EEXIST) {
-		g_print(_("Unable to create ~/.gtk_php_ide/(%d)"), errno);
+		g_print(_("Unable to create ~/.connectED/(%d)"), errno);
 		exit(-1);
 	}
 
-	dir = g_build_filename(g_get_home_dir(), ".gtk_php_ide", "plugins", NULL);
+	dir = g_build_filename(g_get_home_dir(), ".connectED", "plugins", NULL);
 	ret = mkdir(dir,(S_IRUSR|S_IWUSR|S_IXUSR));
 	g_free(dir);
 	if(ret && errno != EEXIST) {
-		g_print(_("Unable to create ~/.gtk_php_ide/plugins/(%d)"), errno);
+		g_print(_("Unable to create ~/.connectED/plugins/(%d)"), errno);
 		exit(-1);
 	}
 }
@@ -261,7 +261,7 @@ static void main_window_create_panes(void)
 
 	gtk_signal_connect(GTK_OBJECT(main_window.window), "size_allocate", GTK_SIGNAL_FUNC(classbrowser_accept_size), NULL);
 	move_classbrowser_position();
-	if(gnome_config_get_int("GTK-PHP-IDE/main_window/classbrowser_hidden=0") == 1)
+	if(gnome_config_get_int("connectED/main_window/classbrowser_hidden=0") == 1)
 		classbrowser_hide();
 }
 
@@ -434,23 +434,23 @@ void update_app_title(void){
 			title = get_differing_part_editor(main_window.current_editor);
 			if(title) {
 				if(main_window.current_editor->saved == TRUE) {
-					g_string_append(title, _(" - GTK-PHP-IDE"));
+					g_string_append(title, _(" - connectED"));
 				}
 				else {
-					g_string_append(title, _("(modified) - GTK-PHP-IDE"));
+					g_string_append(title, _("(modified) - connectED"));
 				}
 			}
 			else {
-				title = g_string_new("GTK-PHP-IDE");
+				title = g_string_new("connectED");
 			}
 			gtk_window_set_title(GTK_WINDOW(main_window.window), title->str);
 		}
 		else {
-			gtk_window_set_title(GTK_WINDOW(main_window.window), "GTK-PHP-IDE");
+			gtk_window_set_title(GTK_WINDOW(main_window.window), "connectED");
 		}
 	}
 	else {
-		gtk_window_set_title(GTK_WINDOW(main_window.window), "GTK-PHP-IDE");
+		gtk_window_set_title(GTK_WINDOW(main_window.window), "connectED");
 	}
 }
 
@@ -473,7 +473,7 @@ int plugin_discover_type(GString *filename){
 	gchar *stdout = NULL;
 	GError *error = NULL;
 	gint exit_status;
-	gint type = GTKPHPIDE_PLUGIN_TYPE_UNKNOWN;
+	gint type = connectED_PLUGIN_TYPE_UNKNOWN;
 	gint stdout_len;
 	
 	command_line = g_string_new(filename->str);
@@ -483,19 +483,19 @@ int plugin_discover_type(GString *filename){
 	if( !(g_spawn_command_line_sync(command_line->str,&stdout,NULL, &exit_status,&error)) ){
 		g_print("Spawning %s gave error %s\n", filename->str, error->message);
 		g_string_free(command_line, TRUE);
-		return GTKPHPIDE_PLUGIN_TYPE_ERROR;
+		return connectED_PLUGIN_TYPE_ERROR;
 	}
 				
 	stdout_len = strlen(stdout);
 		
 	if(strncmp(stdout, "SELECTION", MIN(stdout_len, 9))==0) {
-		type = GTKPHPIDE_PLUGIN_TYPE_SELECTION;
+		type = connectED_PLUGIN_TYPE_SELECTION;
 	} else if(strncmp(stdout, "NO-INPUT", MIN(stdout_len, 8))==0) {
-		type = GTKPHPIDE_PLUGIN_TYPE_NOINPUT;
+		type = connectED_PLUGIN_TYPE_NOINPUT;
 	} else if(strncmp(stdout, "FNAME", MIN(stdout_len, 5))==0) {
-		type = GTKPHPIDE_PLUGIN_TYPE_FILENAME;
+		type = connectED_PLUGIN_TYPE_FILENAME;
 	} else if(strncmp(stdout, "DEBUG", MIN(stdout_len, 5))==0) {
-		type = GTKPHPIDE_PLUGIN_TYPE_DEBUG;
+		type = connectED_PLUGIN_TYPE_DEBUG;
 	}
 		
 	g_free(stdout);
@@ -522,7 +522,7 @@ void plugin_discover_available(void){
 	GString *filename;
 	
 	user_plugin_dir = g_string_new( g_get_home_dir());
-	user_plugin_dir = g_string_append(user_plugin_dir, "/.gtk_php_ide/plugins/");
+	user_plugin_dir = g_string_append(user_plugin_dir, "/.connectED/plugins/");
 	if(g_file_test(user_plugin_dir->str, G_FILE_TEST_IS_DIR)) {
 		dir = g_dir_open(user_plugin_dir->str, 0,NULL);
 		if(dir) {
@@ -544,15 +544,15 @@ void plugin_discover_available(void){
 	}
 	g_string_free(user_plugin_dir, TRUE);
 
-	if(g_file_test("/usr/share/gtk_php_ide/plugins/", G_FILE_TEST_IS_DIR)) {
-		dir = g_dir_open("/usr/share/gtk_php_ide/plugins/", 0,NULL);
+	if(g_file_test("/usr/share/connectED/plugins/", G_FILE_TEST_IS_DIR)) {
+		dir = g_dir_open("/usr/share/connectED/plugins/", 0,NULL);
 		if(dir) {
 			for(plugin_name = g_dir_read_name(dir); plugin_name != NULL; plugin_name = g_dir_read_name(dir)) {
 				// Recommended by __tim in #gtk+ on irc.freenode.net 27/10/2004 11:30
 				plugin = g_new0(Plugin, 1);
 				plugin->name = g_strdup(plugin_name);
 				filename = g_string_new(plugin_name);
-				filename = g_string_prepend(filename, "/usr/share/gtk_php_ide/plugins/");
+				filename = g_string_prepend(filename, "/usr/share/connectED/plugins/");
 				plugin->filename = filename;
 				plugin->type = plugin_discover_type(plugin->filename);
 				Plugins = g_list_append(Plugins, plugin);
@@ -629,14 +629,14 @@ void plugin_exec(gint plugin_num)
 	command_line = g_string_prepend(command_line, "'");
 	command_line = g_string_append(command_line, "' '");
 	
-	if(plugin->type == GTKPHPIDE_PLUGIN_TYPE_SELECTION) {
+	if(plugin->type == connectED_PLUGIN_TYPE_SELECTION) {
 		wordStart = gtk_scintilla_get_selection_start(GTK_SCINTILLA(main_window.current_editor->scintilla));
 		wordEnd = gtk_scintilla_get_selection_end(GTK_SCINTILLA(main_window.current_editor->scintilla));
 		current_selection = gtk_scintilla_get_text_range(GTK_SCINTILLA(main_window.current_editor->scintilla), wordStart, wordEnd, &ac_length);
 		
 		command_line = g_string_append(command_line, current_selection);
 	}
-	else if(plugin->type == GTKPHPIDE_PLUGIN_TYPE_FILENAME) {
+	else if(plugin->type == connectED_PLUGIN_TYPE_FILENAME) {
 		command_line = g_string_append(command_line, editor_convert_to_local(main_window.current_editor));		
 	}
 	command_line = g_string_append(command_line, "'");
@@ -703,7 +703,7 @@ void main_window_update_reopen_menu(void)
 	GtkBin *bin = NULL;
 	
 	for(entry=0; entry<NUM_REOPEN_MAX; entry++) {
-		key = g_string_new("GTK-PHP-IDE/recent/");
+		key = g_string_new("connectED/recent/");
 		g_string_append_printf(key, "%d=NOTFOUND", entry);
 		full_filename = gnome_config_get_string(key->str);
 		g_string_free(key, TRUE);
@@ -733,7 +733,7 @@ void main_window_add_to_reopen_menu(gchar *full_filename)
 	// Find current filename in list
 	found_id = -1;
 	for(entry=0; entry<NUM_REOPEN_MAX; entry++) {
-		key = g_string_new("GTK-PHP-IDE/recent/");
+		key = g_string_new("connectED/recent/");
 		g_string_append_printf(key, "%d=NOTFOUND", entry);
 		found = gnome_config_get_string(key->str);
 		g_string_free(key, TRUE);
@@ -751,19 +751,19 @@ void main_window_add_to_reopen_menu(gchar *full_filename)
 
 	// replace from found_id to 1 with entry above
 	for(entry=found_id; entry > 0; entry--) {
-		key = g_string_new("GTK-PHP-IDE/recent/");
+		key = g_string_new("connectED/recent/");
 		g_string_append_printf(key, "%d=NOTFOUND", entry-1);
 		found = gnome_config_get_string(key->str);
 		g_string_free(key, TRUE);
 
-		key = g_string_new("GTK-PHP-IDE/recent/");
+		key = g_string_new("connectED/recent/");
 		g_string_append_printf(key, "%d", entry);
 		gnome_config_set_string(key->str, found);
 		g_string_free(key, TRUE);
 	}
 
 	// set entry 0 to be new entry
-	gnome_config_set_string("GTK-PHP-IDE/recent/0", full_filename);
+	gnome_config_set_string("connectED/recent/0", full_filename);
 		
 	main_window_update_reopen_menu();
 	gnome_config_sync();	
@@ -772,9 +772,9 @@ void main_window_add_to_reopen_menu(gchar *full_filename)
 
 void main_window_create(void)
 {
-	gnome_window_icon_set_default_from_file(PIXMAP_DIR "/" GTKPHPIDE_PIXMAP_ICON);
+	gnome_window_icon_set_default_from_file(PIXMAP_DIR "/" connectED_PIXMAP_ICON);
 
-	main_window.window = gnome_app_new("GTK-PHP-IDE", "GTK-PHP-IDE");
+	main_window.window = gnome_app_new("connectED", "connectED");
 	preferences_apply();
 	
 	gnome_app_create_menus(GNOME_APP(main_window.window), menubar1_uiinfo);

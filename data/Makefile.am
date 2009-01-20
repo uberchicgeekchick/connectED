@@ -2,7 +2,7 @@ api_DATA = \
 	php-function-reference.api
 
 apidir = \
-	$(datadir)/GTK-PHP-IDE
+	$(datadir)/connectED
 
 EXTRA_DIST = \
 	$(api_DATA)

@@ -463,7 +463,7 @@ ac_includes_default="\
 # include <unistd.h>
 #endif"
 
-ac_subst_vars='SHELL PATH_SEPARATOR PACKAGE_NAME PACKAGE_TARNAME PACKAGE_VERSION PACKAGE_STRING PACKAGE_BUGREPORT exec_prefix prefix program_transform_name bindir sbindir libexecdir datadir sysconfdir sharedstatedir localstatedir libdir includedir oldincludedir infodir mandir build_alias host_alias target_alias DEFS ECHO_C ECHO_N ECHO_T LIBS INSTALL_PROGRAM INSTALL_SCRIPT INSTALL_DATA CYGPATH_W PACKAGE VERSION ACLOCAL AUTOCONF AUTOMAKE AUTOHEADER MAKEINFO AMTAR install_sh STRIP ac_ct_STRIP INSTALL_STRIP_PROGRAM AWK SET_MAKE am__leading_dot MAINTAINER_MODE_TRUE MAINTAINER_MODE_FALSE MAINT CC CFLAGS LDFLAGS CPPFLAGS ac_ct_CC EXEEXT OBJEXT DEPDIR am__include am__quote AMDEP_TRUE AMDEP_FALSE AMDEPBACKSLASH CCDEPMODE am__fastdepCC_TRUE am__fastdepCC_FALSE CXX CXXFLAGS ac_ct_CXX CXXDEPMODE am__fastdepCXX_TRUE am__fastdepCXX_FALSE build build_cpu build_vendor build_os host host_cpu host_vendor host_os EGREP LN_S ECHO AR ac_ct_AR RANLIB ac_ct_RANLIB CPP CXXCPP F77 FFLAGS ac_ct_F77 LIBTOOL INTLTOOL_DESKTOP_RULE INTLTOOL_DIRECTORY_RULE INTLTOOL_KEYS_RULE INTLTOOL_PROP_RULE INTLTOOL_OAF_RULE INTLTOOL_PONG_RULE INTLTOOL_SERVER_RULE INTLTOOL_SHEET_RULE INTLTOOL_SOUNDLIST_RULE INTLTOOL_UI_RULE INTLTOOL_XAM_RULE INTLTOOL_KBD_RULE INTLTOOL_XML_RULE INTLTOOL_XML_NOMERGE_RULE INTLTOOL_CAVES_RULE INTLTOOL_SCHEMAS_RULE INTLTOOL_THEME_RULE INTLTOOL_EXTRACT INTLTOOL_MERGE INTLTOOL_UPDATE INTLTOOL_PERL INTLTOOL_ICONV INTLTOOL_MSGFMT INTLTOOL_MSGMERGE INTLTOOL_XGETTEXT mkdir_p PKG_CONFIG GTKPHPIDE_CFLAGS GTKPHPIDE_LIBS GETTEXT_PACKAGE USE_NLS MSGFMT GMSGFMT XGETTEXT CATALOGS CATOBJEXT DATADIRNAME GMOFILES INSTOBJEXT INTLLIBS PO_IN_DATADIR_TRUE PO_IN_DATADIR_FALSE POFILES POSUB MKINSTALLDIRS LIBOBJS LTLIBOBJS'
+ac_subst_vars='SHELL PATH_SEPARATOR PACKAGE_NAME PACKAGE_TARNAME PACKAGE_VERSION PACKAGE_STRING PACKAGE_BUGREPORT exec_prefix prefix program_transform_name bindir sbindir libexecdir datadir sysconfdir sharedstatedir localstatedir libdir includedir oldincludedir infodir mandir build_alias host_alias target_alias DEFS ECHO_C ECHO_N ECHO_T LIBS INSTALL_PROGRAM INSTALL_SCRIPT INSTALL_DATA CYGPATH_W PACKAGE VERSION ACLOCAL AUTOCONF AUTOMAKE AUTOHEADER MAKEINFO AMTAR install_sh STRIP ac_ct_STRIP INSTALL_STRIP_PROGRAM AWK SET_MAKE am__leading_dot MAINTAINER_MODE_TRUE MAINTAINER_MODE_FALSE MAINT CC CFLAGS LDFLAGS CPPFLAGS ac_ct_CC EXEEXT OBJEXT DEPDIR am__include am__quote AMDEP_TRUE AMDEP_FALSE AMDEPBACKSLASH CCDEPMODE am__fastdepCC_TRUE am__fastdepCC_FALSE CXX CXXFLAGS ac_ct_CXX CXXDEPMODE am__fastdepCXX_TRUE am__fastdepCXX_FALSE build build_cpu build_vendor build_os host host_cpu host_vendor host_os EGREP LN_S ECHO AR ac_ct_AR RANLIB ac_ct_RANLIB CPP CXXCPP F77 FFLAGS ac_ct_F77 LIBTOOL INTLTOOL_DESKTOP_RULE INTLTOOL_DIRECTORY_RULE INTLTOOL_KEYS_RULE INTLTOOL_PROP_RULE INTLTOOL_OAF_RULE INTLTOOL_PONG_RULE INTLTOOL_SERVER_RULE INTLTOOL_SHEET_RULE INTLTOOL_SOUNDLIST_RULE INTLTOOL_UI_RULE INTLTOOL_XAM_RULE INTLTOOL_KBD_RULE INTLTOOL_XML_RULE INTLTOOL_XML_NOMERGE_RULE INTLTOOL_CAVES_RULE INTLTOOL_SCHEMAS_RULE INTLTOOL_THEME_RULE INTLTOOL_EXTRACT INTLTOOL_MERGE INTLTOOL_UPDATE INTLTOOL_PERL INTLTOOL_ICONV INTLTOOL_MSGFMT INTLTOOL_MSGMERGE INTLTOOL_XGETTEXT mkdir_p PKG_CONFIG connectED_CFLAGS connectED_LIBS GETTEXT_PACKAGE USE_NLS MSGFMT GMSGFMT XGETTEXT CATALOGS CATOBJEXT DATADIRNAME GMOFILES INSTOBJEXT INTLLIBS PO_IN_DATADIR_TRUE PO_IN_DATADIR_FALSE POFILES POSUB MKINSTALLDIRS LIBOBJS LTLIBOBJS'
 ac_subst_files=''
 
 # Initialize some variables set by options.
@@ -1772,7 +1772,7 @@ fi
 
 
 # Define the identity of the package.
- PACKAGE=gtk-php-ide
+ PACKAGE=connectED
  VERSION=0.9.91
 
 
@@ -19422,39 +19422,39 @@ echo $ECHO_N "checking for
 echo "${ECHO_T}yes" >&6
             succeeded=yes
 
-            echo "$as_me:$LINENO: checking GTKPHPIDE_CFLAGS" >&5
-echo $ECHO_N "checking GTKPHPIDE_CFLAGS... $ECHO_C" >&6
-            GTKPHPIDE_CFLAGS=`$PKG_CONFIG --cflags "
+            echo "$as_me:$LINENO: checking connectED_CFLAGS" >&5
+echo $ECHO_N "checking connectED_CFLAGS... $ECHO_C" >&6
+            connectED_CFLAGS=`$PKG_CONFIG --cflags "
 	gtk+-2.0
 	libgnomeui-2.0
 	gnome-vfs-2.0
 	libgtkhtml-2.0
 	"`
-            echo "$as_me:$LINENO: result: $GTKPHPIDE_CFLAGS" >&5
-echo "${ECHO_T}$GTKPHPIDE_CFLAGS" >&6
+            echo "$as_me:$LINENO: result: $connectED_CFLAGS" >&5
+echo "${ECHO_T}$connectED_CFLAGS" >&6
 
-            echo "$as_me:$LINENO: checking GTKPHPIDE_LIBS" >&5
-echo $ECHO_N "checking GTKPHPIDE_LIBS... $ECHO_C" >&6
-            GTKPHPIDE_LIBS=`$PKG_CONFIG --libs "
+            echo "$as_me:$LINENO: checking connectED_LIBS" >&5
+echo $ECHO_N "checking connectED_LIBS... $ECHO_C" >&6
+            connectED_LIBS=`$PKG_CONFIG --libs "
 	gtk+-2.0
 	libgnomeui-2.0
 	gnome-vfs-2.0
 	libgtkhtml-2.0
 	"`
-            echo "$as_me:$LINENO: result: $GTKPHPIDE_LIBS" >&5
-echo "${ECHO_T}$GTKPHPIDE_LIBS" >&6
+            echo "$as_me:$LINENO: result: $connectED_LIBS" >&5
+echo "${ECHO_T}$connectED_LIBS" >&6
         else
-            GTKPHPIDE_CFLAGS=""
-            GTKPHPIDE_LIBS=""
+            connectED_CFLAGS=""
+            connectED_LIBS=""
             ## If we have a custom action on failure, don't print errors, but
             ## do set a variable so people can do so.
-            GTKPHPIDE_PKG_ERRORS=`$PKG_CONFIG --errors-to-stdout --print-errors "
+            connectED_PKG_ERRORS=`$PKG_CONFIG --errors-to-stdout --print-errors "
 	gtk+-2.0
 	libgnomeui-2.0
 	gnome-vfs-2.0
 	libgtkhtml-2.0
 	"`
-            echo $GTKPHPIDE_PKG_ERRORS
+            echo $connectED_PKG_ERRORS
         fi
 
 
@@ -19489,7 +19489,7 @@ echo "$as_me: error: Library requirements (
 
 
 
-GETTEXT_PACKAGE=gtk-php-ide
+GETTEXT_PACKAGE=connectED
 
 
 cat >>confdefs.h <<_ACEOF
@@ -21069,7 +21069,7 @@ echo "$as_me:$LINENO: result: \"$PACKAGE_LOCALE_DIR\"" >&5
 echo "${ECHO_T}\"$PACKAGE_LOCALE_DIR\"" >&6
 
 
-                                                                                ac_config_files="$ac_config_files Makefile GTK-PHP-IDE.desktop GTK-PHP-IDE.spec data/Makefile doc/Makefile pixmaps/Makefile po/Makefile.in src/Makefile"
+                                                                                ac_config_files="$ac_config_files Makefile connectED.desktop connectED.spec data/Makefile doc/Makefile pixmaps/Makefile po/Makefile src/Makefile"
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
 # tests run on this system so they can be shared between configure
@@ -21646,12 +21646,12 @@ do
   case "$ac_config_target" in
   # Handling of arguments.
   "Makefile" ) CONFIG_FILES="$CONFIG_FILES Makefile" ;;
-  "GTK-PHP-IDE.desktop" ) CONFIG_FILES="$CONFIG_FILES GTK-PHP-IDE.desktop" ;;
-  "GTK-PHP-IDE.spec" ) CONFIG_FILES="$CONFIG_FILES GTK-PHP-IDE.spec" ;;
+  "connectED.desktop" ) CONFIG_FILES="$CONFIG_FILES connectED.desktop" ;;
+  "connectED.spec" ) CONFIG_FILES="$CONFIG_FILES connectED.spec" ;;
   "data/Makefile" ) CONFIG_FILES="$CONFIG_FILES data/Makefile" ;;
   "doc/Makefile" ) CONFIG_FILES="$CONFIG_FILES doc/Makefile" ;;
   "pixmaps/Makefile" ) CONFIG_FILES="$CONFIG_FILES pixmaps/Makefile" ;;
-  "po/Makefile.in" ) CONFIG_FILES="$CONFIG_FILES po/Makefile.in" ;;
+  "po/Makefile" ) CONFIG_FILES="$CONFIG_FILES po/Makefile" ;;
   "src/Makefile" ) CONFIG_FILES="$CONFIG_FILES src/Makefile" ;;
   "depfiles" ) CONFIG_COMMANDS="$CONFIG_COMMANDS depfiles" ;;
   "intltool" ) CONFIG_COMMANDS="$CONFIG_COMMANDS intltool" ;;
@@ -21834,8 +21834,8 @@ s,@INTLTOOL_MSGMERGE@,$INTLTOOL_MSGMERGE,;t t
 s,@INTLTOOL_XGETTEXT@,$INTLTOOL_XGETTEXT,;t t
 s,@mkdir_p@,$mkdir_p,;t t
 s,@PKG_CONFIG@,$PKG_CONFIG,;t t
-s,@GTKPHPIDE_CFLAGS@,$GTKPHPIDE_CFLAGS,;t t
-s,@GTKPHPIDE_LIBS@,$GTKPHPIDE_LIBS,;t t
+s,@connectED_CFLAGS@,$connectED_CFLAGS,;t t
+s,@connectED_LIBS@,$connectED_LIBS,;t t
 s,@GETTEXT_PACKAGE@,$GETTEXT_PACKAGE,;t t
 s,@USE_NLS@,$USE_NLS,;t t
 s,@MSGFMT@,$MSGFMT,;t t
