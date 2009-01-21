@@ -521,12 +521,16 @@ void apply_preferences(GtkButton *button, gpointer data)
 }
 
 
-void ok_clicked(GtkButton *button, gpointer data)
-{
+void ok_clicked(GtkButton *button, gpointer data){
 	apply_preferences(button, data);
-	//g_print("OK\n");
 	gtk_widget_destroy(preferences_dialog.window);
-}
+}//ok_clicked
+
+
+void apply_clicked(GtkButton *button, gpointer data){
+	apply_preferences(button, data);
+	set_current_preferences();	
+}//apply_clicked
 
 
 void change_font_global_callback(gint reply,gpointer data)
@@ -1195,55 +1199,39 @@ void edit_template_clicked(GtkButton *button, gpointer data)
 	edit_template_dialog.window1 = NULL;
 }
 
-void delete_template_clicked(GtkButton *button, gpointer data)
-{
+void delete_template_clicked(GtkButton *button, gpointer data) {
 	GtkWidget *confirm_dialog;
 	GtkTreeIter iter;
 
-	confirm_dialog = gtk_message_dialog_new(GTK_WINDOW(main_window.window),GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
-		GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO,
-        _("Are you sure you want to delete template %s?"),current_key);
+	confirm_dialog = gtk_message_dialog_new( (GTK_WINDOW(main_window.window)), GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO, (_("Are you sure you want to delete template %s?")), current_key);
 	// confirm deletion with dialog
-	if(gtk_dialog_run(GTK_DIALOG(confirm_dialog)) == GTK_RESPONSE_YES) {
-		// delete from templates
-		template_delete(current_key);
-
-		// delete from treeview
-		gtk_tree_selection_get_selected(preferences_dialog.template_selection, NULL, &iter);
-		gtk_list_store_remove(preferences_dialog.template_store, &iter);
-		current_key = NULL;
-		/*
-		gtk_tree_selection_unselect_all(GTK_TREE_SELECTION(preferences_dialog.template_selection));
-		model = gtk_tree_view_get_model(GTK_TREE_VIEW(preferences_dialog.Templates));
-		g_object_ref(model);
-		gtk_tree_view_set_model(GTK_TREE_VIEW(preferences_dialog.Templates), NULL);
-		//gtk_list_store_remove(preferences_dialog.template_store, &current_template_iter);
-		gtk_list_store_clear(preferences_dialog.template_store);
-		gtk_tree_view_set_model(GTK_TREE_VIEW(preferences_dialog.Templates), model);
-		g_object_unref(model);
-		
-		
-		add_templates_to_store();*/
-		
+	if(gtk_dialog_run(GTK_DIALOG(confirm_dialog)) != GTK_RESPONSE_YES) {
+		gtk_widget_destroy(confirm_dialog);
+		return;
 	}
+	
+	// delete from templates
+	template_delete(current_key);
+	
+	// delete from treeview
+	gtk_tree_selection_get_selected(preferences_dialog.template_selection, NULL, &iter);
+	gtk_list_store_remove(preferences_dialog.template_store, &iter);
+	current_key = NULL;
 	
 	// destroy dialog
 	gtk_widget_destroy(confirm_dialog);
-}
+}//delete_template_clicked
 
-void template_row_activated(GtkTreeSelection *selection, gpointer data)
-{
+void template_row_activated(GtkTreeSelection *selection, gpointer data){
 	GtkTreeModel *model;
 	gchar *content, *template;
 	GtkTreeIter iter;
 
-	if(current_key) {
-		g_free(current_key);
-	}
-	//g_print("a\n");
-    if(gtk_tree_selection_get_selected(selection, &model, &iter)) {
+	if(current_key) g_free(current_key);
+	
+	if(gtk_tree_selection_get_selected(selection, &model, &iter)) {
 		gtk_tree_model_get(model, &iter, 0, &current_key, -1);
-
+		
 		// display template content
 		template = template_find(current_key);
 		if(template) {
@@ -1254,18 +1242,13 @@ void template_row_activated(GtkTreeSelection *selection, gpointer data)
 	}
 }
 
-static void templates_treeview_add_column(void)
-{  
+static void templates_treeview_add_column(void){
 	GtkCellRenderer *renderer;
 	GtkTreeViewColumn *column;
 
 	/* column for description */
 	renderer = gtk_cell_renderer_text_new();
- 	column = gtk_tree_view_column_new_with_attributes(_("Name/Shortcut"),
-						     renderer,
-						     "text",
-						     0,
-						     NULL);
+ 	column = gtk_tree_view_column_new_with_attributes(_("Name/Shortcut"), renderer, "text", 0, NULL);
 	gtk_tree_view_column_set_sort_column_id(column, 0);
  	gtk_tree_view_append_column(GTK_TREE_VIEW(preferences_dialog.Templates), column);
 }
@@ -1573,20 +1556,6 @@ void preferences_dialog_create(void){
                        GTK_SIGNAL_FUNC(on_php_binary_location_changed),
                        NULL);
 
-	/* Version for file_entry 
-	preferences_dialog.php_file_entry = gnome_file_entry_new(NULL, NULL);
-	gtk_widget_show(preferences_dialog.php_file_entry);
-	gtk_box_pack_start(GTK_BOX(preferences_dialog.hbox17), preferences_dialog.php_file_entry, TRUE, TRUE, 0);
-	gtk_entry_set_text(GTK_ENTRY(gnome_file_entry_gtk_entry(GNOME_FILE_ENTRY(preferences_dialog.php_file_entry))), temp_preferences.php_binary_location);
-	gtk_signal_connect(GTK_OBJECT(gnome_file_entry_gtk_entry(GNOME_FILE_ENTRY(preferences_dialog.php_file_entry))),
-                       "changed",
-                       GTK_SIGNAL_FUNC(on_php_binary_location_changed),
-                       NULL);*/
-
-	/*preferences_dialog.combo_entry1 = gnome_file_entry_gtk_entry(GNOME_FILE_ENTRY(preferences_dialog.php_file_entry));
-	gtk_widget_show(preferences_dialog.combo_entry1);
-	gtk_entry_set_text(GTK_ENTRY(preferences_dialog.php_file_entry), preferences.php_binary_location);*/
-					
 	preferences_dialog.hbox18 = gtk_hbox_new(FALSE, 0);
 	gtk_widget_show(preferences_dialog.hbox18);
 	gtk_box_pack_start(GTK_BOX(preferences_dialog.vbox7), preferences_dialog.hbox18, FALSE, TRUE, 8);
@@ -1659,7 +1628,7 @@ void preferences_dialog_create(void){
 	// Can't unref it because I need to add to it later....
 	templates_treeview_add_column();
 	
-    gtk_tree_view_set_search_column(GTK_TREE_VIEW(preferences_dialog.Templates),0);
+	gtk_tree_view_set_search_column(GTK_TREE_VIEW(preferences_dialog.Templates),0);
 	gtk_widget_show(preferences_dialog.Templates);
 	gtk_container_add(GTK_CONTAINER(preferences_dialog.scrolledwindow1), preferences_dialog.Templates);
 
@@ -1705,10 +1674,8 @@ void preferences_dialog_create(void){
 	
 	preferences_dialog.apply_button = gtk_button_new_with_mnemonic(_("Apply"));
 	gtk_widget_show(preferences_dialog.apply_button);
-	//gtk_box_pack_end(GTK_BOX(GTK_DIALOG(preferences_dialog.window)->action_area), preferences_dialog.apply_button, FALSE, FALSE, 4);
 	gtk_container_add(GTK_CONTAINER(GTK_DIALOG(preferences_dialog.window)->action_area),preferences_dialog.apply_button);
-	gtk_signal_connect(GTK_OBJECT(preferences_dialog.apply_button),
-	                    "clicked", GTK_SIGNAL_FUNC(apply_preferences), NULL);
+	gtk_signal_connect(GTK_OBJECT(preferences_dialog.apply_button), "clicked", GTK_SIGNAL_FUNC(apply_clicked), NULL);
 	
 	get_current_highlighting_settings(current_highlighting_element);
 }//preferences_dialog_create
