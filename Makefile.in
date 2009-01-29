@@ -196,7 +196,8 @@ EXTRA_DIST = \
 	connectED.applications		\
 	$(applications_in_files)	\
 	$(spec_in_files)		\
-	src/gtkscintilla2
+	src/gtkscintilla2		\
+	src/gtkscintilla2/scintilla/gtk
 
 subdir = .
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -595,7 +596,6 @@ install-info: install-info-recursive
 install-man:
 
 install-sudo:
-	sudo ln -s $(datadir)/share/connectED /usr/share
 	sudo ln -s $(php_manual) /usr/share/doc/phpmanual
 
 installcheck-am:

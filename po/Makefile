@@ -41,7 +41,7 @@ CC = gcc
 GENCAT = @GENCAT@
 GMSGFMT = /usr/bin/msgfmt
 MSGFMT = /usr/bin/msgfmt
-XGETTEXT = /usr/bin/xgettext
+XGETTEXT = :
 INTLTOOL_UPDATE = $(top_builddir)/intltool-update
 INTLTOOL_EXTRACT = $(top_builddir)/intltool-extract
 MSGMERGE = INTLTOOL_EXTRACT=$(INTLTOOL_EXTRACT) $(INTLTOOL_UPDATE) --gettext-package $(GETTEXT_PACKAGE) --dist

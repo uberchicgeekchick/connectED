@@ -1,0 +1,149 @@
+<?xml version="1.0" standalone="no"?> <!--*- mode: xml -*-->
+<!DOCTYPE glade-interface SYSTEM "http://glade.gnome.org/glade-2.0.dtd">
+
+<glade-interface>
+
+<widget class="GtkWindow" id="connectED_twitter_module">
+  <property name="visible">True</property>
+  <property name="title" translatable="yes">Twitter</property>
+  <property name="type">GTK_WINDOW_TOPLEVEL</property>
+  <property name="window_position">GTK_WIN_POS_NONE</property>
+  <property name="modal">True</property>
+  <property name="resizable">True</property>
+  <property name="destroy_with_parent">False</property>
+  <property name="icon_name">connectED.svg</property>
+  <property name="decorated">True</property>
+  <property name="skip_taskbar_hint">True</property>
+  <property name="skip_pager_hint">True</property>
+  <property name="type_hint">GDK_WINDOW_TYPE_HINT_NORMAL</property>
+  <property name="gravity">GDK_GRAVITY_NORTH_WEST</property>
+  <property name="focus_on_map">True</property>
+  <property name="urgency_hint">False</property>
+
+  <child>
+    <widget class="GtkVBox" id="twitter_statuses">
+      <property name="height_request">358</property>
+      <property name="visible">True</property>
+      <property name="can_focus">True</property>
+      <property name="homogeneous">False</property>
+      <property name="spacing">2</property>
+      <accelerator key="F5" modifiers="0" signal="composited_changed"/>
+      <accelerator key="R" modifiers="GDK_CONTROL_MASK" signal="composited_changed"/>
+      <accelerator key="Tab" modifiers="0" signal="twitter_tab"/>
+
+      <child>
+	<widget class="GtkLabel" id="twitter_account_label">
+	  <property name="visible">True</property>
+	  <property name="label" translatable="yes">Twitter.com/username</property>
+	  <property name="use_underline">False</property>
+	  <property name="use_markup">False</property>
+	  <property name="justify">GTK_JUSTIFY_LEFT</property>
+	  <property name="wrap">False</property>
+	  <property name="selectable">False</property>
+	  <property name="xalign">0.5</property>
+	  <property name="yalign">0.5</property>
+	  <property name="xpad">0</property>
+	  <property name="ypad">0</property>
+	  <property name="ellipsize">PANGO_ELLIPSIZE_NONE</property>
+	  <property name="width_chars">-1</property>
+	  <property name="single_line_mode">False</property>
+	  <property name="angle">0</property>
+	</widget>
+	<packing>
+	  <property name="padding">0</property>
+	  <property name="expand">False</property>
+	  <property name="fill">False</property>
+	</packing>
+      </child>
+
+      <child>
+	<widget class="GtkComboBox" id="twitter_views">
+	  <property name="height_request">8</property>
+	  <property name="visible">True</property>
+	  <property name="add_tearoffs">False</property>
+	  <property name="focus_on_click">True</property>
+	  <signal name="changed" handler="on_twitter_views_changed" after="yes" object="twitter_views" last_modification_time="Tue, 27 Jan 2009 06:49:02 GMT"/>
+	</widget>
+	<packing>
+	  <property name="padding">0</property>
+	  <property name="expand">True</property>
+	  <property name="fill">True</property>
+	</packing>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+
+      <child>
+	<placeholder/>
+      </child>
+    </widget>
+  </child>
+</widget>
+
+</glade-interface>

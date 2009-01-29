@@ -3,6 +3,8 @@ SUBDIRS = \
 	doc	\
 	pixmaps	\
 	src \
+	src/gtkscintilla2 \
+	src/gtkscintilla2/scintilla/gtk \
 	po
 
 applicationsdir = $(datadir)/applications
@@ -16,4 +18,5 @@ EXTRA_DIST = \
 	connectED.applications		\
 	$(applications_in_files)	\
 	$(spec_in_files)		\
-	src/gtkscintilla2
+	src/gtkscintilla2		\
+	src/gtkscintilla2/scintilla/gtk
