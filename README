@@ -1,5 +1,7 @@
-connectED is a colaborative and social networking IDE for GTK+/GNOME.
-Copyright (c) 2007-2009 Kaity G. B.
+connectED is a collaborative IDE for GNOME/GTK.
+With integrated social networking, instant messaging, and IRC support.
+
+Copyright (c) 2007-2009 Kaity G. B.; released under the RPL.
 	<uberChicGeekChick.Com -at- uberChicGeekChick.Com>
 
 For more information or to find the latest release, visit our
@@ -24,10 +26,10 @@ LIMITATION, ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
 PURPOSE, QUIET ENJOYMENT, OR NON-INFRINGEMENT. See the RPL for specific
 language governing rights and limitations under the RPL.
 
----------------------------------------------------------------------------
-|	A copy of the RPL 1.5 may be found with this project or online @:    |
-|		http://opensource.org/licenses/rpl1.5.txt                    |
----------------------------------------------------------------------------
+------------------------------------------------------------------------------
+| 	A copy of the RPL 1.5 may be found with this project or online @:    |
+| 		http://opensource.org/licenses/rpl1.5.txt                    |
+------------------------------------------------------------------------------
 
 
 

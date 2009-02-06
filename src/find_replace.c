@@ -193,33 +193,6 @@ void find_create(void){
 	gtk_frame_set_label_widget(GTK_FRAME(find_dialog.frame3), find_dialog.label3);
 	gtk_label_set_justify(GTK_LABEL(find_dialog.label3), GTK_JUSTIFY_LEFT);
 
-	/*find_dialog.frame4 = gtk_frame_new(NULL);
-	gtk_widget_show(find_dialog.frame4);
-	gtk_box_pack_start(GTK_BOX(find_dialog.hbox1), find_dialog.frame4, FALSE, FALSE, 4);
-
-	find_dialog.vbox4 = gtk_vbox_new(FALSE, 0);
-	gtk_widget_show(find_dialog.vbox4);
-	gtk_container_add(GTK_CONTAINER(find_dialog.frame4), find_dialog.vbox4);
-
-	find_dialog.radiobutton2 = gtk_radio_button_new_with_mnemonic(NULL, _("Forwards"));
-	gtk_widget_show(find_dialog.radiobutton2);
-	gtk_box_pack_start(GTK_BOX(find_dialog.vbox4), find_dialog.radiobutton2, FALSE, FALSE, 0);
-	gtk_container_set_border_width(GTK_CONTAINER(find_dialog.radiobutton2), 2);
-	gtk_radio_button_set_group(GTK_RADIO_BUTTON(find_dialog.radiobutton2), find_dialog.radiobutton2_group);
-	find_dialog.radiobutton2_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(find_dialog.radiobutton2));
-
-	find_dialog.radiobutton3 = gtk_radio_button_new_with_mnemonic(NULL, _("Backwards"));
-	gtk_widget_show(find_dialog.radiobutton3);
-	gtk_box_pack_start(GTK_BOX(find_dialog.vbox4), find_dialog.radiobutton3, FALSE, FALSE, 0);
-	gtk_container_set_border_width(GTK_CONTAINER(find_dialog.radiobutton3), 2);
-	gtk_radio_button_set_group(GTK_RADIO_BUTTON(find_dialog.radiobutton3), find_dialog.radiobutton2_group);
-	find_dialog.radiobutton2_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(find_dialog.radiobutton3));
-
-	find_dialog.label4 = gtk_label_new(_("Direction"));
-	gtk_widget_show(find_dialog.label4);
-	gtk_frame_set_label_widget(GTK_FRAME(find_dialog.frame4), find_dialog.label4);
-	gtk_label_set_justify(GTK_LABEL(find_dialog.label4), GTK_JUSTIFY_LEFT);*/
-
 	find_dialog.frame5 = gtk_frame_new(NULL);
 	gtk_widget_show(find_dialog.frame5);
 	gtk_box_pack_start(GTK_BOX(find_dialog.hbox1), find_dialog.frame5, TRUE, TRUE, 4);
@@ -423,9 +396,8 @@ void replace_all_clicked(GtkButton *button, gpointer data){
 	}
 
 	while(result != -1) {
-		if(start_found == last_found) {
+		if(start_found == last_found)
 			break;
-		}
 
 		last_found = start_found;
 		gtk_scintilla_set_selection_start(GTK_SCINTILLA(main_window.current_editor->scintilla), start_found);
@@ -454,6 +426,7 @@ void replace_all_clicked(GtkButton *button, gpointer data){
 	g_string_free(message, TRUE);
 	
 	gtk_scintilla_goto_pos(GTK_SCINTILLA(main_window.current_editor->scintilla), start_pos);
+	replace_destroy(NULL, NULL);
 }//replace_all_clicked
 
 
@@ -578,33 +551,6 @@ void replace_create(void){
 	gtk_frame_set_label_widget(GTK_FRAME(replace_dialog.frame16), replace_dialog.label16);
 	gtk_label_set_justify(GTK_LABEL(replace_dialog.label16), GTK_JUSTIFY_LEFT);
 
-	/*replace_dialog.frame17 = gtk_frame_new(NULL);
-	gtk_widget_show(replace_dialog.frame17);
-	gtk_box_pack_start(GTK_BOX(replace_dialog.hbox9), replace_dialog.frame17, FALSE, FALSE, 4);
-
-	replace_dialog.vbox16 = gtk_vbox_new(FALSE, 0);
-	gtk_widget_show(replace_dialog.vbox16);
-	gtk_container_add(GTK_CONTAINER(replace_dialog.frame17), replace_dialog.vbox16);
-
-	replace_dialog.radiobutton19 = gtk_radio_button_new_with_mnemonic(NULL, _("Forwards"));
-	gtk_widget_show(replace_dialog.radiobutton19);
-	gtk_box_pack_start(GTK_BOX(replace_dialog.vbox16), replace_dialog.radiobutton19, FALSE, FALSE, 0);
-	gtk_container_set_border_width(GTK_CONTAINER(replace_dialog.radiobutton19), 2);
-	gtk_radio_button_set_group(GTK_RADIO_BUTTON(replace_dialog.radiobutton19), replace_dialog.radiobutton19_group);
-	replace_dialog.radiobutton19_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(replace_dialog.radiobutton19));
-
-	replace_dialog.radiobutton20 = gtk_radio_button_new_with_mnemonic(NULL, _("Backwards"));
-	gtk_widget_show(replace_dialog.radiobutton20);
-	gtk_box_pack_start(GTK_BOX(replace_dialog.vbox16), replace_dialog.radiobutton20, FALSE, FALSE, 0);
-	gtk_container_set_border_width(GTK_CONTAINER(replace_dialog.radiobutton20), 2);
-	gtk_radio_button_set_group(GTK_RADIO_BUTTON(replace_dialog.radiobutton20), replace_dialog.radiobutton20_group);
-	replace_dialog.radiobutton20_group = gtk_radio_button_get_group(GTK_RADIO_BUTTON(replace_dialog.radiobutton20));
-
-	replace_dialog.label17 = gtk_label_new(_("Direction"));
-	gtk_widget_show(replace_dialog.label17);
-	gtk_frame_set_label_widget(GTK_FRAME(replace_dialog.frame17), replace_dialog.label17);
-	gtk_label_set_justify(GTK_LABEL(replace_dialog.label17), GTK_JUSTIFY_LEFT);*/
-
 	replace_dialog.frame18 = gtk_frame_new(NULL);
 	gtk_widget_show(replace_dialog.frame18);
 	gtk_box_pack_start(GTK_BOX(replace_dialog.hbox9), replace_dialog.frame18, TRUE, TRUE, 4);
@@ -684,9 +630,6 @@ void replace_create(void){
 
 	gtk_signal_connect(GTK_OBJECT(replace_dialog.window2), "key_press_event", GTK_SIGNAL_FUNC(replace_key_press_event), NULL);
 
-	// Hide the dialog box when the user clicks the cancel_button
-	//gtk_signal_connect_object(GTK_OBJECT(replace_dialog.button7),
-	//                           "clicked", GTK_SIGNAL_FUNC(gtk_widget_hide),(gpointer) replace_dialog.window2);
 	// Don't hide it, destroy it, the same as closing it(for consistency) - AJ 2005-10-14
 	gtk_signal_connect_object(GTK_OBJECT(replace_dialog.button7),
 	                           "clicked", GTK_SIGNAL_FUNC(replace_destroy), NULL);
