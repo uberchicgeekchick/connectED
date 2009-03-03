@@ -14,7 +14,7 @@
 
 GETTEXT_PACKAGE = connectED
 PACKAGE = connectED
-VERSION = 0.9.91
+VERSION = 1.0.1
 
 SHELL = /bin/sh
 
@@ -37,19 +37,19 @@ INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 MKINSTALLDIRS = $(top_srcdir)/./mkinstalldirs
 
-CC = gcc
+CC = /usr/bin/gcc
 GENCAT = @GENCAT@
 GMSGFMT = /usr/bin/msgfmt
 MSGFMT = /usr/bin/msgfmt
-XGETTEXT = :
+XGETTEXT = /usr/bin/xgettext
 INTLTOOL_UPDATE = $(top_builddir)/intltool-update
 INTLTOOL_EXTRACT = $(top_builddir)/intltool-extract
 MSGMERGE = INTLTOOL_EXTRACT=$(INTLTOOL_EXTRACT) $(INTLTOOL_UPDATE) --gettext-package $(GETTEXT_PACKAGE) --dist
 GENPOT   = INTLTOOL_EXTRACT=$(INTLTOOL_EXTRACT) $(INTLTOOL_UPDATE) --gettext-package $(GETTEXT_PACKAGE) --pot
 
 DEFS = -DHAVE_CONFIG_H
-CFLAGS = -g -O2
-CPPFLAGS = 
+CFLAGS = -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include
+CPPFLAGS = -I/usr/include
 
 INCLUDES = -I.. -I$(top_srcdir)/intl
 

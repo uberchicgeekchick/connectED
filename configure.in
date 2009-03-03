@@ -2,9 +2,9 @@ dnl
 dnl configure.in for connectED
 dnl
 
-AC_INIT(src, , http://uberChicGeekChick.Com/?Project=connectED)
+AC_INIT(src, , http://uberChicGeekChick.Com/?projects=connected)
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(connectED, 0.9.91)
+AM_INIT_AUTOMAKE(connectED, 1.0.1)
 
 AM_MAINTAINER_MODE
 

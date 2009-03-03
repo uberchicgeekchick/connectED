@@ -27,16 +27,8 @@ hostinfo               = unknown
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
 
-PATH: /uberChick/bin
-PATH: /usr/local/bin
-PATH: /usr/bin
 PATH: /bin
-PATH: /usr/X11R6/bin
-PATH: /usr/bin/X11
-PATH: /usr/games
-PATH: /usr/lib/mit/bin
-PATH: /usr/lib/mit/sbin
-PATH: .
+PATH: /usr/bin
 PATH: /bin
 PATH: /usr/bin
 PATH: /usr/local/bin
@@ -44,77 +36,45 @@ PATH: /sbin
 PATH: /usr/sbin
 PATH: /usr/local/sbin
 PATH: /etc/init.d
-PATH: /programs/GTK-PHP-IDE/bin
+PATH: /programs/connectED/bin
+PATH: /bin
 PATH: /projects/games/engines/Raydium/raydium/bin
 PATH: .
-PATH: /projects/gtk/Alacast/bin
-PATH: /projects/gtk/Alacast/bin/scripts
+PATH: /projects/gtk/alacast/bin
+PATH: /projects/gtk/alacast/bin/scripts
 PATH: .
-PATH: /projects/console/Alacast/bin
+PATH: /projects/cli/alacast/bin
 PATH: .
-PATH: /projects/console/tcsh-dev
-PATH: /projects/console/tcsh-dev/scripts
-PATH: /projects/console/tcsh-dev/helpers
-PATH: /projects/console/tcsh-dev/helpers/rm
-PATH: /projects/console/tcsh-dev/permissions
-PATH: /projects/console/tcsh-dev/setenv
-PATH: /projects/console/tcsh-dev/game-dev
-PATH: /projects/console/tcsh-dev/game-dev/engines
-PATH: /projects/console/tcsh-dev/sudo
-PATH: /projects/console/tcsh-dev/devel
-PATH: /projects/console/tcsh-dev/tcshrc
-PATH: /projects/console/tcsh-dev/media-organization
-PATH: /projects/console/tcsh-dev/media-organization/gPodder
-PATH: /projects/console/tcsh-dev/media-organization/podnovel-helpers
-PATH: /projects/console/tcsh-dev/convert
-PATH: /projects/console/tcsh-dev/xml-parsers
-PATH: /projects/console/tcsh-dev/session-handlers
-PATH: /projects/console/tcsh-dev/backup
+PATH: /projects/cli/tcsh-dev
+PATH: /projects/cli/tcsh-dev/scripts
+PATH: /projects/cli/tcsh-dev/helpers
+PATH: /projects/cli/tcsh-dev/helpers/rm
+PATH: /projects/cli/tcsh-dev/permissions
+PATH: /projects/cli/tcsh-dev/resolutions
+PATH: /projects/cli/tcsh-dev/resolutions/media
+PATH: /projects/cli/tcsh-dev/resolutions/gnome-terminal
+PATH: /projects/cli/tcsh-dev/resolutions/video
+PATH: /projects/cli/tcsh-dev/build-scripts
+PATH: /projects/cli/tcsh-dev/media
+PATH: /projects/cli/tcsh-dev/media/podnovel-helpers
+PATH: /projects/cli/tcsh-dev/media/HandBrake
+PATH: /projects/cli/tcsh-dev/media/gPodder-helper-scripts
+PATH: /projects/cli/tcsh-dev/setenv
+PATH: /projects/cli/tcsh-dev/game-dev
+PATH: /projects/cli/tcsh-dev/game-dev/engines
+PATH: /projects/cli/tcsh-dev/sudo
+PATH: /projects/cli/tcsh-dev/devel
+PATH: /projects/cli/tcsh-dev/tcshrc
+PATH: /projects/cli/tcsh-dev/convert
+PATH: /projects/cli/tcsh-dev/xml-parsers
 PATH: /programs/bin
-PATH: /programs/Mozilla/Firefox3/32bit/Nightly
-PATH: /programs/Mozilla/Firefox3/32bit/Stable
-PATH: /programs/Mozilla/Thunderbird3/32bit/Nightly
-PATH: /programs/Mozilla/Thunderbird3/32bit/Stable
+PATH: /programs/Mozilla/Firefox3/64bit
+PATH: /programs/Mozilla/Thunderbird3/64bit
 PATH: /programs/gizmo-project-3.1.0.79
 PATH: /programs/carrier-2.5.0
 PATH: /programs/skype_static-2.0.0.72-oss
 PATH: /programs/ion/3-20080825/bin
 PATH: /programs/linphone/3.0-cvs/2008-09-11/bin
-PATH: /programs/Adobe/Reader8/bin/
-PATH: .
-PATH: /bin
-PATH: /usr/bin
-PATH: /usr/local/bin
-PATH: /sbin
-PATH: /usr/sbin
-PATH: /usr/local/sbin
-PATH: /etc/init.d
-PATH: /programs/GTK-PHP-IDE/bin
-PATH: /projects/games/engines/Raydium/raydium/bin
-PATH: .
-PATH: /projects/gtk/Alacast/bin
-PATH: /projects/gtk/Alacast/bin/scripts
-PATH: .
-PATH: /projects/console/Alacast/bin
-PATH: .
-PATH: /projects/console/tcsh-dev
-PATH: /projects/console/tcsh-dev/scripts
-PATH: /projects/console/tcsh-dev/helpers
-PATH: /projects/console/tcsh-dev/helpers/rm
-PATH: /projects/console/tcsh-dev/permissions
-PATH: /projects/console/tcsh-dev/setenv
-PATH: /projects/console/tcsh-dev/game-dev
-PATH: /projects/console/tcsh-dev/game-dev/engines
-PATH: /projects/console/tcsh-dev/sudo
-PATH: /projects/console/tcsh-dev/devel
-PATH: /projects/console/tcsh-dev/tcshrc
-PATH: /projects/console/tcsh-dev/media-organization
-PATH: /projects/console/tcsh-dev/media-organization/gPodder
-PATH: /projects/console/tcsh-dev/media-organization/podnovel-helpers
-PATH: /projects/console/tcsh-dev/convert
-PATH: /projects/console/tcsh-dev/xml-parsers
-PATH: /projects/console/tcsh-dev/session-handlers
-PATH: /projects/console/tcsh-dev/backup
 PATH: .
 
 
@@ -127,35 +87,34 @@ configure:1595: result: /usr/bin/install -c
 configure:1606: checking whether build environment is sane
 configure:1649: result: yes
 configure:1682: checking for gawk
-configure:1698: found /usr/bin/gawk
+configure:1698: found /bin/gawk
 configure:1708: result: gawk
 configure:1718: checking whether make sets $(MAKE)
 configure:1738: result: yes
 configure:1903: checking whether to enable maintainer-specific portions of Makefiles
 configure:1912: result: no
 configure:1974: checking for gcc
-configure:1990: found /usr/bin/gcc
-configure:2000: result: gcc
+configure:2000: result: /usr/bin/gcc
 configure:2244: checking for C compiler version
-configure:2247: gcc --version </dev/null >&5
+configure:2247: /usr/bin/gcc --version </dev/null >&5
 gcc (SUSE Linux) 4.3.2 [gcc-4_3-branch revision 141291]
 Copyright (C) 2008 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
 configure:2250: $? = 0
-configure:2252: gcc -v </dev/null >&5
+configure:2252: /usr/bin/gcc -v </dev/null >&5
 Using built-in specs.
 Target: x86_64-suse-linux
 Configured with: ../configure --prefix=/usr --infodir=/usr/share/info --mandir=/usr/share/man --libdir=/usr/lib64 --libexecdir=/usr/lib64 --enable-languages=c,c++,objc,fortran,obj-c++,java,ada --enable-checking=release --with-gxx-include-dir=/usr/include/c++/4.3 --enable-ssp --disable-libssp --with-bugurl=http://bugs.opensuse.org/ --with-pkgversion='SUSE Linux' --disable-libgcj --disable-libmudflap --with-slibdir=/lib64 --with-system-zlib --enable-__cxa_atexit --enable-libstdcxx-allocator=new --disable-libstdcxx-pch --enable-version-specific-runtime-libs --program-suffix=-4.3 --enable-linux-futex --without-system-libunwind --with-cpu=generic --build=x86_64-suse-linux
 Thread model: posix
 gcc version 4.3.2 [gcc-4_3-branch revision 141291] (SUSE Linux) 
 configure:2255: $? = 0
-configure:2257: gcc -V </dev/null >&5
+configure:2257: /usr/bin/gcc -V </dev/null >&5
 gcc: '-V' option must have argument
 configure:2260: $? = 1
 configure:2283: checking for C compiler default output file name
-configure:2286: gcc    conftest.c  >&5
+configure:2286: /usr/bin/gcc -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib >&5
 configure:2289: $? = 0
 configure:2335: result: a.out
 configure:2340: checking whether the C compiler works
@@ -165,38 +124,38 @@ configure:2366: result: yes
 configure:2373: checking whether we are cross compiling
 configure:2375: result: no
 configure:2378: checking for suffix of executables
-configure:2380: gcc -o conftest    conftest.c  >&5
+configure:2380: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib >&5
 configure:2383: $? = 0
 configure:2408: result: 
 configure:2414: checking for suffix of object files
-configure:2435: gcc -c   conftest.c >&5
+configure:2435: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:2438: $? = 0
 configure:2460: result: o
 configure:2464: checking whether we are using the GNU C compiler
-configure:2488: gcc -c   conftest.c >&5
+configure:2488: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:2494: $? = 0
 configure:2497: test -z 			 || test ! -s conftest.err
 configure:2500: $? = 0
 configure:2503: test -s conftest.o
 configure:2506: $? = 0
 configure:2519: result: yes
-configure:2525: checking whether gcc accepts -g
-configure:2546: gcc -c -g  conftest.c >&5
+configure:2525: checking whether /usr/bin/gcc accepts -g
+configure:2546: /usr/bin/gcc -c -g -I/usr/include conftest.c >&5
 configure:2552: $? = 0
 configure:2555: test -z 			 || test ! -s conftest.err
 configure:2558: $? = 0
 configure:2561: test -s conftest.o
 configure:2564: $? = 0
 configure:2575: result: yes
-configure:2592: checking for gcc option to accept ANSI C
-configure:2662: gcc  -c -g -O2  conftest.c >&5
+configure:2592: checking for /usr/bin/gcc option to accept ANSI C
+configure:2662: /usr/bin/gcc  -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:2668: $? = 0
 configure:2671: test -z 			 || test ! -s conftest.err
 configure:2674: $? = 0
 configure:2677: test -s conftest.o
 configure:2680: $? = 0
 configure:2698: result: none needed
-configure:2716: gcc -c -g -O2  conftest.c >&5
+configure:2716: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 conftest.c:2: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'me'
 configure:2722: $? = 1
 configure: failed program was:
@@ -205,7 +164,7 @@ configure: failed program was:
 | #endif
 configure:2863: checking for style of include used by make
 configure:2891: result: GNU
-configure:2919: checking dependency style of gcc
+configure:2919: checking dependency style of /usr/bin/gcc
 configure:3002: result: gcc3
 configure:3071: checking for g++
 configure:3087: found /usr/bin/g++
@@ -229,7 +188,7 @@ configure:3126: g++ -V </dev/null >&5
 g++: '-V' option must have argument
 configure:3129: $? = 1
 configure:3132: checking whether we are using the GNU C++ compiler
-configure:3156: g++ -c   conftest.cc >&5
+configure:3156: g++ -c -std=gnu++0x -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.cc >&5
 configure:3162: $? = 0
 configure:3165: test -z 			 || test ! -s conftest.err
 configure:3168: $? = 0
@@ -237,20 +196,20 @@ configure:3171: test -s conftest.o
 configure:3174: $? = 0
 configure:3187: result: yes
 configure:3193: checking whether g++ accepts -g
-configure:3214: g++ -c -g  conftest.cc >&5
+configure:3214: g++ -c -g -I/usr/include conftest.cc >&5
 configure:3220: $? = 0
 configure:3223: test -z 			 || test ! -s conftest.err
 configure:3226: $? = 0
 configure:3229: test -s conftest.o
 configure:3232: $? = 0
 configure:3243: result: yes
-configure:3285: g++ -c -g -O2  conftest.cc >&5
+configure:3285: g++ -c -std=gnu++0x -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.cc >&5
 configure:3291: $? = 0
 configure:3294: test -z 			 || test ! -s conftest.err
 configure:3297: $? = 0
 configure:3300: test -s conftest.o
 configure:3303: $? = 0
-configure:3329: g++ -c -g -O2  conftest.cc >&5
+configure:3329: g++ -c -std=gnu++0x -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.cc >&5
 conftest.cc: In function 'int main()':
 conftest.cc:15: error: 'exit' was not declared in this scope
 configure:3335: $? = 1
@@ -263,7 +222,7 @@ configure: failed program was:
 | #define PACKAGE_STRING ""
 | #define PACKAGE_BUGREPORT ""
 | #define PACKAGE "connectED"
-| #define VERSION "0.9.91"
+| #define VERSION "1.0.1"
 | /* end confdefs.h.  */
 | 
 | int
@@ -273,7 +232,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:3285: g++ -c -g -O2  conftest.cc >&5
+configure:3285: g++ -c -std=gnu++0x -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.cc >&5
 conftest.cc:11: error: 'void std::exit(int)' should have been declared inside 'std'
 configure:3291: $? = 1
 configure: failed program was:
@@ -285,7 +244,7 @@ configure: failed program was:
 | #define PACKAGE_STRING ""
 | #define PACKAGE_BUGREPORT ""
 | #define PACKAGE "connectED"
-| #define VERSION "0.9.91"
+| #define VERSION "1.0.1"
 | /* end confdefs.h.  */
 | extern "C" void std::exit (int) throw (); using std::exit;
 | #include <stdlib.h>
@@ -296,7 +255,7 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:3285: g++ -c -g -O2  conftest.cc >&5
+configure:3285: g++ -c -std=gnu++0x -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.cc >&5
 conftest.cc:11: error: 'void std::exit(int)' should have been declared inside 'std'
 In file included from conftest.cc:12:
 /usr/include/stdlib.h:531: error: declaration of 'void std::exit(int) throw ()' throws different exceptions
@@ -311,7 +270,7 @@ configure: failed program was:
 | #define PACKAGE_STRING ""
 | #define PACKAGE_BUGREPORT ""
 | #define PACKAGE "connectED"
-| #define VERSION "0.9.91"
+| #define VERSION "1.0.1"
 | /* end confdefs.h.  */
 | extern "C" void std::exit (int); using std::exit;
 | #include <stdlib.h>
@@ -322,13 +281,13 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:3285: g++ -c -g -O2  conftest.cc >&5
+configure:3285: g++ -c -std=gnu++0x -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.cc >&5
 configure:3291: $? = 0
 configure:3294: test -z 			 || test ! -s conftest.err
 configure:3297: $? = 0
 configure:3300: test -s conftest.o
 configure:3303: $? = 0
-configure:3329: g++ -c -g -O2  conftest.cc >&5
+configure:3329: g++ -c -std=gnu++0x -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.cc >&5
 configure:3335: $? = 0
 configure:3338: test -z 			 || test ! -s conftest.err
 configure:3341: $? = 0
@@ -341,10 +300,10 @@ configure:3568: result: x86_64-unknown-linux-gnu
 configure:3576: checking host system type
 configure:3590: result: x86_64-unknown-linux-gnu
 configure:3598: checking for a sed that does not truncate output
-configure:3652: result: /usr/bin/sed
+configure:3652: result: /bin/sed
 configure:3655: checking for egrep
 configure:3665: result: grep -E
-configure:3681: checking for ld used by gcc
+configure:3681: checking for ld used by /usr/bin/gcc
 configure:3748: result: /usr/x86_64-suse-linux/bin/ld
 configure:3757: checking if the linker (/usr/x86_64-suse-linux/bin/ld) is GNU ld
 configure:3772: result: yes
@@ -356,33 +315,13 @@ configure:3839: checking whether ln -s works
 configure:3843: result: yes
 configure:3850: checking how to recognise dependent libraries
 configure:4024: result: pass_all
-configure:4109: gcc -c -g -O2  conftest.c >&5
+configure:4109: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:4112: $? = 0
 configure:4237: checking how to run the C preprocessor
-configure:4272: gcc -E  conftest.c
-configure:4278: $? = 0
-configure:4310: gcc -E  conftest.c
-conftest.c:14:28: error: ac_nonexistent.h: No such file or directory
-configure:4316: $? = 1
-configure: failed program was:
-| /* confdefs.h.  */
-| 
-| #define PACKAGE_NAME ""
-| #define PACKAGE_TARNAME ""
-| #define PACKAGE_VERSION ""
-| #define PACKAGE_STRING ""
-| #define PACKAGE_BUGREPORT ""
-| #define PACKAGE "connectED"
-| #define VERSION "0.9.91"
-| #ifdef __cplusplus
-| extern "C" void exit (int) throw ();
-| #endif
-| /* end confdefs.h.  */
-| #include <ac_nonexistent.h>
-configure:4355: result: gcc -E
-configure:4379: gcc -E  conftest.c
+configure:4355: result: /usr/bin/cpp
+configure:4379: /usr/bin/cpp -I/usr/include conftest.c
 configure:4385: $? = 0
-configure:4417: gcc -E  conftest.c
+configure:4417: /usr/bin/cpp -I/usr/include conftest.c
 conftest.c:14:28: error: ac_nonexistent.h: No such file or directory
 configure:4423: $? = 1
 configure: failed program was:
@@ -394,28 +333,30 @@ configure: failed program was:
 | #define PACKAGE_STRING ""
 | #define PACKAGE_BUGREPORT ""
 | #define PACKAGE "connectED"
-| #define VERSION "0.9.91"
+| #define VERSION "1.0.1"
 | #ifdef __cplusplus
 | extern "C" void exit (int) throw ();
 | #endif
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
 configure:4467: checking for ANSI C header files
-configure:4492: gcc -c -g -O2  conftest.c >&5
+configure:4492: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:4498: $? = 0
 configure:4501: test -z 			 || test ! -s conftest.err
 configure:4504: $? = 0
 configure:4507: test -s conftest.o
 configure:4510: $? = 0
-configure:4599: gcc -o conftest -g -O2   conftest.c  >&5
+configure:4599: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib >&5
 conftest.c: In function 'main':
+conftest.c:31: warning: implicit declaration of function 'exit'
 conftest.c:31: warning: incompatible implicit declaration of built-in function 'exit'
+conftest.c:32: warning: incompatible implicit declaration of built-in function 'exit'
 configure:4602: $? = 0
 configure:4604: ./conftest
 configure:4607: $? = 0
 configure:4622: result: yes
 configure:4646: checking for sys/types.h
-configure:4662: gcc -c -g -O2  conftest.c >&5
+configure:4662: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:4668: $? = 0
 configure:4671: test -z 			 || test ! -s conftest.err
 configure:4674: $? = 0
@@ -423,7 +364,7 @@ configure:4677: test -s conftest.o
 configure:4680: $? = 0
 configure:4691: result: yes
 configure:4646: checking for sys/stat.h
-configure:4662: gcc -c -g -O2  conftest.c >&5
+configure:4662: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:4668: $? = 0
 configure:4671: test -z 			 || test ! -s conftest.err
 configure:4674: $? = 0
@@ -431,7 +372,7 @@ configure:4677: test -s conftest.o
 configure:4680: $? = 0
 configure:4691: result: yes
 configure:4646: checking for stdlib.h
-configure:4662: gcc -c -g -O2  conftest.c >&5
+configure:4662: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:4668: $? = 0
 configure:4671: test -z 			 || test ! -s conftest.err
 configure:4674: $? = 0
@@ -439,7 +380,7 @@ configure:4677: test -s conftest.o
 configure:4680: $? = 0
 configure:4691: result: yes
 configure:4646: checking for string.h
-configure:4662: gcc -c -g -O2  conftest.c >&5
+configure:4662: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:4668: $? = 0
 configure:4671: test -z 			 || test ! -s conftest.err
 configure:4674: $? = 0
@@ -447,7 +388,7 @@ configure:4677: test -s conftest.o
 configure:4680: $? = 0
 configure:4691: result: yes
 configure:4646: checking for memory.h
-configure:4662: gcc -c -g -O2  conftest.c >&5
+configure:4662: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:4668: $? = 0
 configure:4671: test -z 			 || test ! -s conftest.err
 configure:4674: $? = 0
@@ -455,7 +396,7 @@ configure:4677: test -s conftest.o
 configure:4680: $? = 0
 configure:4691: result: yes
 configure:4646: checking for strings.h
-configure:4662: gcc -c -g -O2  conftest.c >&5
+configure:4662: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:4668: $? = 0
 configure:4671: test -z 			 || test ! -s conftest.err
 configure:4674: $? = 0
@@ -463,7 +404,7 @@ configure:4677: test -s conftest.o
 configure:4680: $? = 0
 configure:4691: result: yes
 configure:4646: checking for inttypes.h
-configure:4662: gcc -c -g -O2  conftest.c >&5
+configure:4662: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:4668: $? = 0
 configure:4671: test -z 			 || test ! -s conftest.err
 configure:4674: $? = 0
@@ -471,7 +412,7 @@ configure:4677: test -s conftest.o
 configure:4680: $? = 0
 configure:4691: result: yes
 configure:4646: checking for stdint.h
-configure:4662: gcc -c -g -O2  conftest.c >&5
+configure:4662: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:4668: $? = 0
 configure:4671: test -z 			 || test ! -s conftest.err
 configure:4674: $? = 0
@@ -479,7 +420,7 @@ configure:4677: test -s conftest.o
 configure:4680: $? = 0
 configure:4691: result: yes
 configure:4646: checking for unistd.h
-configure:4662: gcc -c -g -O2  conftest.c >&5
+configure:4662: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:4668: $? = 0
 configure:4671: test -z 			 || test ! -s conftest.err
 configure:4674: $? = 0
@@ -487,7 +428,7 @@ configure:4677: test -s conftest.o
 configure:4680: $? = 0
 configure:4691: result: yes
 configure:4717: checking dlfcn.h usability
-configure:4729: gcc -c -g -O2  conftest.c >&5
+configure:4729: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:4735: $? = 0
 configure:4738: test -z 			 || test ! -s conftest.err
 configure:4741: $? = 0
@@ -495,15 +436,15 @@ configure:4744: test -s conftest.o
 configure:4747: $? = 0
 configure:4757: result: yes
 configure:4761: checking dlfcn.h presence
-configure:4771: gcc -E  conftest.c
+configure:4771: /usr/bin/cpp -I/usr/include conftest.c
 configure:4777: $? = 0
 configure:4797: result: yes
 configure:4832: checking for dlfcn.h
 configure:4839: result: yes
 configure:4857: checking how to run the C++ preprocessor
-configure:4888: g++ -E  conftest.cc
+configure:4888: g++ -E -I/usr/include conftest.cc
 configure:4894: $? = 0
-configure:4926: g++ -E  conftest.cc
+configure:4926: g++ -E -I/usr/include conftest.cc
 conftest.cc:25:28: error: ac_nonexistent.h: No such file or directory
 configure:4932: $? = 1
 configure: failed program was:
@@ -515,7 +456,7 @@ configure: failed program was:
 | #define PACKAGE_STRING ""
 | #define PACKAGE_BUGREPORT ""
 | #define PACKAGE "connectED"
-| #define VERSION "0.9.91"
+| #define VERSION "1.0.1"
 | #ifdef __cplusplus
 | extern "C" void exit (int) throw ();
 | #endif
@@ -533,9 +474,9 @@ configure: failed program was:
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
 configure:4971: result: g++ -E
-configure:4995: g++ -E  conftest.cc
+configure:4995: g++ -E -I/usr/include conftest.cc
 configure:5001: $? = 0
-configure:5033: g++ -E  conftest.cc
+configure:5033: g++ -E -I/usr/include conftest.cc
 conftest.cc:25:28: error: ac_nonexistent.h: No such file or directory
 configure:5039: $? = 1
 configure: failed program was:
@@ -547,7 +488,7 @@ configure: failed program was:
 | #define PACKAGE_STRING ""
 | #define PACKAGE_BUGREPORT ""
 | #define PACKAGE "connectED"
-| #define VERSION "0.9.91"
+| #define VERSION "1.0.1"
 | #ifdef __cplusplus
 | extern "C" void exit (int) throw ();
 | #endif
@@ -637,12 +578,12 @@ configure: failed program was:
 configure:5292: result: no
 configure:5322: checking the maximum length of command line arguments
 configure:5387: result: 32768
-configure:5398: checking command to parse /usr/bin/nm -B output from gcc object
-configure:5487: gcc -c -g -O2  conftest.c >&5
+configure:5398: checking command to parse /usr/bin/nm -B output from /usr/bin/gcc object
+configure:5487: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:5490: $? = 0
 configure:5494: /usr/bin/nm -B conftest.o \| sed -n -e 's/^.*[ 	]\([ABCDGIRSTW][ABCDGIRSTW]*\)[ 	][ 	]*\(\)\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2\3 \3/p' \> conftest.nm
 configure:5497: $? = 0
-configure:5549: gcc -o conftest -g -O2   conftest.c conftstm.o >&5
+configure:5549: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c conftstm.o >&5
 configure:5552: $? = 0
 configure:5590: result: ok
 configure:5594: checking for objdir
@@ -656,29 +597,29 @@ configure:5806: result: ranlib
 configure:5859: checking for strip
 configure:5875: found /usr/bin/strip
 configure:5886: result: strip
-configure:6148: checking if gcc static flag  works
+configure:6148: checking if /usr/bin/gcc static flag  works
 configure:6171: result: yes
-configure:6189: checking if gcc supports -fno-rtti -fno-exceptions
-configure:6207: gcc -c -g -O2  -fno-rtti -fno-exceptions conftest.c >&5
+configure:6189: checking if /usr/bin/gcc supports -fno-rtti -fno-exceptions
+configure:6207: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -fno-rtti -fno-exceptions conftest.c >&5
 cc1: warning: command line option "-fno-rtti" is valid for C++/ObjC++ but not for C
 configure:6211: $? = 0
 configure:6222: result: no
-configure:6237: checking for gcc option to produce PIC
+configure:6237: checking for /usr/bin/gcc option to produce PIC
 configure:6414: result: -fPIC
-configure:6422: checking if gcc PIC flag -fPIC works
-configure:6440: gcc -c -g -O2  -fPIC -DPIC conftest.c >&5
+configure:6422: checking if /usr/bin/gcc PIC flag -fPIC works
+configure:6440: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -fPIC -DPIC conftest.c >&5
 configure:6444: $? = 0
 configure:6455: result: yes
-configure:6479: checking if gcc supports -c -o file.o
-configure:6500: gcc -c -g -O2  -o out/conftest2.o conftest.c >&5
+configure:6479: checking if /usr/bin/gcc supports -c -o file.o
+configure:6500: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -o out/conftest2.o conftest.c >&5
 configure:6504: $? = 0
 configure:6524: result: yes
-configure:6550: checking whether the gcc linker (/usr/x86_64-suse-linux/bin/ld -m elf_x86_64) supports shared libraries
+configure:6550: checking whether the /usr/bin/gcc linker (/usr/x86_64-suse-linux/bin/ld -m elf_x86_64) supports shared libraries
 configure:7397: result: yes
 configure:7423: checking whether -lc should be explicitly linked in
-configure:7428: gcc -c -g -O2  conftest.c >&5
+configure:7428: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:7431: $? = 0
-configure:7445: gcc -shared conftest.o  -v -Wl,-soname -Wl,conftest -o conftest 2\>\&1 \| grep  -lc  \>/dev/null 2\>\&1
+configure:7445: /usr/bin/gcc -shared conftest.o  -v -Wl,-soname -Wl,conftest -o conftest 2\>\&1 \| grep  -lc  \>/dev/null 2\>\&1
 configure:7448: $? = 0
 configure:7460: result: no
 configure:7468: checking dynamic linker characteristics
@@ -700,16 +641,16 @@ configure:9676: checking if the linker (/usr/x86_64-suse-linux/bin/ld -m elf_x86
 configure:9691: result: yes
 configure:9742: checking whether the g++ linker (/usr/x86_64-suse-linux/bin/ld -m elf_x86_64) supports shared libraries
 configure:10568: result: yes
-configure:10586: g++ -c -g -O2  conftest.cc >&5
+configure:10586: g++ -c -std=gnu++0x -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.cc >&5
 configure:10589: $? = 0
 configure:10685: checking for g++ option to produce PIC
 configure:10937: result: -fPIC
 configure:10945: checking if g++ PIC flag -fPIC works
-configure:10963: g++ -c -g -O2  -fPIC -DPIC conftest.cc >&5
+configure:10963: g++ -c -std=gnu++0x -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -fPIC -DPIC conftest.cc >&5
 configure:10967: $? = 0
 configure:10978: result: yes
 configure:11002: checking if g++ supports -c -o file.o
-configure:11023: g++ -c -g -O2  -o out/conftest2.o conftest.cc >&5
+configure:11023: g++ -c -std=gnu++0x -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -o out/conftest2.o conftest.cc >&5
 configure:11027: $? = 0
 configure:11047: result: yes
 configure:11073: checking whether the g++ linker (/usr/x86_64-suse-linux/bin/ld -m elf_x86_64) supports shared libraries
@@ -732,9 +673,11 @@ configure:19187: checking for msgfmt
 configure:19205: found /usr/bin/msgfmt
 configure:19218: result: /usr/bin/msgfmt
 configure:19227: checking for msgmerge
-configure:19258: result: msgmerge
+configure:19245: found /usr/bin/msgmerge
+configure:19258: result: /usr/bin/msgmerge
 configure:19267: checking for xgettext
-configure:19298: result: xgettext
+configure:19285: found /usr/bin/xgettext
+configure:19298: result: /usr/bin/xgettext
 configure:19354: checking for pkg-config
 configure:19372: found /usr/bin/pkg-config
 configure:19385: result: /usr/bin/pkg-config
@@ -750,7 +693,7 @@ configure:19433: result: -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64
 configure:19436: checking connectED_LIBS
 configure:19444: result: -pthread -lgnomeui-2 -lSM -lICE -lbonoboui-2 -lgnomecanvas-2 -lgnome-2 -lpopt -lbonobo-2 -lbonobo-activation -lORBit-2 -lart_lgpl_2 -lgnomevfs-2 -lgconf-2 -lgthread-2.0 -lrt -lgtkhtml-2 -lgtk-x11-2.0 -lxml2 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lcairo -lpango-1.0 -lfreetype -lz -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lglib-2.0  
 configure:19517: checking locale.h usability
-configure:19529: gcc -c -g -O2  conftest.c >&5
+configure:19529: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:19535: $? = 0
 configure:19538: test -z 			 || test ! -s conftest.err
 configure:19541: $? = 0
@@ -758,13 +701,13 @@ configure:19544: test -s conftest.o
 configure:19547: $? = 0
 configure:19557: result: yes
 configure:19561: checking locale.h presence
-configure:19571: gcc -E  conftest.c
+configure:19571: /usr/bin/cpp -I/usr/include conftest.c
 configure:19577: $? = 0
 configure:19597: result: yes
 configure:19632: checking for locale.h
 configure:19639: result: yes
 configure:19653: checking for LC_MESSAGES
-configure:19674: gcc -o conftest -g -O2   conftest.c  >&5
+configure:19674: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib >&5
 configure:19680: $? = 0
 configure:19683: test -z 			 || test ! -s conftest.err
 configure:19686: $? = 0
@@ -772,7 +715,7 @@ configure:19689: test -s conftest
 configure:19692: $? = 0
 configure:19704: result: yes
 configure:19733: checking libintl.h usability
-configure:19745: gcc -c -g -O2  conftest.c >&5
+configure:19745: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
 configure:19751: $? = 0
 configure:19754: test -z 			 || test ! -s conftest.err
 configure:19757: $? = 0
@@ -780,13 +723,13 @@ configure:19760: test -s conftest.o
 configure:19763: $? = 0
 configure:19773: result: yes
 configure:19777: checking libintl.h presence
-configure:19787: gcc -E  conftest.c
+configure:19787: /usr/bin/cpp -I/usr/include conftest.c
 configure:19793: $? = 0
 configure:19813: result: yes
 configure:19848: checking for libintl.h
 configure:19855: result: yes
 configure:19866: checking for ngettext in libc
-configure:19889: gcc -o conftest -g -O2   conftest.c  >&5
+configure:19889: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib >&5
 conftest.c: In function 'main':
 conftest.c:35: warning: cast from pointer to integer of different size
 configure:19895: $? = 0
@@ -796,7 +739,7 @@ configure:19904: test -s conftest
 configure:19907: $? = 0
 configure:19920: result: yes
 configure:19924: checking for dgettext in libc
-configure:19947: gcc -o conftest -g -O2   conftest.c  >&5
+configure:19947: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib >&5
 conftest.c: In function 'main':
 conftest.c:35: warning: cast from pointer to integer of different size
 configure:19953: $? = 0
@@ -806,7 +749,7 @@ configure:19962: test -s conftest
 configure:19965: $? = 0
 configure:19978: result: yes
 configure:19987: checking for bind_textdomain_codeset
-configure:20044: gcc -o conftest -g -O2   conftest.c  >&5
+configure:20044: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib >&5
 configure:20050: $? = 0
 configure:20053: test -z 			 || test ! -s conftest.err
 configure:20056: $? = 0
@@ -816,7 +759,7 @@ configure:20074: result: yes
 configure:20578: checking for msgfmt
 configure:20605: result: /usr/bin/msgfmt
 configure:20618: checking for dcgettext
-configure:20675: gcc -o conftest -g -O2   conftest.c   >&5
+configure:20675: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib  >&5
 conftest.c:54: warning: conflicting types for built-in function 'dcgettext'
 configure:20681: $? = 0
 configure:20684: test -z 			 || test ! -s conftest.err
@@ -827,8 +770,8 @@ configure:20705: result: yes
 configure:20717: checking for gmsgfmt
 configure:20748: result: /usr/bin/msgfmt
 configure:20757: checking for xgettext
-configure:20787: result: no
-configure:20808: gcc -o conftest -g -O2   conftest.c   >&5
+configure:20784: result: /usr/bin/xgettext
+configure:20808: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib  >&5
 configure:20814: $? = 0
 configure:20817: test -z 			 || test ! -s conftest.err
 configure:20820: $? = 0
@@ -862,7 +805,6 @@ config.status:812: creating pixmaps/Makefile
 config.status:812: creating po/Makefile
 config.status:812: creating src/Makefile
 config.status:878: creating config.h
-config.status:1002: config.h is unchanged
 config.status:1182: executing depfiles commands
 config.status:1182: executing intltool commands
 config.status:1182: executing default-1 commands
@@ -875,26 +817,26 @@ ac_cv_build=x86_64-unknown-linux-gnu
 ac_cv_build_alias=x86_64-unknown-linux-gnu
 ac_cv_c_compiler_gnu=yes
 ac_cv_cxx_compiler_gnu=yes
-ac_cv_env_CC_set=
-ac_cv_env_CC_value=
-ac_cv_env_CFLAGS_set=
-ac_cv_env_CFLAGS_value=
-ac_cv_env_CPPFLAGS_set=
-ac_cv_env_CPPFLAGS_value=
-ac_cv_env_CPP_set=
-ac_cv_env_CPP_value=
+ac_cv_env_CC_set=set
+ac_cv_env_CC_value=/usr/bin/gcc
+ac_cv_env_CFLAGS_set=set
+ac_cv_env_CFLAGS_value='-std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include'
+ac_cv_env_CPPFLAGS_set=set
+ac_cv_env_CPPFLAGS_value=-I/usr/include
+ac_cv_env_CPP_set=set
+ac_cv_env_CPP_value=/usr/bin/cpp
 ac_cv_env_CXXCPP_set=
 ac_cv_env_CXXCPP_value=
-ac_cv_env_CXXFLAGS_set=
-ac_cv_env_CXXFLAGS_value=
+ac_cv_env_CXXFLAGS_set=set
+ac_cv_env_CXXFLAGS_value='-std=gnu++0x -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include'
 ac_cv_env_CXX_set=
 ac_cv_env_CXX_value=
 ac_cv_env_F77_set=
 ac_cv_env_F77_value=
 ac_cv_env_FFLAGS_set=
 ac_cv_env_FFLAGS_value=
-ac_cv_env_LDFLAGS_set=
-ac_cv_env_LDFLAGS_value=
+ac_cv_env_LDFLAGS_set=set
+ac_cv_env_LDFLAGS_value='-L/lib64 -L/usr/lib64 -L/usr/lib -L/lib'
 ac_cv_env_build_alias_set=
 ac_cv_env_build_alias_value=
 ac_cv_env_host_alias_set=
@@ -924,18 +866,18 @@ ac_cv_objext=o
 ac_cv_path_GMSGFMT=/usr/bin/msgfmt
 ac_cv_path_INTLTOOL_ICONV=/usr/bin/iconv
 ac_cv_path_INTLTOOL_MSGFMT=/usr/bin/msgfmt
-ac_cv_path_INTLTOOL_MSGMERGE=msgmerge
+ac_cv_path_INTLTOOL_MSGMERGE=/usr/bin/msgmerge
 ac_cv_path_INTLTOOL_PERL=/usr/bin/perl
-ac_cv_path_INTLTOOL_XGETTEXT=xgettext
+ac_cv_path_INTLTOOL_XGETTEXT=/usr/bin/xgettext
 ac_cv_path_MSGFMT=/usr/bin/msgfmt
 ac_cv_path_PKG_CONFIG=/usr/bin/pkg-config
-ac_cv_path_XGETTEXT=:
+ac_cv_path_XGETTEXT=/usr/bin/xgettext
 ac_cv_path_install='/usr/bin/install -c'
 ac_cv_prog_AWK=gawk
-ac_cv_prog_CPP='gcc -E'
+ac_cv_prog_CPP=/usr/bin/cpp
 ac_cv_prog_CXXCPP='g++ -E'
 ac_cv_prog_ac_ct_AR=ar
-ac_cv_prog_ac_ct_CC=gcc
+ac_cv_prog_ac_ct_CC=/usr/bin/gcc
 ac_cv_prog_ac_ct_CXX=g++
 ac_cv_prog_ac_ct_RANLIB=ranlib
 ac_cv_prog_ac_ct_STRIP=strip
@@ -960,7 +902,7 @@ lt_cv_objdir=.libs
 lt_cv_path_LD=/usr/x86_64-suse-linux/bin/ld
 lt_cv_path_LDCXX='/usr/x86_64-suse-linux/bin/ld -m elf_x86_64'
 lt_cv_path_NM='/usr/bin/nm -B'
-lt_cv_path_SED=/usr/bin/sed
+lt_cv_path_SED=/bin/sed
 lt_cv_prog_compiler_c_o=yes
 lt_cv_prog_compiler_c_o_CXX=yes
 lt_cv_prog_compiler_rtti_exceptions=no
@@ -992,15 +934,15 @@ AUTOMAKE='${SHELL} /projects/gtk/connectED/missing --run automake-1.7'
 AWK='gawk'
 CATALOGS=''
 CATOBJEXT='.gmo'
-CC='gcc'
+CC='/usr/bin/gcc'
 CCDEPMODE='depmode=gcc3'
-CFLAGS='-g -O2'
-CPP='gcc -E'
-CPPFLAGS=''
+CFLAGS='-std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include'
+CPP='/usr/bin/cpp'
+CPPFLAGS='-I/usr/include'
 CXX='g++'
 CXXCPP='g++ -E'
 CXXDEPMODE='depmode=gcc3'
-CXXFLAGS='-g -O2'
+CXXFLAGS='-std=gnu++0x -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include'
 CYGPATH_W='echo'
 DATADIRNAME='share'
 DEFS='-DHAVE_CONFIG_H'
@@ -1031,7 +973,7 @@ INTLTOOL_KBD_RULE='%.kbd:       %.kbd.in       $(INTLTOOL_MERGE) $(wildcard $(to
 INTLTOOL_KEYS_RULE='%.keys:      %.keys.in      $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -k -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
 INTLTOOL_MERGE='$(top_builddir)/intltool-merge'
 INTLTOOL_MSGFMT='/usr/bin/msgfmt'
-INTLTOOL_MSGMERGE='msgmerge'
+INTLTOOL_MSGMERGE='/usr/bin/msgmerge'
 INTLTOOL_OAF_RULE='%.oaf:       %.oaf.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -o -p $(top_srcdir)/po $< $@'
 INTLTOOL_PERL='/usr/bin/perl'
 INTLTOOL_PONG_RULE='%.pong:      %.pong.in      $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
@@ -1044,12 +986,12 @@ INTLTOOL_THEME_RULE='%.theme:     %.theme.in     $(INTLTOOL_MERGE) $(wildcard $(
 INTLTOOL_UI_RULE='%.ui:        %.ui.in        $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
 INTLTOOL_UPDATE='$(top_builddir)/intltool-update'
 INTLTOOL_XAM_RULE='%.xam:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
-INTLTOOL_XGETTEXT='xgettext'
+INTLTOOL_XGETTEXT='/usr/bin/xgettext'
 INTLTOOL_XML_NOMERGE_RULE='%.xml:       %.xml.in       $(INTLTOOL_MERGE) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u /tmp $< $@'
 INTLTOOL_XML_RULE='%.xml:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@'
-LDFLAGS=''
+LDFLAGS='-L/lib64 -L/usr/lib64 -L/usr/lib -L/lib'
 LIBOBJS=''
-LIBS=''
+LIBS='-L/lib64 -L/usr/lib64 -L/usr/lib -L/lib'
 LIBTOOL='$(SHELL) $(top_builddir)/libtool'
 LN_S='ln -s'
 LTLIBOBJS=''
@@ -1077,10 +1019,10 @@ SET_MAKE=''
 SHELL='/bin/sh'
 STRIP='strip'
 USE_NLS='yes'
-VERSION='0.9.91'
-XGETTEXT=':'
+VERSION='1.0.1'
+XGETTEXT='/usr/bin/xgettext'
 ac_ct_AR='ar'
-ac_ct_CC='gcc'
+ac_ct_CC='/usr/bin/gcc'
 ac_ct_CXX='g++'
 ac_ct_F77=''
 ac_ct_RANLIB='ranlib'
@@ -1152,7 +1094,7 @@ target_alias=''
 #define PACKAGE_TARNAME ""
 #define PACKAGE_VERSION ""
 #define STDC_HEADERS 1
-#define VERSION "0.9.91"
+#define VERSION "1.0.1"
 #endif
 #ifdef __cplusplus
 extern "C" void exit (int) throw ();
