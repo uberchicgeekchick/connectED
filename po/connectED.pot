@@ -303,7 +303,7 @@ msgid "translator_credits"
 msgstr ""
 
 #: ../src/main_window_callbacks.c:1221
-msgid "Copyright  2003-2006 Andy Jeffries."
+msgid "Copyright  2007-2009 Kaity G. B. <a href='mailto:uberChick@uberChicGeekChick.Com'>uberChick@uberChicGeekChick.Com</a>"
 msgstr ""
 
 #: ../src/main_window_callbacks.c:1222

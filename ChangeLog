@@ -1,2 +1,17 @@
-2009-03-02:	Kaity G. B. <uberChick@uberChicGeekChick.Com>
-		* ChangeLog: Created for release of version 0.9.91
+2009-03-09:Kaity G. B. <uberChick@uberChicGeekChick.Com>
+	* src/main_window_callbacks.c: on_about1_activate
+		I have fixed the about dialog so it now shows my information &
+		uses the correct svg icon.
+	
+	* README: created, TOC, and began writing.
+		I order my projects details, lisences, RPL, information, and I
+		added a list of dependacies, and a rough install quide.
+
+2009-03-02:Kaity G. B. <uberChick@uberChicGeekChick.Com>
+	* ChangeLog: Created for release of version 0.9.91
+
+2009-02-05:Kaity G. B. <uberChick@uberChicGeekChick.Com>
+	* src/find_replace.c: replace_all_clicked
+		I fixed it so 'Find and Replace all actually does what it says
+		and bonus it no longer segfaults when it tries.  Now it works
+		& stays running afterword.

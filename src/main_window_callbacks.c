@@ -1194,18 +1194,13 @@ void context_help(GtkWidget *widget)
 void on_about1_activate(GtkWidget *widget)
 {
 	const gchar *authors[] = {
-	                             "Primary Developer/Team Lead:",
-								 "Andy Jeffries <andy@connectED.org>",
-								"",
-								"Assistance with Fixes/Enhancements:",
-				     "Jonh Wendell <wendell@bani.com.br>",
-				     "Tim Jackson <tim@timj.co.uk>",
-				     "Sven Herzberg <herzi@gnome-de.org>",
-	                             NULL
-	                         };
+					"Primary Developer/Team Lead:",
+						"Andy Jeffries <andy@connectED.org>",
+					NULL
+				};
 	const gchar *documenters[] = {
-	                                 NULL
-	                             };
+					NULL
+				};
 	gchar *translator_credits = _("translator_credits");
 	GtkWidget *about;
 	GdkPixbuf *pixbuf = NULL;
@@ -1213,29 +1208,24 @@ void on_about1_activate(GtkWidget *widget)
 
 	pixbuf = gdk_pixbuf_new_from_file (PIXMAP_DIR "/" connectED_PIXMAP_ICON, &error);
 
-	if (error) {
+	if(error) {
 		g_warning (G_STRLOC ": cannot open icon: %s", error->message);
 		g_error_free (error);
 	}
 	about = gnome_about_new ("connectED", VERSION,
-	                         _("Copyright  2003-2006 Andy Jeffries."),
-                         	 _("connectED is a GNOME2 editor specialised for editing PHP "
-	                         "scripts and related files (HTML/CSS/JS)."),
+	                         _("Copyright  2006-2009 Kaity G. B."),
+                         	 _("connectED is a GNOME2 editor specialised for editing PHP source code and related files (HTML/CSS/JS)."),
 	                         (const gchar **) authors,
 	                         (const gchar **) documenters,
 	                         strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
 	                         pixbuf);
 	gtk_widget_show(about);
 
-	if (pixbuf) {
+	if(pixbuf)
 		gdk_pixbuf_unref (pixbuf);
-	}
-		
-	gtk_window_set_transient_for (GTK_WINDOW (about), NULL);
-	/* This line causes a segfault - should be right but commented out!
-	gtk_signal_connect(GTK_OBJECT(about), "destroy",
-	                   GTK_SIGNAL_FUNC(gtk_widget_destroyed), &about);*/
-	gtk_widget_show (about);
+	
+	gtk_window_set_transient_for( GTK_WINDOW(about), NULL);
+	gtk_widget_show(about);
 }
 
 void on_notebook_switch_page (GtkNotebook *notebook, GtkNotebookPage *page,

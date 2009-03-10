@@ -1,16 +1,52 @@
+TOC:
+	1.)
+	2.) Dependacies & recommandations.
+	9.) Copy right & liscense.
+		connectED needs the following packages are needed:
+			- gtk+-2.0
+			- libgnomeui-2.0
+			- gnome-vfs-2.0
+			- libgtkhtml-2.0
+			- libgnomeprint-2.2
+			- libgnomeprintui-2.2
+
+
+1.) About connectED:
+--------------------
 connectED is a collaborative IDE for GNOME/GTK.
 With integrated social networking, instant messaging, and IRC support.
 
-Copyright (c) 2007-2009 Kaity G. B.; released under the RPL.
-	<uberChicGeekChick.Com -at- uberChicGeekChick.Com>
+connectED is copyright (c) 2007-2009 Kaity G. B.; released under the RPL.
+	<uberChick -at- uberChicGeekChick.Com>
 
 For more information or to find the latest release, visit our
-	website at: http://uberchicgeekchick.com/?Project=connectED
+	website at: http://uberChicGeekChick.Com/?projects=connectED
 
 I, Kaity G. B., livse with DYT1+ Early-Onset Generalized Dystonia.
 A type of Generalized Dystonia; progressive neuro-muscular disease.
 More information can be found at:
-	http://Dystonia-DREAMS.Org/
+		http://Dystonia-DREAMS.Org/
+
+
+
+2.) Dependacies & recommandations.
+----------------------------------
+	connectED requires the following packages:
+		- gtk+-2.0
+		- libgnomeui-2.0
+		- gnome-vfs-2.0
+		- libgtkhtml-2.0
+		- libgnomeprint-2.2
+		- libgnomeprintui-2.2
+
+	You have two options to take advantage of integration of the php manual:
+		Extract a copy of the php manual to: /usr/share/doc/phpmanual
+		Or make this a symlink to where you have PHP's manual extracted to.
+
+9.) Copy right & liscense:
+--------------------------
+connectED is copyright (c) 2007-2009 Kaity G. B.; released under the RPL.
+	<uberChiChick -at- uberChicGeekChick.Com>
 
 
 Unless explicitly acquired and licensed from Licensor under another
@@ -25,11 +61,5 @@ LICENSOR HEREBY DISCLAIMS ALL SUCH WARRANTIES, INCLUDING WITHOUT
 LIMITATION, ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
 PURPOSE, QUIET ENJOYMENT, OR NON-INFRINGEMENT. See the RPL for specific
 language governing rights and limitations under the RPL.
-
-------------------------------------------------------------------------------
-| 	A copy of the RPL 1.5 may be found with this project or online @:    |
-| 		http://opensource.org/licenses/rpl1.5.txt                    |
-------------------------------------------------------------------------------
-
 
 
