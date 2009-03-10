@@ -1194,8 +1194,8 @@ void context_help(GtkWidget *widget)
 void on_about1_activate(GtkWidget *widget)
 {
 	const gchar *authors[] = {
-					"Primary Developer/Team Lead:",
-						"Andy Jeffries <andy@connectED.org>",
+					"Main Open Source Artist:",
+						"Kaity G. B. <uberChick@uberChicGeekChick.Com>",
 					NULL
 				};
 	const gchar *documenters[] = {
@@ -1212,13 +1212,13 @@ void on_about1_activate(GtkWidget *widget)
 		g_warning (G_STRLOC ": cannot open icon: %s", error->message);
 		g_error_free (error);
 	}
-	about = gnome_about_new ("connectED", VERSION,
-	                         _("Copyright  2006-2009 Kaity G. B."),
-                         	 _("connectED is a GNOME2 editor specialised for editing PHP source code and related files (HTML/CSS/JS)."),
-	                         (const gchar **) authors,
-	                         (const gchar **) documenters,
-	                         strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
-	                         pixbuf);
+	about = gnome_about_new( "connectED", VERSION,
+				_("Copyright  2006-2009 Kaity G. B."),
+				_("connectED is a GNOME2 PHP IDE\nconnectED is also an IDE for Perl, XML, XHTML, CSS, JavaScript source code."),
+				(const gchar **) authors,
+				(const gchar **) documenters,
+				strcmp (translator_credits, "translator_credits") != 0 ? translator_credits : NULL,
+				pixbuf);
 	gtk_widget_show(about);
 
 	if(pixbuf)

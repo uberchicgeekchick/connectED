@@ -1,0 +1,522 @@
+make: Entering directory `/projects/gtk/connectED'
+make  all-recursive
+make[1]: Entering directory `/projects/gtk/connectED'
+Making all in data
+make[2]: Entering directory `/projects/gtk/connectED/data'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/projects/gtk/connectED/data'
+Making all in doc
+make[2]: Entering directory `/projects/gtk/connectED/doc'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/projects/gtk/connectED/doc'
+Making all in pixmaps
+make[2]: Entering directory `/projects/gtk/connectED/pixmaps'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/projects/gtk/connectED/pixmaps'
+Making all in src
+make[2]: Entering directory `/projects/gtk/connectED/src'
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT calltip.o -MD -MP -MF ".deps/calltip.Tpo" \
+	  -c -o calltip.o `test -f 'calltip.c' || echo './'`calltip.c; \
+	then mv -f ".deps/calltip.Tpo" ".deps/calltip.Po"; \
+	else rm -f ".deps/calltip.Tpo"; exit 1; \
+	fi
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT classbrowser.o -MD -MP -MF ".deps/classbrowser.Tpo" \
+	  -c -o classbrowser.o `test -f 'classbrowser.c' || echo './'`classbrowser.c; \
+	then mv -f ".deps/classbrowser.Tpo" ".deps/classbrowser.Po"; \
+	else rm -f ".deps/classbrowser.Tpo"; exit 1; \
+	fi
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT classbrowser_parse.o -MD -MP -MF ".deps/classbrowser_parse.Tpo" \
+	  -c -o classbrowser_parse.o `test -f 'classbrowser_parse.c' || echo './'`classbrowser_parse.c; \
+	then mv -f ".deps/classbrowser_parse.Tpo" ".deps/classbrowser_parse.Po"; \
+	else rm -f ".deps/classbrowser_parse.Tpo"; exit 1; \
+	fi
+classbrowser_parse.c: In function ‘read_text_file’:
+classbrowser_parse.c:46: warning: comparison between signed and unsigned
+classbrowser_parse.c:47: warning: format ‘%d’ expects type ‘int’, but argument 3 has type ‘size_t’
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT edit_template.o -MD -MP -MF ".deps/edit_template.Tpo" \
+	  -c -o edit_template.o `test -f 'edit_template.c' || echo './'`edit_template.c; \
+	then mv -f ".deps/edit_template.Tpo" ".deps/edit_template.Po"; \
+	else rm -f ".deps/edit_template.Tpo"; exit 1; \
+	fi
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT find_replace.o -MD -MP -MF ".deps/find_replace.Tpo" \
+	  -c -o find_replace.o `test -f 'find_replace.c' || echo './'`find_replace.c; \
+	then mv -f ".deps/find_replace.Tpo" ".deps/find_replace.Po"; \
+	else rm -f ".deps/find_replace.Tpo"; exit 1; \
+	fi
+find_replace.c: In function ‘find_destroy’:
+find_replace.c:35: warning: unused parameter ‘widget’
+find_replace.c:35: warning: unused parameter ‘data’
+find_replace.c: In function ‘find_destroyed’:
+find_replace.c:39: warning: unused parameter ‘widget’
+find_replace.c:39: warning: unused parameter ‘data’
+find_replace.c: In function ‘find_clicked’:
+find_replace.c:43: warning: unused parameter ‘button’
+find_replace.c:43: warning: unused parameter ‘data’
+find_replace.c: In function ‘find_key_press_event’:
+find_replace.c:91: warning: unused parameter ‘widget’
+find_replace.c:91: warning: unused parameter ‘user_data’
+find_replace.c: In function ‘replace_destroyed’:
+find_replace.c:271: warning: unused parameter ‘widget’
+find_replace.c:271: warning: unused parameter ‘data’
+find_replace.c: In function ‘replace_destroy’:
+find_replace.c:275: warning: unused parameter ‘widget’
+find_replace.c:275: warning: unused parameter ‘data’
+find_replace.c: In function ‘replace_prompt_reply’:
+find_replace.c:280: warning: unused parameter ‘data’
+find_replace.c: In function ‘replace_clicked’:
+find_replace.c:294: warning: unused parameter ‘button’
+find_replace.c:294: warning: unused parameter ‘data’
+find_replace.c: In function ‘replace_all_clicked’:
+find_replace.c:354: warning: unused parameter ‘button’
+find_replace.c:354: warning: unused parameter ‘data’
+find_replace.c: In function ‘replace_key_press_event’:
+find_replace.c:433: warning: unused parameter ‘widget’
+find_replace.c:433: warning: unused parameter ‘user_data’
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT connectED_ipc.o -MD -MP -MF ".deps/connectED_ipc.Tpo" \
+	  -c -o connectED_ipc.o `test -f 'connectED_ipc.c' || echo './'`connectED_ipc.c; \
+	then mv -f ".deps/connectED_ipc.Tpo" ".deps/connectED_ipc.Po"; \
+	else rm -f ".deps/connectED_ipc.Tpo"; exit 1; \
+	fi
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT grel2abs.o -MD -MP -MF ".deps/grel2abs.Tpo" \
+	  -c -o grel2abs.o `test -f 'grel2abs.c' || echo './'`grel2abs.c; \
+	then mv -f ".deps/grel2abs.Tpo" ".deps/grel2abs.Po"; \
+	else rm -f ".deps/grel2abs.Tpo"; exit 1; \
+	fi
+grel2abs.c: In function ‘g_rel2abs’:
+grel2abs.c:114: warning: comparison between signed and unsigned
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT plugin.o -MD -MP -MF ".deps/plugin.Tpo" \
+	  -c -o plugin.o `test -f 'plugin.c' || echo './'`plugin.c; \
+	then mv -f ".deps/plugin.Tpo" ".deps/plugin.Po"; \
+	else rm -f ".deps/plugin.Tpo"; exit 1; \
+	fi
+In file included from plugin.c:27:
+main_window_menu.h:100: warning: missing initializer
+main_window_menu.h:100: warning: (near initialization for ‘file1_menu_uiinfo[2].widget’)
+main_window_menu.h:102: warning: missing initializer
+main_window_menu.h:102: warning: (near initialization for ‘file1_menu_uiinfo[4].widget’)
+main_window_menu.h:106: warning: missing initializer
+main_window_menu.h:106: warning: (near initialization for ‘file1_menu_uiinfo[8].widget’)
+main_window_menu.h:107: warning: missing initializer
+main_window_menu.h:107: warning: (near initialization for ‘file1_menu_uiinfo[9].widget’)
+main_window_menu.h:129: warning: missing initializer
+main_window_menu.h:129: warning: (near initialization for ‘edit1_menu_uiinfo[11].widget’)
+main_window_menu.h:130: warning: missing initializer
+main_window_menu.h:130: warning: (near initialization for ‘edit1_menu_uiinfo[12].widget’)
+main_window_menu.h:144: warning: missing initializer
+main_window_menu.h:144: warning: (near initialization for ‘force1_menu_uiinfo[0].widget’)
+main_window_menu.h:145: warning: missing initializer
+main_window_menu.h:145: warning: (near initialization for ‘force1_menu_uiinfo[1].widget’)
+main_window_menu.h:146: warning: missing initializer
+main_window_menu.h:146: warning: (near initialization for ‘force1_menu_uiinfo[2].widget’)
+main_window_menu.h:147: warning: missing initializer
+main_window_menu.h:147: warning: (near initialization for ‘force1_menu_uiinfo[3].widget’)
+main_window_menu.h:148: warning: missing initializer
+main_window_menu.h:148: warning: (near initialization for ‘force1_menu_uiinfo[4].widget’)
+main_window_menu.h:149: warning: missing initializer
+main_window_menu.h:149: warning: (near initialization for ‘force1_menu_uiinfo[5].widget’)
+main_window_menu.h:155: warning: missing initializer
+main_window_menu.h:155: warning: (near initialization for ‘code1_menu_uiinfo[0].widget’)
+main_window_menu.h:156: warning: missing initializer
+main_window_menu.h:156: warning: (near initialization for ‘code1_menu_uiinfo[1].widget’)
+main_window_menu.h:158: warning: missing initializer
+main_window_menu.h:158: warning: (near initialization for ‘code1_menu_uiinfo[3].widget’)
+main_window_menu.h:159: warning: missing initializer
+main_window_menu.h:159: warning: (near initialization for ‘code1_menu_uiinfo[4].widget’)
+main_window_menu.h:161: warning: missing initializer
+main_window_menu.h:161: warning: (near initialization for ‘code1_menu_uiinfo[6].widget’)
+main_window_menu.h:171: warning: missing initializer
+main_window_menu.h:171: warning: (near initialization for ‘help1_menu_uiinfo[0].widget’)
+main_window_menu.h:177: warning: ‘menubar1_uiinfo’ defined but not used
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT main.o -MD -MP -MF ".deps/main.Tpo" \
+	  -c -o main.o `test -f 'main.c' || echo './'`main.c; \
+	then mv -f ".deps/main.Tpo" ".deps/main.Po"; \
+	else rm -f ".deps/main.Tpo"; exit 1; \
+	fi
+main.c: In function ‘main’:
+main.c:49: warning: not enough variable arguments to fit a sentinel
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT main_window.o -MD -MP -MF ".deps/main_window.Tpo" \
+	  -c -o main_window.o `test -f 'main_window.c' || echo './'`main_window.c; \
+	then mv -f ".deps/main_window.Tpo" ".deps/main_window.Po"; \
+	else rm -f ".deps/main_window.Tpo"; exit 1; \
+	fi
+In file included from main_window.c:31:
+main_window_menu.h:100: warning: missing initializer
+main_window_menu.h:100: warning: (near initialization for ‘file1_menu_uiinfo[2].widget’)
+main_window_menu.h:102: warning: missing initializer
+main_window_menu.h:102: warning: (near initialization for ‘file1_menu_uiinfo[4].widget’)
+main_window_menu.h:106: warning: missing initializer
+main_window_menu.h:106: warning: (near initialization for ‘file1_menu_uiinfo[8].widget’)
+main_window_menu.h:107: warning: missing initializer
+main_window_menu.h:107: warning: (near initialization for ‘file1_menu_uiinfo[9].widget’)
+main_window_menu.h:129: warning: missing initializer
+main_window_menu.h:129: warning: (near initialization for ‘edit1_menu_uiinfo[11].widget’)
+main_window_menu.h:130: warning: missing initializer
+main_window_menu.h:130: warning: (near initialization for ‘edit1_menu_uiinfo[12].widget’)
+main_window_menu.h:144: warning: missing initializer
+main_window_menu.h:144: warning: (near initialization for ‘force1_menu_uiinfo[0].widget’)
+main_window_menu.h:145: warning: missing initializer
+main_window_menu.h:145: warning: (near initialization for ‘force1_menu_uiinfo[1].widget’)
+main_window_menu.h:146: warning: missing initializer
+main_window_menu.h:146: warning: (near initialization for ‘force1_menu_uiinfo[2].widget’)
+main_window_menu.h:147: warning: missing initializer
+main_window_menu.h:147: warning: (near initialization for ‘force1_menu_uiinfo[3].widget’)
+main_window_menu.h:148: warning: missing initializer
+main_window_menu.h:148: warning: (near initialization for ‘force1_menu_uiinfo[4].widget’)
+main_window_menu.h:149: warning: missing initializer
+main_window_menu.h:149: warning: (near initialization for ‘force1_menu_uiinfo[5].widget’)
+main_window_menu.h:155: warning: missing initializer
+main_window_menu.h:155: warning: (near initialization for ‘code1_menu_uiinfo[0].widget’)
+main_window_menu.h:156: warning: missing initializer
+main_window_menu.h:156: warning: (near initialization for ‘code1_menu_uiinfo[1].widget’)
+main_window_menu.h:158: warning: missing initializer
+main_window_menu.h:158: warning: (near initialization for ‘code1_menu_uiinfo[3].widget’)
+main_window_menu.h:159: warning: missing initializer
+main_window_menu.h:159: warning: (near initialization for ‘code1_menu_uiinfo[4].widget’)
+main_window_menu.h:161: warning: missing initializer
+main_window_menu.h:161: warning: (near initialization for ‘code1_menu_uiinfo[6].widget’)
+main_window_menu.h:171: warning: missing initializer
+main_window_menu.h:171: warning: (near initialization for ‘help1_menu_uiinfo[0].widget’)
+main_window.c: In function ‘channel_pass_filename_callback’:
+main_window.c:94: warning: passing argument 4 of ‘g_io_channel_read’ from incompatible pointer type
+main_window.c:89: warning: unused parameter ‘source’
+main_window.c:89: warning: unused parameter ‘condition’
+main_window.c:89: warning: unused parameter ‘data’
+main_window.c: In function ‘main_window_add_to_reopen_menu’:
+main_window.c:748: warning: comparison between signed and unsigned
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT main_window_callbacks.o -MD -MP -MF ".deps/main_window_callbacks.Tpo" \
+	  -c -o main_window_callbacks.o `test -f 'main_window_callbacks.c' || echo './'`main_window_callbacks.c; \
+	then mv -f ".deps/main_window_callbacks.Tpo" ".deps/main_window_callbacks.Po"; \
+	else rm -f ".deps/main_window_callbacks.Tpo"; exit 1; \
+	fi
+main_window_callbacks.c: In function ‘main_window_destroy_event’:
+main_window_callbacks.c:166: warning: unused parameter ‘widget’
+main_window_callbacks.c:166: warning: unused parameter ‘data’
+main_window_callbacks.c: In function ‘main_window_delete_event’:
+main_window_callbacks.c:230: warning: unused parameter ‘widget’
+main_window_callbacks.c:231: warning: unused parameter ‘event’
+main_window_callbacks.c:231: warning: unused parameter ‘user_data’
+main_window_callbacks.c: In function ‘main_window_resize’:
+main_window_callbacks.c:244: warning: unused parameter ‘widget’
+main_window_callbacks.c:244: warning: unused parameter ‘allocation’
+main_window_callbacks.c:244: warning: unused parameter ‘user_data’
+main_window_callbacks.c: In function ‘main_window_state_changed’:
+main_window_callbacks.c:250: warning: unused parameter ‘widget’
+main_window_callbacks.c:250: warning: unused parameter ‘user_data’
+main_window_callbacks.c: In function ‘classbrowser_accept_size’:
+main_window_callbacks.c:257: warning: unused parameter ‘paned’
+main_window_callbacks.c:257: warning: unused parameter ‘user_data’
+main_window_callbacks.c: In function ‘main_window_key_press_event’:
+main_window_callbacks.c:263: warning: unused parameter ‘widget’
+main_window_callbacks.c:264: warning: unused parameter ‘user_data’
+main_window_callbacks.c: In function ‘on_new1_activate’:
+main_window_callbacks.c:353: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘reopen_recent’:
+main_window_callbacks.c:380: warning: cast from pointer to integer of different size
+main_window_callbacks.c:374: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘run_plugin’:
+main_window_callbacks.c:389: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_openselected1_activate’:
+main_window_callbacks.c:427: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_open1_activate’:
+main_window_callbacks.c:480: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_saveall1_activate’:
+main_window_callbacks.c:600: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_save_as1_activate’:
+main_window_callbacks.c:645: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_reload_confirm’:
+main_window_callbacks.c:685: warning: unused parameter ‘filename’
+main_window_callbacks.c: In function ‘on_reload1_activate’:
+main_window_callbacks.c:693: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_rename1_activate’:
+main_window_callbacks.c:753: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘set_active_tab’:
+main_window_callbacks.c:777: warning: type of ‘page_num’ defaults to ‘int’
+main_window_callbacks.c: In function ‘try_save_page’:
+main_window_callbacks.c:831: warning: switch missing default case
+main_window_callbacks.c: In function ‘on_close1_activate’:
+main_window_callbacks.c:867: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_quit1_activate’:
+main_window_callbacks.c:882: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_cut1_activate’:
+main_window_callbacks.c:890: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘gtkhtml2_selection_get_text’:
+main_window_callbacks.c:929: warning: switch missing default case
+main_window_callbacks.c: In function ‘on_copy1_activate’:
+main_window_callbacks.c:955: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_paste_got_from_cliboard’:
+main_window_callbacks.c:985: warning: unused parameter ‘clipboard’
+main_window_callbacks.c: In function ‘on_paste1_activate’:
+main_window_callbacks.c:997: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_selectall1_activate’:
+main_window_callbacks.c:1011: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_find1_activate’:
+main_window_callbacks.c:1019: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_replace1_activate’:
+main_window_callbacks.c:1030: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_properties1_activate’:
+main_window_callbacks.c:1041: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_undo1_activate’:
+main_window_callbacks.c:1045: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_redo1_activate’:
+main_window_callbacks.c:1053: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘keyboard_macro_startstop’:
+main_window_callbacks.c:1061: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘keyboard_macro_playback’:
+main_window_callbacks.c:1078: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_preferences1_activate’:
+main_window_callbacks.c:1155: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘context_help’:
+main_window_callbacks.c:1169: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_about1_activate’:
+main_window_callbacks.c:1194: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘on_notebook_switch_page’:
+main_window_callbacks.c:1231: warning: unused parameter ‘notebook’
+main_window_callbacks.c:1231: warning: unused parameter ‘page’
+main_window_callbacks.c:1232: warning: unused parameter ‘user_data’
+main_window_callbacks.c: In function ‘on_notebook_focus_tab’:
+main_window_callbacks.c:1264: warning: unused parameter ‘notebook’
+main_window_callbacks.c:1265: warning: unused parameter ‘arg1’
+main_window_callbacks.c:1265: warning: unused parameter ‘user_data’
+main_window_callbacks.c: In function ‘inc_search_typed’:
+main_window_callbacks.c:1271: warning: unused parameter ‘text’
+main_window_callbacks.c:1271: warning: unused parameter ‘length’
+main_window_callbacks.c:1272: warning: unused parameter ‘position’
+main_window_callbacks.c:1272: warning: unused parameter ‘data’
+main_window_callbacks.c: In function ‘inc_search_key_release_event’:
+main_window_callbacks.c:1289: warning: unused parameter ‘widget’
+main_window_callbacks.c:1289: warning: unused parameter ‘user_data’
+main_window_callbacks.c: In function ‘inc_search_activate’:
+main_window_callbacks.c:1300: warning: unused parameter ‘user_data’
+main_window_callbacks.c: In function ‘goto_line_activate’:
+main_window_callbacks.c:1354: warning: unused parameter ‘user_data’
+main_window_callbacks.c: In function ‘block_indent’:
+main_window_callbacks.c:1387: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘block_unindent’:
+main_window_callbacks.c:1393: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘syntax_check’:
+main_window_callbacks.c:1399: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘syntax_check_clear’:
+main_window_callbacks.c:1411: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘classbrowser_show_hide’:
+main_window_callbacks.c:1436: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘lint_row_activated’:
+main_window_callbacks.c:1447: warning: unused parameter ‘data’
+main_window_callbacks.c: In function ‘treeview_double_click’:
+main_window_callbacks.c:1472: warning: unused parameter ‘widget’
+main_window_callbacks.c:1472: warning: unused parameter ‘func_data’
+main_window_callbacks.c: In function ‘treeview_click_release’:
+main_window_callbacks.c:1495: warning: unused parameter ‘widget’
+main_window_callbacks.c:1495: warning: unused parameter ‘event’
+main_window_callbacks.c:1495: warning: unused parameter ‘func_data’
+main_window_callbacks.c: In function ‘force_php’:
+main_window_callbacks.c:1518: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘force_css’:
+main_window_callbacks.c:1525: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘force_sql’:
+main_window_callbacks.c:1532: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘force_cxx’:
+main_window_callbacks.c:1539: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘force_perl’:
+main_window_callbacks.c:1546: warning: unused parameter ‘widget’
+main_window_callbacks.c: In function ‘force_python’:
+main_window_callbacks.c:1553: warning: unused parameter ‘widget’
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT preferences.o -MD -MP -MF ".deps/preferences.Tpo" \
+	  -c -o preferences.o `test -f 'preferences.c' || echo './'`preferences.c; \
+	then mv -f ".deps/preferences.Tpo" ".deps/preferences.Po"; \
+	else rm -f ".deps/preferences.Tpo"; exit 1; \
+	fi
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT preferences_dialog.o -MD -MP -MF ".deps/preferences_dialog.Tpo" \
+	  -c -o preferences_dialog.o `test -f 'preferences_dialog.c' || echo './'`preferences_dialog.c; \
+	then mv -f ".deps/preferences_dialog.Tpo" ".deps/preferences_dialog.Po"; \
+	else rm -f ".deps/preferences_dialog.Tpo"; exit 1; \
+	fi
+preferences_dialog.c: In function ‘set_controls_to_highlight’:
+preferences_dialog.c:215: warning: unused parameter ‘setting_name’
+preferences_dialog.c: In function ‘on_element_entry_changed’:
+preferences_dialog.c:497: warning: unused parameter ‘data’
+preferences_dialog.c: In function ‘apply_preferences’:
+preferences_dialog.c:505: warning: unused parameter ‘button’
+preferences_dialog.c:505: warning: unused parameter ‘data’
+preferences_dialog.c: In function ‘get_control_values_to_highlight’:
+preferences_dialog.c:680: warning: format not a string literal and no format arguments
+preferences_dialog.c:696: warning: format not a string literal and no format arguments
+preferences_dialog.c:699: warning: cast to pointer from integer of different size
+preferences_dialog.c:659: warning: unused parameter ‘setting_name’
+preferences_dialog.c: In function ‘on_bold_toggle’:
+preferences_dialog.c:961: warning: unused parameter ‘togglebutton’
+preferences_dialog.c:961: warning: unused parameter ‘user_data’
+preferences_dialog.c: In function ‘on_italic_toggle’:
+preferences_dialog.c:967: warning: unused parameter ‘togglebutton’
+preferences_dialog.c:967: warning: unused parameter ‘user_data’
+preferences_dialog.c: In function ‘on_fontname_entry_changed’:
+preferences_dialog.c:973: warning: unused parameter ‘Entry’
+preferences_dialog.c:973: warning: unused parameter ‘data’
+preferences_dialog.c: In function ‘on_fontsize_entry_changed’:
+preferences_dialog.c:979: warning: unused parameter ‘Entry’
+preferences_dialog.c:979: warning: unused parameter ‘data’
+preferences_dialog.c: In function ‘preferences_window_destroyed’:
+preferences_dialog.c:985: warning: unused parameter ‘widget’
+preferences_dialog.c:985: warning: unused parameter ‘data’
+preferences_dialog.c: In function ‘on_fore_changed’:
+preferences_dialog.c:992: warning: unused parameter ‘cp’
+preferences_dialog.c:992: warning: unused parameter ‘red’
+preferences_dialog.c:992: warning: unused parameter ‘green’
+preferences_dialog.c:992: warning: unused parameter ‘blue’
+preferences_dialog.c:992: warning: unused parameter ‘alpha’
+preferences_dialog.c:992: warning: unused parameter ‘userdate’
+preferences_dialog.c: In function ‘on_back_changed’:
+preferences_dialog.c:998: warning: unused parameter ‘cp’
+preferences_dialog.c:998: warning: unused parameter ‘red’
+preferences_dialog.c:998: warning: unused parameter ‘green’
+preferences_dialog.c:998: warning: unused parameter ‘blue’
+preferences_dialog.c:998: warning: unused parameter ‘alpha’
+preferences_dialog.c:998: warning: unused parameter ‘userdate’
+preferences_dialog.c: In function ‘on_edge_colour_changed’:
+preferences_dialog.c:1004: warning: unused parameter ‘cp’
+preferences_dialog.c:1004: warning: unused parameter ‘red’
+preferences_dialog.c:1004: warning: unused parameter ‘green’
+preferences_dialog.c:1004: warning: unused parameter ‘blue’
+preferences_dialog.c:1004: warning: unused parameter ‘alpha’
+preferences_dialog.c:1004: warning: unused parameter ‘userdate’
+preferences_dialog.c: In function ‘on_tab_size_changed’:
+preferences_dialog.c:1014: warning: unused parameter ‘user_data’
+preferences_dialog.c: In function ‘on_calltip_delay_changed’:
+preferences_dialog.c:1021: warning: unused parameter ‘user_data’
+preferences_dialog.c: In function ‘on_edge_column_changed’:
+preferences_dialog.c:1028: warning: unused parameter ‘user_data’
+preferences_dialog.c: In function ‘on_show_indentation_guides_toggle’:
+preferences_dialog.c:1034: warning: unused parameter ‘user_data’
+preferences_dialog.c: In function ‘on_edge_mode_toggle’:
+preferences_dialog.c:1040: warning: unused parameter ‘user_data’
+preferences_dialog.c: In function ‘on_line_wrapping_toggle’:
+preferences_dialog.c:1046: warning: unused parameter ‘user_data’
+preferences_dialog.c: In function ‘on_use_tabs_instead_spaces_toggle’:
+preferences_dialog.c:1051: warning: unused parameter ‘user_data’
+preferences_dialog.c: In function ‘on_save_session_toggle’:
+preferences_dialog.c:1057: warning: unused parameter ‘user_data’
+preferences_dialog.c: In function ‘on_single_instance_only_toggle’:
+preferences_dialog.c:1062: warning: unused parameter ‘user_data’
+preferences_dialog.c: In function ‘on_php_binary_location_changed’:
+preferences_dialog.c:1075: warning: unused parameter ‘user_data’
+preferences_dialog.c: In function ‘on_php_file_extensions_changed’:
+preferences_dialog.c:1081: warning: unused parameter ‘user_data’
+preferences_dialog.c: In function ‘on_shared_source_changed’:
+preferences_dialog.c:1086: warning: unused parameter ‘user_data’
+preferences_dialog.c: In function ‘add_to_template_list’:
+preferences_dialog.c:1102: warning: unused parameter ‘value’
+preferences_dialog.c:1102: warning: unused parameter ‘user_data’
+preferences_dialog.c: In function ‘add_template_clicked’:
+preferences_dialog.c:1116: warning: unused parameter ‘button’
+preferences_dialog.c:1116: warning: unused parameter ‘data’
+preferences_dialog.c: In function ‘edit_template_clicked’:
+preferences_dialog.c:1153: warning: unused parameter ‘button’
+preferences_dialog.c:1153: warning: unused parameter ‘data’
+preferences_dialog.c: In function ‘delete_template_clicked’:
+preferences_dialog.c:1202: warning: unused parameter ‘button’
+preferences_dialog.c:1202: warning: unused parameter ‘data’
+preferences_dialog.c: In function ‘template_row_activated’:
+preferences_dialog.c:1225: warning: unused parameter ‘data’
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT syntax_check.o -MD -MP -MF ".deps/syntax_check.Tpo" \
+	  -c -o syntax_check.o `test -f 'syntax_check.c' || echo './'`syntax_check.c; \
+	then mv -f ".deps/syntax_check.Tpo" ".deps/syntax_check.Po"; \
+	else rm -f ".deps/syntax_check.Tpo"; exit 1; \
+	fi
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT tab.o -MD -MP -MF ".deps/tab.Tpo" \
+	  -c -o tab.o `test -f 'tab.c' || echo './'`tab.c; \
+	then mv -f ".deps/tab.Tpo" ".deps/tab.Po"; \
+	else rm -f ".deps/tab.Tpo"; exit 1; \
+	fi
+tab.c: In function ‘tab_file_closed’:
+tab.c:227: warning: unused parameter ‘fd’
+tab.c:227: warning: unused parameter ‘li_ptr’
+tab.c: In function ‘tab_file_write’:
+tab.c:238: warning: unused parameter ‘buffer’
+tab.c:238: warning: unused parameter ‘bytes_requested’
+tab.c:238: warning: unused parameter ‘bytes_received’
+tab.c: In function ‘tab_validate_buffer_and_insert’:
+tab.c:322: warning: format ‘%d’ expects type ‘int’, but argument 2 has type ‘gsize’
+tab.c: In function ‘tab_file_read’:
+tab.c:340: warning: unused parameter ‘bytes_requested’
+tab.c:340: warning: unused parameter ‘bytes_received’
+tab.c: In function ‘str_replace’:
+tab.c:422: warning: comparison between signed and unsigned
+tab.c: In function ‘editor_find_from_help’:
+tab.c:1165: warning: cast to pointer from integer of different size
+tab.c: In function ‘handle_modified’:
+tab.c:1319: warning: unused parameter ‘pos’
+tab.c:1319: warning: unused parameter ‘text’
+tab.c:1319: warning: unused parameter ‘len’
+tab.c:1320: warning: unused parameter ‘added’
+tab.c: In function ‘auto_complete_callback’:
+tab.c:1498: warning: cast from pointer to integer of different size
+tab.c: In function ‘css_auto_complete_callback’:
+tab.c:1516: warning: cast from pointer to integer of different size
+tab.c: In function ‘sql_auto_complete_callback’:
+tab.c:1534: warning: cast from pointer to integer of different size
+tab.c: In function ‘auto_memberfunc_complete_callback’:
+tab.c:1552: warning: cast from pointer to integer of different size
+tab.c: In function ‘calltip_callback’:
+tab.c:1567: warning: cast from pointer to integer of different size
+tab.c: In function ‘char_added’:
+tab.c:1715: warning: cast to pointer from integer of different size
+tab.c:1725: warning: cast to pointer from integer of different size
+tab.c:1742: warning: switch missing default case
+tab.c:1750: warning: cast to pointer from integer of different size
+tab.c:1751: warning: cast to pointer from integer of different size
+tab.c:1752: warning: cast to pointer from integer of different size
+tab.c:1749: warning: switch missing default case
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT tab_cxx.o -MD -MP -MF ".deps/tab_cxx.Tpo" \
+	  -c -o tab_cxx.o `test -f 'tab_cxx.c' || echo './'`tab_cxx.c; \
+	then mv -f ".deps/tab_cxx.Tpo" ".deps/tab_cxx.Po"; \
+	else rm -f ".deps/tab_cxx.Tpo"; exit 1; \
+	fi
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT tab_css.o -MD -MP -MF ".deps/tab_css.Tpo" \
+	  -c -o tab_css.o `test -f 'tab_css.c' || echo './'`tab_css.c; \
+	then mv -f ".deps/tab_css.Tpo" ".deps/tab_css.Po"; \
+	else rm -f ".deps/tab_css.Tpo"; exit 1; \
+	fi
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT tab_perl.o -MD -MP -MF ".deps/tab_perl.Tpo" \
+	  -c -o tab_perl.o `test -f 'tab_perl.c' || echo './'`tab_perl.c; \
+	then mv -f ".deps/tab_perl.Tpo" ".deps/tab_perl.Po"; \
+	else rm -f ".deps/tab_perl.Tpo"; exit 1; \
+	fi
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT tab_php.o -MD -MP -MF ".deps/tab_php.Tpo" \
+	  -c -o tab_php.o `test -f 'tab_php.c' || echo './'`tab_php.c; \
+	then mv -f ".deps/tab_php.Tpo" ".deps/tab_php.Po"; \
+	else rm -f ".deps/tab_php.Tpo"; exit 1; \
+	fi
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT tab_python.o -MD -MP -MF ".deps/tab_python.Tpo" \
+	  -c -o tab_python.o `test -f 'tab_python.c' || echo './'`tab_python.c; \
+	then mv -f ".deps/tab_python.Tpo" ".deps/tab_python.Po"; \
+	else rm -f ".deps/tab_python.Tpo"; exit 1; \
+	fi
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT tab_sql.o -MD -MP -MF ".deps/tab_sql.Tpo" \
+	  -c -o tab_sql.o `test -f 'tab_sql.c' || echo './'`tab_sql.c; \
+	then mv -f ".deps/tab_sql.Tpo" ".deps/tab_sql.Po"; \
+	else rm -f ".deps/tab_sql.Tpo"; exit 1; \
+	fi
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT tab_util.o -MD -MP -MF ".deps/tab_util.Tpo" \
+	  -c -o tab_util.o `test -f 'tab_util.c' || echo './'`tab_util.c; \
+	then mv -f ".deps/tab_util.Tpo" ".deps/tab_util.Po"; \
+	else rm -f ".deps/tab_util.Tpo"; exit 1; \
+	fi
+if /usr/bin/gcc -DHAVE_CONFIG_H -I. -I. -I.. -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0   -I../src/gtkscintilla2 -g -Wall -DGTK -DSCI_LEXER -DPHP_FUNCTION_REFERENCE=\""/programs/connectED/share/connectED/php-function-reference.api"\" -DCONNECTED_PREFIX=\""/programs/connectED/share"\" -DPIXMAP_DIR=\""/programs/connectED/share/pixmaps"\"  -I/usr/include  -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -MT templates.o -MD -MP -MF ".deps/templates.Tpo" \
+	  -c -o templates.o `test -f 'templates.c' || echo './'`templates.c; \
+	then mv -f ".deps/templates.Tpo" ".deps/templates.Po"; \
+	else rm -f ".deps/templates.Tpo"; exit 1; \
+	fi
+templates.c: In function ‘free_a_hash_table_entry’:
+templates.c:155: warning: unused parameter ‘user_data’
+/bin/sh ../libtool --mode=link g++  -std=gnu++0x -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include  -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -o connectED  calltip.o classbrowser.o classbrowser_parse.o edit_template.o find_replace.o connectED_ipc.o grel2abs.o plugin.o main.o main_window.o main_window_callbacks.o preferences.o preferences_dialog.o syntax_check.o tab.o tab_cxx.o tab_css.o tab_perl.o tab_php.o tab_python.o tab_sql.o tab_util.o templates.o -pthread -lgnomeui-2 -lSM -lICE -lbonoboui-2 -lgnomecanvas-2 -lgnome-2 -lpopt -lbonobo-2 -lbonobo-activation -lORBit-2 -lart_lgpl_2 -lgnomevfs-2 -lgconf-2 -lgthread-2.0 -lrt -lgtkhtml-2 -lgtk-x11-2.0 -lxml2 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lcairo -lpango-1.0 -lfreetype -lz -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lglib-2.0   gtkscintilla2/libgtkscintilla2.a gtkscintilla2/scintilla/bin/scintilla.a -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib
+mkdir .libs
+g++ -std=gnu++0x -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -I/usr/include -o connectED calltip.o classbrowser.o classbrowser_parse.o edit_template.o find_replace.o connectED_ipc.o grel2abs.o plugin.o main.o main_window.o main_window_callbacks.o preferences.o preferences_dialog.o syntax_check.o tab.o tab_cxx.o tab_css.o tab_perl.o tab_php.o tab_python.o tab_sql.o tab_util.o templates.o -pthread  -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -lgnomeui-2 /usr/lib64/libSM.so -lbonoboui-2 /usr/lib64/libgnomecanvas-2.so /usr/lib64/libgnome-2.so /usr/lib64/libbonobo-2.so /usr/lib64/libbonobo-activation.so /usr/lib64/libORBit-2.so /usr/lib64/libart_lgpl_2.so /usr/lib64/libgnomevfs-2.so /usr/lib64/libgconf-2.so /usr/lib64/libgtkhtml-2.so /usr/lib64/libgtk-x11-2.0.so /usr/lib64/libxml2.so /usr/lib64/libgdk-x11-2.0.so /usr/lib64/libatk-1.0.so /usr/lib64/libgdk_pixbuf-2.0.so /usr/lib64/libcairo.so /usr/lib64/libfreetype.so gtkscintilla2/libgtkscintilla2.a gtkscintilla2/scintilla/bin/scintilla.a -lICE -luuid -lasound -lpopt -lssl -lcrypto -lresolv -lutil -lgthread-2.0 -lrt -lnsl -ldbus-1 -lpangoft2-1.0 -lpangocairo-1.0 -lpango-1.0 -lgio-2.0 -lgobject-2.0 -lgmodule-2.0 -lglib-2.0 -lfontconfig -lpng12 -lXau -ldl -lm -lz
+make[2]: Leaving directory `/projects/gtk/connectED/src'
+Making all in po
+make[2]: Entering directory `/projects/gtk/connectED/po'
+make[2]: Nothing to be done for `all'.
+make[2]: Leaving directory `/projects/gtk/connectED/po'
+make[2]: Entering directory `/projects/gtk/connectED'
+make[2]: Nothing to be done for `all-am'.
+make[2]: Leaving directory `/projects/gtk/connectED'
+make[1]: Leaving directory `/projects/gtk/connectED'
+make: Leaving directory `/projects/gtk/connectED'
