@@ -479,38 +479,12 @@ void on_openselected1_activate(GtkWidget *widget)
 
 void on_open1_activate(GtkWidget *widget)
 {
-	GtkWidget *file_selection_box;
-	GString *folder;
-	gchar *last_opened_folder;
-
-	// Create the selector widget
-	file_selection_box = gtk_file_chooser_dialog_new("Please select files for editing", GTK_WINDOW(main_window.window),
-		GTK_FILE_CHOOSER_ACTION_OPEN, GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL, GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT, NULL);
-	
-	gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER(file_selection_box), FALSE);
-	gtk_dialog_set_default_response (GTK_DIALOG(file_selection_box), GTK_RESPONSE_ACCEPT);	
-	
-	last_opened_folder = gnome_config_get_string("connectED/general/last_opened_folder=NOTFOUND");
-	if (DEBUG_MODE) { g_print("DEBUG: main_window_callbacks.c:on_open1_activate:last_opened_folder: %s\n", last_opened_folder); }
-	
-	/* opening of multiple files at once */
-	gtk_file_chooser_set_select_multiple(GTK_FILE_CHOOSER(file_selection_box), TRUE);
-	
-	if (main_window.current_editor && !main_window.current_editor->is_untitled) {
-		folder = get_folder(main_window.current_editor->filename);
-		if (DEBUG_MODE) { g_print("DEBUG: main_window_callbacks.c:on_open1_activate:folder: %s\n", folder->str); }
-		gtk_file_chooser_set_current_folder_uri(GTK_FILE_CHOOSER(file_selection_box),  folder->str);
-		g_string_free(folder, TRUE);
-	}
-	else if (strcmp(last_opened_folder, "NOTFOUND")!=0) {
-		gtk_file_chooser_set_current_folder_uri(GTK_FILE_CHOOSER(file_selection_box),  last_opened_folder);
-	}
-	
-	if (gtk_dialog_run(GTK_DIALOG(file_selection_box)) == GTK_RESPONSE_ACCEPT) {
+	GtkWidget *file_selection_box=NULL;
+	if(file_selection_box=display_file_selection_dialog( _("Please select files for editing"), "on_open1_activate", ((gboolean)FALSE)))
 		open_file_ok(GTK_FILE_CHOOSER(file_selection_box));
-	}
 	
-	gtk_widget_destroy(file_selection_box);
+	if(file_selection_box)
+		gtk_widget_destroy(file_selection_box);
 }
 
 
@@ -588,7 +562,7 @@ void on_save1_activate(GtkWidget *widget)
 
 		//if filename is Untitled
 		if (main_window.current_editor->is_untitled) {// && !main_window.current_editor->saved) {
-			on_save_as1_activate(widget);
+			on_save_as1_activate();
 		}
 		else {
 			gnome_vfs_async_create(&fg, filename, GNOME_VFS_OPEN_WRITE, FALSE, 0644, GNOME_VFS_PRIORITY_DEFAULT, tab_file_save_opened, main_window.current_editor);
@@ -642,45 +616,69 @@ void on_saveall1_activate(GtkWidget *widget)
 }
 
 
-void on_save_as1_activate(GtkWidget *widget)
-{
-	GtkWidget *file_selection_box;
-	gchar *filename;
-	gchar *last_opened_folder;
-
-	if (main_window.current_editor) {
-		// Create the selector widget
-		file_selection_box = gtk_file_chooser_dialog_new (_("Please type the filename to save as..."), 
-			GTK_WINDOW(main_window.window), GTK_FILE_CHOOSER_ACTION_SAVE, GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-			GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT, NULL);
-
-		gtk_file_chooser_set_local_only (GTK_FILE_CHOOSER(file_selection_box), FALSE);
-		gtk_file_chooser_set_do_overwrite_confirmation (GTK_FILE_CHOOSER(file_selection_box), TRUE);
-		gtk_dialog_set_default_response (GTK_DIALOG(file_selection_box), GTK_RESPONSE_ACCEPT);
+void on_save_as1_activate(void){
+	if(!main_window.current_editor)
+		return;
 	
-		last_opened_folder = gnome_config_get_string("connectED/general/last_opened_folder=NOTFOUND");
-		if (DEBUG_MODE) { g_print("DEBUG: main_window_callbacks.c:on_save_as1_activate:last_opened_folder: %s\n", last_opened_folder); }
-	
-		if (main_window.current_editor) {
-			filename = main_window.current_editor->filename->str;
-			if (main_window.current_editor->is_untitled == FALSE) {
-				gtk_file_chooser_set_uri(GTK_FILE_CHOOSER(file_selection_box), filename);
-			}
-			else {
-				if (strcmp(last_opened_folder, "NOTFOUND")!=0) {
-					if (DEBUG_MODE) { g_print("DEBUG: main_window_callbacks.c:on_save_as1_activate:Setting current_folder_uri to %s\n", last_opened_folder); }
-					gtk_file_chooser_set_current_folder_uri(GTK_FILE_CHOOSER(file_selection_box),  last_opened_folder);
-				}
-			}
-		}
+	GtkWidget *file_selection_box=NULL;
+	if(file_selection_box=display_file_selection_dialog( _("Please type the filename to save as..."), "on_save_as1_activate", (gboolean)TRUE ))
+		save_file_as_ok(GTK_FILE_CHOOSER(file_selection_box));
 
-		if (gtk_dialog_run (GTK_DIALOG(file_selection_box)) == GTK_RESPONSE_ACCEPT) {
-			save_file_as_ok(GTK_FILE_CHOOSER(file_selection_box));
-		}
-
-		gtk_widget_destroy(file_selection_box);		
-	}
+	if(file_selection_box)
+		gtk_widget_destroy(file_selection_box);
 }
+
+GtkWidget *display_file_selection_dialog(const gchar *title, const char *called_from_method, gboolean for_saving){
+	if( for_saving && !main_window.current_editor)
+		return;
+	
+	gchar *location=NULL;
+	gchar *last_opened_folder=NULL;
+	
+	GtkWidget *file_selection_box = gtk_file_chooser_dialog_new( title, GTK_WINDOW(main_window.window),
+					( for_saving ? GTK_FILE_CHOOSER_ACTION_SAVE : GTK_FILE_CHOOSER_ACTION_OPEN ),
+					GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+					( for_saving ? GTK_STOCK_SAVE : GTK_STOCK_OPEN ), GTK_RESPONSE_ACCEPT,
+					NULL
+				);
+	
+	gtk_file_chooser_set_local_only( GTK_FILE_CHOOSER(file_selection_box), FALSE );
+	if(!for_saving)
+		gtk_file_chooser_set_select_multiple(GTK_FILE_CHOOSER(file_selection_box), TRUE);
+	else
+		gtk_file_chooser_set_do_overwrite_confirmation( GTK_FILE_CHOOSER(file_selection_box), TRUE );
+	
+	gtk_dialog_set_default_response( GTK_DIALOG(file_selection_box), GTK_RESPONSE_ACCEPT );
+	
+	location=gnome_config_get_string( "connectED/general/last_opened_folder=NOTFOUND" );
+	if( main_window.current_editor && !main_window.current_editor->is_untitled ) {
+		if( main_window.current_editor->filename && main_window.current_editor->filename->str )
+			location=main_window.current_editor->filename->str;
+		else {
+			GString *folder = get_folder(main_window.current_editor->filename);
+			if (DEBUG_MODE) 
+				g_print("DEBUG: main_window_callbacks.c:%s:folder: %s\n", folder->str);
+			location=folder->str;
+			g_string_free(folder, TRUE);
+		}
+	} else if( (strcmp(location, "NOTFOUND")) != 0 ) {
+		if( DEBUG_MODE ){
+			g_print( "DEBUG: main_window_callbacks.c:%s:last_opened_folder: %s\n", called_from_method, last_opened_folder );
+			g_print( "DEBUG: main_window_callbacks.c:%s:Setting current_folder_uri to %s\n", called_from_method, location );
+		}
+	}else
+		location=NULL;
+	
+	if(location)
+		gtk_file_chooser_set_uri(GTK_FILE_CHOOSER(file_selection_box), location);
+	
+	if( gtk_dialog_run( GTK_DIALOG(file_selection_box) ) == GTK_RESPONSE_ACCEPT )
+		return file_selection_box;
+	
+	gtk_widget_destroy(file_selection_box);
+	return NULL;
+	
+}//prompt_for_saving
 
 void on_reload_confirm(gint reply,gpointer filename)
 {
@@ -750,26 +748,16 @@ void rename_file_ok(GtkFileChooser *file_selection)
 }
 
 
-void on_rename1_activate(GtkWidget *widget)
-{
-	GtkWidget *file_selection_box;
+void on_rename1_activate(GtkWidget *widget){
+	if(!main_window.current_editor)
+		return;
+	
+	GtkWidget *file_selection_box=NULL;
+	if(file_selection_box=display_file_selection_dialog( _("Please type the filename to rename this file to..."), "on_rename1_activate", ((gboolean)TRUE) ))
+		rename_file_ok(GTK_FILE_CHOOSER(file_selection_box));
 
-	if (main_window.current_editor) {
-		// Create the selector widget
-		file_selection_box = gtk_file_chooser_dialog_new(_("Please type the filename to rename this file to..."),
-			GTK_WINDOW(main_window.window), GTK_FILE_CHOOSER_ACTION_SAVE, GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
-			GTK_STOCK_SAVE, GTK_RESPONSE_ACCEPT, NULL);
-		
-		if (main_window.current_editor) {
-			gtk_file_chooser_set_filename (GTK_FILE_CHOOSER(file_selection_box), main_window.current_editor->filename->str);
-		}
-
-		if (gtk_dialog_run (GTK_DIALOG(file_selection_box)) == GTK_RESPONSE_ACCEPT) {
-			rename_file_ok(GTK_FILE_CHOOSER(file_selection_box));
-		}
-
+	if(file_selection_box)
 		gtk_widget_destroy(file_selection_box);
-	}
 }
 
 

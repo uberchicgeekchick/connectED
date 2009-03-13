@@ -49,9 +49,7 @@ void reopen_recent(GtkWidget *widget, gpointer data);
 void on_open1_activate(GtkWidget *widget);
 void on_openselected1_activate(GtkWidget *widget);
 void save_file_as_confirm_overwrite(gint reply,gpointer filename);
-void save_file_as_ok(GtkFileChooser *file_selection_box);
 void on_save1_activate(GtkWidget *widget);
-void on_save_as1_activate(GtkWidget *widget);
 void on_saveall1_activate(GtkWidget *widget);
 void on_rename1_activate(GtkWidget *widget);
 void get_first_tab(void);
@@ -114,5 +112,8 @@ void close_all_tabs(void);
 void session_reopen(void);
 void session_save(void);
 
+void on_save_as1_activate(void);
+void save_file_as_ok( GtkFileChooser *file_selection_box );
+GtkWidget *display_file_selection_dialog( const gchar *title, const char *called_from_method, gboolean for_saving);
 
 #endif

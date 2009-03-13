@@ -1,3 +1,16 @@
+2009-03-13:Kaity G. B. <uberChick@uberChicGeekChick.Com>
+	* src/main_window_callbacks.c: on_open1_activate,
+	on_save_as1_activate, on_rename1_activate, &
+	display_file_selection_dialog
+		I created display_file_selection_dialog to handle the actual
+		creation & display of open or save dialogs the other 3 methods
+		now call my new method when opening, saving, or renaming
+		files.  As a result of this, actually motivation behind doing
+		this is so that now when renaming files the dialog now opens
+		to the current file name's path.  It was triggering an error
+		and opening to one's home directory.
+
+
 2009-03-09:Kaity G. B. <uberChick@uberChicGeekChick.Com>
 	* src/main_window_callbacks.c: on_about1_activate
 		I have fixed the about dialog so it now shows my information &
@@ -8,7 +21,7 @@
 		added a list of dependacies, and a rough install quide.
 
 2009-03-02:Kaity G. B. <uberChick@uberChicGeekChick.Com>
-	* ChangeLog: Created for release of version 0.9.91
+	* ChangeLog: Created for release of version 1.0.0.1
 
 2009-02-05:Kaity G. B. <uberChick@uberChicGeekChick.Com>
 	* src/find_replace.c: replace_all_clicked
