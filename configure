@@ -1773,7 +1773,7 @@ fi
 
 # Define the identity of the package.
  PACKAGE=connectED
- VERSION=0.1.0.1
+ VERSION=1.0.0.2
 
 
 cat >>confdefs.h <<_ACEOF

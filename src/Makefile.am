@@ -69,3 +69,10 @@ connectED_DEPENDENCIES =			\
 connectED_LDADD =			\
 	$(connectED_LIBS)		\
 	$(connectED_DEPENDENCIES)
+
+gtkscintilla2/scintilla/bin/scintilla.a: connectED_DEPENDENCIES
+
+gtkscintilla2/libgtkscintilla2.a:
+	cd gtkscintilla2/scintilla/gtk && $(MAKE) && cd ../../..
+	cd gtkscintilla2 && $(MAKE) libgtkscintilla2.a && cd ..
+
