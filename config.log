@@ -681,105 +681,106 @@ configure:19298: result: /usr/bin/xgettext
 configure:19354: checking for pkg-config
 configure:19372: found /usr/bin/pkg-config
 configure:19385: result: /usr/bin/pkg-config
-configure:19407: checking for
+configure:19408: checking for
 	gtk+-2.0
 	libgnomeui-2.0
 	gnome-vfs-2.0
 	libgtkhtml-2.0
-	
-configure:19421: result: yes
-configure:19425: checking connectED_CFLAGS
-configure:19433: result: -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0  
-configure:19436: checking connectED_LIBS
-configure:19444: result: -pthread -lgnomeui-2 -lSM -lICE -lbonoboui-2 -lgnomecanvas-2 -lgnome-2 -lpopt -lbonobo-2 -lbonobo-activation -lORBit-2 -lart_lgpl_2 -lgnomevfs-2 -lgconf-2 -lgthread-2.0 -lrt -lgtkhtml-2 -lgtk-x11-2.0 -lxml2 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lcairo -lpango-1.0 -lfreetype -lz -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lglib-2.0  
-configure:19517: checking locale.h usability
-configure:19529: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
-configure:19535: $? = 0
-configure:19538: test -z 			 || test ! -s conftest.err
-configure:19541: $? = 0
-configure:19544: test -s conftest.o
-configure:19547: $? = 0
-configure:19557: result: yes
-configure:19561: checking locale.h presence
-configure:19571: /usr/bin/cpp -I/usr/include conftest.c
-configure:19577: $? = 0
-configure:19597: result: yes
-configure:19632: checking for locale.h
-configure:19639: result: yes
-configure:19653: checking for LC_MESSAGES
-configure:19674: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib >&5
-configure:19680: $? = 0
-configure:19683: test -z 			 || test ! -s conftest.err
-configure:19686: $? = 0
-configure:19689: test -s conftest
-configure:19692: $? = 0
-configure:19704: result: yes
-configure:19733: checking libintl.h usability
-configure:19745: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
-configure:19751: $? = 0
-configure:19754: test -z 			 || test ! -s conftest.err
-configure:19757: $? = 0
-configure:19760: test -s conftest.o
-configure:19763: $? = 0
-configure:19773: result: yes
-configure:19777: checking libintl.h presence
-configure:19787: /usr/bin/cpp -I/usr/include conftest.c
-configure:19793: $? = 0
-configure:19813: result: yes
-configure:19848: checking for libintl.h
-configure:19855: result: yes
-configure:19866: checking for ngettext in libc
-configure:19889: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib >&5
+	libglade-2.0
+
+configure:19424: result: yes
+configure:19428: checking connectED_CFLAGS
+configure:19437: result: -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0 -I/usr/include/libglade-2.0  
+configure:19440: checking connectED_LIBS
+configure:19449: result: -pthread -lglade-2.0 -lgnomeui-2 -lSM -lICE -lbonoboui-2 -lgnomecanvas-2 -lgnome-2 -lpopt -lbonobo-2 -lbonobo-activation -lORBit-2 -lart_lgpl_2 -lgnomevfs-2 -lgconf-2 -lgthread-2.0 -lrt -lgtkhtml-2 -lgtk-x11-2.0 -lxml2 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lcairo -lpango-1.0 -lfreetype -lz -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lglib-2.0  
+configure:19525: checking locale.h usability
+configure:19537: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
+configure:19543: $? = 0
+configure:19546: test -z 			 || test ! -s conftest.err
+configure:19549: $? = 0
+configure:19552: test -s conftest.o
+configure:19555: $? = 0
+configure:19565: result: yes
+configure:19569: checking locale.h presence
+configure:19579: /usr/bin/cpp -I/usr/include conftest.c
+configure:19585: $? = 0
+configure:19605: result: yes
+configure:19640: checking for locale.h
+configure:19647: result: yes
+configure:19661: checking for LC_MESSAGES
+configure:19682: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib >&5
+configure:19688: $? = 0
+configure:19691: test -z 			 || test ! -s conftest.err
+configure:19694: $? = 0
+configure:19697: test -s conftest
+configure:19700: $? = 0
+configure:19712: result: yes
+configure:19741: checking libintl.h usability
+configure:19753: /usr/bin/gcc -c -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include conftest.c >&5
+configure:19759: $? = 0
+configure:19762: test -z 			 || test ! -s conftest.err
+configure:19765: $? = 0
+configure:19768: test -s conftest.o
+configure:19771: $? = 0
+configure:19781: result: yes
+configure:19785: checking libintl.h presence
+configure:19795: /usr/bin/cpp -I/usr/include conftest.c
+configure:19801: $? = 0
+configure:19821: result: yes
+configure:19856: checking for libintl.h
+configure:19863: result: yes
+configure:19874: checking for ngettext in libc
+configure:19897: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib >&5
 conftest.c: In function 'main':
 conftest.c:35: warning: cast from pointer to integer of different size
-configure:19895: $? = 0
-configure:19898: test -z 			 || test ! -s conftest.err
-configure:19901: $? = 0
-configure:19904: test -s conftest
-configure:19907: $? = 0
-configure:19920: result: yes
-configure:19924: checking for dgettext in libc
-configure:19947: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib >&5
+configure:19903: $? = 0
+configure:19906: test -z 			 || test ! -s conftest.err
+configure:19909: $? = 0
+configure:19912: test -s conftest
+configure:19915: $? = 0
+configure:19928: result: yes
+configure:19932: checking for dgettext in libc
+configure:19955: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib >&5
 conftest.c: In function 'main':
 conftest.c:35: warning: cast from pointer to integer of different size
-configure:19953: $? = 0
-configure:19956: test -z 			 || test ! -s conftest.err
-configure:19959: $? = 0
-configure:19962: test -s conftest
-configure:19965: $? = 0
-configure:19978: result: yes
-configure:19987: checking for bind_textdomain_codeset
-configure:20044: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib >&5
-configure:20050: $? = 0
-configure:20053: test -z 			 || test ! -s conftest.err
-configure:20056: $? = 0
-configure:20059: test -s conftest
-configure:20062: $? = 0
-configure:20074: result: yes
-configure:20578: checking for msgfmt
-configure:20605: result: /usr/bin/msgfmt
-configure:20618: checking for dcgettext
-configure:20675: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib  >&5
+configure:19961: $? = 0
+configure:19964: test -z 			 || test ! -s conftest.err
+configure:19967: $? = 0
+configure:19970: test -s conftest
+configure:19973: $? = 0
+configure:19986: result: yes
+configure:19995: checking for bind_textdomain_codeset
+configure:20052: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib >&5
+configure:20058: $? = 0
+configure:20061: test -z 			 || test ! -s conftest.err
+configure:20064: $? = 0
+configure:20067: test -s conftest
+configure:20070: $? = 0
+configure:20082: result: yes
+configure:20586: checking for msgfmt
+configure:20613: result: /usr/bin/msgfmt
+configure:20626: checking for dcgettext
+configure:20683: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib  >&5
 conftest.c:54: warning: conflicting types for built-in function 'dcgettext'
-configure:20681: $? = 0
-configure:20684: test -z 			 || test ! -s conftest.err
-configure:20687: $? = 0
-configure:20690: test -s conftest
-configure:20693: $? = 0
-configure:20705: result: yes
-configure:20717: checking for gmsgfmt
-configure:20748: result: /usr/bin/msgfmt
-configure:20757: checking for xgettext
-configure:20784: result: /usr/bin/xgettext
-configure:20808: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib  >&5
-configure:20814: $? = 0
-configure:20817: test -z 			 || test ! -s conftest.err
-configure:20820: $? = 0
-configure:20823: test -s conftest
-configure:20826: $? = 0
-configure:21056: checking locale directory
-configure:21068: result: "/programs/connectED/share/locale"
-configure:21203: creating ./config.status
+configure:20689: $? = 0
+configure:20692: test -z 			 || test ! -s conftest.err
+configure:20695: $? = 0
+configure:20698: test -s conftest
+configure:20701: $? = 0
+configure:20713: result: yes
+configure:20725: checking for gmsgfmt
+configure:20756: result: /usr/bin/msgfmt
+configure:20765: checking for xgettext
+configure:20792: result: /usr/bin/xgettext
+configure:20816: /usr/bin/gcc -o conftest -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include -I/usr/include -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib conftest.c -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib  >&5
+configure:20822: $? = 0
+configure:20825: test -z 			 || test ! -s conftest.err
+configure:20828: $? = 0
+configure:20831: test -s conftest
+configure:20834: $? = 0
+configure:21064: checking locale directory
+configure:21076: result: "/programs/connectED/share/locale"
+configure:21211: creating ./config.status
 
 ## ---------------------- ##
 ## Running config.status. ##
@@ -1041,8 +1042,8 @@ build_alias=''
 build_cpu='x86_64'
 build_os='linux-gnu'
 build_vendor='unknown'
-connectED_CFLAGS='-DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0  '
-connectED_LIBS='-pthread -lgnomeui-2 -lSM -lICE -lbonoboui-2 -lgnomecanvas-2 -lgnome-2 -lpopt -lbonobo-2 -lbonobo-activation -lORBit-2 -lart_lgpl_2 -lgnomevfs-2 -lgconf-2 -lgthread-2.0 -lrt -lgtkhtml-2 -lgtk-x11-2.0 -lxml2 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lcairo -lpango-1.0 -lfreetype -lz -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lglib-2.0  '
+connectED_CFLAGS='-DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0 -I/usr/include/libglade-2.0  '
+connectED_LIBS='-pthread -lglade-2.0 -lgnomeui-2 -lSM -lICE -lbonoboui-2 -lgnomecanvas-2 -lgnome-2 -lpopt -lbonobo-2 -lbonobo-activation -lORBit-2 -lart_lgpl_2 -lgnomevfs-2 -lgconf-2 -lgthread-2.0 -lrt -lgtkhtml-2 -lgtk-x11-2.0 -lxml2 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lcairo -lpango-1.0 -lfreetype -lz -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lglib-2.0  '
 datadir='${prefix}/share'
 exec_prefix='${prefix}'
 host='x86_64-unknown-linux-gnu'

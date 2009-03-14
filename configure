@@ -19404,12 +19404,14 @@ fi
 	libgnomeui-2.0
 	gnome-vfs-2.0
 	libgtkhtml-2.0
-	" >&5
+	libglade-2.0
+" >&5
 echo $ECHO_N "checking for
 	gtk+-2.0
 	libgnomeui-2.0
 	gnome-vfs-2.0
 	libgtkhtml-2.0
+	libglade-2.0
 	... $ECHO_C" >&6
 
         if $PKG_CONFIG --exists "
@@ -19417,6 +19419,7 @@ echo $ECHO_N "checking for
 	libgnomeui-2.0
 	gnome-vfs-2.0
 	libgtkhtml-2.0
+	libglade-2.0
 	" ; then
             echo "$as_me:$LINENO: result: yes" >&5
 echo "${ECHO_T}yes" >&6
@@ -19429,6 +19432,7 @@ echo $ECHO_N "checking connectED_CFLAGS... $ECHO_C" >&6
 	libgnomeui-2.0
 	gnome-vfs-2.0
 	libgtkhtml-2.0
+	libglade-2.0
 	"`
             echo "$as_me:$LINENO: result: $connectED_CFLAGS" >&5
 echo "${ECHO_T}$connectED_CFLAGS" >&6
@@ -19437,6 +19441,7 @@ echo "${ECHO_T}$connectED_CFLAGS" >&6
 echo $ECHO_N "checking connectED_LIBS... $ECHO_C" >&6
             connectED_LIBS=`$PKG_CONFIG --libs "
 	gtk+-2.0
+	libglade-2.0
 	libgnomeui-2.0
 	gnome-vfs-2.0
 	libgtkhtml-2.0
@@ -19450,6 +19455,7 @@ echo "${ECHO_T}$connectED_LIBS" >&6
             ## do set a variable so people can do so.
             connectED_PKG_ERRORS=`$PKG_CONFIG --errors-to-stdout --print-errors "
 	gtk+-2.0
+	libglade-2.0
 	libgnomeui-2.0
 	gnome-vfs-2.0
 	libgtkhtml-2.0
@@ -19470,12 +19476,14 @@ echo "${ECHO_T}$connectED_LIBS" >&6
   else
      { { echo "$as_me:$LINENO: error: Library requirements (
 	gtk+-2.0
+	libglade-2.0
 	libgnomeui-2.0
 	gnome-vfs-2.0
 	libgtkhtml-2.0
 	) not met; consider adjusting the PKG_CONFIG_PATH environment variable if your libraries are in a nonstandard prefix so pkg-config can find them." >&5
 echo "$as_me: error: Library requirements (
 	gtk+-2.0
+	libglade-2.0
 	libgnomeui-2.0
 	gnome-vfs-2.0
 	libgtkhtml-2.0

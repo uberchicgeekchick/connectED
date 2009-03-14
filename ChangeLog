@@ -1,14 +1,37 @@
 2009-03-13:Kaity G. B. <uberChick@uberChicGeekChick.Com>
+
+	* configure & configure.in: added dependency to libglade-2.0
+		I am implimenting libglade-2.0 in connectED.  This will be a
+		huge process & I am only getting started.
+	
+	* src/classbrowser.c: get_member_function_completion_list
+		This was at times appending to a NULL string.  Now it simply
+		returns an empty string.  This does need to be improved though
+		because the memory created in this method is never being
+		released.
+	
+	* src/classbrowser.c & src/main_window_callbacks.c: [all source]
+		I've basically rewrote both of these files.  I've improved the
+		efficiancy of all of the methods & removed most unused
+		arguments.  I've drastically improved the performance of these
+		methods.  I have also updated the callbacks & signal connections
+		to use the new g_object methods instead of the depricated calls
+		to their formor gtk counter parts.
+	
+	* src/main_window.c & src/main.c: misc methods
+		I have updated the callbacks & signal connections
+		to use the new g_object methods instead of the depricated calls
+		to their formor gtk counter parts.
+	
+	* src/*.c: misc methods
+		I'm updating connectED to use gobject & libglade.  There are a
+		lot of improvements that need to be put in place & I am slowly
+		working at them.
+
+2009-03-13:Kaity G. B. <uberChick@uberChicGeekChick.Com>
 	* src/main_window_callbacks.c: on_open1_activate,
-	on_save_as1_activate, on_rename1_activate, &
-	display_file_selection_dialog
-		I created display_file_selection_dialog to handle the actual
-		creation & display of open or save dialogs the other 3 methods
-		now call my new method when opening, saving, or renaming
-		files.  As a result of this, actually motivation behind doing
-		this is so that now when renaming files the dialog now opens
-		to the current file name's path.  It was triggering an error
-		and opening to one's home directory.
+		on_save_as1_activate, on_rename1_activate, &
+		display_file_selection_dialog
 
 
 2009-03-09:Kaity G. B. <uberChick@uberChicGeekChick.Com>

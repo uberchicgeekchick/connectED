@@ -96,8 +96,8 @@ void goto_line(gchar *text);
 gboolean on_notebook_focus_tab(GtkNotebook *notebook,
                                GtkNotebookTab arg1, gpointer user_data);
 void on_reload1_activate(GtkWidget *widget);
-gint treeview_double_click(GtkWidget *widget, GdkEventButton *event, gpointer func_data);
-gint treeview_click_release(GtkWidget *widget, GdkEventButton *event, gpointer func_data);
+gint treeview_double_click( GtkWidget *widget, GdkEventButton *event );
+gint treeview_click_release( GtkWidget *widget, GdkEventButton *event );
 void main_window_resize(GtkWidget *widget, GtkAllocation *allocation, gpointer user_data);
 void main_window_state_changed(GtkWidget *widget, GdkEventWindowState *event, gpointer user_data);
 gboolean classbrowser_accept_size(GtkPaned *paned, gpointer user_data);

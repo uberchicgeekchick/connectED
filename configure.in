@@ -18,7 +18,7 @@ dnl | dependencies |-----------------------------------------------------------
 dnl  --------------
 
 PKG_CHECK_MODULES(connectED,[
-	gtk+-2.0 libgnomeui-2.0 gnome-vfs-2.0 libgtkhtml-2.0 dnl libgnomeprint-2.2 libgnomeprintui-2.2])
+	gtk+-2.0 libglade-2.0 libgnomeui-2.0 gnome-vfs-2.0 libgtkhtml-2.0 dnl libgnomeprint-2.2 libgnomeprintui-2.2])
 
 AC_SUBST(connectED_CFLAGS)
 AC_SUBST(connectED_LIBS)

@@ -27,10 +27,10 @@
 #include <config.h>
 #endif
 
+#include "main_window_callbacks.h"
 #include "main_window.h"
 #include "main_window_menu.h"
 #include "tab.h"
-#include "main_window_callbacks.h"
 #include "preferences.h"
 #include "classbrowser.h"
 #include "plugin.h"
@@ -77,7 +77,6 @@ void main_window_pass_command_line_files(char **argv)
 	if(argv) {
 		i = 1;
 		while(argv[i] != NULL) {
-			//g_print("%s:%d\n", argv[i], strlen(argv[i]));
 			g_io_channel_write_chars(inter_connectED_io, argv[i], strlen(argv[i]),
 			                         &bytes_written, &error);
 			++i;
@@ -88,48 +87,16 @@ void main_window_pass_command_line_files(char **argv)
 
 gboolean channel_pass_filename_callback(GIOChannel *source, GIOCondition condition, gpointer data )
 {
-	guint size;
+	gsize size;
 	gchar buf[1024];
+	GError *error;
 
-	g_io_channel_read(inter_connectED_io, buf, sizeof(buf), &size);
-	//g_print("Passed %s\n", buf);
+	g_io_channel_read_chars(inter_connectED_io, buf, ((gsize)sizeof( buf )), &size, &error);
 	tab_create_new(TAB_FILE, g_string_new(buf));
+	if(error)
+		g_error_free( error );
 	return FALSE;
 }
-
-
-
-
-/*void main_window_create_unix_socket(void)
-{
-	struct sockaddr_un name;
-	int sock;
-	size_t size;
- 
-	// Create the socket. 
-  
-	sock = socket(PF_UNIX, SOCK_STREAM, 0);
-	if(sock < 0) {
-      g_print("Socket creation failed\n");
-      exit(EXIT_FAILURE);
-    }
- 
-	// Bind a name to the socket. 
- 
-	name.sun_family = AF_FILE;
-	strcpy(name.sun_path, "/tmp/connectED.sock");
- 
-	// The size of the address is the offset of the start of the filename, plus its length, plus one for the terminating null byte.
-	size =(offsetof(struct sockaddr_un, sun_path)
-          + strlen(name.sun_path) + 1);
- 
-	if(bind(sock,(struct sockaddr *) &name, size) < 0) {
-      perror("bind");
-      exit(EXIT_FAILURE);
-    }
- 
-	unix_socket = sock;
-}*/
 
 void force_config_folder(void)
 {
@@ -791,11 +758,11 @@ void main_window_create(void)
 
 	function_list_prepare();
 
-	gtk_signal_connect(GTK_OBJECT(main_window.window), "delete_event", GTK_SIGNAL_FUNC(main_window_delete_event), NULL);
-	gtk_signal_connect(GTK_OBJECT(main_window.window), "destroy", GTK_SIGNAL_FUNC(main_window_destroy_event), NULL);
-	gtk_signal_connect(GTK_OBJECT(main_window.window), "key_press_event", GTK_SIGNAL_FUNC(main_window_key_press_event), NULL);
-	gtk_signal_connect(GTK_OBJECT(main_window.window), "size_allocate", GTK_SIGNAL_FUNC(main_window_resize), NULL);
-	gtk_signal_connect(GTK_OBJECT(main_window.window), "window-state-event", GTK_SIGNAL_FUNC(main_window_state_changed), NULL);
+	g_signal_connect(G_OBJECT(main_window.window), "delete_event", G_CALLBACK(main_window_delete_event), NULL);
+	g_signal_connect(G_OBJECT(main_window.window), "destroy", G_CALLBACK(main_window_destroy_event), NULL);
+	g_signal_connect(G_OBJECT(main_window.window), "key_press_event", G_CALLBACK(main_window_key_press_event), NULL);
+	g_signal_connect(G_OBJECT(main_window.window), "size_allocate", G_CALLBACK(main_window_resize), NULL);
+	g_signal_connect(G_OBJECT(main_window.window), "window-state-event", G_CALLBACK(main_window_state_changed), NULL);
 
 	main_window.clipboard = gtk_clipboard_get(GDK_SELECTION_CLIPBOARD);
 

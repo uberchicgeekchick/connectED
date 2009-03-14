@@ -65,7 +65,6 @@ typedef struct {
 	GtkWidget *notebook_editor;
 
 	GtkWidget *scrolledwindow1;
-	// My new best friend: http://developer.gnome.org/doc/API/2.0/gtk/TreeWidget.html
 	GtkListStore *lint_store;
 	GtkCellRenderer *lint_renderer;
 	GtkWidget *lint_view;
@@ -80,11 +79,6 @@ typedef struct {
 	GtkTreeSelection *classtreeselect;
 	GtkWidget *treeviewlabel;
 	GtkWidget *label1;
-	/*
-	GtkWidget *notebook_manager_functions_page;
-	GtkWidget *label2;
-	GtkWidget *notebook_manager_files_page;
-	GtkWidget *label3;*/
 	
 	GtkClipboard* clipboard;
 } MainWindow;

@@ -29,6 +29,7 @@
 
 #include "main_window_callbacks.h"
 #include <libgnome/gnome-i18n.h>
+#include <libgnomeui/libgnomeui.h>
 
 
 static GnomeUIInfo recent_menu[] =
@@ -95,8 +96,8 @@ static GnomeUIInfo plugin_menu[] =
 
 static GnomeUIInfo file1_menu_uiinfo[] =
     {
-        GNOMEUIINFO_MENU_NEW_ITEM (N_("_New"), NULL, on_new1_activate, NULL),
-        GNOMEUIINFO_MENU_OPEN_ITEM (on_open1_activate, NULL),
+        GNOMEUIINFO_MENU_NEW_ITEM( N_("_New"), NULL, on_new1_activate, NULL ),
+        GNOMEUIINFO_MENU_OPEN_ITEM( on_open1_activate, NULL ),
         { GNOME_APP_UI_ITEM, N_("Open selected file"), N_("Open a file with the name currently selected in the editor"), on_openselected1_activate, NULL,NULL, 0, 0, GDK_Return, GDK_CONTROL_MASK },
 		GNOMEUIINFO_SUBTREE(N_("R_eopen recent"), recent_menu),
         { GNOME_APP_UI_ITEM, N_("Reload current file"), N_("Reload the file currently selected in the editor"), on_reload1_activate, NULL,NULL, 0, 0, 'o', GDK_SHIFT_MASK | GDK_CONTROL_MASK },
@@ -107,8 +108,6 @@ static GnomeUIInfo file1_menu_uiinfo[] =
         { GNOME_APP_UI_ITEM, N_("_Rename"), N_("Rename the current file 'on-the-fly'"), on_rename1_activate, NULL,NULL, 0, 0, 'r', GDK_SHIFT_MASK | GDK_MOD1_MASK },
         GNOMEUIINFO_MENU_CLOSE_ITEM (on_close1_activate, NULL),
         GNOMEUIINFO_SEPARATOR,
-        //  GNOMEUIINFO_MENU_PROPERTIES_ITEM (on_properties1_activate, NULL),
-        //  GNOMEUIINFO_SEPARATOR,
         GNOMEUIINFO_MENU_EXIT_ITEM (on_quit1_activate, NULL),
         GNOMEUIINFO_END
     };
@@ -128,16 +127,9 @@ static GnomeUIInfo edit1_menu_uiinfo[] =
         GNOMEUIINFO_SEPARATOR,
         { GNOME_APP_UI_ITEM, N_("_Indent block"), N_("Indent the currently selected block"), block_indent, NULL,NULL, 0, 0, 'i', GDK_SHIFT_MASK | GDK_MOD1_MASK },
         { GNOME_APP_UI_ITEM, N_("_Unindent block"), N_("Unindent the currently selected block"), block_unindent, NULL,NULL, 0, 0, 'i', GDK_CONTROL_MASK | GDK_SHIFT_MASK | GDK_MOD1_MASK},
-        //  GNOMEUIINFO_SEPARATOR,
         GNOMEUIINFO_MENU_PREFERENCES_ITEM (on_preferences1_activate, NULL),
         GNOMEUIINFO_END
     };
-
-/*static GnomeUIInfo project1_menu_uiinfo[] =
-{
-  { GNOME_APP_UI_ITEM, "_Not used yet", "Not used yet", NULL, NULL,NULL, 0, 0, 'u', GDK_MOD1_MASK },
-  GNOMEUIINFO_END
-};*/
 
 static GnomeUIInfo force1_menu_uiinfo[] =
     {
@@ -159,7 +151,6 @@ static GnomeUIInfo code1_menu_uiinfo[] =
         { GNOME_APP_UI_ITEM, N_("_Playback keyboard macro"), N_("Playback the stored keyboard macro"), keyboard_macro_playback, NULL,NULL, 0, 0, 'k', GDK_CONTROL_MASK },
         GNOMEUIINFO_SEPARATOR,
         { GNOME_APP_UI_ITEM, N_("S_how/Hide class browser"), N_("Show/Hide class browser"), classbrowser_show_hide, NULL,NULL, 0, 0, GDK_F8, 0 },
-        //{ GNOME_APP_UI_ITEM, N_("H_ide class browser"), N_("Hide class browser"), classbrowser_hide, NULL,NULL, 0, 0, GDK_F8, GDK_SHIFT_MASK },
         GNOMEUIINFO_SEPARATOR,
 		GNOMEUIINFO_SUBTREE(N_("_Force highlighting mode"), force1_menu_uiinfo),
         GNOMEUIINFO_END
@@ -178,10 +169,8 @@ static GnomeUIInfo menubar1_uiinfo[] =
     {
         GNOMEUIINFO_MENU_FILE_TREE (file1_menu_uiinfo),
         GNOMEUIINFO_MENU_EDIT_TREE (edit1_menu_uiinfo),
-        //  { GNOME_APP_UI_SUBTREE_STOCK, "_Project", NULL, project1_menu_uiinfo, NULL, NULL,
-        //		(GnomeUIPixmapType) 0, NULL, 0,	(GdkModifierType) 0, NULL },
-		GNOMEUIINFO_SUBTREE (N_("_Code"), code1_menu_uiinfo),
-		GNOMEUIINFO_SUBTREE(N_("_Plugins"), plugin_menu),
+	GNOMEUIINFO_SUBTREE (N_("_Code"), code1_menu_uiinfo),
+	GNOMEUIINFO_SUBTREE(N_("_Plugins"), plugin_menu),
         GNOMEUIINFO_MENU_HELP_TREE (help1_menu_uiinfo),
         GNOMEUIINFO_END
     };

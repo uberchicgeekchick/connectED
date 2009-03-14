@@ -272,7 +272,7 @@ msgid ""
 msgstr ""
 
 #: ../src/main_window_callbacks.c:827
-msgid "Close and _lose changes"
+msgid "Close _without saving"
 msgstr ""
 
 #: ../src/main_window_callbacks.c:827

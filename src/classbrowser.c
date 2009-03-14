@@ -136,38 +136,6 @@ void classbrowser_filelist_add(gchar *filename)
 	}
 }
 
-
-/*void classbrowser_dirlist_add(gchar *dir)
-{
-	GDir *dir_iter;
-	GError *error = NULL;
-	gchar *file;
-	GString *fullfilename;
- 
-	g_print("dir_opened for %s\n", dir);
-	dir_iter= g_dir_open(dir, 0, &error);
-	g_print("dir_open succeeded for %s\n", dir);
-	if (dir_iter) {
-		while ((file = (gchar *)g_dir_read_name(dir_iter))) {
-			fullfilename = g_string_new(dir);
-			fullfilename = g_string_append(fullfilename, "/");
-			fullfilename = g_string_append(fullfilename, file);
-			if (g_file_test(fullfilename->str, G_FILE_TEST_IS_DIR)) {
-				classbrowser_dirlist_add(fullfilename->str);
-			}
-			else {
-				classbrowser_filelist_add(fullfilename->str);
-			}
-			g_string_free(fullfilename, TRUE);
-		}
-		g_dir_close(dir_iter);
-		g_print("dir_closed for %s\n", dir);
-	}
- 
-	dirlist = g_slist_append(dirlist, dir);
-}*/
-
-
 #include <dirent.h>
 void classbrowser_dirlist_add(gchar *dir)
 {
@@ -639,9 +607,8 @@ void classbrowser_update(void)
 	static guint press_event = 0;
 	static guint release_event = 0;
 
-	if (gtk_paned_get_position(GTK_PANED(main_window.main_horizontal_pane))==0) {
+	if (gtk_paned_get_position(GTK_PANED(main_window.main_horizontal_pane))==0)
 		return;
-	}
 	
 	if (press_event) {
 		g_signal_handler_disconnect(main_window.classtreeview, press_event);
@@ -662,10 +629,7 @@ void classbrowser_update(void)
 		}
 	}
 
-	//classbrowser_dirlist_add(preferences.shared_source_location);
-
 	classbrowser_filelist_update();
-
 	classbrowser_start_update();
 
 	while ( (file = classbrowser_filelist_getnext() ) ) {
@@ -678,10 +642,10 @@ void classbrowser_update(void)
 
 	classbrowser_remove_dead_wood();
 
-	press_event = gtk_signal_connect(GTK_OBJECT(main_window.classtreeview), "button_press_event",
-	                                 GTK_SIGNAL_FUNC(treeview_double_click), NULL);
-	release_event = gtk_signal_connect(GTK_OBJECT(main_window.classtreeview), "button_release_event",
-	                                   GTK_SIGNAL_FUNC(treeview_click_release), NULL);
+	press_event = g_signal_connect(G_OBJECT(main_window.classtreeview), "button_press_event",
+	                                 G_CALLBACK(treeview_double_click), NULL);
+	release_event = g_signal_connect(G_OBJECT(main_window.classtreeview), "button_release_event",
+	                                   G_CALLBACK(treeview_click_release), NULL);
 }
 
 
@@ -721,12 +685,14 @@ GString *get_member_function_completion_list(GtkWidget *scintilla, gint wordStar
 		function_name = li2->data;
 		if (!result) {
 			result = g_string_new(function_name);
-		}
-		else {
+		} else {
 			result = g_string_append(result, " ");
 			result = g_string_append(result, function_name);
 		}
 	}
+
+	if(!result)
+		result=g_string_new("");
 
 	result = g_string_append(result, " ");
 	return result;
