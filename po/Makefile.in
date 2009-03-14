@@ -181,7 +181,7 @@ mostlyclean:
 clean: mostlyclean
 
 distclean: clean
-	rm -f Makefile Makefile.in POTFILES *.mo *.msg *.cat *.cat.m
+	rm -f Makefile POTFILES *.mo *.msg *.cat *.cat.m
 
 maintainer-clean: distclean
 	@echo "This command is intended for maintainers to use;"

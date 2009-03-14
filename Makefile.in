@@ -177,11 +177,13 @@ sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
-SUBDIRS = \
-	data	\
-	doc	\
-	pixmaps	\
-	src \
+SUBDIRS =				\
+	data				\
+	doc				\
+	pixmaps				\
+	src				\
+	src/gtkscintilla2		\
+	src/gtkscintilla2/scintilla/gtk	\
 	po
 
 

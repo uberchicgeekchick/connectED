@@ -239,10 +239,9 @@ connectED_SOURCES = \
 	templates.h
 
 
-connectED_LDADD = \
-	$(connectED_LIBS)\
-	gtkscintilla2/libgtkscintilla2.a\
-	gtkscintilla2/scintilla/bin/scintilla.a
+connectED_LDADD =			\
+	$(connectED_LIBS)		\
+	$(connectED_DEPENDENCIES)
 
 subdir = src
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
@@ -541,7 +540,7 @@ distdir: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-all-am: Makefile $(PROGRAMS)
+all-am: Makefile $(connectED_DEPENDENCIES) $(PROGRAMS)
 
 installdirs:
 	$(mkinstalldirs) $(DESTDIR)$(bindir)
@@ -629,10 +628,18 @@ uninstall-am: uninstall-binPROGRAMS uninstall-info-am
 	tags uninstall uninstall-am uninstall-binPROGRAMS \
 	uninstall-info-am
 
+connectED_DEPENDENCIES: 
+	cd gtkscintilla2/scintilla/gtk && $(MAKE) && cd ../../..
+	cd gtkscintilla2 && $(MAKE) libgtkscintilla2.a && cd ..
+
+gtkscintilla2/scintilla/bin/scintilla.a: connectED_DEPENDENCIES
 
 gtkscintilla2/libgtkscintilla2.a:
 	cd gtkscintilla2/scintilla/gtk && $(MAKE) && cd ../../..
 	cd gtkscintilla2 && $(MAKE) libgtkscintilla2.a && cd ..
+
+
+
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.
 .NOEXPORT:

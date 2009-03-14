@@ -1,6 +1,13 @@
-2009-03-13:Kaity G. B. <uberChick@uberChicGeekChick.Com>
+2009-03-14:Kaity G. B. <uberChick@uberChicGeekChick.Com>
 
-	* configure & configure.in: added dependency to libglade-2.0
+	* ./Makefile.in, ./Makefile.am, ./src/Makefile.in, ./src/Makefile.am, &
+	./src/gtkscintilla2/Makefile ./src/gtkscintilla2/scintilla/gtk/Makefile
+		I have improved the build process so that gtkscintilla is built as part
+		of connectED's build process.  This is for compatibility, connectED's
+		performance, and to ensure connectED compiles on all possible Linux
+		platforms.
+
+	* ./configure & ./configure.in: added dependency to libglade-2.0
 		I am implimenting libglade-2.0 in connectED.  This will be a
 		huge process & I am only getting started.
 	

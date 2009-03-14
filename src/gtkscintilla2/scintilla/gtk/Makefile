@@ -79,6 +79,11 @@ all: $(COMPLIB)
 clean:
 	rm -f *.o $(COMPLIB)
 
+distclean: clean
+
+install:
+	@echo "Nothing to do..."
+
 deps:
 	$(CC) -MM `$(CONFIGFLAGS)` $(CXXFLAGS) *.cxx ../src/*.cxx >deps.mak
 

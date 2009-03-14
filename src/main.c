@@ -62,10 +62,10 @@ int main(int argc, char **argv){
 	force_config_folder();
 
 	template_db_open();
+	
+	session_reopen();
+	
 	main_window_open_command_line_files(argv, argc);
-
-	if(main_window.current_editor == NULL)
-		session_reopen();
 
 	create_untitled_if_empty();
 

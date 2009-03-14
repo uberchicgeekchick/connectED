@@ -177,11 +177,13 @@ sbindir = ${exec_prefix}/sbin
 sharedstatedir = ${prefix}/com
 sysconfdir = ${prefix}/etc
 target_alias = 
-SUBDIRS = \
-	data	\
-	doc	\
-	pixmaps	\
-	src \
+SUBDIRS =				\
+	data				\
+	doc				\
+	pixmaps				\
+	src				\
+	src/gtkscintilla2		\
+	src/gtkscintilla2/scintilla/gtk	\
 	po
 
 

@@ -68,10 +68,11 @@ clean:
 	rm -f *.o *.so *~ core $(SHARED_LIB) $(STATIC_LIB)
 	rm -f $(SCINTILLA_DIR)/bin/scintilla.a
 	cd $(SCINTILLA_DIR)/gtk ; $(MAKE) clean
-#	rm -f *.c *.h
 
 realclean: clean
 	rm -f gtkscintilla.h gtkscintilla.c
+
+distclean: realclean
 
 dist: clean
 	if test -d "$(NAME)-$(VERSION)"; then rm -rf $(NAME)-$(VERSION); fi

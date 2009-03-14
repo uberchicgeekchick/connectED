@@ -62,7 +62,10 @@ gtkscintilla2/libgtkscintilla2.a:
 	cd gtkscintilla2/scintilla/gtk && $(MAKE) && cd ../../..
 	cd gtkscintilla2 && $(MAKE) libgtkscintilla2.a && cd ..
 
-connectED_LDADD = \
-	$(connectED_LIBS) \
-	gtkscintilla2/libgtkscintilla2.a \
+connectED_DEPENDENCIES =			\
+	gtkscintilla2/libgtkscintilla2.a	\
 	gtkscintilla2/scintilla/bin/scintilla.a
+
+connectED_LDADD =			\
+	$(connectED_LIBS)		\
+	$(connectED_DEPENDENCIES)

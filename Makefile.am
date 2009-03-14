@@ -1,10 +1,10 @@
-SUBDIRS = \
-	data	\
-	doc	\
-	pixmaps	\
-	src \
-	src/gtkscintilla2 \
-	src/gtkscintilla2/scintilla/gtk \
+SUBDIRS =				\
+	data				\
+	doc				\
+	pixmaps				\
+	src				\
+	src/gtkscintilla2		\
+	src/gtkscintilla2/scintilla/gtk	\
 	po
 
 applicationsdir = $(datadir)/applications
