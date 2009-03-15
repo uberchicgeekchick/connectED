@@ -114,6 +114,6 @@ void session_save(void);
 
 void on_save_as1_activate(void);
 void save_file_as_ok( GtkFileChooser *file_selection_box );
-GtkWidget *display_file_selection_dialog( const gchar *title, const char *called_from_method, gboolean for_saving);
+GtkWidget *create_file_selection_dialog_and_select_files( const gchar *title, const char *called_from_method, gboolean for_saving );
 
 #endif
