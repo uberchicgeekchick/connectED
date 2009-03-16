@@ -1,7 +1,22 @@
+2009-03-16:Kaity G. B. <uberChick@uberChicGeekChick.Com>
+
+	* ./connectED.applications & ./connectED.spec: depricated.
+
+	* ./data, ./pixmaps, & ./connectED.desktop.in: migrated to ./share
+		see below.
+	
+	* ./Makefile.in, ./Makefile.am, ./configure.in, ./configure: ./share
+		I have moved all of the usual data belongs in shared
+		locations. Liked connectED's freedesktop.org config,
+		connectED's icon, & connectED php function reference. They are
+		all now located, converted, & installed by share's  make
+		process.
+	
 2009-03-14:Kaity G. B. <uberChick@uberChicGeekChick.Com>
 
-	* ./Makefile.in, ./Makefile.am, ./src/Makefile.in, ./src/Makefile.am, &
-	./src/gtkscintilla2/Makefile ./src/gtkscintilla2/scintilla/gtk/Makefile
+	* ./Makefile.in, ./Makefile.am, ./src/Makefile.in, ./src/Makefile.am,
+	./src/gtkscintilla2/Makefile, &
+	./src/gtkscintilla2/scintilla/gtk/Makefile:
 		I have improved the build process so that gtkscintilla is built as part
 		of connectED's build process.  This is for compatibility, connectED's
 		performance, and to ensure connectED compiles on all possible Linux

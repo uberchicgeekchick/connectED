@@ -1,0 +1,12 @@
+
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+MimeType=text/plain;application/x-shellscript;text/x-c;text/x-c++;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-makefile;text;application/x-perl;application/x-pl;application/x-pm;application/x-al;application/x-perl;application/x-php;application/x-php3;application/x-php4;application/x-php5
+Terminal=false
+Icon[en_US]=connectED
+Exec=connectED
+Name[en_US]=connectED
+Name=connectED
+Icon=connectED

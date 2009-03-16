@@ -53,10 +53,7 @@ dnl ---------------------------------------------------------------------------
 
 AC_OUTPUT([
 Makefile
-connectED.desktop
-connectED.spec
-data/Makefile
-doc/Makefile
+share/Makefile
 pixmaps/Makefile
 po/Makefile
 src/Makefile
