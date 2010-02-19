@@ -34,7 +34,20 @@
 
 #define connectED_PIXMAP_ICON "connectED.svg"
 
+#ifndef	uber_free
+#	define		uber_free(mem)		{ g_free(mem); mem=NULL; }
+#endif
+
+#ifndef	G_STR_EMPTY
+#	define		G_STR_EMPTY(str)	( ((str)==NULL) || (str)[0]=='\0' )
+#endif
+
+#ifndef	G_STR_N_EMPTY
+#	define		G_STR_N_EMPTY(str)	( ((str)!=NULL) && (str)[0]!='\0' )
+#endif
+
 extern GnomeProgram* connectED_program;
+void connectED_deinit(void);
 gboolean add (gpointer bla);
 
 #endif

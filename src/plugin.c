@@ -24,4 +24,3 @@
    The GNU General Public License is contained in the file COPYING.*/
    
 #include "plugin.h"
-#include "main_window_menu.h"

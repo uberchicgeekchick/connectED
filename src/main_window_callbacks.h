@@ -38,11 +38,7 @@
 #include "classbrowser.h"
 
 GString *get_folder(GString *filename);
-void main_window_destroy_event(GtkWidget *widget, gpointer data);
-gboolean main_window_delete_event(GtkWidget *widget,
-                                  GdkEvent *event, gpointer user_data);
-gint main_window_key_press_event(GtkWidget   *widget,
-                                 GdkEventKey *event,gpointer user_data);
+gboolean main_window_delete_event(GtkWidget *widget, GdkEvent *event, gpointer user_data);
 void on_new1_activate(GtkWidget *widget);
 void open_file_ok(GtkFileChooser *file_selection);
 void reopen_recent(GtkWidget *widget, gpointer data);
@@ -77,10 +73,8 @@ void force_cxx(GtkWidget *widget);
 void force_perl(GtkWidget *widget);
 void force_python(GtkWidget *widget);
 
-void on_notebook_switch_page (GtkNotebook *notebook, GtkNotebookPage *page,
-                              gint page_num, gpointer user_data);
-void inc_search_typed (GtkEntry *entry, const gchar *text, gint length,
-                       gint *position, gpointer data);
+void on_notebook_switch_page (GtkNotebook *notebook, GtkNotebookPage *page, gint page_num, gpointer user_data);
+void inc_search_typed (GtkEntry *entry, const gchar *text, gint length, gint *position, gpointer data);
 gboolean inc_search_key_release_event(GtkWidget *widget,GdkEventKey *event,gpointer user_data);
 void inc_search_activate(GtkEntry *entry,gpointer user_data);
 gboolean is_valid_digits_only(gchar *text);
@@ -88,13 +82,10 @@ void goto_line_activate(GtkEntry *entry,gpointer user_data);
 void move_block(gint indentation_size);
 void block_indent(GtkWidget *widget);
 void block_unindent(GtkWidget *widget);
-void syntax_check(GtkWidget *widget);
-void syntax_check_clear(GtkWidget *widget);
 void lint_row_activated (GtkTreeSelection *selection, gpointer data);
 void goto_line_int(gint line);
 void goto_line(gchar *text);
-gboolean on_notebook_focus_tab(GtkNotebook *notebook,
-                               GtkNotebookTab arg1, gpointer user_data);
+gboolean on_notebook_focus_tab(GtkNotebook *notebook, GtkNotebookTab arg1, gpointer user_data);
 void on_reload1_activate(GtkWidget *widget);
 gint treeview_double_click( GtkWidget *widget, GdkEventButton *event );
 gint treeview_click_release( GtkWidget *widget, GdkEventButton *event );

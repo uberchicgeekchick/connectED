@@ -31,7 +31,7 @@
 #include "main.h"
 #include "main_window.h"
 #include "main_window_callbacks.h"
-#include "connectED_ipc.h"
+#include "ipc.h"
 #include "templates.h"
 
 
@@ -71,8 +71,16 @@ int main(int argc, char **argv){
 
 	gtk_main();
 
-	// it makes sense to install sigterm handler that would call this too.
-	shutdown_ipc();
-
 	return 0;
 }//main
+
+void connectED_deinit(void){
+	preferences_save();
+	if (DEBUG_MODE) { g_print("DEBUG: main_window_callbacks.c:quit_application:Saved preferences\n"); }
+	template_db_close();
+	session_save();
+	close_all_tabs();
+	shutdown_ipc();
+	g_print("Exiting %s", GETTEXT_PACKAGE);
+}
+

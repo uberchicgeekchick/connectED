@@ -33,7 +33,59 @@
 #include "edit_template.h"
 #include <gtkscintilla.h>
 
+static GString *create_sample_text(void);
+static void get_current_preferences(void);
+static void set_current_preferences(void);
+
+static int cmp_families(const void *a, const void *b);
+static GList * get_font_names(void);
+static GList *get_font_sizes(void);
+static GString *create_sample_text(void);
+static void get_current_preferences(void);
+static void set_current_preferences(void);
+static void apply_clicked(GtkButton *button, gpointer data);
+/*static void ok_clicked(GtkButton *button, gpointer data);*/
+static void delete_template_clicked(GtkButton *button, gpointer data);
+static void template_row_activated(GtkTreeSelection *selection, gpointer data);
+void set_controls_to_highlight(gchar *setting_name, gchar *fontname, gint fontsize, gboolean bold, gboolean italic, gint fore, gint back);
+void get_current_highlighting_settings(gchar *name);
+void on_element_entry_changed(GtkEntry *entry, gpointer data);
+void apply_preferences(GtkButton *button, gpointer data);
+void change_font_global_callback(gint reply,gpointer data);
+void change_size_global_callback(gint reply,gpointer data);
+void get_control_values_to_highlight(gchar *setting_name, gchar **fontname, gint *fontsize, gboolean *bold, gboolean *italic, gint *fore, gint *back);
+void set_current_highlighting_font(void);
+void on_bold_toggle(GtkToggleButton *togglebutton, gpointer user_data);
+void on_italic_toggle(GtkToggleButton *togglebutton, gpointer user_data);
+void on_fontname_entry_changed(GtkEntry *Entry, gpointer data);
+void on_fontsize_entry_changed(GtkEntry *Entry, gpointer data);
+void preferences_window_destroyed(GtkWidget *widget, gpointer data);
+void on_fore_changed(GnomeColorPicker *cp, guint red, guint green, guint blue, guint alpha, gpointer userdate);
+void on_back_changed(GnomeColorPicker *cp, guint red, guint green, guint blue, guint alpha, gpointer userdate);
+void on_edge_colour_changed(GnomeColorPicker *cp, guint red, guint green, guint blue, guint alpha, gpointer userdate);
+void on_tab_size_changed(GtkRange *range, gpointer user_data);
+void on_calltip_delay_changed(GtkRange *range, gpointer user_data);
+void on_edge_column_changed(GtkRange *range, gpointer user_data);
+void on_show_indentation_guides_toggle(GtkToggleButton *togglebutton, gpointer user_data);
+void on_edge_mode_toggle(GtkToggleButton *togglebutton, gpointer user_data);
+void on_line_wrapping_toggle(GtkToggleButton *togglebutton, gpointer user_data);
+void on_use_tabs_instead_spaces_toggle(GtkToggleButton *togglebutton, gpointer user_data);
+void on_save_session_toggle(GtkToggleButton *togglebutton, gpointer user_data);
+void on_single_instance_only_toggle(GtkToggleButton *togglebutton, gpointer user_data);
+void on_php_binary_location_changed(GtkEntry *entry, gpointer user_data);
+void on_php_file_extensions_changed(GtkEntry *entry, gpointer user_data);
+void on_shared_source_changed(GtkEntry *entry, gpointer user_data);
+void update_template_display(gchar *template);
+static void add_to_template_list(gpointer key, gpointer value, gpointer user_data);
+void add_templates_to_store(void);
+void add_template_clicked(GtkButton *button, gpointer data);
+void edit_template_clicked(GtkButton *button, gpointer data);;
+
+
 #define IS_FONT_NAME(name1, name2) strncmp(name1, name2, MIN(strlen(name1), strlen(name2))) == 0
+
+
+
 
 PreferencesDialog preferences_dialog;
 Preferences temp_preferences;
@@ -48,13 +100,13 @@ static int cmp_families(const void *a, const void *b)
 	return g_utf8_collate(a_name, b_name);
 }
 
-static GList * get_font_names()
+static GList * get_font_names(void)
 {
 	PangoFontFamily **families;
 	gint n_families, i;
 	GList *fonts = NULL;
   
-	pango_context_list_families(gtk_widget_get_pango_context(GTK_WIDGET(main_window.window)),
+	pango_context_list_families(gtk_widget_get_pango_context(GTK_WIDGET(main_window_get_window())),
 		&families, &n_families);
 	qsort(families, n_families, sizeof(PangoFontFamily *), cmp_families);
 
@@ -66,7 +118,7 @@ static GList * get_font_names()
 	return fonts;
 }
 
-static GList *get_font_sizes()
+static GList *get_font_sizes(void)
 {
 	GList *sizes = NULL;
 	
@@ -90,7 +142,7 @@ static GList *get_font_sizes()
 	return sizes;
 }
 
-GString *create_sample_text()
+static GString *create_sample_text(void)
 {
 	GString *ret;
 	
@@ -132,7 +184,7 @@ GString *create_sample_text()
 	return ret;
 }
 
-void get_current_preferences(void)
+static void get_current_preferences(void)
 {
 	GList *highlighting_list = NULL;
 
@@ -203,7 +255,7 @@ void get_current_preferences(void)
 }
 
 
-void set_current_preferences(void)
+static void set_current_preferences(void)
 {
 	// Copy the local copy back to the global list
 	memcpy(&preferences, &temp_preferences, sizeof(preferences));
@@ -510,6 +562,7 @@ void apply_preferences(GtkButton *button, gpointer data)
 	set_current_preferences();
 	for(walk = editors; walk!=NULL; walk = g_slist_next(walk)) {
 		editor = walk->data;
+		if(!editor->has_content) continue;
 		tab_set_configured_scintilla_properties(GTK_SCINTILLA(editor->scintilla), preferences);
 		tab_check_php_file(editor);
 		tab_check_css_file(editor);
@@ -521,13 +574,13 @@ void apply_preferences(GtkButton *button, gpointer data)
 }
 
 
-void ok_clicked(GtkButton *button, gpointer data){
+/*static void ok_clicked(GtkButton *button, gpointer data){
 	apply_preferences(button, data);
 	gtk_widget_destroy(preferences_dialog.window);
-}//ok_clicked
+}ok_clicked*/
 
 
-void apply_clicked(GtkButton *button, gpointer data){
+static void apply_clicked(GtkButton *button, gpointer data){
 	apply_preferences(button, data);
 	set_current_preferences();	
 }//apply_clicked
@@ -696,7 +749,7 @@ void get_control_values_to_highlight(gchar *setting_name, gchar **fontname, gint
 				  GTK_BUTTONS_YES_NO, message->str);
 		result = gtk_dialog_run(GTK_DIALOG(dialog));
 		gtk_widget_destroy(dialog);
-		change_size_global_callback(result,(gpointer)newfontsize);		
+		change_size_global_callback(result, GINT_TO_POINTER(newfontsize));		
 		g_string_free(message, TRUE);
 		*fontsize = atoi(gtk_combo_box_get_active_text(GTK_COMBO_BOX(preferences_dialog.size_combo)));
 	}
@@ -713,7 +766,7 @@ void get_control_values_to_highlight(gchar *setting_name, gchar **fontname, gint
 	//g_print("Setting %s: %s %d %d %d %d %d\n", setting_name, *fontname, *fontsize, *bold, *italic, *fore, *back);	
 }
 
-void set_current_highlighting_font()
+void set_current_highlighting_font(void)
 {
 	if(IS_FONT_NAME(current_highlighting_element, _("Default"))) {
 		get_control_values_to_highlight(_("Default"), &temp_preferences.default_font, &temp_preferences.default_size,
@@ -1065,13 +1118,6 @@ void on_single_instance_only_toggle(GtkToggleButton *togglebutton, gpointer user
 }
 
 
-/* Version for gnome_file_entry
-void on_php_binary_location_changed(GtkEditable *editable, gpointer user_data)
-{
-	temp_preferences.php_binary_location = g_strdup(gtk_entry_get_text(GTK_ENTRY(editable)));
-}*/
-
-/* Version for GtkEntry */
 void on_php_binary_location_changed(GtkEntry *entry, gpointer user_data)
 {
 	temp_preferences.php_binary_location = g_strdup(gtk_entry_get_text(entry));
@@ -1199,11 +1245,11 @@ void edit_template_clicked(GtkButton *button, gpointer data)
 	edit_template_dialog.window1 = NULL;
 }
 
-void delete_template_clicked(GtkButton *button, gpointer data) {
+static void delete_template_clicked(GtkButton *button, gpointer data) {
 	GtkWidget *confirm_dialog;
 	GtkTreeIter iter;
 
-	confirm_dialog = gtk_message_dialog_new( (GTK_WINDOW(main_window.window)), GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO, (_("Are you sure you want to delete template %s?")), current_key);
+	confirm_dialog = gtk_message_dialog_new( (GTK_WINDOW(main_window_get_window())), GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT, GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO, (_("Are you sure you want to delete template %s?")), current_key);
 	// confirm deletion with dialog
 	if(gtk_dialog_run(GTK_DIALOG(confirm_dialog)) != GTK_RESPONSE_YES) {
 		gtk_widget_destroy(confirm_dialog);
@@ -1222,7 +1268,7 @@ void delete_template_clicked(GtkButton *button, gpointer data) {
 	gtk_widget_destroy(confirm_dialog);
 }//delete_template_clicked
 
-void template_row_activated(GtkTreeSelection *selection, gpointer data){
+static void template_row_activated(GtkTreeSelection *selection, gpointer data){
 	GtkTreeModel *model;
 	gchar *content, *template;
 	GtkTreeIter iter;
@@ -1262,7 +1308,7 @@ void preferences_dialog_create(void){
 	get_current_preferences();
 
 	preferences_dialog.window = gtk_dialog_new_with_buttons(_("Preferences"),
-		GTK_WINDOW(main_window.window), GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+		GTK_WINDOW(main_window_get_window()), GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
 		GTK_STOCK_OK, GTK_RESPONSE_ACCEPT, GTK_STOCK_CANCEL, GTK_RESPONSE_REJECT, NULL);
 	
 	preferences_dialog.notebook1 = gtk_notebook_new();
@@ -1634,8 +1680,7 @@ void preferences_dialog_create(void){
 
 	preferences_dialog.template_selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(preferences_dialog.Templates));
 	gtk_tree_selection_set_mode(preferences_dialog.template_selection, GTK_SELECTION_SINGLE);
-	g_signal_connect(G_OBJECT(preferences_dialog.template_selection), "changed",
-		G_CALLBACK(template_row_activated), NULL);
+	g_signal_connect(G_OBJECT(preferences_dialog.template_selection), "changed", G_CALLBACK(template_row_activated), NULL);
 
 	preferences_dialog.vbox9 = gtk_vbox_new(TRUE, 0);
 	gtk_widget_show(preferences_dialog.vbox9);
@@ -1672,7 +1717,7 @@ void preferences_dialog_create(void){
 	gtk_widget_show(preferences_dialog.label31);
 	gtk_notebook_set_tab_label(GTK_NOTEBOOK(preferences_dialog.notebook1), gtk_notebook_get_nth_page(GTK_NOTEBOOK(preferences_dialog.notebook1), 2), preferences_dialog.label31);
 	
-	preferences_dialog.apply_button = gtk_button_new_with_mnemonic(_("Apply"));
+	preferences_dialog.apply_button = gtk_button_new_with_mnemonic(_("_Apply"));
 	gtk_widget_show(preferences_dialog.apply_button);
 	gtk_container_add(GTK_CONTAINER(GTK_DIALOG(preferences_dialog.window)->action_area),preferences_dialog.apply_button);
 	gtk_signal_connect(GTK_OBJECT(preferences_dialog.apply_button), "clicked", GTK_SIGNAL_FUNC(apply_clicked), NULL);

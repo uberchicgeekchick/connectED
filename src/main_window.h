@@ -33,57 +33,6 @@
 #include "tab.h"
 
 
-typedef struct {
-	GtkWidget *window;
-
-	GtkWidget *toolbar_main;
-	GtkWidget *toolbar_main_button_new;
-	GtkWidget *toolbar_main_button_open;
-	GtkWidget *toolbar_main_button_save;
-	GtkWidget *toolbar_main_button_save_as;
-	GtkWidget *toolbar_main_button_close;
-	GtkWidget *toolbar_main_button_undo;
-	GtkWidget *toolbar_main_button_redo;
-	GtkWidget *toolbar_main_button_cut;
-	GtkWidget *toolbar_main_button_copy;
-	GtkWidget *toolbar_main_button_paste;
-	GtkWidget *toolbar_main_button_find;
-	GtkWidget *toolbar_main_button_replace;
-
-	GtkWidget *toolbar_find;
-	GtkWidget *toolbar_find_search_label;
-	GtkWidget *toolbar_find_search_entry;
-	GtkWidget *toolbar_find_goto_label;
-	GtkWidget *toolbar_find_goto_entry;
-
-	GtkWidget *main_vertical_pane;
-	GtkWidget *main_horizontal_pane;
-
-	GtkWidget *appbar;
-
-	GtkWidget *notebook_manager;
-	GtkWidget *notebook_editor;
-
-	GtkWidget *scrolledwindow1;
-	GtkListStore *lint_store;
-	GtkCellRenderer *lint_renderer;
-	GtkWidget *lint_view;
-	GtkTreeViewColumn *lint_column;
-	GtkTreeSelection *lint_select;
-
-	Editor *current_editor;
-
-	GtkWidget *scrolledwindow3;
-	GtkTreeStore *classtreestore;
-	GtkWidget *classtreeview;
-	GtkTreeSelection *classtreeselect;
-	GtkWidget *treeviewlabel;
-	GtkWidget *label1;
-	
-	GtkClipboard* clipboard;
-} MainWindow;
-
-
 #define CB_ITEM_TYPE_CLASS 1
 #define CB_ITEM_TYPE_CLASS_METHOD 2
 #define CB_ITEM_TYPE_FUNCTION 3
@@ -98,11 +47,36 @@ enum {
 };
 
 
-extern MainWindow main_window;
 extern gboolean DEBUG_MODE;
+
+extern GIOChannel* inter_connectED_io;
+extern guint inter_connectED_event_id;
+
+extern guint idle_id;
+
+
+
 void force_config_folder(void);
 
 void main_window_create(void);
+
+GtkWindow *main_window_get_window(void);
+
+Editor *main_window_get_current_editor(void);
+void main_window_set_current_editor(Editor *editor);
+
+GtkTreeStore *main_window_get_class_browser_tree_store(void);
+GtkTreeView *main_window_get_class_browser_tree_view(void);
+GtkScrolledWindow *main_window_get_class_browser_scrolled_window(void);
+GtkTreeSelection *main_window_get_class_browser_tree_select(void);
+GtkClipboard *main_window_get_clipboard(void);
+GtkListStore *main_window_get_lint_store(void);
+GtkTreeView *main_window_get_lint_view(void);
+
+GtkHPaned *main_window_get_horizontal_pane(void);
+GtkLabel *main_window_get_tree_view_label(void);
+GtkNotebook *main_window_get_notebook_editor(void);
+
 void main_window_open_command_line_files(char **argv, gint argc);
 void update_app_title(void);
 void main_window_create_unix_socket(void);
@@ -113,9 +87,7 @@ void main_window_add_to_reopen_menu(gchar *full_filename);
 void plugin_exec(gint plugin_num);
 void create_untitled_if_empty(void);
 
-extern GIOChannel* inter_connectED_io;
-extern guint inter_connectED_event_id;
-
-extern guint idle_id;
+void syntax_check(GtkWidget *widget);
+void syntax_check_clear(GtkWidget *widget);
 
 #endif

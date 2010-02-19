@@ -30,8 +30,10 @@
 
 Preferences preferences;
 
+static void check_for_pango_fonts(void);
+void main_window_size_save_details(void);
 
-void check_for_pango_fonts(void)
+static void check_for_pango_fonts(void)
 {
 	GtkWidget *dialog;
 
@@ -113,11 +115,11 @@ void preferences_apply(void)
 	preferences.height = gnome_config_get_int ("connectED/main_window/height=400");
 	preferences.maximized = gnome_config_get_bool ("connectED/main_window/maximized=false");
  
-	gtk_window_move(GTK_WINDOW(main_window.window), preferences.left, preferences.top);
-	gtk_window_set_default_size(GTK_WINDOW(main_window.window), preferences.width, preferences.height);
+	gtk_window_move(GTK_WINDOW(main_window_get_window()), preferences.left, preferences.top);
+	gtk_window_set_default_size(GTK_WINDOW(main_window_get_window()), preferences.width, preferences.height);
  	
 	if (preferences.maximized) {
- 		gtk_window_maximize(GTK_WINDOW(main_window.window));
+ 		gtk_window_maximize(GTK_WINDOW(main_window_get_window()));
 	}
 }
 
@@ -488,24 +490,24 @@ void preferences_load(void)
 
 void move_classbrowser_position(void)
 {
-	gtk_paned_set_position(GTK_PANED(main_window.main_horizontal_pane),gnome_config_get_int ("connectED/main_window/classbrowser_size=100"));
+	gtk_paned_set_position(GTK_PANED(main_window_get_horizontal_pane()),gnome_config_get_int ("connectED/main_window/classbrowser_size=100"));
 }
 
 void save_classbrowser_position(void)
 {
-	if (gtk_paned_get_position(GTK_PANED(main_window.main_horizontal_pane)) != 0) {
-		gnome_config_set_int("connectED/main_window/classbrowser_size", gtk_paned_get_position(GTK_PANED(main_window.main_horizontal_pane)));
+	if (gtk_paned_get_position(GTK_PANED(main_window_get_horizontal_pane())) != 0) {
+		gnome_config_set_int("connectED/main_window/classbrowser_size", gtk_paned_get_position(GTK_PANED(main_window_get_horizontal_pane())));
 		gnome_config_sync();
 	}
 }
 
-void main_window_size_save_details()
+void main_window_size_save_details(void)
 {
 	preferences.maximized = gnome_config_get_bool ("connectED/main_window/maximized=false");
 	
 	if (!preferences.maximized) {
-		gtk_window_get_position(GTK_WINDOW(main_window.window), &preferences.left, &preferences.top);
-		gtk_window_get_size(GTK_WINDOW(main_window.window), &preferences.width, &preferences.height);
+		gtk_window_get_position(GTK_WINDOW(main_window_get_window()), &preferences.left, &preferences.top);
+		gtk_window_get_size(GTK_WINDOW(main_window_get_window()), &preferences.width, &preferences.height);
 
 		gnome_config_set_int ("connectED/main_window/x", preferences.left);
 		gnome_config_set_int ("connectED/main_window/y", preferences.top);

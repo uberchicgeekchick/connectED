@@ -24,8 +24,8 @@
    The GNU General Public License is contained in the file COPYING.*/
 
 
-#ifndef connectED_IPC_H
-#define connectED_IPC_H
+#ifndef IPC_H
+#define IPC_H
 
 #include <glib.h>
 #include "main_window.h"

@@ -1,11 +1,7 @@
 SUBDIRS =				\
+	po				\
 	share				\
-	doc				\
-	src				\
 	src/gtkscintilla2		\
 	src/gtkscintilla2/scintilla/gtk	\
-	po
+	src				\
 
-EXTRA_DIST = \
-	src/gtkscintilla2		\
-	src/gtkscintilla2/scintilla/gtk

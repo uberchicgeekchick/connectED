@@ -1114,38 +1114,24 @@ long Document::FindText(int minPos, int maxPos, const char *s,
 			firstChar = static_cast<char>(MakeUpperCase(firstChar));
 		int pos = forward ? startPos : (startPos - 1);
 		while (forward ? (pos < endSearch) : (pos >= endSearch)) {
-			char ch = CharAt(pos);
-			if (caseSensitive) {
-				if (ch == firstChar) {
-					bool found = true;
-					if (pos + lengthFind > Platform::Maximum(startPos, endPos)) found = false;
-					for (int posMatch = 1; posMatch < lengthFind && found; posMatch++) {
-						ch = CharAt(pos + posMatch);
-						if (ch != s[posMatch])
-							found = false;
-					}
-					if (found) {
-						if ((!word && !wordStart) ||
-						        word && IsWordAt(pos, pos + lengthFind) ||
-						        wordStart && IsWordStartAt(pos))
-							return pos;
-					}
+			char ch=CharAt(pos);
+			if(!caseSensitive)
+				ch=MakeUpperCase(ch);
+			
+			if(ch == firstChar) {
+				bool found = true;
+				if (pos + lengthFind > Platform::Maximum(startPos, endPos)) found = false;
+				for (int posMatch = 1; posMatch < lengthFind && found; posMatch++) {
+					ch = CharAt(pos + posMatch);
+					if (ch != s[posMatch])
+						found = false;
 				}
-			} else {
-				if (MakeUpperCase(ch) == firstChar) {
-					bool found = true;
-					if (pos + lengthFind > Platform::Maximum(startPos, endPos)) found = false;
-					for (int posMatch = 1; posMatch < lengthFind && found; posMatch++) {
-						ch = CharAt(pos + posMatch);
-						if (MakeUpperCase(ch) != MakeUpperCase(s[posMatch]))
-							found = false;
-					}
-					if (found) {
-						if ((!word && !wordStart) ||
-						        word && IsWordAt(pos, pos + lengthFind) ||
-						        wordStart && IsWordStartAt(pos))
-							return pos;
-					}
+				if (found) {
+					if ((!word && !wordStart) ||
+					        (word && IsWordAt(pos, pos + lengthFind)) ||
+					        (wordStart && IsWordStartAt(pos))
+					)
+						return pos;
 				}
 			}
 			pos += increment;

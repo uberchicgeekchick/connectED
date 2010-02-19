@@ -38,15 +38,26 @@ More information can be found at:
 		- libgtkhtml-2.0
 		- libgnomeprint-2.2
 		- libgnomeprintui-2.2
-
-	You have two options to take advantage of integration of the php manual:
-		Extract a copy of the php manual to: /usr/share/doc/phpmanual
-		Or make this a symlink to where you have PHP's manual extracted to.
+	
+	
+	connectED supports integration with PHP's manual for:
+		- integrated help
+		- tooltips for and auto-completion of:
+			functions, classes, methods, & etc.
+	
+	By default connectED looks for PHP's manual under:
+		$prefix/share/doc/phpmanual
+		e.g: /usr/share/doc/phpmanual -or- /usr/share/doc/phpdoc/html
+	
+	If you have PHP's manual installed in another location
+	you may specify its path by passing the path to connectED's
+	./configure script's '--enable-php-manual=' option.
+	e.g.: /opt/php/manual/php-5.3.2
 
 9.) Copy right & liscense:
 --------------------------
-connectED is copyright (c) 2007-2009 Kaity G. B.; released under the RPL.
-	<uberChiChick -at- uberChicGeekChick.Com>
+connectED is copyright (c) 2007-2010 Kaity G. B. <uberChick -at- uberChicGeekChick.Com>
+	Released under the terms of the RPL 1.5 license.
 
 
 Unless explicitly acquired and licensed from Licensor under another

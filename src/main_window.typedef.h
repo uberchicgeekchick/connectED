@@ -4,7 +4,7 @@
  * 	<uberChick -at- uberChicGeekChick.Com>
  *
  * For more information or to find the latest release, visit our
- * website at: http://uberchicgeekchick.com/?Project=connectED
+ * website at: http://uberChicGeekChick.Com/?Project=connectED
  *
  * Writen by an uberChick, other uberChicks please meet me & others @:
  * 	http://uberChicks.Net/
@@ -34,28 +34,66 @@
  * ---------------------------------------------------------------------------
  */
 
-#ifndef PREFIX_H
-#define PREFIX_H
-#endif
+#ifndef MAIN_WINDOW_TYPEDEF_H
+#define MAIN_WINDOW_TYPEDEF_H
 
-#ifndef HAVE_IDE_PREFIX_H
-#define HAVE_IDE_PREFIX_H
-#endif
+typedef struct _MainWindow MainWindow;
 
-#ifndef CONNECTED_PREFIX
-#define	CONNECTED_PREFIX	"/usr"
-#endif
+struct _MainWindow{
+	GnomeApp	*app;
+	GtkWindow *window;
 
-#ifndef CONNECTED_DATA_DIR
-#define CONNECTED_DATA_DIR "/usr/share"
-#endif
+	GtkWidget *toolbar_main;
+	GtkWidget *toolbar_main_button_new;
+	GtkWidget *toolbar_main_button_open;
+	GtkWidget *toolbar_main_button_save;
+	GtkWidget *toolbar_main_button_save_as;
+	GtkWidget *toolbar_main_button_close;
+	GtkWidget *toolbar_main_button_undo;
+	GtkWidget *toolbar_main_button_redo;
+	GtkWidget *toolbar_main_button_cut;
+	GtkWidget *toolbar_main_button_copy;
+	GtkWidget *toolbar_main_button_paste;
+	GtkWidget *toolbar_main_button_find;
+	GtkWidget *toolbar_main_button_replace;
 
-#ifndef PHP_FUNCTION_REFERENCE
-#	define	PHP_FUNCTION_REFERENCE	CONNECTED_DATA_DIR "/connectED/php-function-reference.api"
-#endif
+	GtkWidget *toolbar_find;
+	GtkWidget *toolbar_find_search_label;
+	GtkWidget *toolbar_find_search_entry;
+	GtkWidget *toolbar_find_goto_label;
+	GtkWidget *toolbar_find_goto_entry;
 
-#ifndef PIXMAP_DIR
-#define PIXMAP_DIR "/usr/share/pixmaps"
-#endif
+	GtkWidget *main_vertical_pane;
+	GtkHPaned *horizontal_pane;
+
+	GtkWidget *appbar;
+
+	GtkWidget *notebook_manager;
+	GtkNotebook	*notebook_editor;
+
+	GtkWidget		*scrolledwindow1;
+	GtkListStore		*lint_store;
+	GtkCellRenderer		*lint_renderer;
+	GtkTreeView		*lint_view;
+	GtkTreeViewColumn	*lint_column;
+	GtkTreeSelection	*lint_select;
+
+	Editor *current_editor;
+
+	GtkScrolledWindow *class_browser_scrolled_window;
+	GtkTreeStore *class_browser_tree_store;
+	GtkTreeView *class_browser_tree_view;
+	GtkTreeSelection *class_browser_tree_select;
+	GtkLabel *tree_view_label;
+	GtkLabel *label1;
+	
+	GtkClipboard	*clipboard;
+};
+
+
+
+
+#endif /* MAIN_WINDOW_TYPEDEF_H */
+
 
 

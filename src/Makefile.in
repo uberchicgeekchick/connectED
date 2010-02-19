@@ -177,66 +177,45 @@ sbindir = @sbindir@
 sharedstatedir = @sharedstatedir@
 sysconfdir = @sysconfdir@
 target_alias = @target_alias@
-bin_PROGRAMS = connectED
+bin_PROGRAMS = @PROGRAM_NAME@
+static_CFLAGS=-g3 -ggdb
 
-INCLUDES = \
-	$(connectED_CFLAGS)	\
-	-I$(top_srcdir)/src/gtkscintilla2 \
-	-g -Wall -DGTK -DSCI_LEXER \
-	-DPHP_FUNCTION_REFERENCE=\""$(datadir)/connectED/php-function-reference.api"\" \
-	-DCONNECTED_PREFIX=\""$(datadir)"\" \
-	-DPIXMAP_DIR=\""$(datadir)/pixmaps"\"
+INCLUDES =					\
+	$(connectED_CFLAGS)			\
+	$(static_CFLAGS)			\
+	-I$(top_srcdir)/src/gtkscintilla2	\
+	-DGTK -DSCI_LEXER			\
+	-DCONNECTED_PREFIX=\""$(prefix)"\"	\
+	-DCONNECTED_DATA_DIR=\""$(datadir)"\"	\
+	-DPIXMAP_DIR=\""$(datadir)/pixmaps"\"	\
 
 
-nodist_EXTRA_connectED_SOURCES = dummy.cxx
-connectED_SOURCES = \
-	calltip.c		\
-	calltip.h		\
-	classbrowser.c		\
-	classbrowser.h		\
-	classbrowser_parse.c	\
-	classbrowser_parse.h	\
-	edit_template.c		\
-	edit_template.h		\
-	find_replace.c		\
-	find_replace.h		\
-	connectED_ipc.c		\
-	connectED_ipc.h		\
-	grel2abs.c		\
-	grel2abs.h		\
-	plugin.c		\
-	plugin.h		\
-	main.c			\
-	main.h			\
-	main_window.c		\
-	main_window.h		\
-	main_window_callbacks.c	\
-	main_window_callbacks.h	\
-	main_window_menu.h	\
-	preferences.c		\
-	preferences.h		\
-	preferences_dialog.c	\
-	preferences_dialog.h	\
-	syntax_check.c		\
-	syntax_check.h		\
-	tab.c			\
-	tab.h			\
-	tab_cxx.c		\
-	tab_cxx.h		\
-	tab_css.c		\
-	tab_css.h		\
-	tab_perl.c		\
-	tab_perl.h		\
-	tab_php.c		\
-	tab_php.h		\
-	tab_python.c		\
-	tab_python.h		\
-	tab_sql.c		\
-	tab_sql.h		\
-	tab_util.c		\
-	tab_util.h		\
-	templates.c		\
-	templates.h
+connectED_SOURCES =						\
+	calltip.c			calltip.h		\
+	classbrowser.c			classbrowser.h		\
+	classbrowser_parse.c		classbrowser_parse.h	\
+	edit_template.c			edit_template.h		\
+	find_replace.c			find_replace.h		\
+	ipc.c				ipc.h			\
+	grel2abs.c			grel2abs.h		\
+	plugin.c			plugin.h		\
+	main.c				main.h			\
+	main_window.c			main_window.h		\
+	main_window_callbacks.c		main_window_callbacks.h	\
+	main_window_menu.h		main_window.typedef.h	\
+	preferences.c			preferences.h		\
+	preferences_dialog.c		preferences_dialog.h	\
+	syntax_check.c			syntax_check.h		\
+	tab.c				tab.h			\
+	tab_cxx.c			tab_cxx.h		\
+	tab_css.c			tab_css.h		\
+	tab_perl.c			tab_perl.h		\
+	tab_php.c			tab_php.h		\
+	tab_python.c			tab_python.h		\
+	tab_sql.c			tab_sql.h		\
+	tab_util.c			tab_util.h		\
+	templates.c			templates.h		\
+
 
 
 connectED_LDADD =			\
@@ -251,16 +230,32 @@ CONFIG_CLEAN_FILES =
 bin_PROGRAMS = connectED$(EXEEXT)
 PROGRAMS = $(bin_PROGRAMS)
 
-am_connectED_OBJECTS = calltip.$(OBJEXT) classbrowser.$(OBJEXT) \
-	classbrowser_parse.$(OBJEXT) edit_template.$(OBJEXT) \
-	find_replace.$(OBJEXT) connectED_ipc.$(OBJEXT) \
-	grel2abs.$(OBJEXT) plugin.$(OBJEXT) main.$(OBJEXT) \
-	main_window.$(OBJEXT) main_window_callbacks.$(OBJEXT) \
-	preferences.$(OBJEXT) preferences_dialog.$(OBJEXT) \
-	syntax_check.$(OBJEXT) tab.$(OBJEXT) tab_cxx.$(OBJEXT) \
-	tab_css.$(OBJEXT) tab_perl.$(OBJEXT) tab_php.$(OBJEXT) \
-	tab_python.$(OBJEXT) tab_sql.$(OBJEXT) tab_util.$(OBJEXT) \
-	templates.$(OBJEXT)
+am_connectED_OBJECTS =			\
+	calltip.$(OBJEXT)		\
+	classbrowser.$(OBJEXT)		\
+	classbrowser_parse.$(OBJEXT)	\
+	edit_template.$(OBJEXT)		\
+	find_replace.$(OBJEXT)		\
+	ipc.$(OBJEXT)			\
+	grel2abs.$(OBJEXT)		\
+	plugin.$(OBJEXT)		\
+	main.$(OBJEXT)			\
+	main_window.$(OBJEXT)		\
+	main_window_callbacks.$(OBJEXT) \
+	preferences.$(OBJEXT)		\
+	preferences_dialog.$(OBJEXT) 	\
+	syntax_check.$(OBJEXT)		\
+	tab.$(OBJEXT)			\
+	tab_cxx.$(OBJEXT)		\
+	tab_css.$(OBJEXT)		\
+	tab_perl.$(OBJEXT)		\
+	tab_php.$(OBJEXT)		\
+	tab_python.$(OBJEXT)		\
+	tab_sql.$(OBJEXT)		\
+	tab_util.$(OBJEXT)		\
+	templates.$(OBJEXT)		\
+
+
 connectED_OBJECTS = $(am_connectED_OBJECTS)
 connectED_DEPENDENCIES = gtkscintilla2/libgtkscintilla2.a \
 	gtkscintilla2/scintilla/bin/scintilla.a
@@ -269,21 +264,32 @@ connectED_LDFLAGS =
 DEFAULT_INCLUDES =  -I. -I$(srcdir) -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
-@AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/calltip.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/classbrowser.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/classbrowser_parse.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/dummy.Po ./$(DEPDIR)/edit_template.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/find_replace.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/connectED_ipc.Po ./$(DEPDIR)/grel2abs.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/main.Po ./$(DEPDIR)/main_window.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/main_window_callbacks.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/plugin.Po ./$(DEPDIR)/preferences.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/preferences_dialog.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/syntax_check.Po ./$(DEPDIR)/tab.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/tab_css.Po ./$(DEPDIR)/tab_cxx.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/tab_perl.Po ./$(DEPDIR)/tab_php.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/tab_python.Po ./$(DEPDIR)/tab_sql.Po \
-@AMDEP_TRUE@	./$(DEPDIR)/tab_util.Po ./$(DEPDIR)/templates.Po
+@AMDEP_TRUE@DEP_FILES = 				\
+@AMDEP_TRUE@	./$(DEPDIR)/calltip.Po			\
+@AMDEP_TRUE@	./$(DEPDIR)/classbrowser.Po		\
+@AMDEP_TRUE@	./$(DEPDIR)/classbrowser_parse.Po	\
+@AMDEP_TRUE@	./$(DEPDIR)/edit_template.Po		\
+@AMDEP_TRUE@	./$(DEPDIR)/find_replace.Po		\
+@AMDEP_TRUE@	./$(DEPDIR)/ipc.Po			\
+@AMDEP_TRUE@	./$(DEPDIR)/grel2abs.Po			\
+@AMDEP_TRUE@	./$(DEPDIR)/main.Po			\
+@AMDEP_TRUE@	./$(DEPDIR)/main_window.Po		\
+@AMDEP_TRUE@	./$(DEPDIR)/main_window_callbacks.Po	\
+@AMDEP_TRUE@	./$(DEPDIR)/plugin.Po			\
+@AMDEP_TRUE@	./$(DEPDIR)/preferences.Po		\
+@AMDEP_TRUE@	./$(DEPDIR)/preferences_dialog.Po	\
+@AMDEP_TRUE@	./$(DEPDIR)/syntax_check.Po		\
+@AMDEP_TRUE@	./$(DEPDIR)/tab.Po			\
+@AMDEP_TRUE@	./$(DEPDIR)/tab_css.Po			\
+@AMDEP_TRUE@	./$(DEPDIR)/tab_cxx.Po			\
+@AMDEP_TRUE@	./$(DEPDIR)/tab_perl.Po			\
+@AMDEP_TRUE@	./$(DEPDIR)/tab_php.Po			\
+@AMDEP_TRUE@	./$(DEPDIR)/tab_python.Po		\
+@AMDEP_TRUE@	./$(DEPDIR)/tab_sql.Po			\
+@AMDEP_TRUE@	./$(DEPDIR)/tab_util.Po			\
+@AMDEP_TRUE@	./$(DEPDIR)/templates.Po		\
+
+
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
 LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) \
@@ -301,7 +307,7 @@ CXXLINK = $(LIBTOOL) --mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) \
 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
 DIST_SOURCES = $(connectED_SOURCES)
 DIST_COMMON = $(srcdir)/Makefile.in Makefile.am
-SOURCES = $(connectED_SOURCES) $(nodist_EXTRA_connectED_SOURCES)
+SOURCES = $(connectED_SOURCES)
 
 all: all-am
 
@@ -355,10 +361,9 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/calltip.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/classbrowser.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/classbrowser_parse.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/dummy.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/edit_template.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/find_replace.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/connectED_ipc.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/ipc.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/grel2abs.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main_window.Po@am__quote@

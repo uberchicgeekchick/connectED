@@ -51,8 +51,8 @@
 #define TAB_PYTHON 8
 
 
-typedef struct
-{
+typedef struct{
+	gboolean has_content;
 	gint type;
 	GSList components;
 	GtkWidget *scintilla;
@@ -113,7 +113,7 @@ void handle_modified(GtkWidget *scintilla, gint pos,gint mtype,gchar *text,gint 
 void margin_clicked(GtkWidget *scintilla, gint position, gint modifiers, gint margin);
 void macro_record (GtkWidget *scintilla, gint message, gulong wparam, glong lparam);
 void keyboard_macro_empty_old(Editor *editor);
-void update_ui(GtkWidget *scintilla);
+void update_ui(GtkWidget *scintilla, Editor *editor);
 gboolean auto_memberfunc_complete_callback(gpointer data);
 void info_dialog (gchar *title, gchar *message);
 void debug_dump_editors(void);

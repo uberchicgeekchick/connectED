@@ -23,10 +23,39 @@
  
    The GNU General Public License is contained in the file COPYING.*/
 
+#include <dirent.h>
 
 #include "classbrowser.h"
 #include "main_window.h"
 #include "main_window_callbacks.h"
+
+static gboolean classbrowser_filelist_find(gchar *filename);
+static gchar *strip_double_slashes(gchar *filename);
+static void classbrowser_filelist_clear(void);
+static void classbrowser_dirlist_clear(void);
+static void classbrowser_filelist_add(gchar *filename);
+static void classbrowser_dirlist_add(gchar *dir);
+static void classbrowser_dirlist_add_shared_source(void);
+static gboolean classbrowser_file_accessible(gchar *filename);
+static void classbrowser_filelist_update(void);
+static ClassBrowserFile *classbrowser_filelist_getnext(void);
+static void classbrowser_start_update(void);
+static gboolean classbrowser_safe_equality(gchar *a, gchar *b);
+static ClassBrowserClass *classbrowser_classlist_find(gchar *classname, gchar *filename);
+static ClassBrowserFunction *classbrowser_functionlist_find(gchar *funcname, gchar *param_list, gchar *filename, gchar *classname);
+static void classbrowser_functionlist_free(ClassBrowserFunction *function, GtkTreeIter *iter);
+static gboolean classbrowser_tree_find_iter(GtkTreeIter *iter, ClassBrowserFunction *function);
+static void classbrowser_functionlist_remove(ClassBrowserFunction *function);
+static void classbrowser_classlist_remove(ClassBrowserClass *class);
+
+static void classbrowser_functionlist_remove(ClassBrowserFunction *function);
+static void classbrowser_classlist_remove(ClassBrowserClass *class);
+static gboolean classbrowser_class_find_before_position(gchar *classname, GtkTreeIter *iter);
+static gboolean classbrowser_classid_to_iter(guint classid, GtkTreeIter *iter);
+static void classbrowser_remove_dead_wood(void);
+static gint member_function_list_sort(gconstpointer a, gconstpointer b);
+static GString *get_member_function_completion_list(GtkWidget *scintilla, gint wordStart, gint wordEnd);
+static gboolean classbrowser_file_in_list_find(GSList *list, gchar *file);
 
 
 static GSList *filelist = NULL;
@@ -38,8 +67,7 @@ guint identifierid = 0;
 
 
 
-gboolean classbrowser_filelist_find(gchar *filename)
-{
+static gboolean classbrowser_filelist_find(gchar *filename){
 	GSList *li;
 	ClassBrowserFile *file;
 
@@ -56,7 +84,7 @@ gboolean classbrowser_filelist_find(gchar *filename)
 }
 
 
-gchar *strip_double_slashes(gchar *filename)
+static gchar *strip_double_slashes(gchar *filename)
 {
 	gchar *result;
 	gchar *result_running;
@@ -87,7 +115,7 @@ gchar *strip_double_slashes(gchar *filename)
 }
 
 
-void classbrowser_filelist_clear(void)
+static void classbrowser_filelist_clear(void)
 {
 	GSList *li;
 	ClassBrowserFile *file;
@@ -103,7 +131,7 @@ void classbrowser_filelist_clear(void)
 }
 
 
-void classbrowser_dirlist_clear(void)
+static void classbrowser_dirlist_clear(void)
 {
 	GSList *li;
 	gchar *dir;
@@ -119,7 +147,7 @@ void classbrowser_dirlist_clear(void)
 }
 
 
-void classbrowser_filelist_add(gchar *filename)
+static void classbrowser_filelist_add(gchar *filename)
 {
 	ClassBrowserFile *file;
 
@@ -136,8 +164,7 @@ void classbrowser_filelist_add(gchar *filename)
 	}
 }
 
-#include <dirent.h>
-void classbrowser_dirlist_add(gchar *dir)
+static void classbrowser_dirlist_add(gchar *dir)
 {
 	DIR *dir_iter;
 	struct dirent *dir_data;
@@ -175,7 +202,7 @@ void classbrowser_dirlist_add(gchar *dir)
 	dirlist = g_slist_append(dirlist, g_strdup(dir));
 }
 
-void classbrowser_dirlist_add_shared_source()
+static void classbrowser_dirlist_add_shared_source(void)
 {
 	gchar **shared_source_locations;
 	gint i;
@@ -189,7 +216,7 @@ void classbrowser_dirlist_add_shared_source()
 	g_strfreev(shared_source_locations);
 }
 
-gboolean classbrowser_file_accessible(gchar *filename)
+static gboolean classbrowser_file_accessible(gchar *filename)
 {
 	FILE *file;
 
@@ -202,7 +229,7 @@ gboolean classbrowser_file_accessible(gchar *filename)
 }
 
 
-void classbrowser_filelist_update(void)
+static void classbrowser_filelist_update(void)
 {
 	GSList *li;
 	ClassBrowserFile *file;
@@ -227,7 +254,7 @@ void classbrowser_filelist_update(void)
 }
 
 
-ClassBrowserFile *classbrowser_filelist_getnext(void)
+static ClassBrowserFile *classbrowser_filelist_getnext(void)
 {
 	GSList *li;
 	ClassBrowserFile *file;
@@ -250,7 +277,7 @@ ClassBrowserFile *classbrowser_filelist_getnext(void)
 }
 
 
-void classbrowser_start_update(void)
+static void classbrowser_start_update(void)
 {
 	GSList *li;
 	ClassBrowserFunction *function;
@@ -271,7 +298,7 @@ void classbrowser_start_update(void)
 }
 
 
-gboolean classbrowser_safe_equality(gchar *a, gchar *b)
+static gboolean classbrowser_safe_equality(gchar *a, gchar *b)
 {
 	if (!a && !b) {
 		return TRUE;
@@ -287,7 +314,7 @@ gboolean classbrowser_safe_equality(gchar *a, gchar *b)
 }
 
 
-ClassBrowserClass *classbrowser_classlist_find(gchar *classname, gchar *filename)
+static ClassBrowserClass *classbrowser_classlist_find(gchar *classname, gchar *filename)
 {
 	GSList *li;
 	ClassBrowserClass *class;
@@ -307,7 +334,7 @@ ClassBrowserClass *classbrowser_classlist_find(gchar *classname, gchar *filename
 }
 
 
-ClassBrowserFunction *classbrowser_functionlist_find(gchar *funcname, gchar *param_list, gchar *filename, gchar *classname)
+static ClassBrowserFunction *classbrowser_functionlist_find(gchar *funcname, gchar *param_list, gchar *filename, gchar *classname)
 {
 	GSList *li;
 	ClassBrowserFunction *function;
@@ -330,9 +357,9 @@ ClassBrowserFunction *classbrowser_functionlist_find(gchar *funcname, gchar *par
 }
 
 
-void classbrowser_functionlist_free(ClassBrowserFunction *function, GtkTreeIter *iter)
+static void classbrowser_functionlist_free(ClassBrowserFunction *function, GtkTreeIter *iter)
 {
-	gtk_tree_store_remove(GTK_TREE_STORE(main_window.classtreestore),iter);
+	gtk_tree_store_remove(GTK_TREE_STORE(main_window_get_class_browser_tree_store()),iter);
 	g_free(function->filename);
 	g_free(function->functionname);
 	if (function->paramlist) {
@@ -346,7 +373,7 @@ void classbrowser_functionlist_free(ClassBrowserFunction *function, GtkTreeIter 
 }
 
 
-gboolean classbrowser_tree_find_iter(GtkTreeIter *iter, ClassBrowserFunction *function)
+static gboolean classbrowser_tree_find_iter(GtkTreeIter *iter, ClassBrowserFunction *function)
 {
 	guint id;
 	gboolean found;
@@ -354,8 +381,8 @@ gboolean classbrowser_tree_find_iter(GtkTreeIter *iter, ClassBrowserFunction *fu
 
 	found = TRUE;
 	while (found) {
-		if (gtk_tree_model_iter_has_child(GTK_TREE_MODEL(main_window.classtreestore), iter)) {
-			gtk_tree_model_iter_children(GTK_TREE_MODEL(main_window.classtreestore),
+		if (gtk_tree_model_iter_has_child(GTK_TREE_MODEL(main_window_get_class_browser_tree_store()), iter)) {
+			gtk_tree_model_iter_children(GTK_TREE_MODEL(main_window_get_class_browser_tree_store()),
 			                             &child, iter);
 			if (classbrowser_tree_find_iter(&child, function)) {
 				memcpy(iter, &child, sizeof(child));
@@ -363,24 +390,24 @@ gboolean classbrowser_tree_find_iter(GtkTreeIter *iter, ClassBrowserFunction *fu
 			}
 		}
 
-		gtk_tree_model_get(GTK_TREE_MODEL(main_window.classtreestore),iter,
+		gtk_tree_model_get(GTK_TREE_MODEL(main_window_get_class_browser_tree_store()),iter,
 		                   ID_COLUMN, &id,-1);
 
 		if (id == function->identifierid) {
 			return TRUE;
 		}
 		// if we aren't looking at the right id, move on
-		found = gtk_tree_model_iter_next(GTK_TREE_MODEL(main_window.classtreestore), iter);
+		found = gtk_tree_model_iter_next(GTK_TREE_MODEL(main_window_get_class_browser_tree_store()), iter);
 	}
 	return FALSE;
 }
 
 
-void classbrowser_functionlist_remove(ClassBrowserFunction *function)
+static void classbrowser_functionlist_remove(ClassBrowserFunction *function)
 {
 	GtkTreeIter iter;
 
-	if (gtk_tree_model_get_iter_first(GTK_TREE_MODEL(main_window.classtreestore), &iter)) {
+	if (gtk_tree_model_get_iter_first(GTK_TREE_MODEL(main_window_get_class_browser_tree_store()), &iter)) {
 		if (classbrowser_tree_find_iter(&iter, function)) {
 			classbrowser_functionlist_free(function, &iter);
 		}
@@ -388,30 +415,30 @@ void classbrowser_functionlist_remove(ClassBrowserFunction *function)
 }
 
 
-void classbrowser_classlist_remove(ClassBrowserClass *class)
+static void classbrowser_classlist_remove(ClassBrowserClass *class)
 {
 	GtkTreeIter iter;
 	guint id;
 	gboolean found;
 
-	if (gtk_tree_model_get_iter_first(GTK_TREE_MODEL(main_window.classtreestore), &iter))
+	if (gtk_tree_model_get_iter_first(GTK_TREE_MODEL(main_window_get_class_browser_tree_store()), &iter))
 	{
 		found = TRUE;
 		while (found) {
-			gtk_tree_model_get(GTK_TREE_MODEL(main_window.classtreestore),&iter,
+			gtk_tree_model_get(GTK_TREE_MODEL(main_window_get_class_browser_tree_store()),&iter,
 			                   ID_COLUMN, &id,-1);
 			// AAARGGHHH!!! TODO!!!
 			// According to the docs gtk_tree_store_remove removes it and moves on
 			// according to the header file, it removes it and returns void
 			// I'll assume for now that I have to move on!
 			if (id == class->identifierid) {
-				//found = gtk_tree_store_remove(GTK_TREE_STORE(main_window.classtreestore),&iter);
-				gtk_tree_store_remove(GTK_TREE_STORE(main_window.classtreestore),&iter);
+				//found = gtk_tree_store_remove(GTK_TREE_STORE(main_window_get_class_browser_tree_store()),&iter);
+				gtk_tree_store_remove(GTK_TREE_STORE(main_window_get_class_browser_tree_store()),&iter);
 				break;
 			}
 			else {
 				// if we aren't looking at the right id, move on
-				found = gtk_tree_model_iter_next(GTK_TREE_MODEL(main_window.classtreestore), &iter);
+				found = gtk_tree_model_iter_next(GTK_TREE_MODEL(main_window_get_class_browser_tree_store()), &iter);
 			}
 		}
 	}
@@ -423,16 +450,16 @@ void classbrowser_classlist_remove(ClassBrowserClass *class)
 }
 
 
-gboolean classbrowser_class_find_before_position(gchar *classname, GtkTreeIter *iter)
+static gboolean classbrowser_class_find_before_position(gchar *classname, GtkTreeIter *iter)
 {
 	gboolean found;
 	gchar *classnamefound;
 	guint type;
 
-	if (gtk_tree_model_get_iter_first(GTK_TREE_MODEL(main_window.classtreestore), iter)) {
+	if (gtk_tree_model_get_iter_first(GTK_TREE_MODEL(main_window_get_class_browser_tree_store()), iter)) {
 		found = TRUE;
 		while (found) {
-			gtk_tree_model_get(GTK_TREE_MODEL(main_window.classtreestore),iter,
+			gtk_tree_model_get(GTK_TREE_MODEL(main_window_get_class_browser_tree_store()),iter,
 			                   NAME_COLUMN, &classnamefound, TYPE_COLUMN, &type, -1);
 			if ((type==CB_ITEM_TYPE_CLASS) && g_ascii_strcasecmp(classname, classnamefound)<0) {
 				return TRUE;
@@ -440,7 +467,7 @@ gboolean classbrowser_class_find_before_position(gchar *classname, GtkTreeIter *
 			if (type==CB_ITEM_TYPE_FUNCTION) {
 				return TRUE;
 			}
-			found = gtk_tree_model_iter_next(GTK_TREE_MODEL(main_window.classtreestore), iter);
+			found = gtk_tree_model_iter_next(GTK_TREE_MODEL(main_window_get_class_browser_tree_store()), iter);
 		}
 	}
 	return FALSE;
@@ -457,8 +484,7 @@ void classbrowser_classlist_add(gchar *classname, gchar *filename, gint line_num
 		class->line_number = line_number;
 		class->remove
 					= FALSE;
-	}
-else {
+	} else {
 		class = g_malloc0(sizeof(ClassBrowserClass));
 		class->classname = g_strdup(classname);
 		class->filename = g_strdup(filename);
@@ -468,35 +494,35 @@ else {
 		class->identifierid = identifierid++;
 		classlist = g_slist_append(classlist, class);
 
-if (classbrowser_class_find_before_position(classname, &before)) {
-			gtk_tree_store_insert_before(main_window.classtreestore,
+		if (classbrowser_class_find_before_position(classname, &before)) {
+			gtk_tree_store_insert_before(main_window_get_class_browser_tree_store(),
 			                             &iter, NULL, &before);
 		}
 		else {
-			gtk_tree_store_append (main_window.classtreestore, &iter, NULL);
+			gtk_tree_store_append (main_window_get_class_browser_tree_store(), &iter, NULL);
 		}
 
-		gtk_tree_store_set (GTK_TREE_STORE(main_window.classtreestore), &iter,
+		gtk_tree_store_set (GTK_TREE_STORE(main_window_get_class_browser_tree_store()), &iter,
 		                    NAME_COLUMN, (class->classname), FILENAME_COLUMN, (class->filename),
 		                    LINE_NUMBER_COLUMN, line_number, TYPE_COLUMN, CB_ITEM_TYPE_CLASS, ID_COLUMN, (class->identifierid), -1);
 	}
 }
 
 
-gboolean classbrowser_classid_to_iter(guint classid, GtkTreeIter *iter)
+static gboolean classbrowser_classid_to_iter(guint classid, GtkTreeIter *iter)
 {
 	guint id;
 	gboolean found;
 
-	if (gtk_tree_model_get_iter_first(GTK_TREE_MODEL(main_window.classtreestore), iter)) {
+	if (gtk_tree_model_get_iter_first(GTK_TREE_MODEL(main_window_get_class_browser_tree_store()), iter)) {
 		found = TRUE;
 		while (found) {
-			gtk_tree_model_get(GTK_TREE_MODEL(main_window.classtreestore),iter,
+			gtk_tree_model_get(GTK_TREE_MODEL(main_window_get_class_browser_tree_store()),iter,
 			                   ID_COLUMN, &id,-1);
 			if (id == classid) {
 				return TRUE;
 			}
-			found = gtk_tree_model_iter_next(GTK_TREE_MODEL(main_window.classtreestore), iter);
+			found = gtk_tree_model_iter_next(GTK_TREE_MODEL(main_window_get_class_browser_tree_store()), iter);
 		}
 	}
 	return FALSE;
@@ -532,11 +558,11 @@ void classbrowser_functionlist_add(gchar *classname, gchar *funcname, gchar *fil
 			function->classname = g_strdup(classname);
 			classbrowser_classid_to_iter(function->class_id, &class_iter);
 			type = CB_ITEM_TYPE_CLASS_METHOD;
-			gtk_tree_store_append (main_window.classtreestore, &iter, &class_iter);
+			gtk_tree_store_append (main_window_get_class_browser_tree_store(), &iter, &class_iter);
 		}
 		else {
 			type = CB_ITEM_TYPE_FUNCTION;
-			gtk_tree_store_append (main_window.classtreestore, &iter, NULL);
+			gtk_tree_store_append (main_window_get_class_browser_tree_store(), &iter, NULL);
 		}
 
 		functionlist = g_slist_append(functionlist, function);
@@ -548,14 +574,14 @@ void classbrowser_functionlist_add(gchar *classname, gchar *funcname, gchar *fil
 		}
 		function_decl = g_string_append(function_decl, ")");
 
-		gtk_tree_store_set (main_window.classtreestore, &iter,
+		gtk_tree_store_set (main_window_get_class_browser_tree_store(), &iter,
 		                    NAME_COLUMN, function_decl->str, LINE_NUMBER_COLUMN, line_number, FILENAME_COLUMN, filename, TYPE_COLUMN, type, ID_COLUMN, function->identifierid, -1);
 		g_string_free(function_decl, TRUE);
 	}
 }
 
 
-void classbrowser_remove_dead_wood(void)
+static void classbrowser_remove_dead_wood(void)
 {
 	GSList *orig;
 	GSList *li;
@@ -607,14 +633,14 @@ void classbrowser_update(void)
 	static guint press_event = 0;
 	static guint release_event = 0;
 
-	if (gtk_paned_get_position(GTK_PANED(main_window.main_horizontal_pane))==0)
+	if (gtk_paned_get_position(GTK_PANED(main_window_get_horizontal_pane))==0)
 		return;
 	
 	if (press_event) {
-		g_signal_handler_disconnect(main_window.classtreeview, press_event);
+		g_signal_handler_disconnect(main_window_get_class_browser_tree_view(), press_event);
 	}
 	if (release_event) {
-		g_signal_handler_disconnect(main_window.classtreeview,release_event);
+		g_signal_handler_disconnect(main_window_get_class_browser_tree_view(), release_event);
 	}
 	classbrowser_filelist_clear();
 	classbrowser_dirlist_clear();
@@ -642,20 +668,19 @@ void classbrowser_update(void)
 
 	classbrowser_remove_dead_wood();
 
-	press_event = g_signal_connect(G_OBJECT(main_window.classtreeview), "button_press_event",
+	press_event = g_signal_connect(G_OBJECT(main_window_get_class_browser_tree_view()), "button_press_event",
 	                                 G_CALLBACK(treeview_double_click), NULL);
-	release_event = g_signal_connect(G_OBJECT(main_window.classtreeview), "button_release_event",
+	release_event = g_signal_connect(G_OBJECT(main_window_get_class_browser_tree_view()), "button_release_event",
 	                                   G_CALLBACK(treeview_click_release), NULL);
 }
 
 
-gint member_function_list_sort(gconstpointer a, gconstpointer b)
-{
-	return (strcmp((gchar *)a, (gchar *)b));
+static gint member_function_list_sort(gconstpointer a, gconstpointer b){
+	return strcmp((gchar *)a, (gchar *)b);
 }
 
 
-GString *get_member_function_completion_list(GtkWidget *scintilla, gint wordStart, gint wordEnd)
+static GString *get_member_function_completion_list(GtkWidget *scintilla, gint wordStart, gint wordEnd)
 {
 	gchar *buffer = NULL;
 	GSList *li;
@@ -712,7 +737,7 @@ void autocomplete_member_function(GtkWidget *scintilla, gint wordStart, gint wor
 }
 
 
-gboolean classbrowser_file_in_list_find(GSList *list, gchar *file)
+static gboolean classbrowser_file_in_list_find(GSList *list, gchar *file)
 {
 	GSList *list_walk;
 	gchar *data;
@@ -751,7 +776,7 @@ void classbrowser_update_selected_label(gchar *filename, gint line)
 	if (new_label) {
 		new_label = g_string_prepend(new_label, _("FILE: "));
 		g_string_append_printf(new_label, "(%d)", line);
-		gtk_label_set_text(GTK_LABEL(main_window.treeviewlabel), new_label->str);
+		gtk_label_set_text(GTK_LABEL(main_window_get_tree_view_label()), new_label->str);
 		g_string_free(new_label, TRUE);
 		g_slist_free(filenames);
 	}

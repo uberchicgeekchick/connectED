@@ -28,6 +28,9 @@
 #include "tab_util.h"
 #include "preferences.h"
 
+void scintilla_sql_set_lexer(GtkScintilla *scintilla, Preferences prefs);
+void tab_sql_set_lexer(Editor *editor);
+
 void tab_sql_set_lexer(Editor *editor)
 {
 	gtk_scintilla_clear_document_style (GTK_SCINTILLA(editor->scintilla));

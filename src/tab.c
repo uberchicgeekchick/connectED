@@ -27,6 +27,8 @@
 #define PLAT_GTK 1
 #include <gtkscintilla.h>
 
+#include "config.h"
+
 #include "tab.h"
 #include "tab_php.h"
 #include "tab_css.h"
@@ -53,6 +55,64 @@ static void save_point_reached(GtkWidget *w);
 static void save_point_left(GtkWidget *w);
 static void char_added(GtkWidget *scintilla, guint ch);
 
+gint yes_no_dialog(gchar *title, gchar *message);
+void close_saved_empty_Untitled(void);
+void debug_dump_editors(void);
+void tab_set_general_scintilla_properties(Editor *editor);
+void tab_set_configured_scintilla_properties(GtkScintilla *scintilla, Preferences prefs);
+void report_vfs_error(gchar *name, gchar *desc, GnomeVFSResult result, GtkWindow *win);
+void tab_file_closed(GnomeVFSAsyncHandle *fd, GnomeVFSResult result, gpointer li_ptr);
+void tab_file_write(GnomeVFSAsyncHandle *fd, GnomeVFSResult result, gconstpointer buffer, GnomeVFSFileSize bytes_requested, GnomeVFSFileSize bytes_received, gpointer li_ptr);
+void tab_file_save_opened(GnomeVFSAsyncHandle *fd, GnomeVFSResult result, gpointer li_ptr);
+void tab_validate_buffer_and_insert(gpointer buffer, Editor *editor);
+void tab_reset_scintilla_after_open(Editor *editor);
+void tab_file_read(GnomeVFSAsyncHandle *fd, GnomeVFSResult result, gpointer buffer, GnomeVFSFileSize bytes_requested, GnomeVFSFileSize bytes_received, gpointer li_ptr);
+void tab_file_opened(GnomeVFSAsyncHandle *fd, GnomeVFSResult result, gpointer li_ptr);
+Editor *tab_new_editor(void);
+void str_replace(char *Str, char ToRp, char WithC);
+void tab_help_load_file(Editor *editor, GString *filename);
+GString *tab_help_try_filename(gchar *prefix, gchar *command, gchar *suffix);
+GString *tab_help_find_helpfile(gchar *command);
+gboolean tab_create_help(Editor *editor, GString *filename);
+gboolean is_php_file(Editor *editor);
+gboolean is_php_file_from_filename(gchar *filename);
+gboolean is_css_file(gchar *filename);
+gboolean is_perl_file(gchar *filename);
+gboolean is_python_file(gchar *filename);
+gboolean is_cxx_file(gchar *filename);
+gboolean is_sql_file(gchar *filename);
+void set_editor_to_php(Editor *editor);
+void set_editor_to_css(Editor *editor);
+void set_editor_to_sql(Editor *editor);
+void set_editor_to_cxx(Editor *editor);
+void set_editor_to_perl(Editor *editor);
+void set_editor_to_python(Editor *editor);
+void tab_check_php_file(Editor *editor);
+void tab_check_css_file(Editor *editor);
+void tab_check_perl_file(Editor *editor);
+void tab_check_python_file(Editor *editor);
+void tab_check_cxx_file(Editor *editor);
+void tab_check_sql_file(Editor *editor);
+void register_file_opened(gchar *filename);
+gboolean switch_to_file_or_open(gchar *filename, gint line_number);
+void close_saved_empty_Untitled(void);
+gboolean tab_create_new(gint type, GString *filename);
+Editor *editor_find_from_scintilla(GtkWidget *scintilla);
+Editor *editor_find_from_help(void *help);
+void fold_clicked(GtkWidget *scintilla, guint lineClick, guint bstate);
+void fold_expand(GtkWidget *scintilla, gint line, gboolean doExpand, gboolean force, gint visLevels, gint level);
+void fold_changed(GtkWidget *scintilla, int line,int levelNow,int levelPrev);
+void handle_modified(GtkWidget *scintilla, gint pos,gint mtype,gchar *text,gint len, gint added,gint line,gint foldNow,gint foldPrev);
+char *macro_message_to_string(gint message);
+void keyboard_macro_empty_old(Editor *editor);
+gboolean auto_complete_callback(gpointer data);
+gboolean css_auto_complete_callback(gpointer data);
+gboolean sql_auto_complete_callback(gpointer data);
+gboolean auto_memberfunc_complete_callback(gpointer data);
+gboolean calltip_callback(gpointer data);
+void update_ui(GtkWidget *scintilla, Editor *editor);
+gboolean editor_is_local(Editor *editor);
+gchar *convert_to_full(gchar *filename);
 
 void debug_dump_editors(void)
 {
@@ -195,7 +255,7 @@ static void tab_set_folding(Editor *editor, gint folding)
 static void tab_set_event_handlers(Editor *editor)
 {
 	gtk_signal_connect (GTK_OBJECT (editor->scintilla), "char_added", GTK_SIGNAL_FUNC (char_added), NULL);
-	gtk_signal_connect (GTK_OBJECT (editor->scintilla), "update_ui", GTK_SIGNAL_FUNC (update_ui), NULL);
+	gtk_signal_connect (GTK_OBJECT (editor->scintilla), "update_ui", GTK_SIGNAL_FUNC (update_ui), editor);
 }
 
 void report_vfs_error(gchar *name, gchar *desc, GnomeVFSResult result, GtkWindow *win)
@@ -268,7 +328,8 @@ void tab_file_save_opened(GnomeVFSAsyncHandle *fd, GnomeVFSResult result, gpoint
 		return;
 	}
 
-	text_length = gtk_scintilla_get_length(GTK_SCINTILLA(main_window.current_editor->scintilla));
+	Editor *editor=main_window_get_current_editor();
+	text_length = gtk_scintilla_get_length(GTK_SCINTILLA(editor->scintilla));
 
 	write_buffer = g_malloc0(text_length+1); // Include terminating null
 
@@ -277,10 +338,10 @@ void tab_file_save_opened(GnomeVFSAsyncHandle *fd, GnomeVFSResult result, gpoint
 		return;
 	}
 
-	gtk_scintilla_get_text(GTK_SCINTILLA(main_window.current_editor->scintilla), text_length+1, write_buffer);
+	gtk_scintilla_get_text(GTK_SCINTILLA(editor->scintilla), text_length+1, write_buffer);
 
 	// If we converted to UTF-8 when loading, convert back to the locale to save
-	if (main_window.current_editor->converted_to_utf8) {
+	if (editor->converted_to_utf8) {
 		converted_text = g_locale_from_utf8(write_buffer, text_length, NULL, &utf8_size, &error);
 		if (error != NULL) {
 			g_print(_("UTF-8 Error: %s\n"), error->message);
@@ -319,7 +380,7 @@ void tab_validate_buffer_and_insert(gpointer buffer, Editor *editor)
 			gtk_scintilla_add_text(GTK_SCINTILLA (editor->scintilla), editor->file_size, buffer);
 		}
 		else {
-			g_print(_("Converted to UTF-8 size: %d\n"), utf8_size);
+			g_print(_("Converted to UTF-8 size: %lu\n"), utf8_size);
 			gtk_scintilla_add_text(GTK_SCINTILLA (editor->scintilla), utf8_size, converted_text);
 			g_free(converted_text);
 			editor->converted_to_utf8 = TRUE;
@@ -417,7 +478,7 @@ Editor *tab_new_editor(void)
 
 void str_replace(char *Str, char ToRp, char WithC)
 {
-	int i = 0;
+	unsigned int i = 0;
 
 	while(i < strlen(Str)) {
 		if(Str[i] == ToRp) {
@@ -440,7 +501,6 @@ void tab_help_load_file(Editor *editor, GString *filename)
 	if (stat (filename->str, &st) != 0)
 	{
 		g_warning (_("Could not stat the file %s"), filename->str);
-		//die();
 	}
 	size = st.st_size;
  
@@ -449,13 +509,11 @@ void tab_help_load_file(Editor *editor, GString *filename)
 	{
 		// This is funny in unix, but never hurts 
 		g_warning (_("This file is too big. Unable to allocate memory."));
-		//die();
 	}
 	fp = fopen (filename->str, "rb");
 	if (!fp)
 	{
 		g_free (buffer);
-		//die();
 	}
 	
 	// Crude way of loading, but faster
@@ -473,26 +531,6 @@ void tab_help_load_file(Editor *editor, GString *filename)
 	
 }
 
-
-/*static gboolean tab_help_url_requested(GtkWidget * html, const gchar * url, gpointer stream)
-{
-	Editor *data;
-	GString *filename;
-
-	g_print ("REQUESTED %s\n", url);
-
-	filename = g_string_new(url);
-
-	data = editor_find_from_help(html);
-	tab_help_load_file(data, filename);
-
-	data->filename = g_string_new(filename->str);
-	data->filename = g_string_prepend(data->filename, "Help: ");
-
-	data->short_filename = data->filename->str;
-	update_app_title;
-	return TRUE;
-}*/
 
 GString *tab_help_try_filename(gchar *prefix, gchar *command, gchar *suffix)
 {
@@ -527,74 +565,21 @@ GString *tab_help_try_filename(gchar *prefix, gchar *command, gchar *suffix)
 }
 
 
-GString *tab_help_find_helpfile(gchar *command)
-{
-	GString *long_filename = NULL;
+GString *tab_help_find_helpfile(gchar *command){
+	if(G_STR_EMPTY(PHP_MANUAL_DIR)){
+		g_print(_("Help for function not available: %s.  Support for PHP's Manual was not compiled.\n"), command);
+		return NULL;
+	}
 	
-	// For Redhat/Fedora Core and other sensible distrubutions...
-	long_filename = tab_help_try_filename("/usr/share/doc/phpmanual/function.", command, ".html");
-	if (long_filename)
+	GString *long_filename=NULL;
+	if(long_filename=tab_help_try_filename(PHP_MANUAL_DIR "/function.", command, ".html"))
 		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/phpmanual/ref.", command, ".html");
-	if (long_filename)
+	if(long_filename=tab_help_try_filename(PHP_MANUAL_DIR "/ref.", command, ".html"))
 		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/phpmanual/", command, NULL);
-	if (long_filename)
-		return long_filename;
-
-	// For Debian, Ubuntu and sensible distrubutions...
-	long_filename = tab_help_try_filename("/usr/share/doc/phpdoc/html/function.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/phpdoc/html/ref.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/phpdoc/html/", command, NULL);
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/php-doc/html/function.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/php-doc/html/ref.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/php-doc/html/", command, NULL);
-	if (long_filename)
-		return long_filename;
-
-	// For Gentoo, as much as I love it - it's twatty to put docs in a version specific folder like this!
-	long_filename = tab_help_try_filename("/usr/doc/php-docs-200403/html/function.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/doc/php-docs-200403/html/ref.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/doc/php-docs-200403/html/", command, NULL);
-	if (long_filename)
-		return long_filename;
-
-	long_filename = tab_help_try_filename("/usr/share/doc/php-docs-20050822/html/function.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/php-docs-20050822/html/ref.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/php-docs-20050822/html/", command, NULL);
-	if (long_filename)
-		return long_filename;
-
-	long_filename = tab_help_try_filename("/usr/doc/php-docs-4.2.3/html/function.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/doc/php-docs-4.2.3/html/ref.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/doc/php-docs-4.2.3/html/", command, NULL);
-	if (long_filename)
+	if(long_filename=tab_help_try_filename(PHP_MANUAL_DIR "/", command, NULL))
 		return long_filename;
 
 	g_print(_("Help for function not found: %s\n"), command);
-	
 	return NULL;
 }
 
@@ -663,8 +648,8 @@ gboolean tab_create_help(Editor *editor, GString *filename)
 		html_view_set_document(HTML_VIEW(editor->help_view), editor->help_document);
 		gtk_widget_show_all(editor->help_scrolled_window);
 		
-		gtk_notebook_append_page (GTK_NOTEBOOK (main_window.notebook_editor), editor->help_scrolled_window, editor->label);
-		gtk_notebook_set_current_page (GTK_NOTEBOOK (main_window.notebook_editor), -1);
+		gtk_notebook_append_page (GTK_NOTEBOOK (main_window_get_notebook_editor()), editor->help_scrolled_window, editor->label);
+		gtk_notebook_set_current_page (GTK_NOTEBOOK (main_window_get_notebook_editor()), -1);
 	}
 	return TRUE;
 }
@@ -678,7 +663,7 @@ void info_dialog (gchar *title, gchar *message)
 	             title,
 	             GNOME_STOCK_BUTTON_OK,
 	             NULL);
-	gnome_dialog_set_parent(GNOME_DIALOG (dialog), GTK_WINDOW(main_window.window));
+	gnome_dialog_set_parent(GNOME_DIALOG (dialog), GTK_WINDOW(main_window_get_window()));
 
 	label = gtk_label_new (message);
 	gtk_widget_show(label);
@@ -693,7 +678,7 @@ void info_dialog (gchar *title, gchar *message)
 	
 }
 
-gint yes_no_dialog (gchar *title, gchar *message)
+gint yes_no_dialog(gchar *title, gchar *message)
 {
 	GtkWidget *dialog, *label;
 	int button;
@@ -703,7 +688,7 @@ gint yes_no_dialog (gchar *title, gchar *message)
 	             GNOME_STOCK_BUTTON_YES,
 	             GNOME_STOCK_BUTTON_NO,
 	             NULL);
-	gnome_dialog_set_parent(GNOME_DIALOG (dialog), GTK_WINDOW(main_window.window));
+	gnome_dialog_set_parent(GNOME_DIALOG (dialog), GTK_WINDOW(main_window_get_window()));
 
 	label = gtk_label_new (message);
 	gtk_widget_show(label);
@@ -987,8 +972,8 @@ gboolean switch_to_file_or_open(gchar *filename, gint line_number)
 	for (walk = editors; walk!=NULL; walk = g_slist_next(walk)) {
 		editor = walk->data;
 		if (strcmp(editor->filename->str, filename)==0) {
-			gtk_notebook_set_current_page( GTK_NOTEBOOK(main_window.notebook_editor), gtk_notebook_page_num(GTK_NOTEBOOK(main_window.notebook_editor),editor->scintilla));
-			main_window.current_editor = editor;
+			gtk_notebook_set_current_page( GTK_NOTEBOOK(main_window_get_notebook_editor()), gtk_notebook_page_num(GTK_NOTEBOOK(main_window_get_notebook_editor()), editor->scintilla));
+			main_window_set_current_editor(editor);
 			gotoline_after_reload = line_number;
 			on_reload1_activate(NULL);
 			return TRUE;
@@ -1007,8 +992,7 @@ gboolean switch_to_file_or_open(gchar *filename, gint line_number)
 }
 
 
-void close_saved_empty_Untitled()
-{
+void close_saved_empty_Untitled(void){
 	Editor *editor;
 	gint length;
 
@@ -1027,7 +1011,7 @@ void close_saved_empty_Untitled()
 /* return TRUE if a tab was created */
 gboolean tab_create_new(gint type, GString *filename)
 {
-	Editor *editor;
+	Editor *editor=main_window_get_current_editor();
 	GString *dialog_message;
 	gchar abs_buffer[2048];
 	gchar *abs_path = NULL;
@@ -1035,7 +1019,6 @@ gboolean tab_create_new(gint type, GString *filename)
 	gboolean result;
 	gboolean file_created = FALSE;
 	GnomeVFSURI *uri = NULL;
-//	gchar * buffer = NULL;
 
 	if (DEBUG_MODE) { g_print("DEBUG: tab.c:tab_create_new:filename->str: %s\n", filename->str); }
 	if (filename != NULL) {
@@ -1065,6 +1048,7 @@ gboolean tab_create_new(gint type, GString *filename)
 	
 	editor = tab_new_editor();
 	editor->type = type;
+	editor->has_content=FALSE;
 
 	if (editor->type == TAB_HELP) {
 		if (!tab_create_help(editor, filename)) {
@@ -1102,8 +1086,8 @@ gboolean tab_create_new(gint type, GString *filename)
 		else {
 			editor->filename = g_string_new(_("Untitled"));
 			editor->short_filename = g_strdup(editor->filename->str);
-			if (main_window.current_editor) {
-				editor->opened_from = get_folder(main_window.current_editor->filename);
+			if (editor) {
+				editor->opened_from = get_folder(editor->filename);
 			}
 			editor->is_untitled=TRUE;
 		}
@@ -1111,17 +1095,17 @@ gboolean tab_create_new(gint type, GString *filename)
 		// Hmmm, I had the same error as the following comment.  A reshuffle here and upgrading GtkScintilla2 to 0.1.0 seems to have fixed it
 		if (!GTK_WIDGET_VISIBLE (editor->scintilla))
 			gtk_widget_show (editor->scintilla);
-		gtk_notebook_append_page (GTK_NOTEBOOK (main_window.notebook_editor), editor->scintilla, editor->label);
+		gtk_notebook_append_page (GTK_NOTEBOOK (main_window_get_notebook_editor()), editor->scintilla, editor->label);
  		gtk_scintilla_set_save_point(GTK_SCINTILLA(editor->scintilla));
 		tab_set_event_handlers(editor);
 		
 		/* Possible problem on the next line, one user reports: 
 			assertion `GTK_WIDGET_ANCHORED (widget) || GTK_IS_INVISIBLE (widget)' failed */
-		gtk_notebook_set_current_page (GTK_NOTEBOOK (main_window.notebook_editor), -1);
+		gtk_notebook_set_current_page (GTK_NOTEBOOK (main_window_get_notebook_editor()), -1);
 
 		gtk_scintilla_goto_pos(GTK_SCINTILLA(editor->scintilla), 0);
 		gtk_scintilla_grab_focus(GTK_SCINTILLA(editor->scintilla));
-		main_window.current_editor = editor;
+		main_window_set_current_editor(editor);
 		
 		if (gotoline_after_create_tab) {
 			goto_line_int(gotoline_after_create_tab);
@@ -1162,7 +1146,7 @@ Editor *editor_find_from_help(void *help)
 	for (walk = editors; walk != NULL; walk = g_slist_next (walk)) {
 		editor = walk->data;
 		//if (((void *)(editor->help_document) == (void *)help) || ((void *)(editor->help_scrolled_window) == (void *)help)) {
-		if ((void *)(editor->help_document) == help || (void *)(editor->help_scrolled_window == help)) {
+		if ( ((void *)(editor->help_document) == help) || ((void *)(editor->help_scrolled_window) == help) ) {
 			return walk->data;
 		}
 	}
@@ -1316,8 +1300,7 @@ void fold_changed(GtkWidget *scintilla, int line,int levelNow,int levelPrev)
 
 // All the folding functions are converted from QScintilla, released under the GPLv2 by
 // Riverbank Computing Limited <info@riverbankcomputing.co.uk> and Copyright (c) 2003 by them.
-void handle_modified(GtkWidget *scintilla, gint pos,gint mtype,gchar *text,gint len,
-				   gint added,gint line,gint foldNow,gint foldPrev)
+void handle_modified(GtkWidget *scintilla, gint pos,gint mtype,gchar *text,gint len, gint added,gint line,gint foldNow,gint foldPrev)
 {
 	if (preferences.show_folding && (mtype & SC_MOD_CHANGEFOLD)) {
 		fold_changed(scintilla, line, foldNow, foldPrev);
@@ -1370,33 +1353,6 @@ char *macro_message_to_string(gint message)
 		case (2323) : return "PAGE DOWN EXTEND";
 		default:
 			return "-- UNKNOWN --";
-		/*case (2324) : gtk_scintilla_edit_toggle_overtype(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2325) : gtk_scintilla_cancel(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2326) : gtk_scintilla_delete_back(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2327) : gtk_scintilla_tab(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2328) : gtk_scintilla_back_tab(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2329) : gtk_scintilla_new_line(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2330) : gtk_scintilla_form_feed(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2331) : gtk_scintilla_v_c_home(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2332) : gtk_scintilla_v_c_home_extend(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2333) : gtk_scintilla_zoom_in(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2334) : gtk_scintilla_zoom_out(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2335) : gtk_scintilla_del_word_left(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2336) : gtk_scintilla_del_word_right(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2337) : gtk_scintilla_line_cut(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2338) : gtk_scintilla_line_delete(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2339) : gtk_scintilla_line_transpose(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2340) : gtk_scintilla_lower_case(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2341) : gtk_scintilla_upper_case(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2342) : gtk_scintilla_line_scroll_down(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2343) : gtk_scintilla_line_scroll_up(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2344) : gtk_scintilla_delete_back_not_line(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2345) : gtk_scintilla_home_display(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2346) : gtk_scintilla_home_display_extend(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2347) : gtk_scintilla_line_end_display(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		case (2348) : gtk_scintilla_line_end_display_extend(GTK_SCINTILLA(main_window.current_editor->scintilla)); break;
-		default:
-			g_print("Unhandle keyboard macro function %d, please report to uberChick@uberChicGeekChick.Com\n", event->message);*/
 	}
 }
 
@@ -1492,13 +1448,14 @@ gboolean auto_complete_callback(gpointer data)
 	gint wordStart;
 	gint wordEnd;
 	gint current_pos;
+	Editor *editor=main_window_get_current_editor();
 
-	current_pos = gtk_scintilla_get_current_pos(GTK_SCINTILLA(main_window.current_editor->scintilla));
+	current_pos = gtk_scintilla_get_current_pos(GTK_SCINTILLA(editor->scintilla));
 
-	if (current_pos == (gint)data) {
-		wordStart = gtk_scintilla_word_start_position(GTK_SCINTILLA(main_window.current_editor->scintilla), current_pos-1, TRUE);
-		wordEnd = gtk_scintilla_word_end_position(GTK_SCINTILLA(main_window.current_editor->scintilla), current_pos-1, TRUE);
-		autocomplete_word(main_window.current_editor->scintilla, wordStart, wordEnd);
+	if (current_pos == GPOINTER_TO_INT(data)) {
+		wordStart = gtk_scintilla_word_start_position(GTK_SCINTILLA(editor->scintilla), current_pos-1, TRUE);
+		wordEnd = gtk_scintilla_word_end_position(GTK_SCINTILLA(editor->scintilla), current_pos-1, TRUE);
+		autocomplete_word(editor->scintilla, wordStart, wordEnd);
 	}
 	completion_timer_set=FALSE;
 	return FALSE;
@@ -1510,13 +1467,14 @@ gboolean css_auto_complete_callback(gpointer data)
 	gint wordStart;
 	gint wordEnd;
 	gint current_pos;
+	Editor *editor=main_window_get_current_editor();
 
-	current_pos = gtk_scintilla_get_current_pos(GTK_SCINTILLA(main_window.current_editor->scintilla));
+	current_pos = gtk_scintilla_get_current_pos(GTK_SCINTILLA(editor->scintilla));
 
-	if (current_pos == (gint)data) {
-		wordStart = gtk_scintilla_word_start_position(GTK_SCINTILLA(main_window.current_editor->scintilla), current_pos-1, TRUE);
-		wordEnd = gtk_scintilla_word_end_position(GTK_SCINTILLA(main_window.current_editor->scintilla), current_pos-1, TRUE);
-		css_autocomplete_word(main_window.current_editor->scintilla, wordStart, wordEnd);
+	if (current_pos == GPOINTER_TO_INT(data)) {
+		wordStart = gtk_scintilla_word_start_position(GTK_SCINTILLA(editor->scintilla), current_pos-1, TRUE);
+		wordEnd = gtk_scintilla_word_end_position(GTK_SCINTILLA(editor->scintilla), current_pos-1, TRUE);
+		css_autocomplete_word(editor->scintilla, wordStart, wordEnd);
 	}
 	completion_timer_set=FALSE;
 	return FALSE;
@@ -1528,13 +1486,14 @@ gboolean sql_auto_complete_callback(gpointer data)
 	gint wordStart;
 	gint wordEnd;
 	gint current_pos;
+	Editor *editor=main_window_get_current_editor();
 
-	current_pos = gtk_scintilla_get_current_pos(GTK_SCINTILLA(main_window.current_editor->scintilla));
+	current_pos = gtk_scintilla_get_current_pos(GTK_SCINTILLA(editor->scintilla));
 
-	if (current_pos == (gint)data) {
-		wordStart = gtk_scintilla_word_start_position(GTK_SCINTILLA(main_window.current_editor->scintilla), current_pos-1, TRUE);
-		wordEnd = gtk_scintilla_word_end_position(GTK_SCINTILLA(main_window.current_editor->scintilla), current_pos-1, TRUE);
-		sql_autocomplete_word(main_window.current_editor->scintilla, wordStart, wordEnd);
+	if (current_pos == GPOINTER_TO_INT(data)) {
+		wordStart = gtk_scintilla_word_start_position(GTK_SCINTILLA(editor->scintilla), current_pos-1, TRUE);
+		wordEnd = gtk_scintilla_word_end_position(GTK_SCINTILLA(editor->scintilla), current_pos-1, TRUE);
+		sql_autocomplete_word(editor->scintilla, wordStart, wordEnd);
 	}
 	completion_timer_set=FALSE;
 	return FALSE;
@@ -1546,13 +1505,14 @@ gboolean auto_memberfunc_complete_callback(gpointer data)
 	gint wordStart;
 	gint wordEnd;
 	gint current_pos;
+	Editor *editor=main_window_get_current_editor();
 
-	current_pos = gtk_scintilla_get_current_pos(GTK_SCINTILLA(main_window.current_editor->scintilla));
+	current_pos = gtk_scintilla_get_current_pos(GTK_SCINTILLA(editor->scintilla));
 
-	if (current_pos == (gint)data) {
-		wordStart = gtk_scintilla_word_start_position(GTK_SCINTILLA(main_window.current_editor->scintilla), current_pos-1, TRUE);
-		wordEnd = gtk_scintilla_word_end_position(GTK_SCINTILLA(main_window.current_editor->scintilla), current_pos-1, TRUE);
-		autocomplete_member_function(main_window.current_editor->scintilla, wordStart, wordEnd);
+	if (current_pos == GPOINTER_TO_INT(data)) {
+		wordStart = gtk_scintilla_word_start_position(GTK_SCINTILLA(editor->scintilla), current_pos-1, TRUE);
+		wordEnd = gtk_scintilla_word_end_position(GTK_SCINTILLA(editor->scintilla), current_pos-1, TRUE);
+		autocomplete_member_function(editor->scintilla, wordStart, wordEnd);
 	}
 	completion_timer_set=FALSE;
 	return FALSE;
@@ -1561,11 +1521,12 @@ gboolean auto_memberfunc_complete_callback(gpointer data)
 gboolean calltip_callback(gpointer data)
 {
 	gint current_pos;
+	Editor *editor=main_window_get_current_editor();
 
-	current_pos = gtk_scintilla_get_current_pos(GTK_SCINTILLA(main_window.current_editor->scintilla));
+	current_pos = gtk_scintilla_get_current_pos(GTK_SCINTILLA(editor->scintilla));
 
-	if (current_pos == (gint)data) {
-		show_call_tip(main_window.current_editor->scintilla, current_pos);
+	if (current_pos == GPOINTER_TO_INT(data)) {
+		show_call_tip(editor->scintilla, current_pos);
 	}
 	calltip_timer_set=FALSE;
 	return FALSE;
@@ -1573,8 +1534,7 @@ gboolean calltip_callback(gpointer data)
 }
 
 
-void update_ui(GtkWidget *scintilla)
-{
+void update_ui(GtkWidget *scintilla, Editor *editor){
 	// ----------------------------------------------------
 	// This code is based on that found in SciTE
 	// Converted by AJ 2004-03-04
@@ -1596,6 +1556,8 @@ void update_ui(GtkWidget *scintilla)
 		
 	current_pos = gtk_scintilla_get_current_pos(GTK_SCINTILLA(scintilla));
 	current_line = gtk_scintilla_line_from_position(GTK_SCINTILLA(scintilla), gtk_scintilla_get_current_pos(GTK_SCINTILLA(scintilla)));
+	if(!editor->has_content && (current_pos || current_line ) )
+		editor->has_content=TRUE;
 	
 	//FindMatchingBracePosition
 	if (current_pos > 0) {
@@ -1668,7 +1630,8 @@ static void char_added(GtkWidget *scintilla, guint ch)
 	wordEnd = gtk_scintilla_word_end_position(GTK_SCINTILLA(scintilla), current_pos-1, TRUE);
 	current_word_length = wordEnd - wordStart;
 	style = gtk_scintilla_get_style_at(GTK_SCINTILLA(scintilla), current_pos);
-	type = main_window.current_editor->type;
+	Editor *editor=main_window_get_current_editor();
+	type = editor->type;
 
 	if (gtk_scintilla_autoc_active(GTK_SCINTILLA(scintilla))==1) {
 		style = 0; // Hack to get around the drop-down not showing in comments, but if it's been forced...	
@@ -1712,7 +1675,7 @@ static void char_added(GtkWidget *scintilla, guint ch)
 			else if (type == TAB_PHP && (ch == '(') && 
 				(gtk_scintilla_get_line_state(GTK_SCINTILLA(scintilla), current_line))==274 &&
 				(calltip_timer_set==FALSE)) {
-					calltip_timer_id = g_timeout_add(preferences.calltip_delay, calltip_callback, (gpointer) current_pos);
+					calltip_timer_id = g_timeout_add(preferences.calltip_delay, calltip_callback, GINT_TO_POINTER(current_pos));
 					calltip_timer_set=TRUE;
 			}
 			else if (type == TAB_PHP && strcmp(member_function_buffer, "->")==0 && 
@@ -1722,7 +1685,7 @@ static void char_added(GtkWidget *scintilla, guint ch)
 				}
 				else {
 					if (completion_timer_set==FALSE) {
-						completion_timer_id = g_timeout_add(preferences.auto_complete_delay, auto_memberfunc_complete_callback, (gpointer) current_pos);
+						completion_timer_id = g_timeout_add(preferences.auto_complete_delay, auto_memberfunc_complete_callback, GINT_TO_POINTER(current_pos));
 						completion_timer_set=TRUE;
 					}
 				}
@@ -1747,9 +1710,9 @@ static void char_added(GtkWidget *scintilla, guint ch)
 				}
 				else {
 					switch(type) {
-						case(TAB_PHP): completion_timer_id = g_timeout_add(preferences.auto_complete_delay, auto_complete_callback, (gpointer) current_pos); break;
-						case(TAB_CSS): completion_timer_id = g_timeout_add(preferences.auto_complete_delay, css_auto_complete_callback, (gpointer) current_pos); break;
-						case(TAB_SQL): completion_timer_id = g_timeout_add(preferences.auto_complete_delay, sql_auto_complete_callback, (gpointer) current_pos); break;
+						case(TAB_PHP): completion_timer_id = g_timeout_add(preferences.auto_complete_delay, auto_complete_callback, GINT_TO_POINTER(current_pos)); break;
+						case(TAB_CSS): completion_timer_id = g_timeout_add(preferences.auto_complete_delay, css_auto_complete_callback, GINT_TO_POINTER(current_pos)); break;
+						case(TAB_SQL): completion_timer_id = g_timeout_add(preferences.auto_complete_delay, sql_auto_complete_callback, GINT_TO_POINTER(current_pos)); break;
 					}
 					
 				}

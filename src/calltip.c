@@ -98,8 +98,12 @@ gchar *sql_keywords[] = {"ADD", "ALL", "ALTER", "ANALYZE", "AND", "AS", "ASC",
 			 "VARYING", "WARNINGS", "WHEN", "WHERE", "WHILE",
 			 "WITH", "WRITE", "XOR", "YEAR_MONTH", "ZEROFILL", NULL};
 
-void function_list_prepare(void)
-{
+static GString *get_api_line(GtkWidget *scintilla, gint wordStart, gint wordEnd);
+static GString *get_completion_list(GtkWidget *scintilla, gint wordStart, gint wordEnd);
+static GString *get_css_completion_list(GtkWidget *scintilla, gint wordStart, gint wordEnd);
+static GString *get_sql_completion_list(GtkWidget *scintilla, gint wordStart, gint wordEnd);
+
+void function_list_prepare(void){
 	FILE *apifile;
 	char buffer[MAX_API_LINE_LENGTH];
 	GString *line;
@@ -123,8 +127,7 @@ void function_list_prepare(void)
 	}
 }
 
-GString *get_api_line(GtkWidget *scintilla, gint wordStart, gint wordEnd)
-{
+static GString *get_api_line(GtkWidget *scintilla, gint wordStart, gint wordEnd){
 	GSList *walk;
 	GString *line;
 	gchar *buffer = NULL;
@@ -197,8 +200,7 @@ GString *complete_function_list(gchar *original_list)
 }
 
 
-GString *get_completion_list(GtkWidget *scintilla, gint wordStart, gint wordEnd)
-{
+static GString *get_completion_list(GtkWidget *scintilla, gint wordStart, gint wordEnd){
 	GString *completion_list;
 	GSList *walk;
 	GString *line;
@@ -251,8 +253,7 @@ void autocomplete_word(GtkWidget *scintilla, gint wordStart, gint wordEnd)
 }
 
 
-GString *get_css_completion_list(GtkWidget *scintilla, gint wordStart, gint wordEnd)
-{
+static GString *get_css_completion_list(GtkWidget *scintilla, gint wordStart, gint wordEnd){
 	GString *completion_list;
 	gchar *buffer = NULL;
 	gint length;
@@ -282,8 +283,7 @@ GString *get_css_completion_list(GtkWidget *scintilla, gint wordStart, gint word
 }
 
 
-GString *get_sql_completion_list(GtkWidget *scintilla, gint wordStart, gint wordEnd)
-{
+static GString *get_sql_completion_list(GtkWidget *scintilla, gint wordStart, gint wordEnd){
 	GString *completion_list;
 	gchar *buffer = NULL;
 	gint length;

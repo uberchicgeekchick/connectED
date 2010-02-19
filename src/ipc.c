@@ -25,7 +25,7 @@
 
 
 #include "main.h"
-#include "connectED_ipc.h"
+#include "ipc.h"
 
 #include <sys/types.h>
 #include <sys/stat.h>
@@ -161,7 +161,7 @@ commit (Input *self)
     g_assert (self->buffer->len > 0 && self->buffer->data[self->buffer->len-1] == 0);
 
     if (self->buffer->len <= 1) {
-		gtk_window_present(GTK_WINDOW(main_window.window));
+		gtk_window_present(GTK_WINDOW(main_window_get_window()));
 		//g_print("Presenting\n");
 	}
     else {

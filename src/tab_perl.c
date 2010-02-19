@@ -28,6 +28,11 @@
 #include "tab_util.h"
 #include "preferences.h"
 
+void scintilla_perl_set_lexer(GtkScintilla *scintilla, Preferences prefs);
+void tab_perl_set_lexer(Editor *editor);
+
+
+
 void scintilla_perl_set_lexer(GtkScintilla *scintilla, Preferences prefs)
 {
 	gtk_scintilla_clear_document_style (scintilla);

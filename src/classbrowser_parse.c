@@ -33,7 +33,7 @@ static gchar *read_text_file( gchar *filename )
 	FILE *fp;
 	gchar *buffer = NULL;
 	struct stat buf;
-	size_t size_read;
+	gint size_read;
 
 	stat(filename, &buf);
 

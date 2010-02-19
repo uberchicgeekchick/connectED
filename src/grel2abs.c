@@ -54,7 +54,7 @@ const size_t size;
 	/* endp points the last position which is safe in the result buffer. */
 	const char *endp = result + size - 1;
 	char *rp;
-	int length;
+	guint length;
 
 	if (*path == G_DIR_SEPARATOR) {
 		if (strlen (path) >= size)
