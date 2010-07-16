@@ -37,7 +37,7 @@ INSTALL = /usr/bin/install -c
 INSTALL_DATA = ${INSTALL} -m 644
 MKINSTALLDIRS = $(top_srcdir)/./mkinstalldirs
 
-CC = /usr/bin/gcc
+CC = /usr/bin/gcc-4.5
 GENCAT = @GENCAT@
 GMSGFMT = /usr/bin/msgfmt
 MSGFMT = /usr/bin/msgfmt
@@ -48,8 +48,8 @@ MSGMERGE = INTLTOOL_EXTRACT=$(INTLTOOL_EXTRACT) $(INTLTOOL_UPDATE) --gettext-pac
 GENPOT   = INTLTOOL_EXTRACT=$(INTLTOOL_EXTRACT) $(INTLTOOL_UPDATE) --gettext-package $(GETTEXT_PACKAGE) --pot
 
 DEFS = -DHAVE_CONFIG_H
-CFLAGS = -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include
-CPPFLAGS = -I/usr/include
+CFLAGS = -I/usr/local/include -I/usr/include -I. -I.. -L/usr/lib64 -L/lib64 -L/usr/local/lib -L/usr/lib -L/lib
+CPPFLAGS = -I/usr/local/include -I/usr/include -I. -I.. -L/usr/lib64 -L/lib64 -L/usr/local/lib -L/usr/lib -L/lib
 
 INCLUDES = -I.. -I$(top_srcdir)/intl
 

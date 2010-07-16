@@ -47,15 +47,15 @@ AUTOMAKE = ${SHELL} /projects/gtk/connectED/missing --run automake-1.7
 AWK = gawk
 CATALOGS = 
 CATOBJEXT = .gmo
-CC = /usr/bin/gcc
+CC = /usr/bin/gcc-4.5
 CCDEPMODE = depmode=gcc3
-CFLAGS = -std=gnu99 -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include
-CPP = /usr/bin/cpp
-CPPFLAGS = -I/usr/include
-CXX = g++
-CXXCPP = g++ -E
+CFLAGS = -I/usr/local/include -I/usr/include -I. -I.. -L/usr/lib64 -L/lib64 -L/usr/local/lib -L/usr/lib -L/lib
+CPP = /usr/bin/cpp-4.5
+CPPFLAGS = -I/usr/local/include -I/usr/include -I. -I.. -L/usr/lib64 -L/lib64 -L/usr/local/lib -L/usr/lib -L/lib
+CXX = /usr/bin/g++-4.5
+CXXCPP = /usr/bin/g++-4.5 -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -std=gnu++0x -Wall -Wextra -Wformat=2 -Wswitch-default -Wswitch-enum -O3 -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib -I/usr/include
+CXXFLAGS = -I/usr/local/include -I/usr/include -I. -I.. -L/usr/lib64 -L/lib64 -L/usr/local/lib -L/usr/lib -L/lib
 CYGPATH_W = echo
 DATADIRNAME = share
 DEFS = -DHAVE_CONFIG_H
@@ -72,7 +72,7 @@ GETTEXT_PACKAGE = connectED
 GMOFILES = 
 GMSGFMT = /usr/bin/msgfmt
 connectED_CFLAGS = -DORBIT2=1 -pthread -I/usr/include/gtk-2.0 -I/usr/lib64/gtk-2.0/include -I/usr/include/atk-1.0 -I/usr/include/cairo -I/usr/include/pango-1.0 -I/usr/include/glib-2.0 -I/usr/lib64/glib-2.0/include -I/usr/include/pixman-1 -I/usr/include/freetype2 -I/usr/include/libpng12 -I/usr/include/libgnomeui-2.0 -I/usr/include/libart-2.0 -I/usr/include/gconf/2 -I/usr/include/gnome-keyring-1 -I/usr/include/libgnome-2.0 -I/usr/include/libbonoboui-2.0 -I/usr/include/libgnomecanvas-2.0 -I/usr/include/gnome-vfs-2.0 -I/usr/lib64/gnome-vfs-2.0/include -I/usr/include/orbit-2.0 -I/usr/include/dbus-1.0 -I/usr/lib64/dbus-1.0/include -I/usr/include/libbonobo-2.0 -I/usr/include/bonobo-activation-2.0 -I/usr/include/libxml2 -I/usr/include/gail-1.0 -I/usr/include/gtkhtml-2.0  
-connectED_LIBS = -pthread -lgnomeui-2 -lSM -lICE -lbonoboui-2 -lgnomecanvas-2 -lgnome-2 -lpopt -lbonobo-2 -lbonobo-activation -lORBit-2 -lart_lgpl_2 -lgnomevfs-2 -lgconf-2 -lgthread-2.0 -lrt -lgtkhtml-2 -lgtk-x11-2.0 -lxml2 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lcairo -lpango-1.0 -lfreetype -lz -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lglib-2.0  
+connectED_LIBS = -pthread -lgnomeui-2 -lSM -lICE -lbonoboui-2 -lgnomecanvas-2 -lgnome-2 -lpopt -lbonobo-2 -lbonobo-activation -lORBit-2 -lart_lgpl_2 -lgnomevfs-2 -lgconf-2 -lgthread-2.0 -lrt -lgtkhtml-2 -lgtk-x11-2.0 -lxml2 -lgdk-x11-2.0 -latk-1.0 -lgio-2.0 -lpangoft2-1.0 -lgdk_pixbuf-2.0 -lpangocairo-1.0 -lcairo -lpango-1.0 -lfreetype -lfontconfig -lgobject-2.0 -lgmodule-2.0 -lglib-2.0  
 INSTALL_DATA = ${INSTALL} -m 644
 INSTALL_PROGRAM = ${INSTALL}
 INSTALL_SCRIPT = ${INSTALL}
@@ -104,9 +104,9 @@ INTLTOOL_XAM_RULE = %.xam:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(t
 INTLTOOL_XGETTEXT = /usr/bin/xgettext
 INTLTOOL_XML_NOMERGE_RULE = %.xml:       %.xml.in       $(INTLTOOL_MERGE) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u /tmp $< $@
 INTLTOOL_XML_RULE = %.xml:       %.xml.in       $(INTLTOOL_MERGE) $(wildcard $(top_srcdir)/po/*.po) ; LC_ALL=C $(INTLTOOL_MERGE) -x -u -c $(top_builddir)/po/.intltool-merge-cache $(top_srcdir)/po $< $@
-LDFLAGS = -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib
+LDFLAGS = 
 LIBOBJS = 
-LIBS = -L/lib64 -L/usr/lib64 -L/usr/lib -L/lib
+LIBS = 
 LIBTOOL = $(SHELL) $(top_builddir)/libtool
 LN_S = ln -s
 LTLIBOBJS = 
@@ -137,8 +137,8 @@ USE_NLS = yes
 VERSION = 1.0.1
 XGETTEXT = /usr/bin/xgettext
 ac_ct_AR = ar
-ac_ct_CC = /usr/bin/gcc
-ac_ct_CXX = g++
+ac_ct_CC = /usr/bin/gcc-4.5
+ac_ct_CXX = 
 ac_ct_F77 = 
 ac_ct_RANLIB = ranlib
 ac_ct_STRIP = strip
