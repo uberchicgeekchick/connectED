@@ -2,9 +2,9 @@ dnl
 dnl configure.in for connectED
 dnl
 
-AC_INIT(src, , http://uberChicGeekChick.Com/?projects=connectED)
+AC_INIT("connectED", "1.0.3", "http://uberChicGeekChick.Com/?projects=connectED")
 AM_CONFIG_HEADER(config.h)
-AM_INIT_AUTOMAKE(connectED, 1.0.1.2)
+AM_INIT_AUTOMAKE("connectED", "1.0.3")
 
 AM_MAINTAINER_MODE
 
@@ -17,8 +17,8 @@ dnl  --------------
 dnl | dependencies |-----------------------------------------------------------
 dnl  --------------
 
-PKG_CHECK_MODULES(connectED,[
-	gtk+-2.0 libglade-2.0 libgnomeui-2.0 gnome-vfs-2.0 libgtkhtml-2.0 dnl libgnomeprint-2.2 libgnomeprintui-2.2])
+PKG_CHECK_MODULES("connectED",[
+	gtk+-2.0 libglade-2.0 libgnomeui-2.0 gnome-vfs-2.0 libgtkhtml-2.0] )
 
 AC_SUBST(connectED_CFLAGS)
 AC_SUBST(connectED_LIBS)
@@ -29,14 +29,51 @@ dnl  ------------------
 dnl | language support |-------------------------------------------------------
 dnl  ------------------
 
-GETTEXT_PACKAGE=connectED
+GETTEXT_PACKAGE="connectED"
 AC_SUBST(GETTEXT_PACKAGE)
-AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE",[The package name, for gettext])
+AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE",["The package name, for gettext"])
 
 dnl Please keep this in alphabetical order
 ALL_LINGUAS=""
 
 AM_GLIB_GNU_GETTEXT
+
+AC_MSG_CHECKING(PHP manual)
+if test "x$enable_php_manual" != "xNONE"; then
+  PHP_MANUAL_DIR=$enable_php_manual
+fi
+
+if ! test -d "$PHP_MANUAL_DIR" && ! test -L "$PHP_MANUAL_DIR"; then
+	PHP_MANUAL_DIR=""
+	for php_manual_dir in \
+		"$prefix/share/doc/phpmanual" "$prefix/share/doc/phpdoc"	\
+		"/usr/share/doc/phpmanual" "/usr/share/doc/phpdoc"		\
+		"$prefix/share/php-docs-"* "/usr/share/php-docs-"*
+	do
+		printf "\n\tchecking $php_manual_dir";
+		if test -e "$php_manual_dir/html/funcref.html"; then
+			PHP_MANUAL_DIR="$php_manual_dir/html"
+			break
+		elif test -e "$php_manual_dir/funcref.html"; then
+			PHP_MANUAL_DIR="$php_manual_dir"
+			break
+		else
+			unset php_manual_dir
+		fi
+	done
+fi
+
+if test -z "$PHP_MANUAL_DIR"; then
+	printf "\n\t**error:** PHP's manual could not be found.\n\tYou can specify its location with:\n\t\tconfigure --enable-php-manual=[...] option.\n";
+else
+	printf "\n\t$GETTEXT_PACKAGE will use the copy of PHP's manual found in $PHP_MANUAL_DIR\n";
+fi
+
+cat >>confdefs.h <<_ACEOF
+#define PHP_MANUAL_DIR "$PHP_MANUAL_DIR"
+_ACEOF
+
+
 
 dnl AM_GLIB_GNU_GETTEXT sets $DATADIRNAME
 AC_MSG_CHECKING(locale directory)
@@ -46,17 +83,14 @@ else
   PACKAGE_LOCALE_DIR=$prefix/share/locale
 fi
 AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "$PACKAGE_LOCALE_DIR",
-	[The directory in which connectED's locale data will be stored])
+	["The directory in which connectED's locale data will be stored"])
 AC_MSG_RESULT("$PACKAGE_LOCALE_DIR")
 
 dnl ---------------------------------------------------------------------------
 
 AC_OUTPUT([
 Makefile
-connectED.desktop
-connectED.spec
-data/Makefile
-doc/Makefile
+share/Makefile
 pixmaps/Makefile
 po/Makefile
 src/Makefile

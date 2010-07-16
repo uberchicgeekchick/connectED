@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=@PACKAGE_VERSION@
+_Name=@PACKAGE_NAME@
+_Comment=A PHP IDE for GTK+/GNOME.  Including an integrated editor, help via php manaul, and debugging tools.
+Exec=@PACKAGE_NAME@
+Icon=@PACKAGE_NAME@
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=InternetChat;InternetMicroBlogging;NetworkSocial;NetworkCommunication
+

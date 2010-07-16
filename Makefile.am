@@ -1,22 +1,7 @@
 SUBDIRS =				\
-	data				\
-	doc				\
-	pixmaps				\
-	src				\
+	po				\
+	share				\
 	src/gtkscintilla2		\
 	src/gtkscintilla2/scintilla/gtk	\
-	po
+	src				\
 
-applicationsdir = $(datadir)/applications
-applications_in_files = connectED.desktop.in
-applications_DATA = $(applications_in_files:.desktop.in=.desktop)
-
-spec_in_files = connectED.spec.in
-
-EXTRA_DIST = \
-	connectED.spec			\
-	connectED.applications		\
-	$(applications_in_files)	\
-	$(spec_in_files)		\
-	src/gtkscintilla2		\
-	src/gtkscintilla2/scintilla/gtk

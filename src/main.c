@@ -31,7 +31,7 @@
 #include "main.h"
 #include "main_window.h"
 #include "main_window_callbacks.h"
-#include "connectED_ipc.h"
+#include "ipc.h"
 #include "templates.h"
 
 

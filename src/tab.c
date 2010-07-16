@@ -529,72 +529,20 @@ GString *tab_help_try_filename(gchar *prefix, gchar *command, gchar *suffix)
 
 GString *tab_help_find_helpfile(gchar *command)
 {
-	GString *long_filename = NULL;
+	if(G_STR_EMPTY(PHP_MANUAL_DIR)){
+		g_print(_("Help for function not available: %s.  Support for PHP's Manual was not compiled.\n"), command);
+		return NULL;
+	}
 	
-	// For Redhat/Fedora Core and other sensible distrubutions...
-	long_filename = tab_help_try_filename("/usr/share/doc/phpmanual/function.", command, ".html");
-	if (long_filename)
+	GString *long_filename=NULL;
+	if(long_filename=tab_help_try_filename(PHP_MANUAL_DIR "/function.", command, ".html"))
 		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/phpmanual/ref.", command, ".html");
-	if (long_filename)
+	if(long_filename=tab_help_try_filename(PHP_MANUAL_DIR "/ref.", command, ".html"))
 		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/phpmanual/", command, NULL);
-	if (long_filename)
-		return long_filename;
-
-	// For Debian, Ubuntu and sensible distrubutions...
-	long_filename = tab_help_try_filename("/usr/share/doc/phpdoc/html/function.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/phpdoc/html/ref.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/phpdoc/html/", command, NULL);
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/php-doc/html/function.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/php-doc/html/ref.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/php-doc/html/", command, NULL);
-	if (long_filename)
-		return long_filename;
-
-	// For Gentoo, as much as I love it - it's twatty to put docs in a version specific folder like this!
-	long_filename = tab_help_try_filename("/usr/doc/php-docs-200403/html/function.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/doc/php-docs-200403/html/ref.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/doc/php-docs-200403/html/", command, NULL);
-	if (long_filename)
-		return long_filename;
-
-	long_filename = tab_help_try_filename("/usr/share/doc/php-docs-20050822/html/function.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/php-docs-20050822/html/ref.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/share/doc/php-docs-20050822/html/", command, NULL);
-	if (long_filename)
-		return long_filename;
-
-	long_filename = tab_help_try_filename("/usr/doc/php-docs-4.2.3/html/function.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/doc/php-docs-4.2.3/html/ref.", command, ".html");
-	if (long_filename)
-		return long_filename;
-	long_filename = tab_help_try_filename("/usr/doc/php-docs-4.2.3/html/", command, NULL);
-	if (long_filename)
+	if(long_filename=tab_help_try_filename(PHP_MANUAL_DIR "/", command, NULL))
 		return long_filename;
 
 	g_print(_("Help for function not found: %s\n"), command);
-	
 	return NULL;
 }
 
